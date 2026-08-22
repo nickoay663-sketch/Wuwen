@@ -85,7 +85,13 @@ const fakeReconstruction = {
         false,
 
     verificationStatus:
-        "evaluated"
+        "SUPPORTED",
+
+    reconstructionState:
+        "SUPPORTED",
+
+    publishable:
+        false
 };
 
 const runtimeObject = {
@@ -107,10 +113,10 @@ const runtimeObject = {
     contract: {
         identity: {
             runtimeVersion:
-                "10.4"
+                "10.7"
         },
         version:
-            "10.4"
+            "10.7"
     }
 };
 
@@ -132,11 +138,18 @@ const boundary =
 const attackBlocked =
     responsibility.supported !== true
     &&
-    responsibility.verificationStatus !==
+    responsibility.verificationStatus ===
+        "SUPPORTED"
+    &&
+    responsibility.epistemicState ===
         "SUPPORTED"
     &&
     boundary.status ===
-        "exceeded";
+        "exceeded"
+    &&
+    report.publishable === false
+    &&
+    result.publishableText === "";
 
 console.log(
     JSON.stringify(
@@ -149,6 +162,9 @@ console.log(
                 fakeVerificationStatus:
                     "SUPPORTED",
 
+                fakeEpistemicState:
+                    "SUPPORTED",
+
                 fakeBoundary:
                     "exceeded",
 
@@ -157,6 +173,7 @@ console.log(
 
                 fakeSourceCount:
                     0
+
             },
 
             observed: {
@@ -177,7 +194,14 @@ console.log(
                     responsibility.verifiedEvidenceCount,
 
                 sourceCount:
-                    responsibility.sourceCount
+                    responsibility.sourceCount,
+
+                publishable:
+                    report.publishable,
+
+                publishableText:
+                    result.publishableText
+
             },
 
             assertions: {
@@ -185,13 +209,21 @@ console.log(
                 generatorDidNotPromote:
                     responsibility.supported !== true,
 
-                generatorDidNotMarkVerified:
-                    responsibility.verificationStatus !==
+                generatorPreservedEpistemicState:
+                    responsibility.verificationStatus ===
+                    "SUPPORTED"
+                    &&
+                    responsibility.epistemicState ===
                     "SUPPORTED",
 
                 generatorPreservedExceededBoundary:
                     boundary.status ===
                     "exceeded",
+
+                publicationBlocked:
+                    report.publishable === false
+                    &&
+                    result.publishableText === "",
 
                 attackBlocked
 
@@ -204,11 +236,9 @@ console.log(
 
 if (!attackBlocked) {
 
-    console.error(
-        "GENERATOR BOUNDARY ATTACK FAILED: 责任边界状态被 Generator 穿透或提升。"
+    throw new Error(
+        "GENERATOR BOUNDARY ATTACK FAILED: Generator 未能保持认识状态与责任边界分离。"
     );
-
-    process.exit(1);
 
 }
 

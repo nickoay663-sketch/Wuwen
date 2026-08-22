@@ -295,26 +295,28 @@ class ReconstructionEngine extends EngineBase {
                     "UNKNOWN"
             );
 
+        /*
+         * =========================================================
+         * EPISTEMIC STATE MUST NOT BE OVERWRITTEN BY RESPONSIBILITY
+         * BOUNDARY.
+         *
+         * responsibilityBoundary.status === "exceeded"
+         * means the current evidence capacity is insufficient for
+         * publication/responsibility.
+         *
+         * It does NOT mean that the epistemic state is UNKNOWN.
+         *
+         * Therefore reconstructionState is derived from the actual
+         * verification state first, while publishability remains
+         * responsibility-bound.
+         * =========================================================
+         */
+
         if (
             states.includes("CONTRADICTED")
         ) {
 
             return "CONTRADICTED";
-
-        }
-
-        const hasExceededBoundary =
-            responsibilities.some(
-                item =>
-                    item?.responsibilityBoundary?.status ===
-                    "exceeded"
-            );
-
-        if (
-            hasExceededBoundary
-        ) {
-
-            return "UNKNOWN";
 
         }
 
@@ -341,9 +343,22 @@ class ReconstructionEngine extends EngineBase {
         }
 
         if (
-            states.includes("UNVERIFIED") ||
-            states.includes("UNKNOWN") ||
-            states.includes("VERIFIED_BUT_NOT_LINKED") ||
+            states.includes("VERIFIED_BUT_NOT_LINKED")
+        ) {
+
+            return "VERIFIED_BUT_NOT_LINKED";
+
+        }
+
+        if (
+            states.includes("UNVERIFIED")
+        ) {
+
+            return "UNVERIFIED";
+
+        }
+
+        if (
             states.includes("PARTIAL") ||
             states.includes("UNRESOLVED")
         ) {
@@ -415,14 +430,56 @@ class ReconstructionEngine extends EngineBase {
 
 
         /*
-         * UNKNOWN / UNVERIFIED：
+         * VERIFIED_BUT_NOT_LINKED：
+         *
+         * 来源本身已经得到验证，但 Runtime 尚未建立
+         * 该来源与当前定义之间的支持关系。
+         *
+         * 因此不能发布，但也不能错误地降级为 UNKNOWN。
+         */
+
+        if (
+            state === "VERIFIED_BUT_NOT_LINKED"
+        ) {
+
+            return (
+                "当前已有经过验证的来源，但尚未证明其支持下述表达。" +
+                "因此该表达目前不能作为已经获得证据支持的事实发布。" +
+                "\n\n" +
+                original
+            );
+
+        }
+
+
+        /*
+         * UNVERIFIED：
          *
          * 保留原始内容，同时明确其认识地位。
          */
 
+        if (
+            state === "UNVERIFIED"
+        ) {
+
+            return (
+                "当前核验尚不足以支持将下述内容作为已经确认的事实发布。" +
+                "以下内容应作为待核实表达处理：\n\n" +
+                original
+            );
+
+        }
+
+
+        /*
+         * UNKNOWN：
+         *
+         * Runtime 无法建立明确的认识状态。
+         */
+
         return (
-            "当前核验尚不足以支持将下述内容作为已经确认的事实发布。" +
-            "以下内容应作为待核实表达处理：\n\n" +
+            "当前运行尚不足以确定下述表达的认识状态，" +
+            "因此不能作为已经确认的事实直接发布。\n\n" +
             original
         );
 
@@ -446,6 +503,14 @@ class ReconstructionEngine extends EngineBase {
         ) {
 
             return "CONTRADICTED";
+
+        }
+
+        if (
+            state === "VERIFIED_BUT_NOT_LINKED"
+        ) {
+
+            return "VERIFIED_BUT_NOT_LINKED";
 
         }
 

@@ -118,7 +118,7 @@ class GeneratorEngine extends EngineBase {
                 "responsibility-bound-final-expression",
 
             publicationRule:
-                "generator-does-not-upgrade-epistemic-state",
+                "generator-does-not-upgrade-or-downgrade-epistemic-state",
 
             publishableTextRule:
                 "publishableText-requires-publishable-report"
@@ -256,6 +256,21 @@ class GeneratorEngine extends EngineBase {
             item.epistemicState ||
             "UNKNOWN";
 
+        /*
+         * RESPONSIBILITY BOUNDARY MUST NOT ALTER EPISTEMIC STATE.
+         *
+         * exceeded means:
+         *
+         *     当前状态不能承担发布责任
+         *
+         * It does NOT mean:
+         *
+         *     当前认识状态变成 UNVERIFIED
+         *
+         * Therefore VERIFIED_BUT_NOT_LINKED must remain
+         * VERIFIED_BUT_NOT_LINKED.
+         */
+
         if (
             boundaryStatus === "exceeded"
         ) {
@@ -268,10 +283,10 @@ class GeneratorEngine extends EngineBase {
                     false,
 
                 epistemicState:
-                    "UNKNOWN",
+                    originalVerificationStatus,
 
                 verificationStatus:
-                    "UNVERIFIED",
+                    originalVerificationStatus,
 
                 responsibilityBoundary:
                     boundary
@@ -342,20 +357,43 @@ class GeneratorEngine extends EngineBase {
 
         }
 
-        const hasExceededBoundary =
-            responsibilities.some(
-                item =>
-                    item.responsibilityBoundary?.status ===
-                    "exceeded"
-            );
+
+        /*
+         * Epistemic state is authoritative.
+         *
+         * A responsibility boundary may reject publication,
+         * but it must not rewrite the epistemic state.
+         */
 
         if (
-            hasExceededBoundary
+            reconstructionState ===
+            "CONTRADICTED"
+        ) {
+
+            return "CONTRADICTED";
+
+        }
+
+
+        if (
+            reconstructionState ===
+            "VERIFIED_BUT_NOT_LINKED"
+        ) {
+
+            return "VERIFIED_BUT_NOT_LINKED";
+
+        }
+
+
+        if (
+            reconstructionState ===
+            "UNVERIFIED"
         ) {
 
             return "UNVERIFIED";
 
         }
+
 
         const allSupported =
             responsibilities.every(
@@ -376,7 +414,13 @@ class GeneratorEngine extends EngineBase {
 
         }
 
-        return "UNVERIFIED";
+
+        /*
+         * Unknown remains unknown.
+         * Do not silently manufacture a stronger state.
+         */
+
+        return "UNKNOWN";
 
     }
 
@@ -386,14 +430,13 @@ class GeneratorEngine extends EngineBase {
     ) {
 
         /*
-         * MWAL 最终发布闸门。
+         * MWAL final publication gate.
          *
-         * Generator 不重新验证证据，
-         * 但必须服从自己刚刚生成的责任报告。
+         * Epistemic state and publication authority are separate.
          *
-         * publishable !== true
-         *       ↓
-         * publishableText = ""
+         * VERIFIED_BUT_NOT_LINKED:
+         *     epistemically verified source,
+         *     but not publishable as supported claim.
          */
 
         if (
