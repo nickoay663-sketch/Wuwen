@@ -2,43 +2,6 @@
 import ReportFormatter from "./ReportFormatter.js";
 import RuntimeContract from "./RuntimeContract.js";
 
-/*
- * =========================================================
- * MoWen Runtime
- * =========================================================
- *
- * Publish Boundary:
- *
- *     HonestRuntime
- *          ↓
- *     runtimeResult
- *          ↓
- *     ReportFormatter
- *          ↓
- *        report
- *
- * report is the ONLY publishable output.
- *
- * Generator.report is an internal Runtime result.
- * It MUST NOT bypass ReportFormatter / MWAL Publish Boundary.
- *
- * Therefore:
- *
- *     Generator.report ─X→ final
- *
- * No Generator.report bypass is permitted here.
- *
- * Runtime Identity:
- *
- *     RuntimeContract.version
- *          ↓
- *     MoWenRuntime.version
- *
- * The external Runtime facade MUST NOT maintain an
- * independent hard-coded runtime version.
- * =========================================================
- */
-
 class MoWenRuntime {
 
     constructor(
@@ -51,16 +14,6 @@ class MoWenRuntime {
 
         this.options =
             options || {};
-
-        /*
-         * ---------------------------------------------------------
-         * Unified Runtime Identity
-         * ---------------------------------------------------------
-         *
-         * RuntimeContract is the authoritative Runtime version
-         * source for the current Runtime lifecycle.
-         * ---------------------------------------------------------
-         */
 
         this.version =
             RuntimeContract.version;
@@ -75,13 +28,6 @@ class MoWenRuntime {
                 this.expression,
                 this.options
             ).run();
-
-        /*
-         * MWAL Publish Boundary
-         *
-         * ReportFormatter is the only component allowed
-         * to construct the publishable report.
-         */
 
         const report =
             new ReportFormatter(
@@ -106,18 +52,7 @@ class MoWenRuntime {
 
             },
 
-            /*
-             * Internal Runtime result remains available for
-             * Runtime consumers and testing.
-             *
-             * It is NOT the publish boundary.
-             */
-
             runtimeResult,
-
-            /*
-             * Sole publishable output.
-             */
 
             report
 
@@ -126,14 +61,6 @@ class MoWenRuntime {
     }
 
 }
-
-
-export {
-
-    HonestRuntime,
-    ReportFormatter
-
-};
 
 
 export default MoWenRuntime;

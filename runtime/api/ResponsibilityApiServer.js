@@ -34,7 +34,16 @@ function sendJson(
                 Buffer.byteLength(
                     body,
                     "utf8"
-                )
+                ),
+
+            "Access-Control-Allow-Origin":
+                "*",
+
+            "Access-Control-Allow-Methods":
+                "GET, POST, OPTIONS",
+
+            "Access-Control-Allow-Headers":
+                "Content-Type"
         }
     );
 
@@ -144,17 +153,6 @@ async function handleCheck(
             await runtime.run();
 
 
-        /*
-         * ---------------------------------------------------------
-         * MoWen Publish Boundary
-         * ---------------------------------------------------------
-         *
-         * Runtime 内部对象不得直接暴露给外部 API。
-         *
-         * 这里只返回 ReportFormatter 产生的 publish projection。
-         * ---------------------------------------------------------
-         */
-
         sendJson(
             response,
             200,
@@ -196,6 +194,31 @@ const server =
 
             const url =
                 request.url || "";
+
+
+            if (
+                method === "OPTIONS"
+            ) {
+
+                response.writeHead(
+                    204,
+                    {
+                        "Access-Control-Allow-Origin":
+                            "*",
+
+                        "Access-Control-Allow-Methods":
+                            "GET, POST, OPTIONS",
+
+                        "Access-Control-Allow-Headers":
+                            "Content-Type"
+                    }
+                );
+
+                response.end();
+
+                return;
+
+            }
 
 
             if (

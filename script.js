@@ -1,43 +1,214 @@
+﻿async function verifyLanguage() {
 
-function verifyLanguage() {
+    const input =
+        document.getElementById("inputText");
 
-    let text = document.getElementById("inputText").value;
+    const resultBox =
+        document.getElementById("result");
 
-    let result = "";
+    const text =
+        input.value.trim();
 
-    if (text.trim() == "") {
+    if (!text) {
 
-        result = "<h3>莫问</h3>";
+        resultBox.innerHTML = `
+            <h3>莫问</h3>
+            <p>欢迎回来。</p>
+            <p>回到诚实。</p>
+            <p>文明开始的地方。</p>
+        `;
 
-        result += "<p>欢迎回来。</p>";
-        result += "<p>回到诚实。</p>";
-        result += "<p>文明开始的地方。</p>";
+        return;
+    }
 
-    } else {
+    resultBox.innerHTML = `
+        <h3>莫问</h3>
+        <p><strong>正在诚实运行……</strong></p>
+    `;
 
-        result = "<h3>莫问</h3>";
+    try {
 
-        result += "<p><strong>正在诚实运行……</strong></p>";
-        result += "<hr>";
+        const response =
+            await fetch(
+                "http://127.0.0.1:8787/v1/responsibility/check",
+                {
+                    method: "POST",
 
-        result += "<p><strong>输入：</strong></p>";
-        result += "<blockquote>" + text + "</blockquote>";
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
 
-        result += "<hr>";
+                    body:
+                        JSON.stringify({
+                            expression: text
+                        })
+                }
+            );
 
-        result += "<p>① 概念（运行中）</p>";
-        result += "<p>② 对象（运行中）</p>";
-        result += "<p>③ 定义（运行中）</p>";
-        result += "<p>④ 证词（运行中）</p>";
-        result += "<p>⑤ 对应（运行中）</p>";
-        result += "<p>⑥ 承担（运行中）</p>";
+        const data =
+            await response.json();
 
-        result += "<hr>";
+        if (!response.ok) {
 
-        result += "<p><strong>莫问只是诚实运行，没有别的。</strong></p>";
+            throw new Error(
+                data.message ||
+                data.error ||
+                "Runtime Error"
+            );
+
+        }
+
+        const report =
+            data.report || {};
+
+        const sections = [
+            ["Recognition", report.recognition],
+            ["Definition", report.definition],
+            ["Testimony", report.testimony],
+            ["Testimony Validation", report.testimonyValidation],
+            ["Search", report.search],
+            ["Evidence", report.evidence],
+            ["Correspondence", report.correspondence],
+            ["Reasoning", report.reasoning],
+            ["Responsibility", report.responsibility],
+            ["Reconstruction", report.reconstruction],
+            ["Generator", report.generator],
+            ["SelfCheck", report.selfCheck]
+        ];
+
+        let sectionsHtml = "";
+
+        for (
+            const [name, value]
+            of sections
+        ) {
+
+            sectionsHtml += `
+                <details>
+                    <summary>
+                        <strong>${escapeHtml(name)}</strong>
+                    </summary>
+
+                    <pre>${escapeHtml(
+                        JSON.stringify(
+                            value ?? {},
+                            null,
+                            2
+                        )
+                    )}</pre>
+
+                </details>
+            `;
+
+        }
+
+        resultBox.innerHTML = `
+
+            <h3>莫问</h3>
+
+            <p>
+                <strong>
+                    Runtime 已完成运行
+                </strong>
+            </p>
+
+            <hr>
+
+            <p>
+                <strong>输入：</strong>
+            </p>
+
+            <blockquote>
+                ${escapeHtml(text)}
+            </blockquote>
+
+            <hr>
+
+            <p>
+                <strong>运行状态：</strong>
+                ${escapeHtml(
+                    data.status || "unknown"
+                )}
+            </p>
+
+            <p>
+                <strong>Runtime：</strong>
+                ${escapeHtml(
+                    data.version || "unknown"
+                )}
+            </p>
+
+            <p>
+                <strong>认识状态：</strong>
+                ${escapeHtml(
+                    report.epistemicState || "UNKNOWN"
+                )}
+            </p>
+
+            <hr>
+
+            ${sectionsHtml}
+
+            <hr>
+
+            <p>
+                <strong>
+                    莫问只是诚实运行，没有别的。
+                </strong>
+            </p>
+
+        `;
+
+    } catch (error) {
+
+        resultBox.innerHTML = `
+
+            <h3>莫问</h3>
+
+            <p>
+                <strong>
+                    Runtime 未能完成运行。
+                </strong>
+            </p>
+
+            <hr>
+
+            <p>
+                ${escapeHtml(
+                    error.message
+                )}
+            </p>
+
+        `;
 
     }
 
-    document.getElementById("result").innerHTML = result;
+}
+
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 
 }

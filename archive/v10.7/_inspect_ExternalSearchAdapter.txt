@@ -33,6 +33,7 @@ class ExternalSearchAdapter {
                 ? query.trim()
                 : "";
 
+
         if (!normalizedQuery) {
 
             return this.buildCapabilityResponse({
@@ -40,11 +41,9 @@ class ExternalSearchAdapter {
                 status:
                     "search-empty",
 
-                output:
-                    null,
+                output: null,
 
-                sources:
-                    []
+                sources: []
 
             });
 
@@ -65,8 +64,7 @@ class ExternalSearchAdapter {
 
                 },
 
-                sources:
-                    [],
+                sources: [],
 
                 admissionExpected:
                     "REJECT"
@@ -90,8 +88,7 @@ class ExternalSearchAdapter {
 
                 },
 
-                sources:
-                    [],
+                sources: [],
 
                 admissionExpected:
                     "REJECT"
@@ -125,8 +122,7 @@ class ExternalSearchAdapter {
 
                 },
 
-                sources:
-                    [],
+                sources: [],
 
                 error:
                     error &&
@@ -198,19 +194,19 @@ class ExternalSearchAdapter {
     buildCapabilityResponse({
 
         status =
-            "completed",
+        "completed",
 
         output =
-            null,
+        null,
 
         sources =
-            [],
+        [],
 
         error =
-            null,
+        null,
 
         admissionExpected =
-            "PASS"
+        "PASS"
 
     } = {}) {
 
@@ -303,8 +299,7 @@ class ExternalSearchAdapter {
                     output?.query ||
                     "",
 
-                sources:
-                    [],
+                sources: [],
 
                 capability:
                     null,
@@ -334,8 +329,7 @@ class ExternalSearchAdapter {
                     output?.query ||
                     "",
 
-                sources:
-                    [],
+                sources: [],
 
                 capability:
                     response,
@@ -475,7 +469,7 @@ class ExternalSearchAdapter {
          *          ≠
          *   RuntimeVerificationRecord
          *
-         * 因此 Runtime 验证字段仍然强制关闭。
+         * 因此下面的 Runtime 验证字段仍然强制关闭。
          * ---------------------------------------------------------
          */
 
@@ -500,20 +494,16 @@ class ExternalSearchAdapter {
                 source.url,
 
             url:
-                source.url ||
-                null,
+                source.url || null,
 
             title:
-                source.title ||
-                null,
+                source.title || null,
 
             publisher:
-                source.publisher ||
-                null,
+                source.publisher || null,
 
             publishedTime:
-                source.publishedTime ||
-                null,
+                source.publishedTime || null,
 
             content:
                 source.content,
@@ -572,3 +562,4 @@ class ExternalSearchAdapter {
 
 
 export default ExternalSearchAdapter;
+

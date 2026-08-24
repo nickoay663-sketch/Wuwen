@@ -515,6 +515,9 @@ class ExternalSourceConnector {
 
             },
 
+            capabilityAdmission:
+                "PASS",
+
             sources,
 
             result: {
@@ -701,3 +704,6 @@ class ExternalSourceConnector {
 
 
 export default ExternalSourceConnector;
+
+
+
