@@ -95,6 +95,9 @@ class EngineBase {
             nextRuntimeState:
                 this.nextRuntimeState,
 
+            result:
+                data,
+
             metadata:
                 this.metadata(),
 

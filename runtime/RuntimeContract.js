@@ -46,6 +46,54 @@
 
     },
 
+
+    mwalEvidenceFlowContract: {
+
+        required:
+            true,
+
+        flow: [
+
+            {
+                from:
+                    "EvidenceEngine",
+
+                output:
+                    "evidences"
+            },
+
+            {
+                from:
+                    "RuntimeContext",
+
+                output:
+                    "EvidenceRecord"
+            },
+
+            {
+                to:
+                    "CorrespondenceEngine",
+
+                input:
+                    "evidences"
+            }
+
+        ],
+
+        rules: {
+
+            evidenceCannotDisappearBeforeCorrespondence:
+                true,
+
+            emptyEvidenceMustRemainEmpty:
+                true,
+
+            correspondenceCannotReadUnlinkedEvidence:
+                true
+
+        }
+
+    },
     externalLanguageContract: {
 
         owner:
@@ -336,6 +384,7 @@
             "DefinitionEngine",
             "SearchEngine",
             "EvidenceEngine",
+            "RuntimeVerificationEngine",
             "CorrespondenceEngine",
             "ReasoningEngine",
             "ResponsibilityEngine",
@@ -641,6 +690,7 @@
             "testimonyValidation",
             "search",
             "evidence",
+            "runtimeVerification",
             "correspondence",
             "reasoning",
             "responsibility",
@@ -706,3 +756,5 @@
 };
 
 export default RuntimeContract;
+
+

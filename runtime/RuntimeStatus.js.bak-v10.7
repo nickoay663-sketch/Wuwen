@@ -1,11 +1,7 @@
-﻿import RuntimeContract from "./RuntimeContract.js";
-
 const RuntimeStatus = {
 
     version:
-        RuntimeContract.identity?.runtimeVersion ||
-        RuntimeContract.version ||
-        "10.7",
+        "7.3",
 
     SUCCESS:
         "SUCCESS",
@@ -52,14 +48,7 @@ const RuntimeStatus = {
     metadata: {
 
         runtimeVersion:
-            RuntimeContract.identity?.runtimeVersion ||
-            RuntimeContract.version ||
-            "10.7",
-
-        contractVersion:
-            RuntimeContract.identity?.contractVersion ||
-            RuntimeContract.version ||
-            "10.7",
+            "7.3",
 
         generatedAt:
             new Date().toISOString(),

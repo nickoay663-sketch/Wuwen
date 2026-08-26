@@ -867,9 +867,6 @@ class HonestRuntime {
         runtimeResult.evidence =
             runtimeVerification;
 
-        runtimeResult.runtimeVerification =
-            runtimeVerification;
-
         runtimeResult.correspondence =
             correspondence;
 
@@ -894,10 +891,6 @@ class HonestRuntime {
         };
 
         runtimeResult.verificationBoundary = {
-
-            runtimeVerificationBoundary:
-                runtimeVerification.verificationBoundary ||
-                null,
 
             evidenceBoundary:
                 reconstruction.reconstruction?.boundaries?.evidence ||
@@ -1969,5 +1962,24 @@ class HonestRuntime {
 }
 
 export default HonestRuntime;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

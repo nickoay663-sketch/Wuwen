@@ -240,7 +240,11 @@ class CorrespondenceEngine extends EngineBase {
             );
 
 
-        const supportingVerifiedEvidences = [];
+        const supportingVerifiedEvidences =
+            verifiedEvidences.filter(
+                evidence =>
+                    evidence.supportsClaim === true
+            );
 
 
         const sourceAvailable =
@@ -366,4 +370,3 @@ class CorrespondenceEngine extends EngineBase {
 
 
 export default CorrespondenceEngine;
-

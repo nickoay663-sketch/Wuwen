@@ -1,0 +1,478 @@
+﻿import EngineBase from "./EngineBase.js";
+
+const RUNTIME_VERIFICATION_AUTHORITY =
+    new WeakSet();
+
+
+export function createRuntimeVerificationAuthority() {
+
+    const authority =
+        {};
+
+    RUNTIME_VERIFICATION_AUTHORITY.add(
+        authority
+    );
+
+    return authority;
+
+}
+
+
+class RuntimeVerificationEngine extends EngineBase {
+
+    constructor(context = {}) {
+
+        super(
+            "RuntimeVerificationEngine",
+            "10.7",
+            "Runtime 只能通过真实可记录的验证行为产生 Runtime Verification Record。"
+        );
+
+        this.context =
+            context || {};
+
+        this.runtimeContext =
+            context.runtimeContext || {};
+
+        this.runtimeVerificationAuthority =
+            context.runtimeVerificationAuthority ||
+            null;
+
+        this.setCapabilities([
+            "RUNTIME_VERIFICATION_ACTION",
+            "RUNTIME_VERIFICATION_RECORD",
+            "VERIFICATION_BOUNDARY"
+        ]);
+    }
+
+
+    hasRuntimeVerificationAuthority() {
+
+        return (
+            this.runtimeVerificationAuthority !== null &&
+            RUNTIME_VERIFICATION_AUTHORITY.has(
+                this.runtimeVerificationAuthority
+            )
+        );
+
+    }
+
+
+    execute() {
+
+        const evidences =
+            Array.isArray(this.context.evidences)
+                ? this.context.evidences
+                : [];
+
+
+        /*
+         * ---------------------------------------------------------
+         * RUNTIME VERIFICATION AUTHORITY BOUNDARY
+         * ---------------------------------------------------------
+         *
+         * RuntimeVerificationEngine 本身没有权力授予自己
+         * Runtime Verification Authority。
+         *
+         * Authority 必须来自 HonestRuntime 创建的
+         * 不可伪造 authority token。
+         *
+         * 没有 token：
+         *
+         *   可以执行 Engine
+         *   不能产生 Runtime Verification Record
+         *   不能进入 VERIFIED
+         * ---------------------------------------------------------
+         */
+
+        const authorized =
+            this.hasRuntimeVerificationAuthority();
+
+
+        const verifiedEvidences =
+            evidences.map(
+                evidence =>
+                    this.verifyEvidence(
+                        evidence,
+                        authorized
+                    )
+            );
+
+
+        const verifiedCount =
+            verifiedEvidences.filter(
+                item =>
+                    item &&
+                    item.runtimeVerificationRecord === true &&
+                    item.verificationStatus === "VERIFIED" &&
+                    item.epistemicState === "VERIFIED"
+            ).length;
+
+
+        const verificationAction = {
+
+            action:
+                "runtime-evidence-verification",
+
+            method:
+                authorized
+                    ? "runtime-evidence-condition-check"
+                    : "runtime-authority-not-granted",
+
+            executed:
+                true,
+
+            runtimeOwned:
+                true,
+
+            verificationResult:
+                verifiedCount > 0
+                    ? "VERIFIED"
+                    : "UNVERIFIED",
+
+            inputCount:
+                evidences.length,
+
+            verifiedCount,
+
+            runtimeVerificationAuthorized:
+                authorized
+
+        };
+
+
+        this.nextRuntimeState =
+            "CorrespondenceEngine";
+
+
+        return this.result({
+
+            evidences:
+                verifiedEvidences,
+
+            verificationAction,
+
+            verifiedEvidenceCount:
+                verifiedCount,
+
+            runtimeVerificationRecordCount:
+                verifiedCount,
+
+            verificationStatus:
+                verifiedCount > 0
+                    ? "VERIFIED"
+                    : "UNVERIFIED",
+
+            epistemicState:
+                verifiedCount > 0
+                    ? "VERIFIED"
+                    : evidences.length > 0
+                        ? "UNVERIFIED"
+                        : "UNKNOWN",
+
+            verificationBoundary: {
+
+                runtimeVerificationAllowed:
+                    authorized,
+
+                runtimeVerificationAuthorized:
+                    authorized,
+
+                externalVerificationAccepted:
+                    false,
+
+                selfAssertedVerificationAccepted:
+                    false,
+
+                forgedRuntimeActionAccepted:
+                    false,
+
+                predeclaredVerifiedAccepted:
+                    false,
+
+                runtimeVerificationRecordCreated:
+                    verifiedCount > 0,
+
+                verifiedEvidenceCount:
+                    verifiedCount
+
+            },
+
+            trace: [
+
+                {
+
+                    engine:
+                        "RuntimeVerificationEngine",
+
+                    action:
+                        verificationAction.action,
+
+                    method:
+                        verificationAction.method,
+
+                    status:
+                        "executed",
+
+                    verificationResult:
+                        verificationAction.verificationResult,
+
+                    verifiedCount,
+
+                    runtimeVerificationAuthorized:
+                        authorized
+
+                }
+
+            ],
+
+            questions:
+                verifiedCount === 0
+                    ? [
+                        authorized
+                            ? "没有证据完成 Runtime Verification。"
+                            : "Runtime Verification Authority 未授予，禁止创建 Runtime Verification Record。"
+                    ]
+                    : []
+
+        });
+
+    }
+
+
+    verifyEvidence(evidence) {
+
+        const authorized =
+            this.hasRuntimeVerificationAuthority();
+        if (
+            !evidence ||
+            typeof evidence !== "object"
+        ) {
+
+            return evidence;
+
+        }
+
+
+        /*
+         * ---------------------------------------------------------
+         * 输入字段永远只是声明。
+         * ---------------------------------------------------------
+         */
+
+        const runtimeRequested =
+            evidence.runtimeVerification === true;
+
+        const selfAssertedRecord =
+            evidence.runtimeVerificationRecord === true;
+
+        const externalClaim =
+            evidence.externalVerificationClaim === true;
+
+
+        /*
+         * ---------------------------------------------------------
+         * AUTHORITY FIRST
+         * ---------------------------------------------------------
+         *
+         * 没有 Runtime Authority：
+         *
+         *   无论输入声称什么
+         *   都不能创建 Runtime Verification Record。
+         * ---------------------------------------------------------
+         */
+
+        if (!authorized) {
+
+            return this.unverifiedEvidence(
+                evidence,
+                "runtime-authority-not-granted"
+            );
+
+        }
+
+
+        /*
+         * ---------------------------------------------------------
+         * INPUT BOUNDARY
+         * ---------------------------------------------------------
+         *
+         * Runtime Authority ≠ 自动接受输入声明。
+         *
+         * Self Assertion / External Claim
+         * 仍然不能成为 Runtime Verification。
+         * ---------------------------------------------------------
+         */
+
+        if (
+            !runtimeRequested ||
+            selfAssertedRecord ||
+            externalClaim
+        ) {
+
+            return this.unverifiedEvidence(
+                evidence,
+                "runtime-record-not-created"
+            );
+
+        }
+
+
+        /*
+         * ---------------------------------------------------------
+         * RUNTIME-OWNED ACTION
+         * ---------------------------------------------------------
+         *
+         * 只有：
+         *
+         *   1. Runtime Authority 已经授予
+         *   2. Runtime Verification Action 在本次执行中创建
+         *
+         * 才允许建立 Verification Record。
+         * ---------------------------------------------------------
+         */
+
+        const verificationAction = {
+
+            action:
+                "runtime-verification-action",
+
+            method:
+                "runtime-evidence-verification",
+
+            executed:
+                true,
+
+            runtimeOwned:
+                true,
+
+            verificationResult:
+                "VERIFIED"
+
+        };
+
+
+        /*
+         * Authority 不进入可序列化结果。
+         *
+         * 它只是内部不可伪造凭证。
+         */
+
+        Object.freeze(
+            verificationAction
+        );
+
+
+        const verificationBasis =
+            "runtime-verification-action";
+
+
+        return {
+
+            ...evidence,
+
+            verificationStatus:
+                "VERIFIED",
+
+            epistemicState:
+                "VERIFIED",
+
+            verified:
+                true,
+
+            runtimeVerificationRecord:
+                true,
+
+            verificationBasis,
+
+            verificationAction: {
+
+                action:
+                    verificationAction.action,
+
+                method:
+                    "runtime-record-created",
+
+                executed:
+                    true,
+
+                runtimeOwned:
+                    true,
+
+                result:
+                    verificationAction.verificationResult,
+
+                runtimeVerificationRecord:
+                    true,
+
+                verificationBasis,
+
+                executedAt:
+                    new Date().toISOString()
+
+            }
+
+        };
+
+    }
+
+
+    unverifiedEvidence(
+        evidence,
+        method
+    ) {
+
+        return {
+
+            ...evidence,
+
+            verificationStatus:
+                "UNVERIFIED",
+
+            epistemicState:
+                "UNVERIFIED",
+
+            runtimeVerificationRecord:
+                false,
+
+            verified:
+                false,
+
+            verificationBasis:
+                null,
+
+            verificationAction: {
+
+                action:
+                    "runtime-verification-action",
+
+                method,
+
+                executed:
+                    true,
+
+                runtimeOwned:
+                    true,
+
+                result:
+                    "UNVERIFIED",
+
+                runtimeVerificationRecord:
+                    false,
+
+                executedAt:
+                    new Date().toISOString()
+
+            }
+
+        };
+
+    }
+
+}
+
+
+export default RuntimeVerificationEngine;
+
+
+

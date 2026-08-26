@@ -1,17 +1,9 @@
-﻿import RuntimeContract from "./RuntimeContract.js";
-
 class RuntimeError {
 
-    constructor(
-        code,
-        message,
-        metadata = {}
-    ) {
+    constructor(code, message, metadata = {}) {
 
         this.version =
-            RuntimeContract.identity?.runtimeVersion ||
-            RuntimeContract.version ||
-            "10.7";
+            "7.4";
 
         this.code =
             code;
@@ -25,18 +17,14 @@ class RuntimeError {
                 new Date().toISOString(),
 
             runtimeVersion:
-                this.version,
-
-            contractVersion:
-                RuntimeContract.identity?.contractVersion ||
-                RuntimeContract.version ||
-                "10.7",
+                "7.4",
 
             ...metadata
 
         };
 
     }
+
 
 
     toJSON() {
@@ -60,6 +48,5 @@ class RuntimeError {
     }
 
 }
-
 
 export default RuntimeError;

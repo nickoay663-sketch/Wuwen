@@ -15,29 +15,18 @@ class RuntimeResult {
         this.metadata = {};
 
         this.recognition = {};
-
         this.definition = {};
-
         this.testimony = {};
-
         this.testimonyValidation = {};
-
         this.search = {};
-
         this.evidence = {};
-
+        this.runtimeVerification = {};
         this.correspondence = {};
-
         this.reasoning = {};
-
         this.responsibility = {};
-
         this.responsibilityModel = {};
-
         this.reconstruction = {};
-
         this.generator = {};
-
         this.selfCheck = {};
 
         this.engineRegistry = [];
@@ -57,17 +46,37 @@ class RuntimeResult {
 
         this.pipeline = [];
 
+        /*
+         * ---------------------------------------------------------
+         * Final Runtime State
+         * ---------------------------------------------------------
+         */
+
         this.epistemicState =
             "UNKNOWN";
+
+        this.verificationStatus =
+            "UNKNOWN";
+
+        this.supported =
+            false;
 
         this.epistemicBoundary = {};
 
         this.runtimeState =
             "RuntimeRunning";
 
-        this.responsibilityEvent = null;
+        /*
+         * ---------------------------------------------------------
+         * Responsibility Event
+         * ---------------------------------------------------------
+         */
 
-        this.responsibilityEventValidation = null;
+        this.responsibilityEvent =
+            null;
+
+        this.responsibilityEventValidation =
+            null;
 
         this.responsibilityEventPublishable =
             false;
@@ -101,13 +110,76 @@ class RuntimeResult {
 
     setMetadata(metadata = {}) {
 
+        const incoming =
+            metadata || {};
+
         this.metadata = {
 
             ...(this.metadata || {}),
 
-            ...(metadata || {})
+            ...incoming
 
         };
+
+        /*
+         * ---------------------------------------------------------
+         * IMPORTANT:
+         *
+         * Metadata is evidence about final Runtime state.
+         * These projections must never invent state.
+         * ---------------------------------------------------------
+         */
+
+        if (
+            typeof incoming.runtimeState ===
+            "string"
+        ) {
+
+            this.runtimeState =
+                incoming.runtimeState;
+
+        }
+
+        if (
+            typeof incoming.verificationStatus ===
+            "string"
+        ) {
+
+            this.verificationStatus =
+                incoming.verificationStatus;
+
+        }
+
+        if (
+            typeof incoming.supported ===
+            "boolean"
+        ) {
+
+            this.supported =
+                incoming.supported;
+
+        }
+
+        if (
+            typeof incoming.epistemicState ===
+            "string"
+        ) {
+
+            this.setEpistemicState(
+                incoming.epistemicState
+            );
+
+        }
+
+        if (
+            typeof incoming.publishable ===
+            "boolean"
+        ) {
+
+            this.responsibilityEventPublishable =
+                incoming.publishable;
+
+        }
 
         return this;
 
@@ -128,6 +200,94 @@ class RuntimeResult {
             allowedStates.includes(state)
                 ? state
                 : "UNKNOWN";
+
+        return this;
+
+    }
+
+
+    setVerificationStatus(status) {
+
+        this.verificationStatus =
+            typeof status === "string"
+                ? status
+                : "UNKNOWN";
+
+        return this;
+
+    }
+
+
+    setSupported(supported) {
+
+        this.supported =
+            supported === true;
+
+        return this;
+
+    }
+
+
+    setFinalState({
+
+        runtimeState,
+        epistemicState,
+        verificationStatus,
+        supported,
+        publishable
+
+    } = {}) {
+
+        if (
+            typeof runtimeState ===
+            "string"
+        ) {
+
+            this.runtimeState =
+                runtimeState;
+
+        }
+
+        if (
+            typeof epistemicState ===
+            "string"
+        ) {
+
+            this.setEpistemicState(
+                epistemicState
+            );
+
+        }
+
+        if (
+            typeof verificationStatus ===
+            "string"
+        ) {
+
+            this.verificationStatus =
+                verificationStatus;
+
+        }
+
+        if (
+            typeof supported ===
+            "boolean"
+        ) {
+
+            this.supported =
+                supported;
+
+        }
+
+        if (
+            typeof publishable ===
+            "boolean"
+        ) {
+
+            this.responsibilityEventPublishable =
+                publishable;
+
+        }
 
         return this;
 
@@ -270,3 +430,5 @@ class RuntimeResult {
 
 
 export default RuntimeResult;
+
+

@@ -1,4 +1,4 @@
-﻿import EngineBase from "./EngineBase.js";
+import EngineBase from "./EngineBase.js";
 
 class EvidenceEngine extends EngineBase {
 
@@ -285,9 +285,7 @@ class EvidenceEngine extends EngineBase {
          * ---------------------------------------------------------
          */
 
-        const runtimeVerificationRecord =
-            item.runtimeVerification === true ||
-            item.runtimeVerificationRecord === true;
+        const runtimeVerificationRecord = false;
 
 
         const verificationStatus =
@@ -367,6 +365,9 @@ class EvidenceEngine extends EngineBase {
              * Runtime Verification Boundary
              * -----------------------------------------------------
              */
+
+            runtimeVerification:
+                item.runtimeVerification === true,
 
             runtimeVerificationRecord,
 

@@ -131,26 +131,6 @@ class HonestRuntime {
 
         /*
          * ---------------------------------------------------------
-         * Runtime Verification Authority
-         * ---------------------------------------------------------
-         *
-         * Authority 只能由 HonestRuntime 创建。
-         *
-         * RuntimeVerificationEngine：
-         *   - 不能自己创建 Authority
-         *   - 不能从 runtimeContext 读取伪造 Authority
-         *   - 不能接受普通对象冒充 Authority
-         *
-         * 只有此处创建的 opaque authority token
-         * 才能允许 Runtime Verification 产生 VERIFIED。
-         * ---------------------------------------------------------
-         */
-
-        const runtimeVerificationAuthority =
-            createRuntimeVerificationAuthority();
-
-        /*
-         * ---------------------------------------------------------
          * Shared Semantic Object
          * ---------------------------------------------------------
          */
@@ -329,9 +309,7 @@ class HonestRuntime {
             runtimeTrace:
                 trace,
 
-            runtimeContext,
-
-            runtimeVerificationAuthority
+            runtimeContext
 
         };
 
@@ -867,9 +845,6 @@ class HonestRuntime {
         runtimeResult.evidence =
             runtimeVerification;
 
-        runtimeResult.runtimeVerification =
-            runtimeVerification;
-
         runtimeResult.correspondence =
             correspondence;
 
@@ -894,10 +869,6 @@ class HonestRuntime {
         };
 
         runtimeResult.verificationBoundary = {
-
-            runtimeVerificationBoundary:
-                runtimeVerification.verificationBoundary ||
-                null,
 
             evidenceBoundary:
                 reconstruction.reconstruction?.boundaries?.evidence ||
@@ -1969,5 +1940,21 @@ class HonestRuntime {
 }
 
 export default HonestRuntime;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

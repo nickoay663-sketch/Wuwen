@@ -1,6 +1,12 @@
+﻿import RuntimeContract from "./RuntimeContract.js";
+
 class RuntimeLogger {
 
-    static log(stage, message, metadata = {}) {
+    static log(
+        stage,
+        message,
+        metadata = {}
+    ) {
 
         console.log({
 
@@ -8,7 +14,14 @@ class RuntimeLogger {
                 new Date().toISOString(),
 
             runtimeVersion:
-                "7.2",
+                RuntimeContract.identity?.runtimeVersion ||
+                RuntimeContract.version ||
+                "10.7",
+
+            contractVersion:
+                RuntimeContract.identity?.contractVersion ||
+                RuntimeContract.version ||
+                "10.7",
 
             stage,
 
@@ -21,8 +34,11 @@ class RuntimeLogger {
     }
 
 
-
-    static warn(stage, message, metadata = {}) {
+    static warn(
+        stage,
+        message,
+        metadata = {}
+    ) {
 
         console.warn({
 
@@ -30,7 +46,14 @@ class RuntimeLogger {
                 new Date().toISOString(),
 
             runtimeVersion:
-                "7.2",
+                RuntimeContract.identity?.runtimeVersion ||
+                RuntimeContract.version ||
+                "10.7",
+
+            contractVersion:
+                RuntimeContract.identity?.contractVersion ||
+                RuntimeContract.version ||
+                "10.7",
 
             stage,
 
@@ -43,8 +66,11 @@ class RuntimeLogger {
     }
 
 
-
-    static error(stage, message, metadata = {}) {
+    static error(
+        stage,
+        message,
+        metadata = {}
+    ) {
 
         console.error({
 
@@ -52,7 +78,14 @@ class RuntimeLogger {
                 new Date().toISOString(),
 
             runtimeVersion:
-                "7.2",
+                RuntimeContract.identity?.runtimeVersion ||
+                RuntimeContract.version ||
+                "10.7",
+
+            contractVersion:
+                RuntimeContract.identity?.contractVersion ||
+                RuntimeContract.version ||
+                "10.7",
 
             stage,
 
@@ -65,5 +98,6 @@ class RuntimeLogger {
     }
 
 }
+
 
 export default RuntimeLogger;
