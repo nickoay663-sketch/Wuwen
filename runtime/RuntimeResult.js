@@ -322,6 +322,9 @@ class RuntimeResult {
             state:
                 currentState,
 
+            boundaryState:
+                currentState,
+
             allowedStates,
 
             source:
@@ -430,5 +433,4 @@ class RuntimeResult {
 
 
 export default RuntimeResult;
-
 

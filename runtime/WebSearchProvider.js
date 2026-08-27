@@ -1,4 +1,4 @@
-﻿class WebSearchProvider {
+class WebSearchProvider {
 
     constructor(options = {}) {
 

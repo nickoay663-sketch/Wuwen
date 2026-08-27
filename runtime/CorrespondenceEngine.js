@@ -6,8 +6,8 @@ class CorrespondenceEngine extends EngineBase {
 
         super(
             "CorrespondenceEngine",
-            "10.7",
-            "莫问判断定义、证据与表达之间的真实对应关系，不把发现、未验证或仅已验证但未建立对应关系的证据扩大为支持。"
+            "10.8",
+            "Correspondence establishes claim support only from an independently verified evidence-to-definition correspondence."
         );
 
         this.semanticObject =
@@ -99,7 +99,7 @@ class CorrespondenceEngine extends EngineBase {
                         "CorrespondenceEngine",
 
                     action:
-                        "check",
+                        "establish-correspondence",
 
                     status:
                         "completed"
@@ -136,14 +136,12 @@ class CorrespondenceEngine extends EngineBase {
                 ? this.semanticObject.definitions
                 : [];
 
-
         const evidences =
             Array.isArray(
                 this.semanticObject.evidences
             )
                 ? this.semanticObject.evidences
                 : [];
-
 
         if (
             definitions.length === 0
@@ -152,7 +150,6 @@ class CorrespondenceEngine extends EngineBase {
             return [];
 
         }
-
 
         return definitions.map(
             definition =>
@@ -178,37 +175,6 @@ class CorrespondenceEngine extends EngineBase {
             );
 
 
-        /*
-         * =========================================================
-         * CORRESPONDENCE BOUNDARY v10.7
-         * =========================================================
-         *
-         * EvidenceEngine 已经完成第一道边界：
-         *
-         *   DISCOVERED / UNVERIFIED
-         *       ≠
-         *   VERIFIED
-         *
-         * CorrespondenceEngine 再完成第二道边界：
-         *
-         *   VERIFIED
-         *       ≠
-         *   SUPPORTED
-         *
-         * VERIFIED 只能说明 Runtime 存在可识别的验证记录。
-         *
-         * 只有：
-         *
-         *   1. independent === true
-         *   2. verificationStatus === VERIFIED
-         *   3. epistemicState === VERIFIED
-         *   4. supportsClaim === true
-         *
-         * 才能建立当前 Definition 的 SUPPORTED。
-         *
-         * =========================================================
-         */
-
         const verifiedEvidences =
             independentEvidences.filter(
                 evidence =>
@@ -233,22 +199,33 @@ class CorrespondenceEngine extends EngineBase {
             );
 
 
-        const verifiedButNotLinkedEvidences =
+        /*
+         * ---------------------------------------------------------
+         * Correspondence owns support authority.
+         *
+         * External supportsClaim is NEVER trusted.
+         * It is deliberately ignored here.
+         * ---------------------------------------------------------
+         */
+
+        const supportingVerifiedEvidences =
             verifiedEvidences.filter(
                 evidence =>
-                    evidence.supportsClaim !== true
+                    this.establishEvidenceCorrespondence(
+                        definition,
+                        evidence
+                    )
             );
 
 
-        const supportingVerifiedEvidences = [];
-
-
-        const sourceAvailable =
-            independentEvidences.length > 0;
-
-
-        const verifiedSourceAvailable =
-            verifiedEvidences.length > 0;
+        const verifiedButNotLinkedEvidences =
+            verifiedEvidences.filter(
+                evidence =>
+                    !this.establishEvidenceCorrespondence(
+                        definition,
+                        evidence
+                    )
+            );
 
 
         const supported =
@@ -290,11 +267,6 @@ class CorrespondenceEngine extends EngineBase {
         }
 
 
-        /*
-         * SUPPORTED 是 CorrespondenceEngine 自己建立的关系结果，
-         * 不是 EvidenceEngine 提供的事实字段。
-         */
-
         const epistemicState =
             verificationStatus;
 
@@ -324,9 +296,11 @@ class CorrespondenceEngine extends EngineBase {
 
             supported,
 
-            sourceAvailable,
+            sourceAvailable:
+                independentEvidences.length > 0,
 
-            verifiedSourceAvailable,
+            verifiedSourceAvailable:
+                verifiedEvidences.length > 0,
 
             sourceCount:
                 independentEvidences.length,
@@ -354,11 +328,73 @@ class CorrespondenceEngine extends EngineBase {
                     : "NOT_SUPPORTED",
 
             knowledgeBoundary:
-                supported
-                    ? "VERIFIED_SUPPORT"
-                    : "UNKNOWN_OR_UNVERIFIED"
+                verificationStatus
 
         };
+
+    }
+
+
+    establishEvidenceCorrespondence(
+        definition,
+        evidence
+    ) {
+
+        if (
+            !definition ||
+            !evidence
+        ) {
+
+            return false;
+
+        }
+
+
+        const definitionExpression =
+            String(
+                definition.expression ||
+                definition.originalExpression ||
+                ""
+            )
+                .trim()
+                .toLowerCase();
+
+
+        const evidenceContent =
+            String(
+                evidence.content ||
+                evidence.title ||
+                evidence.description ||
+                ""
+            )
+                .trim()
+                .toLowerCase();
+
+
+        if (
+            !definitionExpression ||
+            !evidenceContent
+        ) {
+
+            return false;
+
+        }
+
+
+        /*
+         * Minimal deterministic correspondence:
+         *
+         * The verified evidence must explicitly contain
+         * the expression represented by the Definition.
+         *
+         * No external supportsClaim field is consulted.
+         */
+
+        return (
+            evidenceContent.includes(
+                definitionExpression
+            )
+        );
 
     }
 
@@ -366,4 +402,3 @@ class CorrespondenceEngine extends EngineBase {
 
 
 export default CorrespondenceEngine;
-

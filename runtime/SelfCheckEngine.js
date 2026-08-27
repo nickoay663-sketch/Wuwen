@@ -1279,7 +1279,7 @@ class SelfCheckEngine extends EngineBase {
 
         const boundaryState =
             verificationBoundary.epistemicState ||
-            verificationBoundary.verificationStatus ||
+            finalEpistemicState ||
             null;
 
 

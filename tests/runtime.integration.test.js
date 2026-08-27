@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "../runtime/HonestRuntime.js";
+import HonestRuntime from "../runtime/HonestRuntime.js";
 
 
 const runtime =
@@ -44,13 +44,11 @@ const checks = {
         metadata.executionComplete ===
         true,
 
-    executionCompleted10:
-        metadata.executionCompletedCount ===
-        10,
+    executionCompleted11:
+        metadata.executionCompletedCount === 11,
 
-    executionExpected10:
-        metadata.executionExpectedCount ===
-        10,
+    executionExpected11:
+        metadata.executionExpectedCount === 11,
 
     executionPendingZero:
         Array.isArray(
@@ -59,9 +57,8 @@ const checks = {
         metadata.executionPending.length ===
         0,
 
-    registry10:
-        metadata.engineCount ===
-        10,
+    registry11:
+        metadata.engineCount === 11,
 
     registryValidationPassed:
         metadata.registryValidation?.passed ===
@@ -94,8 +91,7 @@ const checks = {
         Array.isArray(
             metadata.executionCompleted
         ) &&
-        metadata.executionCompleted.length ===
-        10,
+        metadata.executionCompleted.length === 11,
 
     noPendingEngines:
         Array.isArray(
@@ -117,7 +113,7 @@ console.log(
         {
 
             test:
-                "MoWen Runtime v10.6 Full Integration Test",
+                "MoWen Runtime v10.7 Full Integration Test",
 
             checks,
 
@@ -181,7 +177,7 @@ console.log(
 if (!passed) {
 
     console.log(
-        "MoWen Runtime v10.6 Full Integration Test Failed."
+        "MoWen Runtime v10.7 Full Integration Test Failed."
     );
 
     process.exit(1);
@@ -190,5 +186,5 @@ if (!passed) {
 
 
 console.log(
-    "MoWen Runtime v10.6 Full Integration Test Passed."
+    "MoWen Runtime v10.7 Full Integration Test Passed."
 );

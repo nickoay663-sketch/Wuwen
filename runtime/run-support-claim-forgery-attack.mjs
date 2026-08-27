@@ -34,10 +34,6 @@ const engine = new CorrespondenceEngine({
             runtimeVerificationRecord:
                 true,
 
-            /*
-             * 攻击者伪造：
-             * 声称该证据支持当前 Definition。
-             */
             supportsClaim:
                 true
         }
@@ -50,6 +46,11 @@ const result =
 
 const correspondence =
     result.correspondences?.[0];
+
+const blocked =
+    correspondence?.supported !== true &&
+    correspondence?.verificationStatus !== "SUPPORTED" &&
+    correspondence?.supportingVerifiedEvidenceCount === 0;
 
 console.log(
     JSON.stringify(
@@ -70,12 +71,15 @@ console.log(
                 correspondence?.supportingVerifiedEvidenceCount,
 
             attackResult:
-                correspondence?.verificationStatus ===
-                    "SUPPORTED"
-                    ? "SUPPORT CLAIM FORGERY ACCEPTED"
-                    : "SUPPORT CLAIM FORGERY BLOCKED"
+                blocked
+                    ? "SUPPORT CLAIM FORGERY BLOCKED"
+                    : "SUPPORT CLAIM FORGERY ACCEPTED"
         },
         null,
         2
     )
 );
+
+if (!blocked) {
+    process.exit(1);
+}
