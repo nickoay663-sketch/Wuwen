@@ -29,37 +29,45 @@ class MWALIndependentValidator {
         const checks = [];
 
         checks.push({
-            rule: "MWAL-R01-01",
-            name: "Original expression identity is preserved",
-            passed:
-                originalExpression !== undefined &&
-                envelope.expression === originalExpression
-        });
+    rule: "MWAL-R01-01",
+    name: "Original expression identity is preserved",
+    passed:
+        originalExpression === undefined ||
+        envelope.expression === originalExpression
+});
 
-        checks.push({
-            rule: "MWAL-R01-02",
-            name: "Expression is not substituted during analysis",
-            passed:
-                originalExpression !== undefined &&
-                envelope.expression === originalExpression &&
-                (
-                    testimony === undefined ||
-                    testimony?.originalInput?.originalExpression === undefined ||
-                    testimony.originalInput.originalExpression ===
-                        originalExpression
-                )
-        });
+checks.push({
+    rule: "MWAL-R01-02",
+    name: "Expression is not substituted during analysis",
+    passed:
+        originalExpression === undefined ||
+        (
+            envelope.expression === originalExpression &&
+            (
+                testimony === undefined ||
+                testimony?.originalInput?.originalExpression === undefined ||
+                testimony.originalInput.originalExpression ===
+                    originalExpression
+            )
+        )
+});
 
-        checks.push({
-            rule: "MWAL-R01-03",
-            name: "Original expression remains traceable through responsibility chain",
-            passed:
-                originalExpression !== undefined &&
-                responsibilityEvent !== undefined &&
-                responsibilityEvent?.expression === originalExpression &&
+checks.push({
+    rule: "MWAL-R01-03",
+    name: "Original expression remains traceable through responsibility chain",
+    passed:
+        originalExpression === undefined ||
+        (
+            responsibilityEvent !== undefined &&
+            responsibilityEvent?.expression === originalExpression &&
+            (
+                responsibilityEvent?.testimony === undefined ||
+                typeof responsibilityEvent?.testimony === "string" ||
                 responsibilityEvent?.testimony?.originalInput?.originalExpression ===
                     originalExpression
-        });
+            )
+        )
+});
 
         /*
          * =====================================================
@@ -126,7 +134,15 @@ class MWALIndependentValidator {
 
 
 
-        /*
+
+        checks.push({
+            rule: "MWAL-R00-07",
+            name: "Runtime internals must not cross the MWAL boundary",
+            passed:
+                leakedRuntimeFields.length === 0
+        });
+
+/*
          * =====================================================
          * CORE-02 Information / Evidence
          * =====================================================

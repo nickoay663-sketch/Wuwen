@@ -1962,47 +1962,99 @@ class HonestRuntime {
 
     }
 
-
-
     sanitizeOutput(obj) {
         if (obj === null || obj === undefined) return obj;
+
         try {
-            var seen = [];
-            var purify = function(item) {
-                if (!item || typeof item !== "object") return item;
-                if (seen.indexOf(item) !== -1) return "[Circular]";
-                seen.push(item);
+
+            const purify = function(item, ancestors = []) {
+
+                if (
+                    item === null ||
+                    item === undefined ||
+                    typeof item !== "object"
+                ) {
+                    return item;
+                }
+
+                if (ancestors.indexOf(item) !== -1) {
+                    return "[Circular]";
+                }
+
+                const nextAncestors =
+                    ancestors.concat([item]);
 
                 if (Array.isArray(item)) {
-                    return item.map(purify);
+                    return item.map(
+                        value =>
+                            purify(
+                                value,
+                                nextAncestors
+                            )
+                    );
                 }
 
-                var result = {};
-                var forbidden = ["engineRegistry", "runtimeContext", "languageAdapter", "registry", "engine", "engines"];
-                var keys = Object.keys(item);
+                const result = {};
 
-                for (var i = 0; i < keys.length; i++) {
-                    var key = keys[i];
-                    if (forbidden.indexOf(key) !== -1) continue;
+                const forbidden = [
+                    "engineRegistry",
+                    "runtimeContext",
+                    "languageAdapter",
+                    "registry",
+                    "engine",
+                    "engines"
+                ];
+
+                const keys = Object.keys(item);
+
+                for (let i = 0; i < keys.length; i++) {
+
+                    const key = keys[i];
+
+                    if (
+                        forbidden.indexOf(key) !== -1
+                    ) {
+                        continue;
+                    }
+
                     try {
-                        result[key] = purify(item[key]);
+                        result[key] =
+                            purify(
+                                item[key],
+                                nextAncestors
+                            );
                     } catch (e) {}
                 }
+
                 return result;
             };
 
-            var cleaned = purify(obj);
-            var jsonStr = JSON.stringify(cleaned);
+            const cleaned =
+                purify(obj);
 
-            // 文本级全面清剿：把字符串中所有包含 engineRegistry 的键值对直接抹掉
-            jsonStr = jsonStr.replace(/"[^"]*engineRegistry[^"]*"s*:s*(?:{[^}]*}|[[^]]*]|"[^"]*"|d+|true|false|null)/g, '""');
-            jsonStr = jsonStr.replace(/"engineRegistry"/g, '"sanitized_key"');
+            const jsonStr =
+                JSON.stringify(cleaned);
 
-            return JSON.parse(jsonStr);
+            const sanitizedJson =
+                jsonStr
+                    .replace(
+                        /"[^"]*engineRegistry[^"]*"s*:s*(?:{[^}]*}|[[^]]*]|"[^"]*"|d+|true|false|null)/g,
+                        '""'
+                    )
+                    .replace(
+                        /"engineRegistry"/g,
+                        '"sanitized_key"'
+                    );
+
+            return JSON.parse(
+                sanitizedJson
+            );
+
         } catch (e) {
             return {};
         }
     }
+
 
 }
 
