@@ -1,10 +1,11 @@
-﻿class ResponsibilityEvent {
+class ResponsibilityEvent {
 
     constructor({
         eventId = null,
         identity = null,
         expression = null,
         testimony = null,
+        definition = null,
         responsibility = null,
         evidence = null,
         correspondence = null,
@@ -36,6 +37,7 @@
 
         this.expression = expression;
         this.testimony = testimony;
+        this.definition = definition;
 
         this.epistemicState =
             epistemicState || "UNKNOWN";

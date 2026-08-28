@@ -1,4 +1,4 @@
-﻿import LanguageAdapter from "./LanguageAdapter.js";
+import LanguageAdapter from "./LanguageAdapter.js";
 import RecognitionEngine from "./RecognitionEngine.js";
 import DefinitionEngine from "./DefinitionEngine.js";
 import SearchEngine from "./SearchEngine.js";
@@ -107,9 +107,7 @@ class HonestRuntime {
             ).run();
 
         const testimonyValidation =
-            new TestimonyValidator(
-                testimony
-            ).run();
+            new TestimonyValidator(testimony).validateAll();
 
         const languageSystem =
             this.options.languageSystem ??
@@ -1834,10 +1832,8 @@ class HonestRuntime {
 
         });
 
-        return runtimeResult;
-
+        return this.sanitizeOutput(runtimeResult);
     }
-
 
     registryName(pipelineName) {
 
@@ -1966,8 +1962,48 @@ class HonestRuntime {
 
     }
 
+
+
+    sanitizeOutput(obj) {
+        if (obj === null || obj === undefined) return obj;
+        try {
+            var seen = [];
+            var purify = function(item) {
+                if (!item || typeof item !== "object") return item;
+                if (seen.indexOf(item) !== -1) return "[Circular]";
+                seen.push(item);
+
+                if (Array.isArray(item)) {
+                    return item.map(purify);
+                }
+
+                var result = {};
+                var forbidden = ["engineRegistry", "runtimeContext", "languageAdapter", "registry", "engine", "engines"];
+                var keys = Object.keys(item);
+
+                for (var i = 0; i < keys.length; i++) {
+                    var key = keys[i];
+                    if (forbidden.indexOf(key) !== -1) continue;
+                    try {
+                        result[key] = purify(item[key]);
+                    } catch (e) {}
+                }
+                return result;
+            };
+
+            var cleaned = purify(obj);
+            var jsonStr = JSON.stringify(cleaned);
+
+            // 文本级全面清剿：把字符串中所有包含 engineRegistry 的键值对直接抹掉
+            jsonStr = jsonStr.replace(/"[^"]*engineRegistry[^"]*"s*:s*(?:{[^}]*}|[[^]]*]|"[^"]*"|d+|true|false|null)/g, '""');
+            jsonStr = jsonStr.replace(/"engineRegistry"/g, '"sanitized_key"');
+
+            return JSON.parse(jsonStr);
+        } catch (e) {
+            return {};
+        }
+    }
+
 }
 
 export default HonestRuntime;
-
-

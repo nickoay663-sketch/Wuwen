@@ -1,4 +1,4 @@
-﻿import EngineBase from "./EngineBase.js";
+import EngineBase from "./EngineBase.js";
 
 class GeneratorEngine extends EngineBase {
 
@@ -38,7 +38,42 @@ class GeneratorEngine extends EngineBase {
                 this.version,
 
             semanticObject:
-                this.runtimeObject.semanticObject,
+                (() => {
+
+                    const source =
+                        (() => {
+                    const source = this.runtimeObject.semanticObject || {};
+                    const { engineRegistry, engines, runtimeTrace, ...serializableSemanticObject } = source;
+                    return {
+                        ...serializableSemanticObject,
+                        engineRegistry: engineRegistry?.describe?.() || [],
+                        runtimeTrace: Array.isArray(runtimeTrace) ? runtimeTrace : []
+                    };
+                })() || {};
+
+                    const {
+                        engineRegistry,
+                        engines,
+                        runtimeTrace,
+                        ...serializableSemanticObject
+                    } = source;
+
+                    return {
+
+                        ...serializableSemanticObject,
+
+                        engineRegistry:
+                            engineRegistry
+                                ?.describe?.() || [],
+
+                        runtimeTrace:
+                            Array.isArray(runtimeTrace)
+                                ? runtimeTrace
+                                : []
+
+                    };
+
+                })(),
 
             principle:
                 this.principle,

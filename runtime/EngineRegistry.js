@@ -1,4 +1,4 @@
-﻿import RuntimeContract from "./RuntimeContract.js";
+import RuntimeContract from "./RuntimeContract.js";
 import EngineBase from "./EngineBase.js";
 
 class EngineRegistry {
@@ -84,7 +84,33 @@ class EngineRegistry {
 
     all() {
 
-        return this.engines;
+        return Object.values(
+            this.engines
+        ).map(
+            item => ({
+
+                name:
+                    item.name,
+
+                version:
+                    item.version,
+
+                status:
+                    item.status,
+
+                nextRuntimeState:
+                    item.nextRuntimeState,
+
+                capabilities:
+                    Array.isArray(item.capabilities)
+                        ? [...item.capabilities]
+                        : [],
+
+                registeredAt:
+                    item.registeredAt
+
+            })
+        );
 
     }
 

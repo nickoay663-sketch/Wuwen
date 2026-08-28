@@ -1,4 +1,4 @@
-﻿import EngineBase from "./EngineBase.js";
+import EngineBase from "./EngineBase.js";
 
 class ReconstructionEngine extends EngineBase {
 
@@ -33,7 +33,34 @@ class ReconstructionEngine extends EngineBase {
                 this.version,
 
             semanticObject:
-                this.runtimeObject.semanticObject,
+    (() => {
+
+        const source =
+            this.runtimeObject.semanticObject || {};
+
+        const {
+            engineRegistry,
+            engines,
+            runtimeTrace,
+            ...serializableSemanticObject
+        } = source;
+
+        return {
+
+            ...serializableSemanticObject,
+
+            engineRegistry:
+                engineRegistry
+                    ?.describe?.() || [],
+
+            runtimeTrace:
+                Array.isArray(runtimeTrace)
+                    ? runtimeTrace
+                    : []
+
+        };
+
+    })(),
 
             principle:
                 this.principle,

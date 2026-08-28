@@ -1,4 +1,4 @@
-﻿import EngineBase from "./EngineBase.js";
+import EngineBase from "./EngineBase.js";
 
 class ResponsibilityEngine extends EngineBase {
 
@@ -52,11 +52,7 @@ class ResponsibilityEngine extends EngineBase {
             primaryResponsibility.supported === true;
 
         return this.result({
-
-            semanticObject:
-                this.semanticObject,
-
-            principle:
+principle:
                 this.principle,
 
             metadata,

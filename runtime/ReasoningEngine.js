@@ -1,4 +1,4 @@
-﻿import EngineBase from "./EngineBase.js";
+import EngineBase from "./EngineBase.js";
 
 class ReasoningEngine extends EngineBase {
 
@@ -29,11 +29,7 @@ class ReasoningEngine extends EngineBase {
                 : "need-reasoning";
 
         return this.result({
-
-            semanticObject:
-                this.semanticObject,
-
-            principle:
+principle:
                 this.principle,
 
             metadata,
@@ -503,4 +499,3 @@ class ReasoningEngine extends EngineBase {
 }
 
 export default ReasoningEngine;
-
