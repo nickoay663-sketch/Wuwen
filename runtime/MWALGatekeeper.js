@@ -1,88 +1,39 @@
-﻿import MWALIndependentValidator from "./MWALIndependentValidator.js";
+﻿import MWALValidatorR00Core from './MWALValidatorR00Core.js';
+import MWALValidatorR01Semantic from './MWALValidatorR01Semantic.js';
 
-class MWALGatekeeper {
-
-    constructor(options = {}) {
-
-        this.name =
-            "MWAL Runtime Gatekeeper";
-
-        this.version =
-            "1.0";
-
-        this.validator =
-            options.validator ||
-            new MWALIndependentValidator();
-
-    }
-
-    intercept(
-        envelope = {},
-        originalExpression = undefined,
-        testimony = undefined,
-        responsibilityEvent = undefined
-    ) {
-
-        const validation =
-            this.validator.validateEnvelope(
-                envelope,
-                originalExpression,
-                testimony,
-                responsibilityEvent
-            );
-
-        if (validation.passed !== true) {
-
+export default class MWALGatekeeper {
+    static inspect(envelope) {
+        if (!envelope) {
             return {
-                decision: "REFUSE",
-                allowed: false,
-                status: "BLOCKED",
-                reason: "MWAL_VALIDATION_FAILED",
-                validation
+                admitted: false,
+                reason: 'Gatekeeper rejection: Null or undefined envelope received.'
             };
-
         }
 
-        if (
-            !responsibilityEvent ||
-            typeof responsibilityEvent.isPublishable !== "function"
-        ) {
-
+        // Phase 1: Core Invariants
+        const coreValidation = MWALValidatorR00Core.validateAll(envelope);
+        if (!coreValidation.success) {
             return {
-                decision: "REFUSE",
-                allowed: false,
-                status: "BLOCKED",
-                reason: "PUBLICATION_AUTHORITY_UNAVAILABLE",
-                validation
+                admitted: false,
+                reason: 'Pre-ledger compliance failure: Core invariants violated.',
+                violations: coreValidation.failures
             };
-
         }
 
-        const publishable =
-            responsibilityEvent.isPublishable();
-
-        if (publishable !== true) {
-
+        // Phase 2: Semantic & Rhetorical Boundaries
+        const semanticValidation = MWALValidatorR01Semantic.validateAll(envelope);
+        if (!semanticValidation.success) {
             return {
-                decision: "REFUSE",
-                allowed: false,
-                status: "BLOCKED",
-                reason: "PUBLICATION_NOT_AUTHORIZED",
-                validation
+                admitted: false,
+                reason: 'Pre-ledger compliance failure: Semantic and rhetorical boundaries violated.',
+                violations: semanticValidation.failures
             };
-
         }
 
         return {
-            decision: "ALLOW",
-            allowed: true,
-            status: "PASSED",
-            reason: "MWAL_PUBLICATION_AUTHORIZED",
-            validation
+            admitted: true,
+            reason: 'Envelope passed all Phase 1 and Phase 2 gatekeeper checks.'
         };
-
     }
-
 }
 
-export default MWALGatekeeper;

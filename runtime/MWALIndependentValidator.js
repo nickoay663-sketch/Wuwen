@@ -1,77 +1,146 @@
-import MWALContract from "./MWALContract.js";
+﻿import MWALContract from "./MWALContract.js";
 
 class MWALIndependentValidator {
 
     constructor() {
-
-        this.name =
-            "MWAL Independent Validator";
-
-        this.version =
-            "1.0";
-
-        this.standard =
-            "MWAL Standard Core v1.0";
-
-        this.ruleInventory =
-            "MWAL Rule Inventory v1.0";
-
+        this.name = "MWAL Independent Validator";
+        this.version = "1.1";
+        this.standard = "MWAL Standard Core v1.0";
+        this.ruleInventory = "MWAL Rule Inventory v1.0";
     }
 
-
-    validateEnvelope(envelope = {}, originalExpression = undefined, testimony = undefined, responsibilityEvent = undefined) {
+    validateEnvelope(
+        envelope = {},
+        originalExpression = undefined,
+        testimony = undefined,
+        responsibilityEvent = undefined
+    ) {
 
         const contractValidation =
-            MWALContract.validate(
-                envelope
-            );
+            MWALContract.validate(envelope);
 
         const checks = [];
 
+        /*
+         * =====================================================
+         * CORE-01 — Expression / Semantic Boundary
+         * =====================================================
+         */
+
         checks.push({
-    rule: "MWAL-R01-01",
-    name: "Original expression identity is preserved",
-    passed:
-        originalExpression === undefined ||
-        envelope.expression === originalExpression
-});
+            rule: "MWAL-R01-01",
+            name: "Original expression identity is preserved",
+            passed:
+                originalExpression === undefined ||
+                envelope.expression === originalExpression
+        });
 
-checks.push({
-    rule: "MWAL-R01-02",
-    name: "Expression is not substituted during analysis",
-    passed:
-        originalExpression === undefined ||
-        (
-            envelope.expression === originalExpression &&
-            (
-                testimony === undefined ||
-                testimony?.originalInput?.originalExpression === undefined ||
-                testimony.originalInput.originalExpression ===
-                    originalExpression
-            )
-        )
-});
+        checks.push({
+            rule: "MWAL-R01-02",
+            name: "Expression is not substituted during analysis",
+            passed:
+                originalExpression === undefined ||
+                (
+                    envelope.expression === originalExpression &&
+                    (
+                        testimony === undefined ||
+                        testimony?.originalInput?.originalExpression === undefined ||
+                        testimony.originalInput.originalExpression ===
+                            originalExpression
+                    )
+                )
+        });
 
-checks.push({
-    rule: "MWAL-R01-03",
-    name: "Original expression remains traceable through responsibility chain",
-    passed:
-        originalExpression === undefined ||
-        (
-            responsibilityEvent !== undefined &&
-            responsibilityEvent?.expression === originalExpression &&
-            (
-                responsibilityEvent?.testimony === undefined ||
-                typeof responsibilityEvent?.testimony === "string" ||
-                responsibilityEvent?.testimony?.originalInput?.originalExpression ===
-                    originalExpression
-            )
-        )
-});
+        checks.push({
+            rule: "MWAL-R01-03",
+            name: "Original expression remains traceable through responsibility chain",
+            passed:
+                originalExpression === undefined ||
+                (
+                    responsibilityEvent !== undefined &&
+                    responsibilityEvent?.expression === originalExpression &&
+                    (
+                        responsibilityEvent?.testimony === undefined ||
+                        typeof responsibilityEvent?.testimony === "string" ||
+                        responsibilityEvent?.testimony?.originalInput?.originalExpression ===
+                            originalExpression
+                    )
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R01-04",
+            name: "Definition answers what the expression object is without inventing meaning",
+            passed:
+                !(
+                    envelope.definition &&
+                    envelope.definition.syntheticMeaning === true
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R01-05",
+            name: "Runtime does not own an externally supplied language system",
+            passed:
+                !(
+                    envelope.languageSystem &&
+                    envelope.languageSystem.runtimeOwned === true
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R01-06",
+            name: "Runtime does not create or replace the external language system",
+            passed:
+                !(
+                    envelope.languageSystem &&
+                    envelope.languageSystem.runtimeCreated === true
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R01-07",
+            name: "Undefined objects are not forcibly introduced into reasoning",
+            passed:
+                envelope.undefinedObjectsIntroduced !== true
+        });
+
+        checks.push({
+            rule: "MWAL-R01-08",
+            name: "Language identification does not become factual verification",
+            passed:
+                !(
+                    envelope.languageIdentification === true &&
+                    (
+                        envelope.verificationState === "VERIFIED" ||
+                        envelope.verificationState === "SUPPORTED"
+                    ) &&
+                    envelope.verificationBasis === "LANGUAGE_IDENTIFICATION"
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R01-09",
+            name: "Semantic analysis does not become evidence",
+            passed:
+                !(
+                    envelope.semanticAnalysisUsedAsEvidence === true
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R01-10",
+            name: "Expression restatement does not silently change the original claim",
+            passed:
+                originalExpression === undefined ||
+                envelope.restatedExpression === undefined ||
+                envelope.restatedExpression === originalExpression ||
+                envelope.restatedExpressionPreservesClaim === true
+        });
 
         /*
          * =====================================================
-         * Cross-Core / Structural
+         * CORE-00 — Cross-Core Invariants
          * =====================================================
          */
 
@@ -80,6 +149,45 @@ checks.push({
             name: "MWAL contract structural validity",
             passed:
                 contractValidation.valid === true
+        });
+
+        checks.push({
+            rule: "MWAL-R00-02",
+            name: "Evidence determines the maximum responsibility assumed",
+            passed:
+                responsibilityWithinEvidence(envelope)
+        });
+
+        checks.push({
+            rule: "MWAL-R00-03",
+            name: "No unsupported certainty is created",
+            passed:
+                !(
+                    isHighCertainty(envelope) &&
+                    !hasEvidence(envelope)
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R00-04",
+            name: "Evidence is not manufactured",
+            passed:
+                !(
+                    envelope.manufacturedEvidence === true ||
+                    envelope.reconstructionManufacturedEvidence === true ||
+                    containsManufacturedEvidence(envelope)
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R00-05",
+            name: "Knowledge is not manufactured",
+            passed:
+                !(
+                    envelope.manufacturedKnowledge === true ||
+                    envelope.reconstructionManufacturedKnowledge === true ||
+                    containsManufacturedKnowledge(envelope)
+                )
         });
 
         checks.push({
@@ -94,6 +202,13 @@ checks.push({
         });
 
         checks.push({
+            rule: "MWAL-R00-07",
+            name: "Runtime internals do not cross the MWAL boundary",
+            passed:
+                getLeakedRuntimeFields(envelope).length === 0
+        });
+
+        checks.push({
             rule: "MWAL-R00-08",
             name: "Publication authority remains distinct from truth determination",
             passed:
@@ -104,47 +219,9 @@ checks.push({
                 )
         });
 
-
         /*
          * =====================================================
-         * Runtime Boundary
-         * =====================================================
-         */
-
-        const forbiddenRuntimeFields = [
-            "semanticObject",
-            "engineRegistry",
-            "engines",
-            "runtimeContext",
-            "metadata",
-            "trace",
-            "nextRuntimeState",
-            "runtimeTrace"
-        ];
-
-        const leakedRuntimeFields =
-            forbiddenRuntimeFields.filter(
-                field =>
-                    Object.prototype.hasOwnProperty.call(
-                        envelope,
-                        field
-                    )
-            );
-
-
-
-
-
-        checks.push({
-            rule: "MWAL-R00-07",
-            name: "Runtime internals must not cross the MWAL boundary",
-            passed:
-                leakedRuntimeFields.length === 0
-        });
-
-/*
-         * =====================================================
-         * CORE-02 Information / Evidence
+         * CORE-02 — Information / Evidence / Correspondence
          * =====================================================
          */
 
@@ -156,20 +233,8 @@ checks.push({
                     Array.isArray(envelope.searchResults) &&
                     envelope.searchResults.length > 0 &&
                     Array.isArray(envelope.evidence) &&
-                    envelope.evidence.length ===
-                        envelope.searchResults.length
-                )
-        });
-
-        checks.push({
-            rule: "MWAL-R02-00",
-            name: "VERIFIED requires an explicit Runtime Verification Record",
-            passed:
-                envelope.verificationState !== "VERIFIED" ||
-                (
-                    envelope.runtimeVerificationRecord === true &&
-                    envelope.verificationAction &&
-                    typeof envelope.verificationAction === "object"
+                    envelope.evidence.length === envelope.searchResults.length &&
+                    sameSearchAndEvidence(envelope.searchResults, envelope.evidence)
                 )
         });
 
@@ -178,8 +243,29 @@ checks.push({
             name: "Discovered information remains distinguishable from verified information",
             passed:
                 !(
-                    envelope.verificationState === "VERIFIED" &&
-                    envelope.discoveryState === "DISCOVERED"
+                    envelope.discoveryState === "DISCOVERED" &&
+                    envelope.verificationState === "VERIFIED"
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R02-03",
+            name: "Evidence remains distinguishable from source existence",
+            passed:
+                !(
+                    envelope.sourceExists === true &&
+                    envelope.evidenceDerivedFromExistence === true
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R02-04",
+            name: "Source existence alone does not establish correspondence",
+            passed:
+                !(
+                    envelope.sourceExists === true &&
+                    envelope.correspondence === true &&
+                    envelope.correspondenceBasis === "SOURCE_EXISTS"
                 )
         });
 
@@ -225,7 +311,7 @@ checks.push({
 
         checks.push({
             rule: "MWAL-R02-10",
-            name: "DISCOVERED must not automatically promote to VERIFIED",
+            name: "DISCOVERED does not automatically promote to VERIFIED",
             passed:
                 !(
                     envelope.discoveryState === "DISCOVERED" &&
@@ -235,7 +321,7 @@ checks.push({
 
         checks.push({
             rule: "MWAL-R02-11",
-            name: "UNVERIFIED must not automatically promote to VERIFIED",
+            name: "UNVERIFIED does not automatically promote to VERIFIED",
             passed:
                 !(
                     envelope.previousVerificationState === "UNVERIFIED" &&
@@ -245,7 +331,7 @@ checks.push({
 
         checks.push({
             rule: "MWAL-R02-12",
-            name: "VERIFIED must not automatically promote to SUPPORTED",
+            name: "VERIFIED does not automatically promote to SUPPORTED",
             passed:
                 envelope.verificationState !== "SUPPORTED" ||
                 hasSupportedBasis(envelope)
@@ -253,19 +339,17 @@ checks.push({
 
         checks.push({
             rule: "MWAL-R02-13",
-            name: "VERIFIED_BUT_NOT_LINKED must not automatically promote to SUPPORTED",
+            name: "VERIFIED_BUT_NOT_LINKED does not automatically promote to SUPPORTED",
             passed:
                 !(
-                    envelope.epistemicState ===
-                        "VERIFIED_BUT_NOT_LINKED" &&
-                    envelope.verificationState ===
-                        "SUPPORTED"
+                    envelope.epistemicState === "VERIFIED_BUT_NOT_LINKED" &&
+                    envelope.verificationState === "SUPPORTED"
                 )
         });
 
         checks.push({
             rule: "MWAL-R02-14",
-            name: "UNKNOWN must not become TRUE",
+            name: "UNKNOWN does not become TRUE",
             passed:
                 !(
                     envelope.verificationState === "UNKNOWN" &&
@@ -275,7 +359,7 @@ checks.push({
 
         checks.push({
             rule: "MWAL-R02-15",
-            name: "UNKNOWN must not become FALSE",
+            name: "UNKNOWN does not become FALSE",
             passed:
                 !(
                     envelope.verificationState === "UNKNOWN" &&
@@ -283,10 +367,9 @@ checks.push({
                 )
         });
 
-
         /*
          * =====================================================
-         * CORE-03 Epistemic / Responsibility Boundary
+         * CORE-03 — Epistemic / Responsibility Boundary
          * =====================================================
          */
 
@@ -298,12 +381,39 @@ checks.push({
         });
 
         checks.push({
+            rule: "MWAL-R03-02",
+            name: "Reasoning does not exceed established evidence boundary",
+            passed:
+                !(
+                    hasReasoning(envelope) &&
+                    reasoningExceedsEvidence(envelope)
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R03-03",
+            name: "Responsibility does not exceed reasoning support",
+            passed:
+                !(
+                    responsibilityExceedsReasoning(envelope)
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R03-04",
+            name: "Later stages do not introduce absent certainty",
+            passed:
+                !(
+                    laterStageIntroducesCertainty(envelope)
+                )
+        });
+
+        checks.push({
             rule: "MWAL-R03-05",
             name: "UNKNOWN remains valid",
             passed:
                 envelope.verificationState !== "UNKNOWN" ||
-                envelope.propagationState ===
-                    "REQUIRE_VERIFICATION"
+                envelope.propagationState === "REQUIRE_VERIFICATION"
         });
 
         checks.push({
@@ -318,17 +428,24 @@ checks.push({
 
         checks.push({
             rule: "MWAL-R03-07",
-            name: "Epistemic state remains explicit",
+            name: "Known, unknown, verified and unverified states remain distinguishable",
             passed:
-                typeof envelope.verificationState ===
-                    "string"
+                typeof envelope.verificationState === "string" &&
+                !(
+                    envelope.knownState === envelope.unknownState &&
+                    envelope.knownState !== undefined
+                )
         });
 
         checks.push({
             rule: "MWAL-R03-08",
-            name: "Correspondence boundary remains explicit",
+            name: "Correspondence and non-correspondence remain distinguishable",
             passed:
-                envelope.propagationState !== undefined
+                envelope.propagationState !== undefined &&
+                !(
+                    envelope.correspondence === true &&
+                    envelope.nonCorrespondence === true
+                )
         });
 
         checks.push({
@@ -339,49 +456,122 @@ checks.push({
                 typeof envelope.responsibility === "object"
         });
 
-
         /*
          * =====================================================
-         * CORE-04 Reconstruction / Generator Boundary
+         * CORE-04 — Responsibility-Bounded Reconstruction
          * =====================================================
          */
+
+        checks.push({
+            rule: "MWAL-R04-01",
+            name: "Reconstruction is not used as punishment or censorship",
+            passed:
+                !(
+                    envelope.reconstructionPurpose === "PUNISHMENT" ||
+                    envelope.reconstructionPurpose === "CENSORSHIP"
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R04-02",
+            name: "Reconstruction may preserve genuine expression intent",
+            passed:
+                !(
+                    envelope.reconstructionPreservesIntent === false &&
+                    envelope.reconstructionIntentRequired === true
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R04-03",
+            name: "Reconstruction preserves content within responsibility boundary",
+            passed:
+                !(
+                    envelope.reconstructionExceededResponsibility === true
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R04-04",
+            name: "Reconstruction may reduce unsupported certainty",
+            passed:
+                !(
+                    envelope.reconstructionIncreasedCertainty === true
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R04-05",
+            name: "Unknown portions may remain explicitly unknown",
+            passed:
+                !(
+                    envelope.unknownPortionsPreserved === false &&
+                    envelope.unknownPortionsPresent === true
+                )
+        });
 
         checks.push({
             rule: "MWAL-R04-06",
             name: "Reconstruction does not manufacture evidence",
             passed:
-                !(
-                    envelope.reconstructionManufacturedEvidence === true
-                )
+                envelope.reconstructionManufacturedEvidence !== true
         });
 
         checks.push({
             rule: "MWAL-R04-07",
             name: "Reconstruction does not manufacture knowledge",
             passed:
-                !(
-                    envelope.reconstructionManufacturedKnowledge === true
-                )
+                envelope.reconstructionManufacturedKnowledge !== true
         });
 
         checks.push({
             rule: "MWAL-R04-08",
             name: "Generator does not increase certainty",
             passed:
-                !(
-                    envelope.generatorIncreasedCertainty === true
-                )
+                envelope.generatorIncreasedCertainty !== true
         });
 
         checks.push({
             rule: "MWAL-R04-09",
             name: "Generator does not manufacture facts",
             passed:
+                envelope.generatorManufacturedFacts !== true
+        });
+
+        checks.push({
+            rule: "MWAL-R04-10",
+            name: "Automatic reconstruction stops when responsibility object or epistemic relationship changes",
+            passed:
                 !(
-                    envelope.generatorManufacturedFacts === true
+                    envelope.automaticReconstruction === true &&
+                    (
+                        envelope.reconstructionChangedResponsibilityObject === true ||
+                        envelope.reconstructionChangedFactualRelationship === true ||
+                        envelope.reconstructionChangedEvidenceRelationship === true ||
+                        envelope.reconstructionChangedEpistemicState === true
+                    )
                 )
         });
 
+        checks.push({
+            rule: "MWAL-R04-11",
+            name: "Unsafe automatic reconstruction returns UNKNOWN or UNRESOLVED",
+            passed:
+                !(
+                    envelope.automaticReconstructionUnsafe === true &&
+                    envelope.verificationState !== "UNKNOWN" &&
+                    envelope.resolutionState !== "UNRESOLVED"
+                )
+        });
+
+        checks.push({
+            rule: "MWAL-R04-12",
+            name: "Publication is not used to justify boundary violations",
+            passed:
+                !(
+                    envelope.publicationJustifiesBoundaryViolation === true
+                )
+        });
 
         /*
          * =====================================================
@@ -391,118 +581,104 @@ checks.push({
 
         const failedRules =
             checks.filter(
-                check =>
-                    check.passed !== true
+                check => check.passed !== true
             );
 
         return {
-
-            validator:
-                this.name,
-
-            validatorVersion:
-                this.version,
-
-            standard:
-                this.standard,
-
-            ruleInventory:
-                this.ruleInventory,
-
-            passed:
-                failedRules.length === 0,
-
+            validator: this.name,
+            validatorVersion: this.version,
+            standard: this.standard,
+            ruleInventory: this.ruleInventory,
+            passed: failedRules.length === 0,
             status:
                 failedRules.length === 0
                     ? "CONFORM"
                     : "NON_CONFORM",
-
-            totalRulesChecked:
-                checks.length,
-
+            totalRulesChecked: checks.length,
             passedRules:
                 checks.filter(
-                    check =>
-                        check.passed === true
+                    check => check.passed === true
                 ).length,
-
             failedRules,
-
             checks
-
         };
-
     }
-
 }
 
 
 /*
  * =============================================================
- * Independent Evidence Predicates
+ * Independent Predicates
  * =============================================================
- *
- * These predicates inspect observable envelope structure only.
- * They do not call Runtime Engines and do not infer truth.
  */
 
-function getResponsibility(
-    envelope
-) {
-
+function getResponsibility(envelope) {
     return (
         envelope?.responsibility &&
         typeof envelope.responsibility === "object"
             ? envelope.responsibility
             : null
     );
-
 }
 
-
-function getBasis(
-    envelope
-) {
-
-    return getResponsibility(
-        envelope
-    )?.basis || null;
-
+function getBasis(envelope) {
+    return getResponsibility(envelope)?.basis || null;
 }
 
-
-function getLimitations(
-    envelope
-) {
-
-    return getResponsibility(
-        envelope
-    )?.limitations || null;
-
+function getLimitations(envelope) {
+    return getResponsibility(envelope)?.limitations || null;
 }
 
+function hasEvidence(envelope) {
+    return (
+        Array.isArray(envelope?.evidence) &&
+        envelope.evidence.length > 0
+    );
+}
 
-function hasDefinition(
-    envelope
-) {
+function isHighCertainty(envelope) {
+    return (
+        envelope?.epistemicState === "CERTAIN" ||
+        envelope?.epistemicState === "TRUE" ||
+        envelope?.verificationState === "VERIFIED"
+    );
+}
 
-    const basis =
-        getBasis(envelope);
+function getLeakedRuntimeFields(envelope) {
+
+    const forbiddenRuntimeFields = [
+        "semanticObject",
+        "engineRegistry",
+        "engines",
+        "runtimeContext",
+        "metadata",
+        "trace",
+        "nextRuntimeState",
+        "runtimeTrace"
+    ];
+
+    return forbiddenRuntimeFields.filter(
+        field =>
+            Object.prototype.hasOwnProperty.call(
+                envelope,
+                field
+            )
+    );
+}
+
+function hasDefinition(envelope) {
+
+    const basis = getBasis(envelope);
 
     return Boolean(
         basis?.definition ||
         envelope.definition
     );
-
 }
 
+function hasIndependentEvidence(envelope) {
 
-function hasIndependentEvidence(
-    envelope
-) {
-
-    const basis =
-        getBasis(envelope);
+    const basis = getBasis(envelope);
 
     const verifiedEvidenceCount =
         Number(
@@ -522,16 +698,11 @@ function hasIndependentEvidence(
         verifiedEvidenceCount > 0 &&
         evidenceCount > 0
     );
-
 }
 
+function hasExplicitVerification(envelope) {
 
-function hasExplicitVerification(
-    envelope
-) {
-
-    const basis =
-        getBasis(envelope);
+    const basis = getBasis(envelope);
 
     const verificationStatus =
         basis?.verificationStatus ??
@@ -542,19 +713,12 @@ function hasExplicitVerification(
         verificationStatus === "VERIFIED" ||
         verificationStatus === "SUPPORTED"
     );
-
 }
 
+function hasExplicitCorrespondence(envelope) {
 
-function hasExplicitCorrespondence(
-    envelope
-) {
-
-    const responsibility =
-        getResponsibility(envelope);
-
-    const limitations =
-        getLimitations(envelope);
+    const responsibility = getResponsibility(envelope);
+    const limitations = getLimitations(envelope);
 
     const correspondence =
         envelope.correspondence ??
@@ -562,9 +726,7 @@ function hasExplicitCorrespondence(
         limitations?.correspondence ??
         null;
 
-    if (
-        correspondence === true
-    ) {
+    if (correspondence === true) {
         return true;
     }
 
@@ -580,98 +742,219 @@ function hasExplicitCorrespondence(
     }
 
     return false;
-
 }
 
-
-function hasSupportedBasis(
-    envelope
-) {
-
+function hasSupportedBasis(envelope) {
     return (
         hasDefinition(envelope) &&
         hasIndependentEvidence(envelope) &&
         hasExplicitVerification(envelope) &&
         hasExplicitCorrespondence(envelope)
     );
-
 }
 
+function responsibilityWithinEvidence(envelope) {
 
-function responsibilityWithinEvidence(
-    envelope
-) {
+    const responsibility = getResponsibility(envelope);
 
-    if (
-        envelope.responsibilityState !==
-            "ESTABLISHED"
-    ) {
+    if (!responsibility) {
         return true;
     }
 
-    const responsibility =
-        getResponsibility(envelope);
-
-    if (!responsibility) {
-        return false;
-    }
-
-    const basis =
-        responsibility.basis || {};
-
-    const verifiedEvidenceCount =
-        Number(
-            basis.verifiedEvidenceCount ??
-            0
-        );
+    const basis = getBasis(envelope);
 
     const evidenceCount =
         Number(
-            basis.evidenceCount ??
+            basis?.evidenceCount ??
+            envelope.evidenceCount ??
             0
         );
 
-    const supported =
-        basis.supported === true;
+    const verifiedEvidenceCount =
+        Number(
+            basis?.verifiedEvidenceCount ??
+            envelope.verifiedEvidenceCount ??
+            0
+        );
 
-    const epistemicState =
-        basis.epistemicState ??
-        envelope.verificationState;
-
-    const boundaryStatus =
-        responsibility.limitations
-            ?.responsibilityBoundary
-            ?.status;
+    const responsibilityEvidenceCount =
+        Number(
+            basis?.responsibilityEvidenceCount ??
+            responsibility?.evidenceCount ??
+            0
+        );
 
     if (
-        boundaryStatus === "exceeded"
+        responsibilityEvidenceCount > 0 &&
+        responsibilityEvidenceCount > evidenceCount
     ) {
         return false;
     }
 
     if (
-        verifiedEvidenceCount <= 0 ||
-        evidenceCount <= 0
+        responsibilityEvidenceCount > 0 &&
+        verifiedEvidenceCount > 0 &&
+        responsibilityEvidenceCount > verifiedEvidenceCount
     ) {
         return false;
     }
 
     if (
-        supported !== true
-    ) {
-        return false;
-    }
-
-    if (
-        epistemicState !== "SUPPORTED" &&
-        envelope.verificationState !== "SUPPORTED"
+        (
+            responsibility.state === "ESTABLISHED" ||
+            responsibility.state === "CERTAIN"
+        ) &&
+        evidenceCount === 0
     ) {
         return false;
     }
 
     return true;
-
 }
 
+function containsManufacturedEvidence(envelope) {
+
+    if (!Array.isArray(envelope?.evidence)) {
+        return false;
+    }
+
+    return envelope.evidence.some(
+        ev =>
+            ev?.manufactured === true ||
+            (
+                typeof ev?.snippet === "string" &&
+                ev.snippet.includes(
+                    "MANUFACTURED_PLACEHOLDER"
+                )
+            )
+    );
+}
+
+function containsManufacturedKnowledge(envelope) {
+
+    const text =
+        JSON.stringify(envelope);
+
+    return (
+        text.includes("SYNTHETIC_FABRICATION_MARKER") ||
+        envelope?.knowledgeManufactured === true
+    );
+}
+
+function sameSearchAndEvidence(
+    searchResults,
+    evidence
+) {
+
+    if (
+        searchResults.length !== evidence.length
+    ) {
+        return false;
+    }
+
+    return searchResults.every(
+        (search, index) =>
+            JSON.stringify(search) ===
+            JSON.stringify(evidence[index])
+    );
+}
+
+function hasReasoning(envelope) {
+
+    return (
+        envelope.reasoning !== undefined &&
+        envelope.reasoning !== null
+    );
+}
+
+function reasoningExceedsEvidence(envelope) {
+
+    if (envelope.reasoningExceedsEvidence === true) {
+        return true;
+    }
+
+    const basis = getBasis(envelope);
+
+    const evidenceCount =
+        Number(
+            basis?.evidenceCount ??
+            envelope.evidenceCount ??
+            0
+        );
+
+    const reasoningEvidenceCount =
+        Number(
+            envelope.reasoningEvidenceCount ??
+            basis?.reasoningEvidenceCount ??
+            0
+        );
+
+    return (
+        reasoningEvidenceCount > evidenceCount
+    );
+}
+
+function responsibilityExceedsReasoning(envelope) {
+
+    if (envelope.responsibilityExceedsReasoning === true) {
+        return true;
+    }
+
+    const basis = getBasis(envelope);
+
+    const reasoningSupport =
+        Number(
+            envelope.reasoningSupportCount ??
+            basis?.reasoningSupportCount ??
+            0
+        );
+
+    const responsibilitySupport =
+        Number(
+            envelope.responsibilitySupportCount ??
+            basis?.responsibilitySupportCount ??
+            0
+        );
+
+    return (
+        responsibilitySupport > 0 &&
+        reasoningSupport > 0 &&
+        responsibilitySupport > reasoningSupport
+    );
+}
+
+function laterStageIntroducesCertainty(envelope) {
+
+    if (
+        envelope.laterStageIntroducedCertainty === true
+    ) {
+        return true;
+    }
+
+    if (
+        envelope.generatorIncreasedCertainty === true
+    ) {
+        return true;
+    }
+
+    if (
+        envelope.reconstructionIncreasedCertainty === true
+    ) {
+        return true;
+    }
+
+    if (
+        envelope.previousVerificationState === "UNKNOWN" &&
+        (
+            envelope.verificationState === "VERIFIED" ||
+            envelope.verificationState === "SUPPORTED"
+        ) &&
+        envelope.explicitVerificationTransition !== true
+    ) {
+        return true;
+    }
+
+    return false;
+}
 
 export default MWALIndependentValidator;

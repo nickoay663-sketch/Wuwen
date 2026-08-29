@@ -36,3 +36,8 @@ console.log("【账本完整性校验】", integrity.valid ? `通过 (总记录�
 
 // 清理测试文件
 if (fs.existsSync(ledgerFile)) fs.unlinkSync(ledgerFile);
+
+// 模拟篡改第一条记录的负载
+ledger.records[0].payload = { hacked: true };
+console.log('=== 篡改后的完整性校验 ===');
+console.log('校验结果:', ledger.verifyIntegrity());
