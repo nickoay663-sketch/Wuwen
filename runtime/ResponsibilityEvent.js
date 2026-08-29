@@ -1,3 +1,5 @@
+﻿import WuwenResponsibilityIdentity from "./WuwenResponsibilityIdentity.js";
+
 class ResponsibilityEvent {
 
     constructor({
@@ -19,6 +21,7 @@ class ResponsibilityEvent {
     } = {}) {
 
         this.type = "ResponsibilityEvent";
+        this.responsibilityIdentity = WuwenResponsibilityIdentity;
         this.version = "1.2";
         this.createdAt = new Date().toISOString();
         this.source = source;
