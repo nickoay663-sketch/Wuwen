@@ -1,0 +1,24 @@
+{
+  "name": "wal-protocol",
+  "version": "1.0.0",
+  "description": "WAL Protocol — independent responsibility, evidence-bound verification and audit framework",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "wal-verify": "./bin/wal-verify.js"
+  },
+  "scripts": {
+    "test": "node ./tests/WAL.conformance.test.mjs",
+    "test:clean-room": "node ./tests/clean-room-conformance.test.mjs",
+    "test:attack": "node ./tests/WAL.independent-validator.attack.test.mjs"
+  },
+  "keywords": [
+    "WAL",
+    "accountability",
+    "verification",
+    "audit",
+    "AI",
+    "agents"
+  ],
+  "license": "MIT"
+}

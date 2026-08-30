@@ -6,7 +6,7 @@
 
 import fs from "fs";
 import path from "path";
-import WALIndependentValidator from "../protocol/WAL/validator/WALIndependentValidator.js";
+import WALIndependentValidator from "../validator/WALIndependentValidator.js";
 
 const args = process.argv.slice(2);
 

@@ -1,11 +1,18 @@
-import fs from "fs";
+﻿import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 import WALIndependentValidator from "../validator/WALIndependentValidator.js";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const envelopePath = path.resolve(
+    __dirname,
+    "../examples/conform/valid-envelope.json"
+);
+
 const envelope = JSON.parse(
-    fs.readFileSync(
-        "./protocol/WAL/examples/conform/valid-envelope.json",
-        "utf8"
-    )
+    fs.readFileSync(envelopePath, "utf8")
 );
 
 const validator = new WALIndependentValidator();
