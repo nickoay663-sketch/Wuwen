@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WALProtocolEnvelope",
+  "description": "Standardized execution envelope for WAL Protocol v1.0",
+  "type": "object",
+  "required": [
+    "eventId",
+    "expression",
+    "identity",
+    "timestamp",
+    "verificationState",
+    "responsibilityState",
+    "propagationState",
+    "runtimeVersion",
+    "contractVersion"
+  ],
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "description": "Unique identifier for the execution event."
+    },
+    "expression": {
+      "type": "string",
+      "description": "The expression or task content being evaluated."
+    },
+    "identity": {
+      "type": "string",
+      "description": "Participant identity signature."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date",
+      "description": "Execution timestamp."
+    },
+    "verificationState": {
+      "type": "string",
+      "description": "Current verification state."
+    },
+    "responsibilityState": {
+      "type": "string",
+      "description": "Current responsibility state."
+    },
+    "propagationState": {
+      "type": "string",
+      "description": "Propagation behavior state."
+    },
+    "runtimeVersion": {
+      "type": "string",
+      "description": "Runtime version identifier."
+    },
+    "contractVersion": {
+      "type": "string",
+      "description": "WAL contract version."
+    },
+    "engineRegistry": {
+      "type": "string",
+      "description": "Prohibited internal runtime field; triggers R04-01 failure if present."
+    },
+    "evidence": {
+      "type": "array",
+      "description": "Attached evidence items.",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}
