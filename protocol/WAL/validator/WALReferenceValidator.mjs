@@ -17,12 +17,17 @@ try {
         fs.readFileSync(inputPath, "utf8")
     );
 } catch (error) {
-    console.error(`Error parsing envelope JSON: ${error.message}`);
+    console.error(
+        `Error parsing envelope JSON: ${error.message}`
+    );
     process.exit(2);
 }
 
+const validator =
+    new WALIndependentValidator();
+
 const validation =
-    WALIndependentValidator.validate(envelope);
+    validator.validateEnvelope(envelope);
 
 console.log(
     JSON.stringify(
