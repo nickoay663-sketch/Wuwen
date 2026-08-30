@@ -28,6 +28,12 @@ const missingEventIdPath = path.join(
     "missing-eventId.json"
 );
 
+const externalLanguagePath = path.join(
+    walRoot,
+    "examples",
+    "external-language-envelope.json"
+);
+
 function readJson(filePath) {
     return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
@@ -80,8 +86,20 @@ assert(
     "Missing-eventId fixture must omit eventId."
 );
 
+const externalLanguageEnvelope = readJson(externalLanguagePath);
+
+const externalLanguageResult =
+    WALIndependentValidator.validate(externalLanguageEnvelope);
+
+assert(
+    externalLanguageResult.passed === true &&
+    externalLanguageResult.status === "CONFORM",
+    "External-language WAL envelope must be CONFORM."
+);
+
 console.log("WAL CLEAN-ROOM CONFORMANCE: PASS");
 console.log("Valid Envelope: CONFORM");
 console.log("Leaked Envelope: NON_CONFORM / R04-01");
 console.log("Schema Required Contract: PASS");
 console.log("External Fixture: missing-eventId / EXPECTED NON_CONFORM");
+console.log("External Language Envelope: CONFORM");

@@ -1,0 +1,11 @@
+{
+  "eventId": "powershell-clean-room-001",
+  "expression": "External language WAL producer test",
+  "identity": "external-language",
+  "timestamp": "2026-08-30",
+  "verificationState": "UNKNOWN",
+  "responsibilityState": "BOUNDED",
+  "propagationState": "NONE",
+  "runtimeVersion": "external-language",
+  "contractVersion": "WAL-1.0"
+}
