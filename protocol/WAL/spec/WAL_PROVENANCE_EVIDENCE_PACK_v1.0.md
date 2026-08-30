@@ -1,4 +1,4 @@
-ï»¿# WAL Provenance Evidence Pack v1.0
+# WAL Provenance Evidence Pack v1.0
 
 ## Purpose
 
@@ -22,11 +22,11 @@ It documents evidence produced by existing conformance and attack tests.
 
 ---
 
-## Evidence E01 â€” 54-Rule Conformance
+## Evidence E01 ¡ª 54-Rule Conformance
 
 Command:
 
-    node .\WAL.conformance.test.mjs
+    node .\protocol\WAL\tests\WAL.conformance.test.mjs
 
 Expected result:
 
@@ -43,11 +43,11 @@ the WAL Independent Validator.
 
 ---
 
-## Evidence E02 â€” Independent Validator Attack Test
+## Evidence E02 ¡ª Independent Validator Attack Test
 
 Command:
 
-    node .\WAL.independent-validator.attack.test.mjs
+    node .\protocol\WAL\tests\WAL.independent-validator.attack.test.mjs
 
 Expected result:
 
@@ -72,11 +72,11 @@ unsupported evidence, unsupported responsibility, or runtime leakage.
 
 ---
 
-## Evidence E03 â€” External Provenance Boundary Attack
+## Evidence E03 ¡ª External Provenance Boundary Attack
 
 Command:
 
-    node .\run-external-provenance-attack.mjs
+    node .\protocol\WAL\run-external-provenance-attack.mjs
 
 Expected result:
 
@@ -110,11 +110,11 @@ verification authority.
 
 ---
 
-## Evidence E04 â€” Reference Validator Positive Fixture
+## Evidence E04 ¡ª Reference Validator Positive Fixture
 
 Command:
 
-    node .\WALReferenceValidator.mjs .\reference-test-envelope.json
+    node .\protocol\WAL\validator\WALReferenceValidator.mjs .\protocol\WAL\wal-reference-test-envelope.json
 
 Expected result:
 
@@ -136,7 +136,7 @@ running HonestRuntime.
 
 ---
 
-## Evidence E05 â€” Reference Validator Tamper Detection
+## Evidence E05 ¡ª Reference Validator Tamper Detection
 
 Procedure:
 
@@ -150,17 +150,18 @@ to:
 
 Then run:
 
-    node .\WALReferenceValidator.mjs .\reference-test-envelope-tampered.json
+    node .\protocol\WAL\validator\WALReferenceValidator.mjs .\protocol\WAL\reference-test-envelope-tampered.json
 
-Expected result:
+Observed result:
 
     status: NON_CONFORM
     passed: false
-    failed rule:
+    totalRulesChecked: 54
+    passedRules: 53
+    failedRules:
+        WAL-R00-03
 
-    WAL-R00-03
-
-Expected exit code:
+Observed exit code:
 
     1
 
@@ -175,7 +176,7 @@ is rejected by the independent validator.
 
 The evidence above supports the following bounded conclusion:
 
-WAL v1.0 provides a independently executable validation boundary
+WAL v1.0 provides an independently executable validation boundary
 in which externally asserted verification, unsupported certainty,
 unsupported evidence promotion, unsupported responsibility, and
 runtime-internal leakage are rejected by the validator or blocked
