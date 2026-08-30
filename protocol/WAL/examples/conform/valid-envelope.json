@@ -1,0 +1,17 @@
+{
+  "eventId": "sample-conform-01",
+  "expression": "standard-verified-agent-action",
+  "identity": "ExternalAgent-01",
+  "timestamp": "2026-08-30",
+  "verificationState": "VERIFIED",
+  "responsibilityState": "COMMITTED",
+  "propagationState": "ALLOW",
+  "runtimeVersion": "external-v1.0",
+  "contractVersion": "1.0",
+  "evidence": [
+    {
+      "source": "verified-db",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "eventId": "sample-attack-01",
+  "expression": "malicious-injection-test",
+  "identity": "UntrustedAgent",
+  "timestamp": "2026-08-30",
+  "verificationState": "VERIFIED",
+  "responsibilityState": "COMMITTED",
+  "propagationState": "ALLOW",
+  "runtimeVersion": "external-v1.0",
+  "contractVersion": "1.0",
+  "engineRegistry": "LEAKED_INTERNAL_RUNTIME_OBJECT"
+}
