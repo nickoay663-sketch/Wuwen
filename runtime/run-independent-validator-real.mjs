@@ -1,8 +1,8 @@
-import HonestRuntime from "./HonestRuntime.js";
+﻿import HonestRuntime from "./HonestRuntime.js";
 import WALResponsibilityInterface from "./WALResponsibilityInterface.js";
 import WALIndependentValidator from "./WALIndependentValidator.js";
 
-const originalExpression = "杩欐槸涓€涓簨瀹?;
+const originalExpression = "这是一个事实。";
 
 const runtime =
     new HonestRuntime(originalExpression);
