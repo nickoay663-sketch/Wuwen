@@ -6,8 +6,8 @@ class ResponsibilityEngine extends EngineBase {
 
         super(
             "ResponsibilityEngine",
-            "10.7",
-            "莫问仅依据当前运行中实际提取、实际来源、实际验证并实际建立对应关系的证据计算责任能力，不信任上游声明的验证、支持或容量字段。"
+            "10.8",
+            "勿问仅依据当前运行中实际提取、实际来源、实际验证并实际建立对应关系的证据计算责任能力，不信任上游声明的验证、支持或容量字段。"
         );
 
         this.semanticObject =
@@ -151,12 +151,12 @@ principle:
                 this.semanticObject.contract
                     ?.identity
                     ?.runtimeVersion ||
-                "10.7",
+                "10.8",
 
             contractVersion:
                 this.semanticObject.contract
                     ?.version ||
-                "10.7",
+                "10.8",
 
             engineCount:
                 this.semanticObject.engineRegistry?.list?.().length ||
@@ -335,7 +335,7 @@ principle:
                     provenance: {
 
                         provider:
-                            "MoWen.ResponsibilityEngine",
+                            "Wuwen.ResponsibilityEngine",
 
                         version:
                             "1.0"

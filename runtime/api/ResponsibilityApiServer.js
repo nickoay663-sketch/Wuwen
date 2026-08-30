@@ -1,6 +1,6 @@
-﻿import http from "node:http";
+import http from "node:http";
 
-import MoWenRuntime from "../index.js";
+import WuwenRuntime from "../index.js";
 
 
 const HOST =
@@ -8,7 +8,7 @@ const HOST =
 
 const PORT =
     Number(
-        process.env.MOWEN_API_PORT ||
+        process.env.Wuwen_API_PORT ||
         8787
     );
 
@@ -144,7 +144,7 @@ async function handleCheck(
     try {
 
         const runtime =
-            new MoWenRuntime(
+            new WuwenRuntime(
                 expression
             );
 
@@ -249,7 +249,7 @@ const server =
                             "ok",
 
                         service:
-                            "mowen-responsibility-runtime"
+                            "Wuwen-responsibility-runtime"
                     }
                 );
 
@@ -277,7 +277,7 @@ server.listen(
     () => {
 
         console.log(
-            `MoWen Responsibility API listening on http://${HOST}:${PORT}`
+            `Wuwen Responsibility API listening on http://${HOST}:${PORT}`
         );
 
         console.log(

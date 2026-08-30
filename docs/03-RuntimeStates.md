@@ -1,6 +1,6 @@
-# MoWen Runtime States v3.0
+# Wuwen Runtime States v3.0
 
-# 莫问运行状态 v3.0
+# 勿问运行状态 v3.0
 
 ---
 
@@ -48,13 +48,13 @@ The responsibility chain cannot continue.
 
 Runtime pauses.
 
-MoWen requests additional definition, evidence or correspondence.
+Wuwen requests additional definition, evidence or correspondence.
 
 责任链无法继续。
 
 运行暂停。
 
-莫问请求补充：
+勿问请求补充：
 
 - 定义
 - 证据

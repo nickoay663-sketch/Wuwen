@@ -1,4 +1,4 @@
-﻿import ExternalSearchAdapter from "./ExternalSearchAdapter.js";
+import ExternalSearchAdapter from "./ExternalSearchAdapter.js";
 import CapabilityContract from "./CapabilityContract.js";
 import CapabilityAdmission from "./CapabilityAdmission.js";
 
@@ -93,7 +93,7 @@ class ExternalSourceConnector {
                     "ExternalSourceConnector",
 
                 version:
-                    "10.7",
+                    "10.8",
 
                 principle:
                     "Connector 尊重 Adapter 已完成的 Capability Admission，不得将 REJECT 重新提升为 PASS。",
@@ -231,7 +231,7 @@ class ExternalSourceConnector {
                     "ExternalSourceConnector",
 
                 version:
-                    "10.7",
+                    "10.8",
 
                 principle:
                     "外部能力必须由 Adapter 产生合法 CapabilityContract，并经过 Capability Admission 与 Provenance 校验。Connector 不伪造 Capability。",
@@ -348,7 +348,7 @@ class ExternalSourceConnector {
                     "ExternalSourceConnector",
 
                 version:
-                    "10.7",
+                    "10.8",
 
                 principle:
                     "外部能力必须通过 Capability Admission 与 Adapter Provenance 双重边界才能进入 Runtime。Capability 不产生证据、验证或结论。",
@@ -464,10 +464,10 @@ class ExternalSourceConnector {
                 "ExternalSourceConnector",
 
             version:
-                "10.7",
+                "10.8",
 
             principle:
-                "莫问连接外部来源，但不把来源内容直接视为证据。Capability PASS 不等于来源存在，更不等于事实已验证。",
+                "勿问连接外部来源，但不把来源内容直接视为证据。Capability PASS 不等于来源存在，更不等于事实已验证。",
 
             status:
                 sources.length > 0
@@ -704,4 +704,3 @@ class ExternalSourceConnector {
 
 
 export default ExternalSourceConnector;
-

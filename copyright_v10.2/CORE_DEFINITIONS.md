@@ -1,12 +1,12 @@
-MoWen Core Definitions v2.0
+Wuwen Core Definitions v2.0
 
-莫问核心定义 v2.0
+勿问核心定义 v2.0
 
 Purpose
 
-Core Definitions establish the common foundation of MoWen.
+Core Definitions establish the common foundation of Wuwen.
 
-核心定义建立莫问共同遵循的基础。
+核心定义建立勿问共同遵循的基础。
 
 Core Definitions do not replace individual concept definitions.
 
@@ -90,9 +90,9 @@ Runtime documents shall reference these definitions rather than redefine them.
 
 Core Rule
 
-Core Definitions provide the common foundation of MoWen.
+Core Definitions provide the common foundation of Wuwen.
 
-核心定义提供莫问共同遵循的基础。
+核心定义提供勿问共同遵循的基础。
 
 Every future document shall remain consistent with Core Definitions.
 

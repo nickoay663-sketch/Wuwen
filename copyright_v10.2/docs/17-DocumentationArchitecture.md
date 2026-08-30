@@ -1,15 +1,15 @@
-# MoWen Documentation Architecture v4.0
-# 莫问文档架构 v4.0
+# Wuwen Documentation Architecture v4.0
+# 勿问文档架构 v4.0
 
 # Purpose
 
-Documentation Architecture defines how all MoWen documents are organized, maintained and evolved.
+Documentation Architecture defines how all Wuwen documents are organized, maintained and evolved.
 
 Documents are part of Honest Runtime.
 
 Therefore every document shall follow Honest Runtime Principles.
 
-文档架构规定莫问全部文档如何组织、维护与演进。
+文档架构规定勿问全部文档如何组织、维护与演进。
 
 文档属于诚实运行的一部分。
 
@@ -71,9 +71,9 @@ One Version
 
 ## Constitution
 
-Defines the highest principles of MoWen.
+Defines the highest principles of Wuwen.
 
-定义莫问最高原则。
+定义勿问最高原则。
 
 ## Runtime
 

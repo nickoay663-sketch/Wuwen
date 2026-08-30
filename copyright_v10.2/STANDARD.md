@@ -1,4 +1,4 @@
-# MoWen Standard
+# Wuwen Standard
 
 Version: 1.1
 
@@ -8,11 +8,11 @@ Version: 1.1
 
 Every testimony must be preserved exactly as provided.
 
-MoWen never rewrites testimony before Runtime execution.
+Wuwen never rewrites testimony before Runtime execution.
 
 每一份证词必须保持提供时的完整形式。
 
-莫问在运行前不会修改证词。
+勿问在运行前不会修改证词。
 
 ---
 
@@ -40,9 +40,9 @@ Definitions must be traceable.
 
 Every correspondence must be based on verifiable relationships.
 
-Correspondence is the core of MoWen Runtime.
+Correspondence is the core of Wuwen Runtime.
 
-对应，是莫问运行的核心。
+对应，是勿问运行的核心。
 
 ---
 
@@ -52,7 +52,7 @@ Every conclusion must correspond to evidence.
 
 Unsupported conclusions are not Runtime results.
 
-没有证据支持的结论，不属于莫问运行结果。
+没有证据支持的结论，不属于勿问运行结果。
 
 ---
 
@@ -70,7 +70,7 @@ Every reasoning process must come from previous testimony and correspondence.
 
 Every responsibility belongs to the testimony provider.
 
-MoWen examines testimony but never assumes responsibility for it.
+Wuwen examines testimony but never assumes responsibility for it.
 
 责任属于证词提供者。
 
@@ -88,7 +88,7 @@ The same testimony under the same Runtime should produce consistent results.
 
 Every Runtime question must come directly from the Runtime process.
 
-MoWen never invents questions.
+Wuwen never invents questions.
 
 ---
 
@@ -96,4 +96,4 @@ MoWen never invents questions.
 
 Every Runtime execution must remain honest.
 
-Honesty is the permanent standard of MoWen.
+Honesty is the permanent standard of Wuwen.

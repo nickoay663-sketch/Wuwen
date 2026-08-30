@@ -1,8 +1,8 @@
-# MoWen
+# Wuwen
 
-MoWen is an Expression Quality Control System.
+Wuwen is an Expression Quality Control System.
 
-莫问，只是诚实运行。
+勿问，只是诚实运行。
 
 欢迎回来。
 
@@ -12,13 +12,13 @@ MoWen is an Expression Quality Control System.
 
 ## About
 
-MoWen does not replace human judgment.
+Wuwen does not replace human judgment.
 
-MoWen examines whether an expression can bear responsibility.
+Wuwen examines whether an expression can bear responsibility.
 
-莫问不代替人的判断。
+勿问不代替人的判断。
 
-莫问检查表达是否能够承担责任。
+勿问检查表达是否能够承担责任。
 
 ## Documents
 

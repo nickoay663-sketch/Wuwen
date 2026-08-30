@@ -1,4 +1,4 @@
-# MoWen Definitions
+# Wuwen Definitions
 
 Version
 
@@ -6,7 +6,7 @@ Version
 
 ## Purpose
 
-The MoWen Definition Library stores reviewed definitions used during Runtime execution.
+The Wuwen Definition Library stores reviewed definitions used during Runtime execution.
 
 Definitions are not opinions.
 
@@ -76,11 +76,11 @@ Approved
 
 ## Library
 
-The Definition Library contains concepts that have passed review and are available for MoWen Runtime.
+The Definition Library contains concepts that have passed review and are available for Wuwen Runtime.
 
 ---
 
-# 莫问定义库
+# 勿问定义库
 
 版本
 
@@ -88,7 +88,7 @@ The Definition Library contains concepts that have passed review and are availab
 
 ## 目的
 
-莫问定义库用于保存经过审核、可用于 Runtime 运行的定义。
+勿问定义库用于保存经过审核、可用于 Runtime 运行的定义。
 
 定义不是观点。
 
@@ -162,4 +162,4 @@ The Definition Library contains concepts that have passed review and are availab
 
 定义库保存已经通过审核，
 
-并可供莫问 Runtime 使用的概念定义。
+并可供勿问 Runtime 使用的概念定义。

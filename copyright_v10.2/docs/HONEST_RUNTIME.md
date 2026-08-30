@@ -1,4 +1,4 @@
-MoWen Honest Runtime v3.0
+Wuwen Honest Runtime v3.0
 
 Status
 
@@ -6,7 +6,7 @@ Architecture Frozen
 
 Purpose
 
-Honest Runtime is the only runtime orchestrator of MoWen.
+Honest Runtime is the only runtime orchestrator of Wuwen.
 
 It does not define.
 

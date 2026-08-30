@@ -1,6 +1,6 @@
 # Evidence System v1.1
 
-# 莫问证据系统 v1.1
+# 勿问证据系统 v1.1
 
 
 ## Purpose

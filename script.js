@@ -1,4 +1,4 @@
-﻿async function verifyLanguage() {
+async function verifyLanguage() {
 
     const input =
         document.getElementById("inputText");
@@ -12,7 +12,7 @@
     if (!text) {
 
         resultBox.innerHTML = `
-            <h3>莫问</h3>
+            <h3>勿问</h3>
             <p>欢迎回来。</p>
             <p>回到诚实。</p>
             <p>文明开始的地方。</p>
@@ -22,7 +22,7 @@
     }
 
     resultBox.innerHTML = `
-        <h3>莫问</h3>
+        <h3>勿问</h3>
         <p><strong>正在诚实运行……</strong></p>
     `;
 
@@ -105,7 +105,7 @@
 
         resultBox.innerHTML = `
 
-            <h3>莫问</h3>
+            <h3>勿问</h3>
 
             <p>
                 <strong>
@@ -154,7 +154,7 @@
 
             <p>
                 <strong>
-                    莫问只是诚实运行，没有别的。
+                    勿问只是诚实运行，没有别的。
                 </strong>
             </p>
 
@@ -164,7 +164,7 @@
 
         resultBox.innerHTML = `
 
-            <h3>莫问</h3>
+            <h3>勿问</h3>
 
             <p>
                 <strong>

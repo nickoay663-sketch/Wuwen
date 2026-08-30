@@ -1,4 +1,4 @@
-import LanguageAdapter from "./LanguageAdapter.js";
+﻿import LanguageAdapter from "./LanguageAdapter.js";
 import RecognitionEngine from "./RecognitionEngine.js";
 import DefinitionEngine from "./DefinitionEngine.js";
 import SearchEngine from "./SearchEngine.js";
@@ -11,7 +11,7 @@ import ResponsibilityEvent from "./ResponsibilityEvent.js";
 import ReconstructionEngine from "./ReconstructionEngine.js";
 import GeneratorEngine from "./GeneratorEngine.js";
 import SelfCheckEngine from "./SelfCheckEngine.js";
-import MoWenIdentity from "./MoWenIdentity.js";
+import WuwenIdentity from "./WuwenIdentity.js";
 import RuntimeContract from "./RuntimeContract.js";
 import EngineRegistry from "./EngineRegistry.js";
 import RuntimeResult from "./RuntimeResult.js";
@@ -44,7 +44,7 @@ class HonestRuntime {
 
         if (governanceResult.passed !== true) {
             throw new Error(
-                `MoWen Core Governance failed: ${JSON.stringify(
+                `Wuwen Core Governance failed: ${JSON.stringify(
                     governanceResult
                 )}`
             );
@@ -56,13 +56,13 @@ class HonestRuntime {
          * ---------------------------------------------------------
          * Shared execution result object
          *
-         * 所有 Engine 共用同一个 executionResults。
+         * 鎵€鏈?Engine 鍏辩敤鍚屼竴涓?executionResults銆?
          *
-         * SelfCheck 执行前：
-         *   executionResults = 前 9 个 Engine 的结果
+         * SelfCheck 鎵ц鍓嶏細
+         *   executionResults = 鍓?9 涓?Engine 鐨勭粨鏋?
          *
-         * SelfCheck 执行完成后：
-         *   executionResults = 全部 10 个 Engine 的结果
+         * SelfCheck 鎵ц瀹屾垚鍚庯細
+         *   executionResults = 鍏ㄩ儴 10 涓?Engine 鐨勭粨鏋?
          * ---------------------------------------------------------
          */
 
@@ -91,7 +91,7 @@ class HonestRuntime {
         ];
 
         const identity =
-            new MoWenIdentity().run();
+            new WuwenIdentity().run();
 
         const testimony =
             new TestimonyBuilder(
@@ -132,15 +132,15 @@ class HonestRuntime {
          * Runtime Verification Authority
          * ---------------------------------------------------------
          *
-         * Authority 只能由 HonestRuntime 创建。
+         * Authority 鍙兘鐢?HonestRuntime 鍒涘缓銆?
          *
-         * RuntimeVerificationEngine：
-         *   - 不能自己创建 Authority
-         *   - 不能从 runtimeContext 读取伪造 Authority
-         *   - 不能接受普通对象冒充 Authority
+         * RuntimeVerificationEngine锛?
+         *   - 涓嶈兘鑷繁鍒涘缓 Authority
+         *   - 涓嶈兘浠?runtimeContext 璇诲彇浼€?Authority
+         *   - 涓嶈兘鎺ュ彈鏅€氬璞″啋鍏?Authority
          *
-         * 只有此处创建的 opaque authority token
-         * 才能允许 Runtime Verification 产生 VERIFIED。
+         * 鍙湁姝ゅ鍒涘缓鐨?opaque authority token
+         * 鎵嶈兘鍏佽 Runtime Verification 浜х敓 VERIFIED銆?
          * ---------------------------------------------------------
          */
 
@@ -249,18 +249,18 @@ class HonestRuntime {
              * Runtime Lifecycle
              *
              * RuntimeExecuting:
-             *   Runtime 正在执行。
+             *   Runtime 姝ｅ湪鎵ц銆?
              *
              * RuntimeAborted:
-             *   最终关闭条件未满足，Runtime 被阻止返回。
+             *   鏈€缁堝叧闂潯浠舵湭婊¤冻锛孯untime 琚樆姝㈣繑鍥炪€?
              *
              * RuntimeClosed:
-             *   所有最终关闭条件均满足。
+             *   鎵€鏈夋渶缁堝叧闂潯浠跺潎婊¤冻銆?
              *
              * IMPORTANT:
              *
-             * RuntimeClosed 只能在最终 Closure Gate
-             * 通过之后写入。
+             * RuntimeClosed 鍙兘鍦ㄦ渶缁?Closure Gate
+             * 閫氳繃涔嬪悗鍐欏叆銆?
              * -----------------------------------------------------
              */
             runtimeState:
@@ -610,7 +610,7 @@ class HonestRuntime {
         ) {
 
             throw new Error(
-                `MoWen EngineRegistry pre-execution mismatch: expected ${pipeline.length}, got ${preExecutionRegistry.length}`
+                `Wuwen EngineRegistry pre-execution mismatch: expected ${pipeline.length}, got ${preExecutionRegistry.length}`
             );
 
         }
@@ -959,7 +959,7 @@ class HonestRuntime {
          * ---------------------------------------------------------
          * SelfCheck
          *
-         * 此时：
+         * 姝ゆ椂锛?
          *
          * Registry:
          *   10 registered
@@ -970,7 +970,7 @@ class HonestRuntime {
          * selfCheck:
          *   pending
          *
-         * 这是合法的 SelfCheck 生命周期状态。
+         * 杩欐槸鍚堟硶鐨?SelfCheck 鐢熷懡鍛ㄦ湡鐘舵€併€?
          * ---------------------------------------------------------
          */
 
@@ -1021,20 +1021,20 @@ class HonestRuntime {
          * SelfCheck Lifecycle Closure
          * ---------------------------------------------------------
          *
-         * executeEngine() 已经完成：
+         * executeEngine() 宸茬粡瀹屾垚锛?
          *
          * executionResults.selfCheck = selfCheck
          *
-         * 因此此处只允许宣布：
+         * 鍥犳姝ゅ鍙厑璁稿甯冿細
          *
          * 10 / 10 execution-completed
          *
-         * 注意：
+         * 娉ㄦ剰锛?
          *
          * executionComplete != RuntimeClosed
          *
-         * Engine 全部执行完成只是进入最终 Closure Gate，
-         * 不能提前宣布 RuntimeClosed。
+         * Engine 鍏ㄩ儴鎵ц瀹屾垚鍙槸杩涘叆鏈€缁?Closure Gate锛?
+         * 涓嶈兘鎻愬墠瀹ｅ竷 RuntimeClosed銆?
          * ---------------------------------------------------------
          */
 
@@ -1100,7 +1100,7 @@ class HonestRuntime {
             });
 
             throw new Error(
-                `MoWen Runtime execution lifecycle failed: ${JSON.stringify(
+                `Wuwen Runtime execution lifecycle failed: ${JSON.stringify(
                     {
                         expectedCount:
                             pipeline.length,
@@ -1126,10 +1126,10 @@ class HonestRuntime {
          * ---------------------------------------------------------
          * Registry validation
          *
-         * 注意：
+         * 娉ㄦ剰锛?
          *
-         * 此处仍然不能写 RuntimeClosed。
-         * Registry 必须先验证。
+         * 姝ゅ浠嶇劧涓嶈兘鍐?RuntimeClosed銆?
+         * Registry 蹇呴』鍏堥獙璇併€?
          * ---------------------------------------------------------
          */
 
@@ -1207,7 +1207,7 @@ class HonestRuntime {
             });
 
             throw new Error(
-                `MoWen EngineRegistry integrity failed: ${JSON.stringify(
+                `Wuwen EngineRegistry integrity failed: ${JSON.stringify(
                     {
                         pipeline,
                         registryState,
@@ -1230,9 +1230,9 @@ class HonestRuntime {
          * ---------------------------------------------------------
          * IMPORTANT:
          *
-         * 到这里仍然是 RuntimeExecuting。
+         * 鍒拌繖閲屼粛鐒舵槸 RuntimeExecuting銆?
          *
-         * SelfCheck 必须继续参与最终 Closure Gate。
+         * SelfCheck 蹇呴』缁х画鍙備笌鏈€缁?Closure Gate銆?
          * ---------------------------------------------------------
          */
 
@@ -1320,7 +1320,7 @@ class HonestRuntime {
 
         /*
          * ---------------------------------------------------------
-         * MWAL ResponsibilityEvent
+         * WAL ResponsibilityEvent
          * ---------------------------------------------------------
          */
 
@@ -1355,7 +1355,7 @@ class HonestRuntime {
                     RuntimeContract.version,
 
                 source:
-                    "MoWen Runtime"
+                    "Wuwen Runtime"
 
             });
 
@@ -1389,7 +1389,7 @@ class HonestRuntime {
             });
 
             throw new Error(
-                `MoWen ResponsibilityEvent validation failed: ${JSON.stringify(
+                `Wuwen ResponsibilityEvent validation failed: ${JSON.stringify(
                     responsibilityEventValidation
                 )}`
             );
@@ -1412,9 +1412,9 @@ class HonestRuntime {
          * ---------------------------------------------------------
          * FINAL Runtime Metadata
          *
-         * 此时仍不能假设 RuntimeClosed。
-         * 先记录 RuntimeExecuting。
-         * 最终 Closure Gate 通过后再覆盖为 RuntimeClosed。
+         * 姝ゆ椂浠嶄笉鑳藉亣璁?RuntimeClosed銆?
+         * 鍏堣褰?RuntimeExecuting銆?
+         * 鏈€缁?Closure Gate 閫氳繃鍚庡啀瑕嗙洊涓?RuntimeClosed銆?
          * ---------------------------------------------------------
          */
 
@@ -1485,23 +1485,23 @@ class HonestRuntime {
          * FINAL Runtime Closure Assertion
          * ---------------------------------------------------------
          *
-         * Runtime 只有同时满足：
+         * Runtime 鍙湁鍚屾椂婊¤冻锛?
          *
          * 1. Registry 10/10
          * 2. Execution 10/10
          * 3. SelfCheck passed
          *
-         * 才允许写入：
+         * 鎵嶅厑璁稿啓鍏ワ細
          *
          *   RuntimeClosed
          *
-         * 这是最终 Closure Gate。
+         * 杩欐槸鏈€缁?Closure Gate銆?
          *
          * IMPORTANT:
          *
-         * runtimeState 不再作为 Gate 的输入条件。
-         * 因为 RuntimeClosed 是 Gate 的输出事实，
-         * 不能要求“已经 Closed”才能证明“可以 Closed”。
+         * runtimeState 涓嶅啀浣滀负 Gate 鐨勮緭鍏ユ潯浠躲€?
+         * 鍥犱负 RuntimeClosed 鏄?Gate 鐨勮緭鍑轰簨瀹烇紝
+         * 涓嶈兘瑕佹眰鈥滃凡缁?Closed鈥濇墠鑳借瘉鏄庘€滃彲浠?Closed鈥濄€?
          * ---------------------------------------------------------
          */
 
@@ -1579,7 +1579,7 @@ class HonestRuntime {
             });
 
             throw new Error(
-                `MoWen Runtime closure failed: ${JSON.stringify(
+                `Wuwen Runtime closure failed: ${JSON.stringify(
                     {
                         registryCount:
                             registryState.length,
@@ -1668,16 +1668,16 @@ class HonestRuntime {
          * ---------------------------------------------------------
          * FINAL RUNTIME CLOSURE
          *
-         * Closure Gate 必须先通过。
+         * Closure Gate 蹇呴』鍏堥€氳繃銆?
          *
-         * 只有在以下条件全部成立后：
+         * 鍙湁鍦ㄤ互涓嬫潯浠跺叏閮ㄦ垚绔嬪悗锛?
          *
-         *   Registry 完整
-         *   Execution 全部完成
+         *   Registry 瀹屾暣
+         *   Execution 鍏ㄩ儴瀹屾垚
          *   Execution Pending = 0
          *   SelfCheck = passed
          *
-         * 才允许写入：
+         * 鎵嶅厑璁稿啓鍏ワ細
          *
          *   RuntimeClosed
          *
@@ -1694,12 +1694,12 @@ class HonestRuntime {
          * ---------------------------------------------------------
          * Final closure invariant
          *
-         * 这里验证“是否具备关闭资格”。
+         * 杩欓噷楠岃瘉鈥滄槸鍚﹀叿澶囧叧闂祫鏍尖€濄€?
          *
-         * 此时 RuntimeState 仍然不能作为判断条件，
-         * 因为 RuntimeClosed 尚未写入。
+         * 姝ゆ椂 RuntimeState 浠嶇劧涓嶈兘浣滀负鍒ゆ柇鏉′欢锛?
+         * 鍥犱负 RuntimeClosed 灏氭湭鍐欏叆銆?
          *
-         * 先检验，再写入。
+         * 鍏堟楠岋紝鍐嶅啓鍏ャ€?
          * ---------------------------------------------------------
          */
 
@@ -1730,7 +1730,7 @@ class HonestRuntime {
             });
 
             throw new Error(
-                `MoWen Runtime closure invariant failed: ${JSON.stringify(
+                `Wuwen Runtime closure invariant failed: ${JSON.stringify(
                     {
                         registryCount:
                             registryState.length,
@@ -1759,9 +1759,9 @@ class HonestRuntime {
          * ---------------------------------------------------------
          * ONLY NOW:
          *
-         * Closure Gate 已经通过。
+         * Closure Gate 宸茬粡閫氳繃銆?
          *
-         * 才正式写入 RuntimeClosed。
+         * 鎵嶆寮忓啓鍏?RuntimeClosed銆?
          * ---------------------------------------------------------
          */
 

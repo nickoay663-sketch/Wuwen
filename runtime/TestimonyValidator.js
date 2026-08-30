@@ -1,4 +1,4 @@
-﻿class TestimonyValidator {
+class TestimonyValidator {
     constructor(snapshot) {
         if (typeof snapshot === "string") {
             try {

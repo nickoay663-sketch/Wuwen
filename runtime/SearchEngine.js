@@ -1,4 +1,4 @@
-﻿import EngineBase from "./EngineBase.js";
+import EngineBase from "./EngineBase.js";
 import ExternalSourceConnector from "./ExternalSourceConnector.js";
 
 class SearchEngine extends EngineBase {
@@ -8,7 +8,7 @@ class SearchEngine extends EngineBase {
         super(
             "SearchEngine",
             "15.1",
-            "莫问搜索运行所需的信息来源。搜索可以扩大所见，但不能扩大所证。外部能力必须经过 Capability Admission。运行时提供的搜索结果必须进入统一发现链，但不得因此自动获得验证资格。"
+            "勿问搜索运行所需的信息来源。搜索可以扩大所见，但不能扩大所证。外部能力必须经过 Capability Admission。运行时提供的搜索结果必须进入统一发现链，但不得因此自动获得验证资格。"
         );
 
         this.semanticObject =

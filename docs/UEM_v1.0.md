@@ -1,4 +1,4 @@
-# MoWen Universal Expression Model (UEM) v1.0
+# Wuwen Universal Expression Model (UEM) v1.0
 
 ## 1. Definition
 

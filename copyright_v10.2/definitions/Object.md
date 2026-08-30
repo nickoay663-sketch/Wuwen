@@ -14,7 +14,7 @@ Objects are the starting point of Runtime recognition.
 
 Runtime Meaning
 
-MoWen identifies objects before interpreting testimony.
+Wuwen identifies objects before interpreting testimony.
 
 Without identifiable objects,
 
@@ -34,7 +34,7 @@ Responsibility
 
 The testimony provider bears responsibility for referring to the object correctly.
 
-MoWen bears responsibility only for recognizing objects consistently.
+Wuwen bears responsibility only for recognizing objects consistently.
 
 Runtime Principle
 
@@ -68,11 +68,11 @@ Correspondence
 
 对象可以是人、事、物、组织、地点、事件或概念。
 
-对象是莫问运行识别阶段的起点。
+对象是勿问运行识别阶段的起点。
 
 运行意义
 
-莫问首先识别对象，再解释证词。
+勿问首先识别对象，再解释证词。
 
 如果无法识别对象，
 
@@ -92,7 +92,7 @@ Correspondence
 
 证词提供者应当正确指称对象。
 
-莫问只对一致地识别对象负责。
+勿问只对一致地识别对象负责。
 
 运行原则
 

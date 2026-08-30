@@ -1,5 +1,5 @@
-# MoWen User Runtime Interaction v1.0
-# 莫问用户运行交互 v1.0
+# Wuwen User Runtime Interaction v1.0
+# 勿问用户运行交互 v1.0
 
 ## Purpose
 

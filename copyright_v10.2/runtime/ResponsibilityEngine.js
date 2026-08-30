@@ -7,7 +7,7 @@ class ResponsibilityEngine extends EngineBase {
         super(
             "ResponsibilityEngine",
             "8.0",
-        "MoWen responsibility boundary"
+        "Wuwen responsibility boundary"
         );
 
         this.semanticObject =

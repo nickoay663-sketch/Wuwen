@@ -1,8 +1,8 @@
-# MoWen Design Philosophy
+# Wuwen Design Philosophy
 
-## Why MoWen Exists
+## Why Wuwen Exists
 
-MoWen exists to reduce unsupported statements.
+Wuwen exists to reduce unsupported statements.
 
 It does not exist to produce more answers.
 
@@ -44,15 +44,15 @@ a conclusion should not be presented as established.
 
 ## Why Self Restraint
 
-MoWen restrains itself before restraining others.
+Wuwen restrains itself before restraining others.
 
 When verification is insufficient,
 
-MoWen stops instead of pretending to know.
+Wuwen stops instead of pretending to know.
 
 When verification becomes possible,
 
-MoWen presents its evidence and reasoning transparently.
+Wuwen presents its evidence and reasoning transparently.
 
 ---
 
@@ -60,7 +60,7 @@ MoWen presents its evidence and reasoning transparently.
 
 Every testimony belongs to its provider.
 
-Every runtime belongs to MoWen.
+Every runtime belongs to Wuwen.
 
 Every conclusion must be traceable.
 
@@ -72,19 +72,19 @@ Every output must bear its own responsibility.
 
 Civilization begins when expression becomes responsible.
 
-MoWen protects the place where civilization begins.
+Wuwen protects the place where civilization begins.
 
 ---
 
-# 莫问设计哲学
+# 勿问设计哲学
 
-## 为什么有莫问
+## 为什么有勿问
 
-莫问存在的意义，是尽量减少没有依据的表达。
+勿问存在的意义，是尽量减少没有依据的表达。
 
-莫问不是为了产生更多答案。
+勿问不是为了产生更多答案。
 
-莫问不是为了代替人思考。
+勿问不是为了代替人思考。
 
 ---
 
@@ -122,15 +122,15 @@ MoWen protects the place where civilization begins.
 
 ## 为什么首先约束自己
 
-莫问首先约束自己，而不是首先约束别人。
+勿问首先约束自己，而不是首先约束别人。
 
 当验证不足时，
 
-莫问停止运行，而不是假装知道。
+勿问停止运行，而不是假装知道。
 
 当能够验证时，
 
-莫问清楚展示依据与推理过程。
+勿问清楚展示依据与推理过程。
 
 ---
 
@@ -138,7 +138,7 @@ MoWen protects the place where civilization begins.
 
 证词属于证词提供者。
 
-运行属于莫问。
+运行属于勿问。
 
 每一个结论都必须能够追溯。
 
@@ -150,4 +150,4 @@ MoWen protects the place where civilization begins.
 
 文明开始于能够承担责任的表达。
 
-莫问守护文明开始的地方。
+勿问守护文明开始的地方。

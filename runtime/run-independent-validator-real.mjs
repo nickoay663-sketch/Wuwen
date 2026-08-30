@@ -1,8 +1,8 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
-import MWALResponsibilityInterface from "./MWALResponsibilityInterface.js";
-import MWALIndependentValidator from "./MWALIndependentValidator.js";
+import HonestRuntime from "./HonestRuntime.js";
+import WALResponsibilityInterface from "./WALResponsibilityInterface.js";
+import WALIndependentValidator from "./WALIndependentValidator.js";
 
-const originalExpression = "这是一个事实";
+const originalExpression = "杩欐槸涓€涓簨瀹?;
 
 const runtime =
     new HonestRuntime(originalExpression);
@@ -20,11 +20,11 @@ if (!event) {
 }
 
 const envelope =
-    MWALResponsibilityInterface
+    WALResponsibilityInterface
         .fromResponsibilityEvent(event);
 
 const validator =
-    new MWALIndependentValidator();
+    new WALIndependentValidator();
 
 const validation =
     validator.validateEnvelope(

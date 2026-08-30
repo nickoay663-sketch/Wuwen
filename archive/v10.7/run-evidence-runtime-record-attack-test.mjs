@@ -1,4 +1,4 @@
-﻿import EvidenceEngine from "./EvidenceEngine.js";
+import EvidenceEngine from "./EvidenceEngine.js";
 
 const engine =
     new EvidenceEngine({

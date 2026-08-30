@@ -1,35 +1,35 @@
-﻿import ResponsibilityRecord from "./ResponsibilityRecord.js";
-import MWALContract from "./MWALContract.js";
+import ResponsibilityRecord from "./ResponsibilityRecord.js";
+import WALContract from "./WALContract.js";
 
-console.log("=== 测试莫问责任记录密码学链式溯源 ===");
+console.log("=== 娴嬭瘯鍕块棶璐ｄ换璁板綍瀵嗙爜瀛﹂摼寮忔函婧?===");
 
-// 铸造第一条记录（创世记录）
+// 閾搁€犵涓€鏉¤褰曪紙鍒涗笘璁板綍锛?
 const rec1 = ResponsibilityRecord.mint({
     id: "rec_crypto_001",
-    epistemicState: MWALContract.RESPONSIBILITY_STATES.ESTABLISHED,
-    verificationStatus: MWALContract.VERIFICATION_STATES.SUPPORTED,
+    epistemicState: WALContract.RESPONSIBILITY_STATES.ESTABLISHED,
+    verificationStatus: WALContract.VERIFICATION_STATES.SUPPORTED,
     verifiedEvidenceCount: 2,
     canPublish: true,
-    evidence: [{ source: "doc_a", snippet: "莫问追求绝对的诚实与可证。" }]
+    evidence: [{ source: "doc_a", snippet: "鍕块棶杩芥眰缁濆鐨勮瘹瀹炰笌鍙瘉銆? }]
 });
 
-console.log("【创世记录已铸造】");
+console.log("銆愬垱涓栬褰曞凡閾搁€犮€?);
 console.log("  ID:", rec1.id);
-console.log("  证据哈希:", rec1.evidenceHash);
-console.log("  前置指纹:", rec1.previousHash);
-console.log("  自身指纹:", rec1.signature);
+console.log("  璇佹嵁鍝堝笇:", rec1.evidenceHash);
+console.log("  鍓嶇疆鎸囩汗:", rec1.previousHash);
+console.log("  鑷韩鎸囩汗:", rec1.signature);
 
-// 铸造第二条记录，紧密咬合在第一条记录之后
+// 閾搁€犵浜屾潯璁板綍锛岀揣瀵嗗挰鍚堝湪绗竴鏉¤褰曚箣鍚?
 const rec2 = ResponsibilityRecord.mint({
     id: "rec_crypto_002",
-    epistemicState: MWALContract.RESPONSIBILITY_STATES.ESTABLISHED,
-    verificationStatus: MWALContract.VERIFICATION_STATES.SUPPORTED,
+    epistemicState: WALContract.RESPONSIBILITY_STATES.ESTABLISHED,
+    verificationStatus: WALContract.VERIFICATION_STATES.SUPPORTED,
     verifiedEvidenceCount: 1,
     canPublish: true,
-    evidence: [{ source: "doc_b", snippet: "任何输出必须有据可查。" }]
+    evidence: [{ source: "doc_b", snippet: "浠讳綍杈撳嚭蹇呴』鏈夋嵁鍙煡銆? }]
 }, rec1);
 
-console.log("\n【第二条链式记录已铸造】");
+console.log("\n銆愮浜屾潯閾惧紡璁板綍宸查摳閫犮€?);
 console.log("  ID:", rec2.id);
-console.log("  前置指纹 (是否等于rec1签名):", rec2.previousHash === rec1.signature ? "✔ 完美咬合" : "✖ 咬合失败");
-console.log("  自身指纹:", rec2.signature);
+console.log("  鍓嶇疆鎸囩汗 (鏄惁绛変簬rec1绛惧悕):", rec2.previousHash === rec1.signature ? "鉁?瀹岀編鍜悎" : "鉁?鍜悎澶辫触");
+console.log("  鑷韩鎸囩汗:", rec2.signature);

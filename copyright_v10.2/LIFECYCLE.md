@@ -1,4 +1,4 @@
-# MoWen Runtime Lifecycle
+# Wuwen Runtime Lifecycle
 
 ## Step 1
 
@@ -54,6 +54,6 @@ Every Runtime starts from testimony.
 
 Every Runtime ends with responsibility.
 
-MoWen never replaces human judgment.
+Wuwen never replaces human judgment.
 
-MoWen never replaces human responsibility.
+Wuwen never replaces human responsibility.

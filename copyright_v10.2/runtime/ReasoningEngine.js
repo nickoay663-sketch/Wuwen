@@ -7,7 +7,7 @@ class ReasoningEngine extends EngineBase {
         super(
             "ReasoningEngine",
             "7.0",
-         "莫问分析证据对应关系中的推理边界，不让结论超过前提支持范围。"
+         "勿问分析证据对应关系中的推理边界，不让结论超过前提支持范围。"
         );
 
         this.semanticObject = semanticObject || {};

@@ -32,7 +32,7 @@
         success: false,
         blocked: true,
         reason: 'Epistemic boundary exceeded or unverified promotion blocked.',
-        fallback: '⚠️ [MoWen 运行时拦截]：该生成内容由于缺乏足够的已验证证据支持，触发边界保护，已被安全降级或拦截。',
+        fallback: '⚠️ [WuWen 运行时拦截]：该生成内容由于缺乏足够的已验证证据支持，触发边界保护，已被安全降级或拦截。',
         trace: guardResult
       };
     }

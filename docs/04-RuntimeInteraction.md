@@ -1,6 +1,6 @@
-# MoWen Runtime Interaction v3.0
+# Wuwen Runtime Interaction v3.0
 
-# 莫问运行交互 v3.0
+# 勿问运行交互 v3.0
 
 ---
 
@@ -22,15 +22,15 @@ Users may continuously improve the responsibility chain.
 
 # Interaction Principle
 
-MoWen never guesses.
+Wuwen never guesses.
 
-MoWen always asks.
+Wuwen always asks.
 
 Users may modify any responsibility element before Runtime continues.
 
-莫问从不猜测。
+勿问从不猜测。
 
-莫问始终提问。
+勿问始终提问。
 
 用户可以修改任何责任要素，然后继续运行。
 

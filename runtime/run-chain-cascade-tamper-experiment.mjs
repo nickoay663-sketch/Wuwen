@@ -1,9 +1,9 @@
-﻿import fs from "fs";
+import fs from "fs";
 import ResponsibilityLedger from "./ResponsibilityLedger.js";
 
 console.log("=== CHAIN CASCADE TAMPER EXPERIMENT ===");
 
-const file = "./mowen-chain-cascade-tamper-test.jsonl";
+const file = "./Wuwen-chain-cascade-tamper-test.jsonl";
 
 if (fs.existsSync(file)) fs.unlinkSync(file);
 

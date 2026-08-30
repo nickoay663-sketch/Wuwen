@@ -1,4 +1,4 @@
-﻿import WuwenResponsibilityIdentity from "./WuwenResponsibilityIdentity.js";
+import WuwenResponsibilityIdentity from "./WuwenResponsibilityIdentity.js";
 
 class ResponsibilityEvent {
 
@@ -17,7 +17,7 @@ class ResponsibilityEvent {
         runtimeTrace = [],
         runtimeVersion = null,
         contractVersion = null,
-        source = "MoWen Runtime"
+        source = "Wuwen Runtime"
     } = {}) {
 
         this.type = "ResponsibilityEvent";
@@ -28,7 +28,7 @@ class ResponsibilityEvent {
 
         this.eventId =
             eventId ||
-            `mwal-${Date.now()}-${Math.random()
+            `WAL-${Date.now()}-${Math.random()
                 .toString(36)
                 .slice(2, 10)}`;
 
@@ -91,7 +91,7 @@ class ResponsibilityEvent {
         this.runtimeIdentity = {
 
             name:
-                "MoWen",
+                "Wuwen",
 
             identity:
                 "Honest Runtime",
@@ -251,7 +251,7 @@ class ResponsibilityEvent {
      *
      * demand > verified capacity.
      *
-     * MoWen must preserve these states while still allowing the
+     * Wuwen must preserve these states while still allowing the
      * responsibility record to be internally consistent.
      * =========================================================
      */

@@ -1,7 +1,7 @@
-﻿import MWALValidatorR00Core from './MWALValidatorR00Core.js';
+import WALValidatorR00Core from './WALValidatorR00Core.js';
 
 console.log('==================================================');
-console.log('       莫问 (MoWen) R00-02~05 核心不变量验证测试       ');
+console.log('       鍕块棶 (Wuwen) R00-02~05 鏍稿績涓嶅彉閲忛獙璇佹祴璇?      ');
 console.log('==================================================');
 
 const invalidEnvelope = {
@@ -10,10 +10,10 @@ const invalidEnvelope = {
     claim: 'Unverified assertions.'
 };
 
-const result1 = MWALValidatorR00Core.validateAll(invalidEnvelope);
-console.log('\n[测试 1] 非法 Envelope 验证结果: 成功 = ' + result1.success);
+const result1 = WALValidatorR00Core.validateAll(invalidEnvelope);
+console.log('\n[娴嬭瘯 1] 闈炴硶 Envelope 楠岃瘉缁撴灉: 鎴愬姛 = ' + result1.success);
 if (!result1.success) {
-    result1.failures.forEach(f => console.log('  -> 拦截规则 [' + f.rule + ']: ' + f.reason));
+    result1.failures.forEach(f => console.log('  -> 鎷︽埅瑙勫垯 [' + f.rule + ']: ' + f.reason));
 }
 
 const validEnvelope = {
@@ -22,7 +22,6 @@ const validEnvelope = {
     claim: 'Grounded assertion.'
 };
 
-const result2 = MWALValidatorR00Core.validateAll(validEnvelope);
-console.log('\n[测试 2] 合法 Envelope 验证结果: 成功 = ' + result2.success);
+const result2 = WALValidatorR00Core.validateAll(validEnvelope);
+console.log('\n[娴嬭瘯 2] 鍚堟硶 Envelope 楠岃瘉缁撴灉: 鎴愬姛 = ' + result2.success);
 console.log('==================================================');
-

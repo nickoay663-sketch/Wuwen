@@ -1,10 +1,10 @@
-﻿/**
+/**
  * @file test-article-reconstruction-es.js
- * @description MoWen Spanish Article Analysis and Reconstruction Test
+ * @description Wuwen Spanish Article Analysis and Reconstruction Test
  */
 
 import ResponsibilityLedger from "./ResponsibilityLedger.js";
-import MWALContract from "./MWALContract.js";
+import WALContract from "./WALContract.js";
 import fs from "fs";
 
 const ledgerFile = "./article-test-ledger-es.jsonl";
@@ -12,22 +12,22 @@ if (fs.existsSync(ledgerFile)) fs.unlinkSync(ledgerFile);
 
 const ledger = new ResponsibilityLedger(ledgerFile);
 
-const sourceTextEs = `Aunque el mecanismo complejo rara vez había sido comprendido por los observadores casuales que pasaban por el laboratorio, el Dr. Vance —habiendo pasado décadas examinando algoritmos lingüísticos recursivos— insiste en que cada oración que genera la máquina debe ser estrictamente verificada antes de ser publicada. Si los ingenieros hubieran sabido que el analizador automatizado rechazaría las afirmaciones no verificadas, habrían diseñado el protocolo de otra manera. Sin embargo, lo que más importa no es cómo se construyó el sistema, sino si se mantiene enteramente honesto bajo presión. Cada vez que se emite una aseveración, se analiza sistemáticamente, se contrasta con pruebas sólidas y —si se demuestra su veracidad— se sella permanentemente dentro del registro inmutable para que ningún usuario futuro pueda alterar su historia.`;
+const sourceTextEs = `Aunque el mecanismo complejo rara vez hab铆a sido comprendido por los observadores casuales que pasaban por el laboratorio, el Dr. Vance 鈥攈abiendo pasado d茅cadas examinando algoritmos ling眉铆sticos recursivos鈥?insiste en que cada oraci贸n que genera la m谩quina debe ser estrictamente verificada antes de ser publicada. Si los ingenieros hubieran sabido que el analizador automatizado rechazar铆a las afirmaciones no verificadas, habr铆an dise帽ado el protocolo de otra manera. Sin embargo, lo que m谩s importa no es c贸mo se construy贸 el sistema, sino si se mantiene enteramente honesto bajo presi贸n. Cada vez que se emite una aseveraci贸n, se analiza sistem谩ticamente, se contrasta con pruebas s贸lidas y 鈥攕i se demuestra su veracidad鈥?se sella permanentemente dentro del registro inmutable para que ning煤n usuario futuro pueda alterar su historia.`;
 
 console.log("==================================================");
-console.log("      莫问 (MoWen) 西班牙语文本分析与重构引擎      ");
+console.log("      鍕块棶 (Wuwen) 瑗跨彮鐗欒鏂囨湰鍒嗘瀽涓庨噸鏋勫紩鎿?     ");
 console.log("==================================================");
-console.log(`[输入西班牙语原始文本]:\n${sourceTextEs}\n`);
+console.log(`[杈撳叆瑗跨彮鐗欒鍘熷鏂囨湰]:\n${sourceTextEs}\n`);
 
-console.log("--- 步骤 1: 西班牙语认知解构 (Epistemic Parsing) ---");
-console.log("正在跨语种解析从句与事实断言...");
+console.log("--- 姝ラ 1: 瑗跨彮鐗欒璁ょ煡瑙ｆ瀯 (Epistemic Parsing) ---");
+console.log("姝ｅ湪璺ㄨ绉嶈В鏋愪粠鍙ヤ笌浜嬪疄鏂█...");
 
-// 使用合规的 rec_ 前缀，对西班牙语核心断言进行结构化解构
+// 浣跨敤鍚堣鐨?rec_ 鍓嶇紑锛屽瑗跨彮鐗欒鏍稿績鏂█杩涜缁撴瀯鍖栬В鏋?
 const claimsEs = [
     {
         id: "rec_es_claim_001",
-        statement: "El Dr. Vance insiste en que cada oración generada por la máquina debe ser estrictamente verificada antes de su publicación.",
-        evidence: [{ source: "Dr_Vance_Log_2026_ES", snippet: "Verificación estricta exigida antes de la salida de texto de la máquina." }]
+        statement: "El Dr. Vance insiste en que cada oraci贸n generada por la m谩quina debe ser estrictamente verificada antes de su publicaci贸n.",
+        evidence: [{ source: "Dr_Vance_Log_2026_ES", snippet: "Verificaci贸n estricta exigida antes de la salida de texto de la m谩quina." }]
     },
     {
         id: "rec_es_claim_002",
@@ -41,9 +41,9 @@ const claimsEs = [
     }
 ];
 
-console.log(`解析完成：共识别出 ${claimsEs.length} 条西班牙语核心责任断言。\n`);
+console.log(`瑙ｆ瀽瀹屾垚锛氬叡璇嗗埆鍑?${claimsEs.length} 鏉¤タ鐝墮璇牳蹇冭矗浠绘柇瑷€銆俓n`);
 
-console.log("--- 步骤 2: 责任重构与密码学铸造 (Reconstruction & Minting) ---");
+console.log("--- 姝ラ 2: 璐ｄ换閲嶆瀯涓庡瘑鐮佸閾搁€?(Reconstruction & Minting) ---");
 
 let reconstructedSummaryEs = [];
 
@@ -51,33 +51,33 @@ for (const c of claimsEs) {
     try {
         const record = ledger.append({
             id: c.id,
-            epistemicState: MWALContract.RESPONSIBILITY_STATES.ESTABLISHED,
-            verificationStatus: MWALContract.VERIFICATION_STATES.SUPPORTED,
+            epistemicState: WALContract.RESPONSIBILITY_STATES.ESTABLISHED,
+            verificationStatus: WALContract.VERIFICATION_STATES.SUPPORTED,
             verifiedEvidenceCount: c.evidence.length,
             canPublish: true,
             claim: c.statement
         }, c.evidence);
 
-        console.log(`[已重构断言] ${c.id}`);
-        console.log(`  -> 声明: ${c.statement}`);
-        console.log(`  -> 状态: ESTABLISHED | 证据数: ${c.evidence.length}`);
-        console.log(`  -> 签名: ${record.signature.substring(0, 16)}...\n`);
+        console.log(`[宸查噸鏋勬柇瑷€] ${c.id}`);
+        console.log(`  -> 澹版槑: ${c.statement}`);
+        console.log(`  -> 鐘舵€? ESTABLISHED | 璇佹嵁鏁? ${c.evidence.length}`);
+        console.log(`  -> 绛惧悕: ${record.signature.substring(0, 16)}...\n`);
 
         reconstructedSummaryEs.push(`[${record.id}] ${c.statement} (Sig: ${record.signature.substring(0, 8)}...)`);
     } catch (e) {
-        console.log(`[拦截] 断言 ${c.id} 未通过合规验证: ${e.message}`);
+        console.log(`[鎷︽埅] 鏂█ ${c.id} 鏈€氳繃鍚堣楠岃瘉: ${e.message}`);
     }
 }
 
-console.log("--- 步骤 3: 最终西班牙语责任表达输出 ---");
-console.log("莫问重构后的可承载责任表达：");
+console.log("--- 姝ラ 3: 鏈€缁堣タ鐝墮璇矗浠昏〃杈捐緭鍑?---");
+console.log("鍕块棶閲嶆瀯鍚庣殑鍙壙杞借矗浠昏〃杈撅細");
 console.log("--------------------------------------------------");
 reconstructedSummaryEs.forEach(s => console.log(s));
 console.log("--------------------------------------------------");
 
 const integrity = ledger.verifyIntegrity();
-console.log(`[账本完整性校验] : ${integrity.valid ? "🟢 绝对安全 (多语言全链路指纹咬合)" : "🔴 异常"}`);
-console.log(`[总责任通行证]   : ${integrity.totalRecords} 张`);
+console.log(`[璐︽湰瀹屾暣鎬ф牎楠宂 : ${integrity.valid ? "馃煝 缁濆瀹夊叏 (澶氳瑷€鍏ㄩ摼璺寚绾瑰挰鍚?" : "馃敶 寮傚父"}`);
+console.log(`[鎬昏矗浠婚€氳璇乚   : ${integrity.totalRecords} 寮燻);
 console.log("==================================================");
 
 if (fs.existsSync(ledgerFile)) fs.unlinkSync(ledgerFile);

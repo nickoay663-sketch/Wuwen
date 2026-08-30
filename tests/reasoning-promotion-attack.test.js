@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "../runtime/HonestRuntime.js";
+import HonestRuntime from "../runtime/HonestRuntime.js";
 
 const runtime =
     new HonestRuntime(

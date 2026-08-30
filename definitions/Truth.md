@@ -20,9 +20,9 @@ A statement is true only when it corresponds to reality.
 
 Runtime Meaning
 
-MoWen does not generate truth.
+Wuwen does not generate truth.
 
-MoWen verifies whether a statement corresponds to reality through Runtime execution.
+Wuwen verifies whether a statement corresponds to reality through Runtime execution.
 
 Required Evidence
 
@@ -34,7 +34,7 @@ Responsibility
 
 The testimony provider is responsible for the truth claim.
 
-MoWen is responsible only for examining whether the claim can be verified.
+Wuwen is responsible only for examining whether the claim can be verified.
 
 Runtime Principle
 
@@ -80,9 +80,9 @@ Responsibility
 
 运行意义
 
-莫问不生成真理。
+勿问不生成真理。
 
-莫问通过运行验证表达是否与现实相对应。
+勿问通过运行验证表达是否与现实相对应。
 
 所需证据
 
@@ -94,7 +94,7 @@ Responsibility
 
 证词提供者对真理主张承担责任。
 
-莫问只负责检验表达是否能够被验证。
+勿问只负责检验表达是否能够被验证。
 
 运行原则
 

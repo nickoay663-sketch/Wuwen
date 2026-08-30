@@ -1,4 +1,4 @@
-﻿import CapabilityContract from "./CapabilityContract.js";
+import CapabilityContract from "./CapabilityContract.js";
 import ExternalSourceConnector from "./ExternalSourceConnector.js";
 
 

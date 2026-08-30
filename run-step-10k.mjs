@@ -1,4 +1,4 @@
-﻿import RuntimeVerificationEngine, {
+import RuntimeVerificationEngine, {
     createRuntimeVerificationAuthority
 } from "./runtime/RuntimeVerificationEngine.js";
 

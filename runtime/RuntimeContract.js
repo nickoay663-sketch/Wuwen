@@ -1,7 +1,7 @@
-﻿const RuntimeContract = {
+const RuntimeContract = {
 
     version:
-        "10.7",
+        "10.8",
 
     principles: {
 
@@ -36,7 +36,7 @@
             "证据不足时必须允许 UNKNOWN，不得将未知强制解释为错误。",
 
         externalLanguageBoundary:
-            "语言系统属于外部表达环境，莫问只连接、携带并运行，不拥有、不制造、不替代。",
+            "语言系统属于外部表达环境，Wuwen只连接、携带并运行，不拥有、不制造、不替代。",
 
         lifecycleBoundary:
             "Runtime 只有完成全部 Engine 执行、Registry 校验、SelfCheck 并进入 RuntimeClosed 后，才允许返回最终 RuntimeResult。",
@@ -47,7 +47,7 @@
     },
 
 
-    mwalEvidenceFlowContract: {
+    WALEvidenceFlowContract: {
 
         required:
             true,
@@ -140,13 +140,13 @@
     identity: {
 
         name:
-            "MoWen Runtime",
+            "Wuwen Runtime",
 
         runtimeVersion:
-            "10.7",
+            "10.8",
 
         contractVersion:
-            "10.7"
+            "10.8"
 
     },
 
@@ -652,10 +652,10 @@
             true,
 
         type:
-            "MWAL.ResponsibilityEvent",
+            "WAL.ResponsibilityEvent",
 
         source:
-            "MoWen Runtime",
+            "Wuwen Runtime",
 
         requiresRuntimeClosure:
             true,
@@ -756,5 +756,3 @@
 };
 
 export default RuntimeContract;
-
-

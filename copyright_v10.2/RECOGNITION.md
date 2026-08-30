@@ -1,6 +1,6 @@
-# MoWen Recognition v3.0
+# Wuwen Recognition v3.0
 
-# 莫问识别系统 v3.0
+# 勿问识别系统 v3.0
 
 
 ## Purpose

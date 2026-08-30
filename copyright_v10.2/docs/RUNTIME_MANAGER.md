@@ -2,7 +2,7 @@
 
 ## 定义
 
-Runtime Manager 是莫问诚实运行的总调度器。
+Runtime Manager 是勿问诚实运行的总调度器。
 
 它不负责识别。
 

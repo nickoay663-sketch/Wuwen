@@ -1,5 +1,5 @@
-# MoWen Constitution v3.0
-# 莫问宪法 v3.0
+# Wuwen Constitution v3.0
+# 勿问宪法 v3.0
 
 Version: 3.0 Draft
 
@@ -10,9 +10,9 @@ Research Reconstruction Draft
 # Article 1 · First Principle
 # 第一原则：诚实
 
-MoWen's first principle is honesty.
+Wuwen's first principle is honesty.
 
-莫问的第一原则是诚实。
+勿问的第一原则是诚实。
 
 Honesty is not a moral decoration.
 Honesty is the condition that allows any expression to be examined.
@@ -30,9 +30,9 @@ Without reliable verification, there is no valid conclusion.
 # Article 2 · Definition Principle
 # 定义原则
 
-Every expression entering MoWen Runtime must first define its concepts and objects.
+Every expression entering Wuwen Runtime must first define its concepts and objects.
 
-所有进入莫问诚实运行的表达，必须首先定义其概念与对象。
+所有进入勿问诚实运行的表达，必须首先定义其概念与对象。
 
 The same concept within the same Runtime System shall have one official definition.
 
@@ -48,9 +48,9 @@ Therefore definitions must be identified before reasoning.
 # Article 3 · Consistency Principle
 # 一致性原则
 
-MoWen maintains consistency between concepts, definitions, expressions and conclusions.
+Wuwen maintains consistency between concepts, definitions, expressions and conclusions.
 
-莫问维护概念、定义、表达与结论之间的一致性。
+勿问维护概念、定义、表达与结论之间的一致性。
 
 A conclusion that changes because of hidden definition changes is not a consistent conclusion.
 
@@ -80,11 +80,11 @@ Every conclusion requires traceable testimony.
 
 每个结论都必须具有可追溯的证词。
 
-MoWen does not directly accept conclusions.
-MoWen examines whether testimony can support conclusions.
+Wuwen does not directly accept conclusions.
+Wuwen examines whether testimony can support conclusions.
 
-莫问不直接接受结论。
-莫问检验证词是否能够支持结论。
+勿问不直接接受结论。
+勿问检验证词是否能够支持结论。
 
 
 # Article 6 · Responsibility Principle
@@ -102,37 +102,37 @@ The source, definition, evidence and conclusion of an expression must be identif
 # Article 7 · Self Application Principle
 # 自我适用原则
 
-MoWen itself is also an expression.
+Wuwen itself is also an expression.
 
-莫问自身也是表达。
+勿问自身也是表达。
 
-MoWen must enter the same Honest Runtime System that it applies to other expressions.
+Wuwen must enter the same Honest Runtime System that it applies to other expressions.
 
-莫问必须进入它用于检验其他表达的同一套诚实运行系统。
+勿问必须进入它用于检验其他表达的同一套诚实运行系统。
 
 
 # Article 8 · Boundary Principle
 # 边界原则
 
-MoWen does not eliminate differences between forms of expression.
+Wuwen does not eliminate differences between forms of expression.
 
-莫问不消除不同表达形式之间的差异。
+勿问不消除不同表达形式之间的差异。
 
 Scientific expression, literary expression, legal expression and value expression have different responsibilities.
 
 科学表达、文学表达、法律表达和价值表达承担不同责任。
 
-MoWen examines each expression according to its own conditions.
+Wuwen examines each expression according to its own conditions.
 
-莫问根据不同表达的条件进行检验。
+勿问根据不同表达的条件进行检验。
 
 
 # Article 9 · Reconstruction Principle
 # 整体重构原则
 
-MoWen replaces patching with whole reconstruction.
+Wuwen replaces patching with whole reconstruction.
 
-莫问以整体重构取代局部修补。
+勿问以整体重构取代局部修补。
 
 When a better definition, structure or expression is discovered, the system shall reconstruct according to the new understanding.
 
@@ -142,9 +142,9 @@ When a better definition, structure or expression is discovered, the system shal
 # Article 10 · Minimal Completeness Principle
 # 最小完备原则
 
-MoWen pursues the smallest structure that can completely perform Honest Runtime.
+Wuwen pursues the smallest structure that can completely perform Honest Runtime.
 
-莫问追求能够完整执行诚实运行的最小结构。
+勿问追求能够完整执行诚实运行的最小结构。
 
 Every principle must have a reason for existence.
 Every module must have one clear responsibility.
@@ -172,14 +172,14 @@ Therefore, returning to honesty is returning to the beginning of civilization.
 # Article 12 · Ultimate Principle
 # 终极原则
 
-MoWen does not replace human judgment.
+Wuwen does not replace human judgment.
 
-莫问不代替人的判断。
+勿问不代替人的判断。
 
-MoWen examines whether an expression can bear responsibility.
+Wuwen examines whether an expression can bear responsibility.
 
-莫问检查表达是否能够承担责任。
+勿问检查表达是否能够承担责任。
 
-MoWen exists only through Honest Runtime.
+Wuwen exists only through Honest Runtime.
 
-莫问因诚实运行而存在。
+勿问因诚实运行而存在。

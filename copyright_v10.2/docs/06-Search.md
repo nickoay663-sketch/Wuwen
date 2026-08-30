@@ -1,6 +1,6 @@
-# MoWen Search v3.0
+# Wuwen Search v3.0
 
-# 莫问检索系统 v3.0
+# 勿问检索系统 v3.0
 
 ---
 

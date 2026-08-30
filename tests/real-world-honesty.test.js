@@ -1,14 +1,14 @@
-﻿import MoWenRuntime from "../runtime/index.js";
+import WuwenRuntime from "../runtime/index.js";
 
 const expression = `
-有人说，
-战争会死很多人！但是你忽略了——和平的暴政，会死得更多！
+鏈変汉璇达紝
+鎴樹簤浼氭寰堝浜猴紒浣嗘槸浣犲拷鐣ヤ簡鈥斺€斿拰骞崇殑鏆存斂锛屼細姝诲緱鏇村锛?
 
-邵正祥：大跃进饥荒饿死……
+閭垫绁ワ細澶ц穬杩涢ゥ鑽掗タ姝烩€︹€?
 `;
 
 const result =
-    await new MoWenRuntime(
+    await new WuwenRuntime(
         expression
     ).run();
 
@@ -254,10 +254,10 @@ const allPassed =
 const report = {
 
     test:
-        "MoWen Runtime v10.7 Real-World Reconstruction / Publication Boundary Test",
+        "Wuwen Runtime v10.8 Real-World Reconstruction / Publication Boundary Test",
 
     expressionType:
-        "外部事实性主张 + 未完成验证",
+        "澶栭儴浜嬪疄鎬т富寮?+ 鏈畬鎴愰獙璇?,
 
     version:
         pick(

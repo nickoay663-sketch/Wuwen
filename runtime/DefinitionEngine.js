@@ -1,4 +1,4 @@
-﻿import EngineBase from "./EngineBase.js";
+import EngineBase from "./EngineBase.js";
 
 class DefinitionEngine extends EngineBase {
 
@@ -102,7 +102,7 @@ class DefinitionEngine extends EngineBase {
                     content,
 
                 definition:
-                    "Expression entering MoWen Runtime",
+                    "Expression entering Wuwen Runtime",
 
                 languageSystem:
                     this.semanticObject.languageSystem || null,

@@ -1,12 +1,12 @@
 Testimony v1.3
 
-莫问证词协议 v1.3
+勿问证词协议 v1.3
 
 Purpose
 
-Testimony is the expression that enters MoWen responsibility verification.
+Testimony is the expression that enters Wuwen responsibility verification.
 
-证词是进入莫问责任检验的表达。
+证词是进入勿问责任检验的表达。
 
 Formation
 
@@ -32,9 +32,9 @@ Semantic Clarification
 
 Expression and Testimony
 
-Expression is the input form of MoWen.
+Expression is the input form of Wuwen.
 
-表达是莫问接收的信息形式。
+表达是勿问接收的信息形式。
 
 Testimony is the form of expression that participates in responsibility verification.
 
@@ -150,17 +150,17 @@ Every testimony has a responsible source.
 
 每一份证词都有责任来源。
 
-MoWen does not create testimony.
+Wuwen does not create testimony.
 
-莫问不创造证词。
+勿问不创造证词。
 
-MoWen does not assume responsibility for testimony.
+Wuwen does not assume responsibility for testimony.
 
-莫问不替证词承担责任。
+勿问不替证词承担责任。
 
-MoWen examines testimony through Honest Runtime.
+Wuwen examines testimony through Honest Runtime.
 
-莫问通过诚实运行检验证词。
+勿问通过诚实运行检验证词。
 
 Principle
 
@@ -182,10 +182,10 @@ there is no responsible expression.
 
 Core Rule
 
-MoWen analyzes testimony.
+Wuwen analyzes testimony.
 
-MoWen does not judge people.
+Wuwen does not judge people.
 
-莫问分析证词。
+勿问分析证词。
 
-莫问不判断人。
+勿问不判断人。

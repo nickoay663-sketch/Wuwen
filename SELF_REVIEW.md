@@ -1,14 +1,14 @@
-# MoWen Self Review
+# Wuwen Self Review
 
-Every new principle must first pass MoWen's own review.
+Every new principle must first pass Wuwen's own review.
 
-MoWen restrains itself before restraining others.
+Wuwen restrains itself before restraining others.
 
 ---
 
-每一条新的原则，都必须先通过莫问自己的审核。
+每一条新的原则，都必须先通过勿问自己的审核。
 
-莫问首先约束自己，而不是首先约束别人。
+勿问首先约束自己，而不是首先约束别人。
 
 ---
 
@@ -74,9 +74,9 @@ Can it be implemented in Runtime?
 
 ### 4. Self Restraint
 
-Can MoWen itself obey this principle?
+Can Wuwen itself obey this principle?
 
-莫问自己能否遵守？
+勿问自己能否遵守？
 
 ---
 

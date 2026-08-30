@@ -1,4 +1,4 @@
-﻿class CapabilityContract {
+class CapabilityContract {
 
     static VERSION =
         "1.1";
@@ -9,7 +9,7 @@
 
 
     static PROVENANCE_MARKER =
-        "MoWen.CapabilityAdapter";
+        "Wuwen.CapabilityAdapter";
 
 
     static version() {

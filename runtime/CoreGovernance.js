@@ -1,7 +1,7 @@
-﻿import CapabilityContract from "./CapabilityContract.js";
+import CapabilityContract from "./CapabilityContract.js";
 import CapabilityAdmission from "./CapabilityAdmission.js";
-import MWALContract from "./MWALContract.js";
-import MWALResponsibilityInterface from "./MWALResponsibilityInterface.js";
+import WALContract from "./WALContract.js";
+import WALResponsibilityInterface from "./WALResponsibilityInterface.js";
 
 class CoreGovernance {
 
@@ -11,7 +11,7 @@ class CoreGovernance {
             "1.3";
 
         this.name =
-            "MoWen Core Governance";
+            "Wuwen Core Governance";
 
         this.principle =
             "能力向外增长，边界向内守住。";
@@ -22,7 +22,7 @@ class CoreGovernance {
                 "minimum-complete",
 
             principle:
-                "MoWen Core is a minimum-complete honest runtime infrastructure.",
+                "Wuwen Core is a minimum-complete honest runtime infrastructure.",
 
             responsibilities: [
 
@@ -35,7 +35,7 @@ class CoreGovernance {
                 "SelfCheck enforcement",
                 "Execution integrity preservation",
                 "Capability boundary preservation",
-                "MWAL responsibility boundary preservation"
+                "WAL responsibility boundary preservation"
 
             ]
 
@@ -55,7 +55,7 @@ class CoreGovernance {
             noExecutionIntegrityBypass: true,
 
             noCapabilityBypass: true,
-            noMWALBypass: true
+            noWALBypass: true
 
         };
 
@@ -77,7 +77,7 @@ class CoreGovernance {
                 "validateBoundaries",
                 "validateExtensions",
                 "validateCapabilityBoundary",
-                "validateMWALBoundary",
+                "validateWALBoundary",
                 "validateExecutionIntegrity",
                 "enforce"
 
@@ -160,7 +160,7 @@ class CoreGovernance {
             "SelfCheck enforcement",
             "Execution integrity preservation",
             "Capability boundary preservation",
-            "MWAL responsibility boundary preservation"
+            "WAL responsibility boundary preservation"
 
         ];
 
@@ -326,63 +326,63 @@ class CoreGovernance {
     }
 
 
-    validateMWALBoundary() {
+    validateWALBoundary() {
 
         const invalid = [];
 
         if (
-            typeof MWALContract.validate !==
+            typeof WALContract.validate !==
             "function"
         ) {
 
             invalid.push(
-                "MWALContract.validate"
+                "WALContract.validate"
             );
 
         }
 
         if (
-            typeof MWALContract.createEnvelope !==
+            typeof WALContract.createEnvelope !==
             "function"
         ) {
 
             invalid.push(
-                "MWALContract.createEnvelope"
+                "WALContract.createEnvelope"
             );
 
         }
 
         if (
-            typeof MWALContract.canPropagate !==
+            typeof WALContract.canPropagate !==
             "function"
         ) {
 
             invalid.push(
-                "MWALContract.canPropagate"
+                "WALContract.canPropagate"
             );
 
         }
 
         if (
-            typeof MWALResponsibilityInterface
+            typeof WALResponsibilityInterface
                 .fromResponsibilityEvent !==
             "function"
         ) {
 
             invalid.push(
-                "MWALResponsibilityInterface.fromResponsibilityEvent"
+                "WALResponsibilityInterface.fromResponsibilityEvent"
             );
 
         }
 
         if (
-            typeof MWALResponsibilityInterface
+            typeof WALResponsibilityInterface
                 .isTrustedResponsibilityRecord !==
             "function"
         ) {
 
             invalid.push(
-                "MWALResponsibilityInterface.isTrustedResponsibilityRecord"
+                "WALResponsibilityInterface.isTrustedResponsibilityRecord"
             );
 
         }
@@ -396,8 +396,8 @@ class CoreGovernance {
 
             status:
                 invalid.length === 0
-                    ? "mwal-boundary-pass"
-                    : "mwal-boundary-failed"
+                    ? "wal-boundary-pass"
+                    : "wal-boundary-failed"
 
         };
 
@@ -592,16 +592,16 @@ class CoreGovernance {
                 }
             );
 
-        const mwalBoundary =
+        const walBoundary =
             safeValidate(
-                "validateMWALBoundary",
+                "validateWALBoundary",
                 {
                     passed: false,
                     invalid: [
-                        "validateMWALBoundary"
+                        "validateWALBoundary"
                     ],
                     status:
-                        "mwal-boundary-validation-unavailable"
+                        "wal-boundary-validation-unavailable"
                 }
             );
 
@@ -623,7 +623,7 @@ class CoreGovernance {
             boundaries.passed &&
             extensions.passed &&
             capabilityBoundary.passed &&
-            mwalBoundary.passed &&
+            walBoundary.passed &&
             executionIntegrity.passed;
 
         return {
@@ -645,7 +645,7 @@ class CoreGovernance {
 
             capabilityBoundary,
 
-            mwalBoundary,
+            walBoundary,
 
             executionIntegrity,
 

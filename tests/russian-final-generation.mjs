@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "../runtime/HonestRuntime.js";
+import HonestRuntime from "../runtime/HonestRuntime.js";
 
 const expression = `Хотя вчера шёл сильный дождь, природа, которая была глубоко любима нами, подарит надежду тем, кто храбр, если завтра она откроет свои тайны. Верь в себя, потому что только люди, перенёсшие шторм, могут поистине понять истинный смысл жизни.`;
 

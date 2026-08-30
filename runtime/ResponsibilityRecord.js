@@ -1,6 +1,6 @@
-﻿/**
+/**
  * @file ResponsibilityRecord.js
- * @description MWAL Immutable Responsibility Record Factory v3
+ * @description WAL Immutable Responsibility Record Factory v3
  *              (Evidence-Bound Cryptographic & Chained)
  */
 
@@ -9,7 +9,7 @@ import Schema from "./ResponsibilityRecordSchema.js";
 
 class ResponsibilityRecord {
     constructor(recordData, previousHash = null) {
-        // 1. 强制执行 Schema 契约校验
+        // 1. 寮哄埗鎵ц Schema 濂戠害鏍￠獙
         const validationResult = Schema.validate(recordData);
 
         if (!validationResult.valid) {
@@ -18,21 +18,21 @@ class ResponsibilityRecord {
             );
         }
 
-        // 2. 基础责任属性
+        // 2. 鍩虹璐ｄ换灞炴€?
         this.id = recordData.id;
         this.epistemicState = recordData.epistemicState;
         this.verificationStatus = recordData.verificationStatus;
         this.verifiedEvidenceCount = recordData.verifiedEvidenceCount;
         this.canPublish = recordData.canPublish;
 
-        // 3. 证据必须成为记录本体的一部分
+        // 3. 璇佹嵁蹇呴』鎴愪负璁板綍鏈綋鐨勪竴閮ㄥ垎
         this.evidence = Array.isArray(recordData.evidence)
             ? structuredClone(recordData.evidence)
             : [];
 
         this.timestamp = Date.now();
 
-        // 4. 密码学证据根
+        // 4. 瀵嗙爜瀛﹁瘉鎹牴
         const rawEvidenceString = JSON.stringify(this.evidence);
 
         this.evidenceHash = crypto
@@ -40,19 +40,19 @@ class ResponsibilityRecord {
             .update(rawEvidenceString)
             .digest("hex");
 
-        // 5. 前向责任链
+        // 5. 鍓嶅悜璐ｄ换閾?
         this.previousHash =
-            previousHash || "genesis_mowen_root";
+            previousHash || "genesis_Wuwen_root";
 
-        // 6. 当前记录密码学指纹
+        // 6. 褰撳墠璁板綍瀵嗙爜瀛︽寚绾?
         this.signature = this.#generateSignature();
 
-        // 7. 物理封印
+        // 7. 鐗╃悊灏佸嵃
         Object.freeze(this);
     }
 
     /**
-     * 生成当前责任记录的防篡改指纹
+     * 鐢熸垚褰撳墠璐ｄ换璁板綍鐨勯槻绡℃敼鎸囩汗
      */
     #generateSignature() {
         const payload =
@@ -67,7 +67,7 @@ class ResponsibilityRecord {
     }
 
     /**
-     * 铸造责任记录
+     * 閾搁€犺矗浠昏褰?
      */
     static mint(recordData, previousRecord = null) {
         const prevHash =

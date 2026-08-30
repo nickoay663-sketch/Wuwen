@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
+import HonestRuntime from "./HonestRuntime.js";
 
 const runtime = new HonestRuntime(
     "这是一个已经被验证，但尚未建立有效对应关系的事实",

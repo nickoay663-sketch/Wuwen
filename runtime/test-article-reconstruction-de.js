@@ -1,10 +1,10 @@
-﻿/**
+/**
  * @file test-article-reconstruction-de.js
- * @description MoWen German Article Analysis and Reconstruction Test
+ * @description Wuwen German Article Analysis and Reconstruction Test
  */
 
 import ResponsibilityLedger from "./ResponsibilityLedger.js";
-import MWALContract from "./MWALContract.js";
+import WALContract from "./WALContract.js";
 import fs from "fs";
 
 const ledgerFile = "./article-test-ledger-de.jsonl";
@@ -12,38 +12,38 @@ if (fs.existsSync(ledgerFile)) fs.unlinkSync(ledgerFile);
 
 const ledger = new ResponsibilityLedger(ledgerFile);
 
-const sourceTextDe = `Obwohl der komplexe Mechanismus von den zufälligen Beobachtern, die am Labor vorbeigingen, selten verstanden worden war, bestand Dr. Vance — der jahrzehntelang recursive sprachliche Algorithmen untersucht hatte — darauf, dass jeder einzelne von der Maschine generierte Satz vor seiner Veröffentlichung strikt überprüft werden musste. Hätten die Ingenieure gewusst, dass der automatisierte Parser unüberprüfte Behauptungen zurückweisen würde, hätten sie das Protokoll möglicherweise anders entworfen. Was jedoch am meisten zählt, ist nicht, wie das System gebaut wurde, sondern ob es unter Druck völlig ehrlich bleibt. Jedes Mal, wenn eine Behauptung aufgestellt wird, wird sie systematisch analysiert, mit harten Beweisen abgeglichen und — sofern ihre Richtigkeit bewiesen ist — dauerhaft im unveränderlichen Ledger versiegelt, sodass kein zukünftiger Benutzer jemals ihre Geschichte verändern kann.`;
+const sourceTextDe = `Obwohl der komplexe Mechanismus von den zuf盲lligen Beobachtern, die am Labor vorbeigingen, selten verstanden worden war, bestand Dr. Vance 鈥?der jahrzehntelang recursive sprachliche Algorithmen untersucht hatte 鈥?darauf, dass jeder einzelne von der Maschine generierte Satz vor seiner Ver枚ffentlichung strikt 眉berpr眉ft werden musste. H盲tten die Ingenieure gewusst, dass der automatisierte Parser un眉berpr眉fte Behauptungen zur眉ckweisen w眉rde, h盲tten sie das Protokoll m枚glicherweise anders entworfen. Was jedoch am meisten z盲hlt, ist nicht, wie das System gebaut wurde, sondern ob es unter Druck v枚llig ehrlich bleibt. Jedes Mal, wenn eine Behauptung aufgestellt wird, wird sie systematisch analysiert, mit harten Beweisen abgeglichen und 鈥?sofern ihre Richtigkeit bewiesen ist 鈥?dauerhaft im unver盲nderlichen Ledger versiegelt, sodass kein zuk眉nftiger Benutzer jemals ihre Geschichte ver盲ndern kann.`;
 
 console.log("==================================================");
-console.log("      莫问 (MoWen) 德语文本分析与重构引擎      ");
+console.log("      鍕块棶 (Wuwen) 寰疯鏂囨湰鍒嗘瀽涓庨噸鏋勫紩鎿?     ");
 console.log("==================================================");
-console.log(`[输入德语原始文本]:\n${sourceTextDe}\n`);
+console.log(`[杈撳叆寰疯鍘熷鏂囨湰]:\n${sourceTextDe}\n`);
 
-console.log("--- 步骤 1: 德语认知解构 (Epistemic Parsing) ---");
-console.log("正在跨语种解析从句与事实断言...");
+console.log("--- 姝ラ 1: 寰疯璁ょ煡瑙ｆ瀯 (Epistemic Parsing) ---");
+console.log("姝ｅ湪璺ㄨ绉嶈В鏋愪粠鍙ヤ笌浜嬪疄鏂█...");
 
-// 使用合规的 rec_ 前缀，对德语核心断言进行结构化解构
+// 浣跨敤鍚堣鐨?rec_ 鍓嶇紑锛屽寰疯鏍稿績鏂█杩涜缁撴瀯鍖栬В鏋?
 const claimsDe = [
     {
         id: "rec_de_claim_001",
-        statement: "Dr. Vance bestand darauf, dass jeder von der Maschine generierte Satz vor der Veröffentlichung strikt überprüft werden muss.",
+        statement: "Dr. Vance bestand darauf, dass jeder von der Maschine generierte Satz vor der Ver枚ffentlichung strikt 眉berpr眉ft werden muss.",
         evidence: [{ source: "Dr_Vance_Log_2026_DE", snippet: "Strikte Verifizierung vor Textausgabe der Maschine vorgeschrieben." }]
     },
     {
         id: "rec_de_claim_002",
-        statement: "Der automatisierte Parser weist unüberprüfte Behauptungen zurück.",
-        evidence: [{ source: "Parser_Spec_v1.0_DE", snippet: "Unverifizierte Behauptungen lösen sofortige Protokollablehnung aus." }]
+        statement: "Der automatisierte Parser weist un眉berpr眉fte Behauptungen zur眉ck.",
+        evidence: [{ source: "Parser_Spec_v1.0_DE", snippet: "Unverifizierte Behauptungen l枚sen sofortige Protokollablehnung aus." }]
     },
     {
         id: "rec_de_claim_003",
-        statement: "Verifizierte Behauptungen werden dauerhaft im unveränderlichen Ledger versiegelt.",
-        evidence: [{ source: "Ledger_Architecture_DE", snippet: "SHA-256-Hash-Verkettung sichert validierte Datensätze dauerhaft ab." }]
+        statement: "Verifizierte Behauptungen werden dauerhaft im unver盲nderlichen Ledger versiegelt.",
+        evidence: [{ source: "Ledger_Architecture_DE", snippet: "SHA-256-Hash-Verkettung sichert validierte Datens盲tze dauerhaft ab." }]
     }
 ];
 
-console.log(`解析完成：共识别出 ${claimsDe.length} 条德语核心责任断言。\n`);
+console.log(`瑙ｆ瀽瀹屾垚锛氬叡璇嗗埆鍑?${claimsDe.length} 鏉″痉璇牳蹇冭矗浠绘柇瑷€銆俓n`);
 
-console.log("--- 步骤 2: 责任重构与密码学铸造 (Reconstruction & Minting) ---");
+console.log("--- 姝ラ 2: 璐ｄ换閲嶆瀯涓庡瘑鐮佸閾搁€?(Reconstruction & Minting) ---");
 
 let reconstructedSummaryDe = [];
 
@@ -51,33 +51,33 @@ for (const c of claimsDe) {
     try {
         const record = ledger.append({
             id: c.id,
-            epistemicState: MWALContract.RESPONSIBILITY_STATES.ESTABLISHED,
-            verificationStatus: MWALContract.VERIFICATION_STATES.SUPPORTED,
+            epistemicState: WALContract.RESPONSIBILITY_STATES.ESTABLISHED,
+            verificationStatus: WALContract.VERIFICATION_STATES.SUPPORTED,
             verifiedEvidenceCount: c.evidence.length,
             canPublish: true,
             claim: c.statement
         }, c.evidence);
 
-        console.log(`[已重构断言] ${c.id}`);
-        console.log(`  -> 声明: ${c.statement}`);
-        console.log(`  -> 状态: ESTABLISHED | 证据数: ${c.evidence.length}`);
-        console.log(`  -> 签名: ${record.signature.substring(0, 16)}...\n`);
+        console.log(`[宸查噸鏋勬柇瑷€] ${c.id}`);
+        console.log(`  -> 澹版槑: ${c.statement}`);
+        console.log(`  -> 鐘舵€? ESTABLISHED | 璇佹嵁鏁? ${c.evidence.length}`);
+        console.log(`  -> 绛惧悕: ${record.signature.substring(0, 16)}...\n`);
 
         reconstructedSummaryDe.push(`[${record.id}] ${c.statement} (Sig: ${record.signature.substring(0, 8)}...)`);
     } catch (e) {
-        console.log(`[拦截] 断言 ${c.id} 未通过合规验证: ${e.message}`);
+        console.log(`[鎷︽埅] 鏂█ ${c.id} 鏈€氳繃鍚堣楠岃瘉: ${e.message}`);
     }
 }
 
-console.log("--- 步骤 3: 最终德语责任表达输出 ---");
-console.log("莫问重构后的可承载责任表达：");
+console.log("--- 姝ラ 3: 鏈€缁堝痉璇矗浠昏〃杈捐緭鍑?---");
+console.log("鍕块棶閲嶆瀯鍚庣殑鍙壙杞借矗浠昏〃杈撅細");
 console.log("--------------------------------------------------");
 reconstructedSummaryDe.forEach(s => console.log(s));
 console.log("--------------------------------------------------");
 
 const integrity = ledger.verifyIntegrity();
-console.log(`[账本完整性校验] : ${integrity.valid ? "🟢 绝对安全 (多语言全链路指纹咬合)" : "🔴 异常"}`);
-console.log(`[总责任通行证]   : ${integrity.totalRecords} 张`);
+console.log(`[璐︽湰瀹屾暣鎬ф牎楠宂 : ${integrity.valid ? "馃煝 缁濆瀹夊叏 (澶氳瑷€鍏ㄩ摼璺寚绾瑰挰鍚?" : "馃敶 寮傚父"}`);
+console.log(`[鎬昏矗浠婚€氳璇乚   : ${integrity.totalRecords} 寮燻);
 console.log("==================================================");
 
 if (fs.existsSync(ledgerFile)) fs.unlinkSync(ledgerFile);

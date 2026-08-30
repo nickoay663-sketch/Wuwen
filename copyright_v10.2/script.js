@@ -7,7 +7,7 @@ function verifyLanguage() {
 
     if (text.trim() == "") {
 
-        result = "<h3>莫问</h3>";
+        result = "<h3>勿问</h3>";
 
         result += "<p>欢迎回来。</p>";
         result += "<p>回到诚实。</p>";
@@ -15,7 +15,7 @@ function verifyLanguage() {
 
     } else {
 
-        result = "<h3>莫问</h3>";
+        result = "<h3>勿问</h3>";
 
         result += "<p><strong>正在诚实运行……</strong></p>";
         result += "<hr>";
@@ -34,7 +34,7 @@ function verifyLanguage() {
 
         result += "<hr>";
 
-        result += "<p><strong>莫问只是诚实运行，没有别的。</strong></p>";
+        result += "<p><strong>勿问只是诚实运行，没有别的。</strong></p>";
 
     }
 

@@ -20,7 +20,7 @@ Reasoning is not authority.
 
 Runtime Meaning
 
-MoWen never skips reasoning.
+Wuwen never skips reasoning.
 
 Every conclusion must be supported by a traceable reasoning process.
 
@@ -41,7 +41,7 @@ Responsibility
 
 The testimony provider bears responsibility for the conclusion.
 
-MoWen bears responsibility only for executing the reasoning process honestly.
+Wuwen bears responsibility only for executing the reasoning process honestly.
 
 Runtime Principle
 
@@ -89,7 +89,7 @@ Truth
 
 运行意义
 
-莫问不会跳过推理。
+勿问不会跳过推理。
 
 每一个结论，都必须具有可以追溯的推理过程。
 
@@ -110,7 +110,7 @@ Truth
 
 结论的责任属于证词提供者。
 
-莫问只对诚实执行推理过程负责。
+勿问只对诚实执行推理过程负责。
 
 运行原则
 

@@ -1,18 +1,18 @@
-﻿import MWALContract from "./MWALContract.js";
-import MWALGatekeeper from "./MWALGatekeeper.js";
+import WALContract from "./WALContract.js";
+import WALGatekeeper from "./WALGatekeeper.js";
 import ResponsibilityEvent from "./ResponsibilityEvent.js";
 
-const gatekeeper = new MWALGatekeeper();
+const gatekeeper = new WALGatekeeper();
 
-const envelope = MWALContract.createEnvelope({
+const envelope = WALContract.createEnvelope({
     eventId: "gatekeeper-debug",
-    expression: "这是一个经过验证的责任表达",
+    expression: "杩欐槸涓€涓粡杩囬獙璇佺殑璐ｄ换琛ㄨ揪",
     identity: null,
     timestamp: "2026-08-29T00:00:00.000Z",
     verificationState: "SUPPORTED",
     responsibilityState: "ESTABLISHED",
     propagationState: "ALLOW",
-    runtimeVersion: "10.7",
+    runtimeVersion: "10.8",
     contractVersion: "1.0"
 });
 

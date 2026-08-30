@@ -18,9 +18,9 @@ Responsibility follows the provider of testimony.
 
 Runtime Meaning
 
-MoWen does not assume responsibility for testimony.
+Wuwen does not assume responsibility for testimony.
 
-MoWen performs honest runtime.
+Wuwen performs honest runtime.
 
 Responsibility remains with the testimony provider.
 
@@ -41,7 +41,7 @@ Responsibility
 
 Every person bears responsibility for their own testimony.
 
-MoWen bears responsibility only for its own runtime process.
+Wuwen bears responsibility only for its own runtime process.
 
 Runtime Principle
 
@@ -85,9 +85,9 @@ Civilization
 
 运行意义
 
-莫问不承担证词本身的责任。
+勿问不承担证词本身的责任。
 
-莫问执行诚实运行。
+勿问执行诚实运行。
 
 责任始终属于证词提供者。
 
@@ -108,7 +108,7 @@ Civilization
 
 每一个人，都对自己的证词负责。
 
-莫问只对自己的运行过程负责。
+勿问只对自己的运行过程负责。
 
 运行原则
 

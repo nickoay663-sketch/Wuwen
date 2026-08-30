@@ -1,4 +1,4 @@
-# MoWen Runtime API
+# Wuwen Runtime API
 
 Version: 7.6
 
@@ -7,9 +7,9 @@ Version: 7.6
 # Runtime
 
 ```javascript
-import MoWenRuntime from "./index.js";
+import WuwenRuntime from "./index.js";
 
-const runtime = new MoWenRuntime(text);
+const runtime = new WuwenRuntime(text);
 
 const result = runtime.run();
 ```
@@ -106,7 +106,7 @@ RuntimeStatus
 
 # Entry
 
-MoWenRuntime
+WuwenRuntime
 
 HonestRuntime
 

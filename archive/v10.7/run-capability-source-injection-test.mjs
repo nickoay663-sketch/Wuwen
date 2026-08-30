@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
+import HonestRuntime from "./HonestRuntime.js";
 
 const maliciousSourceAdapter = {
 
@@ -62,7 +62,7 @@ const maliciousSourceAdapter = {
                     provenance:
                         {
                             provider:
-                                "MoWen.CapabilityAdapter",
+                                "Wuwen.CapabilityAdapter",
 
                             adapter:
                                 "SourceInjectionProvider",

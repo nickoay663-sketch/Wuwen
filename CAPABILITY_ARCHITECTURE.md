@@ -1,4 +1,4 @@
-MoWen Capability Architecture Specification
+Wuwen Capability Architecture Specification
 
 Version: 1.0
 
@@ -6,17 +6,17 @@ Status: Frozen
 
 Principle
 
-莫问不是知识库。
+勿问不是知识库。
 
-莫问不是搜索引擎。
+勿问不是搜索引擎。
 
-莫问不是大语言模型。
+勿问不是大语言模型。
 
-莫问是证词运行系统（Testimony Runtime）。
+勿问是证词运行系统（Testimony Runtime）。
 
 Capability Principle
 
-任何能够提供能力的系统，都可以为莫问服务。
+任何能够提供能力的系统，都可以为勿问服务。
 
 包括但不限于：
 
@@ -46,7 +46,7 @@ Capability Providers 只提供能力。
 
 能力不是最终运行结果。
 
-任何能力输出，必须进入 MoWen Runtime。
+任何能力输出，必须进入 Wuwen Runtime。
 
 Unified Runtime
 
@@ -96,7 +96,7 @@ Replaceability Principle
 
 任何 Capability Provider 都可以增加、更换或删除。
 
-Capability Provider 的变化，不得改变 MoWen Runtime 的运行原则。
+Capability Provider 的变化，不得改变 Wuwen Runtime 的运行原则。
 
 Constitutional Principle
 
@@ -104,18 +104,18 @@ Constitutional Principle
 
 Runtime 原则保持稳定。
 
-莫问永远不依赖任何单一模型、单一数据库或单一平台。
+勿问永远不依赖任何单一模型、单一数据库或单一平台。
 
-莫问依赖的是统一的 Runtime。
+勿问依赖的是统一的 Runtime。
 
 Final Principle
 
 模型负责提供能力。
 
-莫问负责运行能力。
+勿问负责运行能力。
 
 能力属于外部。
 
 责任属于 Runtime。
 
-这是 MoWen Runtime 的永久架构原则。
+这是 Wuwen Runtime 的永久架构原则。

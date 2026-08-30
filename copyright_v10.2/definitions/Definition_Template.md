@@ -31,7 +31,7 @@ Scope
 
 Runtime Meaning
 
-[Explain how this concept is used during MoWen Runtime execution.]
+[Explain how this concept is used during Wuwen Runtime execution.]
 
 Required Conditions
 
@@ -55,7 +55,7 @@ Runtime Principle
 
 Related Concepts
 
-[List related MoWen Runtime concepts.]
+[List related Wuwen Runtime concepts.]
 
 ----------------------------------------
 
@@ -92,7 +92,7 @@ Related Concepts
 
 运行意义
 
-[说明该概念在莫问 Runtime 中如何被使用。]
+[说明该概念在勿问 Runtime 中如何被使用。]
 
 所需条件
 
@@ -116,4 +116,4 @@ Related Concepts
 
 相关概念
 
-[列出相关莫问 Runtime 概念。]
+[列出相关勿问 Runtime 概念。]

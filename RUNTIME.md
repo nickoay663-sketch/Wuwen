@@ -1,10 +1,10 @@
-# MoWen Runtime v10.1
+# Wuwen Runtime v10.1
 
-# 莫问运行系统 v10.1
+# 勿问运行系统 v10.1
 
 ## Runtime
 
-MoWen uses one Honest Runtime.
+Wuwen uses one Honest Runtime.
 
 All expressions enter the same responsibility verification structure.
 
@@ -12,7 +12,7 @@ Every expression enters Runtime and becomes a verifiable testimony chain.
 
 ## EngineBase Architecture
 
-MoWen Runtime uses EngineBase v10.1.
+Wuwen Runtime uses EngineBase v10.1.
 
 Every Engine follows the unified lifecycle:
 
@@ -76,7 +76,7 @@ Responsibility Report
 
 ## Expression and Testimony
 
-Expression enters MoWen Runtime.
+Expression enters Wuwen Runtime.
 
 After recognition and definition processing, expression becomes Testimony.
 
@@ -88,9 +88,9 @@ Runtime verifies relationships and responsibility boundaries.
 
 ## Honest Runtime
 
-MoWen uses one Honest Runtime for every expression.
+Wuwen uses one Honest Runtime for every expression.
 
-MoWen itself can also become an expression and enter the same Runtime.
+Wuwen itself can also become an expression and enter the same Runtime.
 
 An Honest Runtime is a complete responsibility verification process.
 

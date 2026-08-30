@@ -1,4 +1,4 @@
-﻿import MoWenRuntime from "./runtime/index.js";
+import WuwenRuntime from "./runtime/index.js";
 
 const cases = [
     {
@@ -51,7 +51,7 @@ const cases = [
 for (const item of cases) {
 
     const result =
-        await new MoWenRuntime(
+        await new WuwenRuntime(
             item.text,
             {
                 languageSystem:

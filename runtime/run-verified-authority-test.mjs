@@ -1,4 +1,4 @@
-﻿import RuntimeVerificationEngine, { createRuntimeVerificationAuthority } from "./RuntimeVerificationEngine.js";
+import RuntimeVerificationEngine, { createRuntimeVerificationAuthority } from "./RuntimeVerificationEngine.js";
 
 const runtimeVerificationAuthority =
     createRuntimeVerificationAuthority();

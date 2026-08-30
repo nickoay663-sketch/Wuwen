@@ -66,7 +66,7 @@ class WebSearchProvider {
                                 "text/html,application/xhtml+xml",
 
                             "User-Agent":
-                                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 MoWen/10.4"
+                                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Wuwen/10.4"
                         }
                     }
                 );

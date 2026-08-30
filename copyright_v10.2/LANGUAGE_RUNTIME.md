@@ -1,21 +1,21 @@
 # Language Runtime v1.1
 
-# 莫问语言运行系统 v1.1
+# 勿问语言运行系统 v1.1
 
 
 ## Purpose
 
-Language Runtime is the first Runtime layer executed by MoWen.
+Language Runtime is the first Runtime layer executed by Wuwen.
 
 Its responsibility is not to translate expressions.
 
-Its responsibility is to establish the original language testimony environment before entering MoWen Runtime.
+Its responsibility is to establish the original language testimony environment before entering Wuwen Runtime.
 
-语言运行系统是莫问执行的第一层运行环境。
+语言运行系统是勿问执行的第一层运行环境。
 
 它不负责翻译表达。
 
-它负责在进入莫问 Runtime 前，建立表达所属语言的原始证词运行环境。
+它负责在进入勿问 Runtime 前，建立表达所属语言的原始证词运行环境。
 
 
 ---
@@ -169,11 +169,11 @@ It does not replace the original expression.
 
 ## Independence
 
-Different languages enter the same MoWen Constitution.
+Different languages enter the same Wuwen Constitution.
 
 However, each language keeps its original testimony environment.
 
-不同语言进入同一部莫问宪法。
+不同语言进入同一部勿问宪法。
 
 但每种语言保持自己的原始证词环境。
 
@@ -201,10 +201,10 @@ Russian
 Others
 
 
-MoWen can continuously extend language environments.
+Wuwen can continuously extend language environments.
 
 
-莫问可以不断增加新的语言运行环境。
+勿问可以不断增加新的语言运行环境。
 
 
 ---

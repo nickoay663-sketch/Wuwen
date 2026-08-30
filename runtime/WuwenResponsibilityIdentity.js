@@ -8,10 +8,10 @@
 
     layer: "Responsibility Layer",
 
-    protocol: "MWAL",
+    protocol: "WAL",
 
     principle:
-        "检验表达是否能够承担责任，而不是替代人的判断。",
+        "验证表达是否能够承担责任，而不是替代人的判断。",
 
     status: "active"
 

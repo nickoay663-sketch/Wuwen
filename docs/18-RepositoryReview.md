@@ -1,15 +1,15 @@
-# MoWen Repository Review v4.0
-# 莫问仓库总审查 v4.0
+# Wuwen Repository Review v4.0
+# 勿问仓库总审查 v4.0
 
 # Purpose
 
-Repository Review verifies the integrity, consistency and responsibility of the entire MoWen repository.
+Repository Review verifies the integrity, consistency and responsibility of the entire Wuwen repository.
 
 The repository itself is a Runtime Object.
 
 Therefore the repository shall also enter Honest Runtime.
 
-仓库总审查负责验证整个莫问仓库的完整性、一致性与责任关系。
+仓库总审查负责验证整个勿问仓库的完整性、一致性与责任关系。
 
 仓库本身也是运行对象。
 

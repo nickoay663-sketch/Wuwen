@@ -1,4 +1,4 @@
-﻿import RuntimeContract from "./RuntimeContract.js";
+import RuntimeContract from "./RuntimeContract.js";
 
 class RuntimeError {
 
@@ -11,7 +11,7 @@ class RuntimeError {
         this.version =
             RuntimeContract.identity?.runtimeVersion ||
             RuntimeContract.version ||
-            "10.7";
+            "10.8";
 
         this.code =
             code;
@@ -30,7 +30,7 @@ class RuntimeError {
             contractVersion:
                 RuntimeContract.identity?.contractVersion ||
                 RuntimeContract.version ||
-                "10.7",
+                "10.8",
 
             ...metadata
 

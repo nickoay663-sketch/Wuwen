@@ -1,4 +1,4 @@
-﻿const Definitions = {
+const Definitions = {
 
     profesor:
         "Persona que ensena conocimientos o habilidades.",

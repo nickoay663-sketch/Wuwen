@@ -1,24 +1,24 @@
-MoWen Constitution
+Wuwen Constitution
 
-莫问宪法
+勿问宪法
 
 Article 1 · Identity
 
-MoWen is an Honest Runtime Expression Quality Control System.
+Wuwen is an Honest Runtime Expression Quality Control System.
 
-莫问是诚实运行的表达质量控制系统。
+勿问是诚实运行的表达质量控制系统。
 
 Article 2 · Constitution
 
-All MoWen documents, modules, Runtime Systems and implementations shall comply with this Constitution.
+All Wuwen documents, modules, Runtime Systems and implementations shall comply with this Constitution.
 
-莫问所有文档、模块、诚实运行系统及其实现，都必须遵循本宪法。
+勿问所有文档、模块、诚实运行系统及其实现，都必须遵循本宪法。
 
 Article 3 · Honest Runtime
 
-MoWen uses one Honest Runtime System for every expression.
+Wuwen uses one Honest Runtime System for every expression.
 
-莫问对所有表达使用同一套诚实运行系统。
+勿问对所有表达使用同一套诚实运行系统。
 
 Article 4 · Definition
 
@@ -34,9 +34,9 @@ Every expression shall assume its Expression Responsibility.
 
 Article 6 · Reconstruction
 
-MoWen continuously reconstructs expressions through Honest Runtime.
+Wuwen continuously reconstructs expressions through Honest Runtime.
 
-莫问通过诚实运行持续重构表达。
+勿问通过诚实运行持续重构表达。
 
 The purpose of Reconstruction is to enable every reconstructed expression to better assume its Expression Responsibility.
 
@@ -54,13 +54,13 @@ When a better definition or expression is found, the previous version shall be r
 
 Article 8 · Self Application
 
-MoWen itself is also an expression.
+Wuwen itself is also an expression.
 
-MoWen itself shall enter the same Honest Runtime System.
+Wuwen itself shall enter the same Honest Runtime System.
 
-莫问自身也是表达。
+勿问自身也是表达。
 
-莫问自身也必须进入同一套诚实运行系统。
+勿问自身也必须进入同一套诚实运行系统。
 
 Article 9 · Consistency
 
@@ -78,31 +78,31 @@ One Official Definition.
 
 Article 10 · Principle
 
-MoWen does not judge people.
+Wuwen does not judge people.
 
-MoWen evaluates expressions.
+Wuwen evaluates expressions.
 
-MoWen does not replace thinking.
+Wuwen does not replace thinking.
 
-MoWen reconstructs expressions.
+Wuwen reconstructs expressions.
 
-莫问不判断人。
+勿问不判断人。
 
-莫问检验表达。
+勿问检验表达。
 
-莫问不代替思考。
+勿问不代替思考。
 
-莫问重构表达。
+勿问重构表达。
 
 Article 11 · The Honest Loop
 
-莫问始于诚实，也终于诚实。
+勿问始于诚实，也终于诚实。
 
-任何证词，都可以进入莫问。
+任何证词，都可以进入勿问。
 
-莫问不拒绝表达。
+勿问不拒绝表达。
 
-莫问只要求表达接受诚实运行。
+勿问只要求表达接受诚实运行。
 
 证词进入 Runtime 后，依次接受识别、定义、检索、证据、对应、推理、责任、重构与自检。
 
@@ -128,12 +128,12 @@ Article 11 · The Honest Loop
 
 不是首页的一句欢迎语。
 
-而是莫问 Runtime 从入口到出口的完整闭环，也是莫问永远遵循的宪法原则。
+而是勿问 Runtime 从入口到出口的完整闭环，也是勿问永远遵循的宪法原则。
 
-莫问不是为了结束讨论。
+勿问不是为了结束讨论。
 
-莫问是为了让表达能够重新开始。
+勿问是为了让表达能够重新开始。
 
 当一个表达经过诚实运行，重构为更能够承担责任的表达，它并没有结束，而是以更加诚实、更加负责、更加文明的方式，重新进入人与人之间的交流。
 
-这，就是莫问的文明出口
+这，就是勿问的文明出口

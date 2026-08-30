@@ -1,13 +1,13 @@
 # Runtime Router v1.1
 
-# 莫问运行路由系统 v1.1
+# 勿问运行路由系统 v1.1
 
 
 ## Purpose
 
-Runtime Router is responsible for directing every expression into the MoWen Honest Runtime.
+Runtime Router is responsible for directing every expression into the Wuwen Honest Runtime.
 
-运行路由系统负责将每一个表达导入莫问诚实运行。
+运行路由系统负责将每一个表达导入勿问诚实运行。
 
 
 Runtime Router does not select different judgment systems.

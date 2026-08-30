@@ -1,6 +1,6 @@
-# MoWen Honest Runtime Standard
+# Wuwen Honest Runtime Standard
 
-# 莫问诚实运行标准
+# 勿问诚实运行标准
 
 ## 1 · Definition
 
@@ -24,13 +24,13 @@ The same standard shall apply to every expression, regardless of its source, aut
 
 ## 3 · Neutrality
 
-MoWen does not require identical viewpoints.
+Wuwen does not require identical viewpoints.
 
-MoWen requires identical runtime standards.
+Wuwen requires identical runtime standards.
 
-莫问不要求观点一致。
+勿问不要求观点一致。
 
-莫问要求运行标准一致。
+勿问要求运行标准一致。
 
 ---
 

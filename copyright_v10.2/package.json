@@ -1,7 +1,7 @@
 {
-  "name": "mowen",
+  "name": "Wuwen",
   "version": "2.3.0",
-  "description": "MoWen Expression Quality Verification System - Honest Runtime",
+  "description": "Wuwen Expression Quality Verification System - Honest Runtime",
   "type": "module",
   "main": "run.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "test": "node tests/runtime.test.js"
   },
   "keywords": [
-    "MoWen",
+    "Wuwen",
     "Honest Runtime",
     "Expression Verification",
     "Semantic Object"

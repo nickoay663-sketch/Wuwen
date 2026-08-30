@@ -2,9 +2,9 @@
 
 ## Mission
 
-Evolution is the evolution layer of MoWen.
+Evolution is the evolution layer of Wuwen.
 
-Evolution improves MoWen through honest reasoning.
+Evolution improves Wuwen through honest reasoning.
 
 Evolution never changes the Constitution directly.
 
@@ -96,7 +96,7 @@ Evolution improves only through verification.
 
 ## Result
 
-MoWen evolves continuously.
+Wuwen evolves continuously.
 
 Every improvement must remain honest.
 

@@ -1,10 +1,10 @@
-# MoWen Runtime Specification
+# Wuwen Runtime Specification
 
 Version: 7.8
 
 ## Purpose
 
-MoWen is an Honest Runtime.
+Wuwen is an Honest Runtime.
 
 It does not produce opinions.
 
@@ -14,7 +14,7 @@ It executes a transparent, traceable and responsibility-bounded Runtime.
 
 # Runtime Input
 
-MoWen accepts human expressions.
+Wuwen accepts human expressions.
 
 Input may include:
 
@@ -72,9 +72,9 @@ SelfCheck
 
 # Runtime Output
 
-MoWen never outputs truth claims.
+Wuwen never outputs truth claims.
 
-MoWen outputs:
+Wuwen outputs:
 
 - RuntimeResult
 - RuntimeReport
@@ -103,15 +103,15 @@ Every Runtime execution contains:
 
 # Runtime Boundary
 
-MoWen analyzes testimony.
+Wuwen analyzes testimony.
 
-MoWen does not analyze people.
+Wuwen does not analyze people.
 
-MoWen does not replace human judgment.
+Wuwen does not replace human judgment.
 
-MoWen does not replace human responsibility.
+Wuwen does not replace human responsibility.
 
-MoWen does not extend beyond available evidence.
+Wuwen does not extend beyond available evidence.
 
 ---
 

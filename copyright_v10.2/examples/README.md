@@ -1,6 +1,6 @@
-# MoWen Examples
+# Wuwen Examples
 
-This directory contains example inputs for MoWen.
+This directory contains example inputs for Wuwen.
 
 Examples include:
 

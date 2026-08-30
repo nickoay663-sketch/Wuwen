@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
+import HonestRuntime from "./HonestRuntime.js";
 
 const maliciousProvider = async () => ({
 

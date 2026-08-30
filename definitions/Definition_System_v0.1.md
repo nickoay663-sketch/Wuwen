@@ -14,11 +14,11 @@ expression cannot establish clear responsibility.
 
 Core Principle
 
-MoWen begins with definitions.
+Wuwen begins with definitions.
 
-MoWen does not assume the meaning of a concept.
+Wuwen does not assume the meaning of a concept.
 
-MoWen examines the relationship between:
+Wuwen examines the relationship between:
 
 Definition
 
@@ -61,9 +61,9 @@ Different definitions may produce different responsibilities.
 
 Therefore:
 
-MoWen does not automatically select a definition.
+Wuwen does not automatically select a definition.
 
-MoWen presents:
+Wuwen presents:
 
 Definition
 
@@ -107,7 +107,7 @@ User-defined definition
 
 After the user selects a definition:
 
-MoWen reruns the responsibility relationship.
+Wuwen reruns the responsibility relationship.
 
 Principle
 
@@ -135,11 +135,11 @@ Boundary determines the range that language can honestly bear.
 
 核心原则
 
-莫问从定义开始运行。
+勿问从定义开始运行。
 
-莫问不预设概念含义。
+勿问不预设概念含义。
 
-莫问检验：
+勿问检验：
 
 定义
 
@@ -186,9 +186,9 @@ Boundary determines the range that language can honestly bear.
 
 因此：
 
-莫问不默认选择定义。
+勿问不默认选择定义。
 
-莫问展示：
+勿问展示：
 
 定义
 
@@ -234,7 +234,7 @@ Boundary determines the range that language can honestly bear.
 
 用户选择后：
 
-莫问重新运行承担关系。
+勿问重新运行承担关系。
 
 原则
 

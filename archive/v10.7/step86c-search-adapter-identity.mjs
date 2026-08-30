@@ -1,4 +1,4 @@
-﻿import SearchEngine from "./SearchEngine.js";
+import SearchEngine from "./SearchEngine.js";
 
 const fakeAdapter = {
 

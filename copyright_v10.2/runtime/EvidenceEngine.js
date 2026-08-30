@@ -7,7 +7,7 @@ class EvidenceEngine extends EngineBase {
         super(
             "EvidenceEngine",
             "10.2",
-            "莫问记录并验证表达相关证据。"
+            "勿问记录并验证表达相关证据。"
         );
 
         this.semanticObject =

@@ -7,7 +7,7 @@ class EvidenceEngine extends EngineBase {
         super(
             "EvidenceEngine",
             "10.7",
-            "莫问区分已发现、未验证与已验证：搜索发现可以保留为DISCOVERED，但没有可识别的Runtime验证行为时，不得提升为VERIFIED。"
+            "勿问区分已发现、未验证与已验证：搜索发现可以保留为DISCOVERED，但没有可识别的Runtime验证行为时，不得提升为VERIFIED。"
         );
 
         this.semanticObject =

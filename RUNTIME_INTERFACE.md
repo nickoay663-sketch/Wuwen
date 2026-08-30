@@ -1,15 +1,15 @@
 # Runtime Interface v1.1
 
-# 莫问运行接口规范 v1.1
+# 勿问运行接口规范 v1.1
 
 
 ## Purpose
 
-Runtime Interface defines the common interface shared by every Runtime in MoWen.
+Runtime Interface defines the common interface shared by every Runtime in Wuwen.
 
 Every Runtime follows the same interface specification while maintaining different responsibilities.
 
-运行接口规范定义莫问所有 Runtime 共同遵循的接口。
+运行接口规范定义勿问所有 Runtime 共同遵循的接口。
 
 所有 Runtime 遵循统一接口，同时保持各自责任。
 
@@ -68,7 +68,7 @@ Return
 
 Every Runtime receives a Structured Expression Object created by Language Runtime.
 
-自然语言通过 Language Runtime 进入莫问。
+自然语言通过 Language Runtime 进入勿问。
 
 Runtime 接收由语言运行系统建立的结构化表达对象。
 
@@ -97,14 +97,14 @@ Runtime processes the Structured Expression Object according to its responsibili
 
 Each Runtime may use different methods.
 
-However, every Runtime must remain consistent with MoWen Constitution.
+However, every Runtime must remain consistent with Wuwen Constitution.
 
 
 运行系统依据自身责任处理结构化表达对象。
 
 不同运行系统可以采用不同方法。
 
-但必须遵循《莫问宪法》。
+但必须遵循《勿问宪法》。
 
 
 ---

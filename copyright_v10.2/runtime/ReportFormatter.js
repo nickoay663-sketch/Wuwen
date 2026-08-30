@@ -14,7 +14,7 @@ class ReportFormatter {
                 "8.2",
 
             principle:
-                "莫问只整理运行结果，不增加新的判断。",
+                "勿问只整理运行结果，不增加新的判断。",
 
             metadata: {
 

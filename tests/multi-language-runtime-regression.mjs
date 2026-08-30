@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "../runtime/HonestRuntime.js";
+import HonestRuntime from "../runtime/HonestRuntime.js";
 
 const cases = [
 
@@ -195,7 +195,7 @@ for (const testCase of cases) {
             JSON.stringify(
                 {
                     test:
-                        "MoWen Multi-Language Runtime Regression",
+                        "Wuwen Multi-Language Runtime Regression",
 
                     failedLanguage:
                         testCase.language,
@@ -224,7 +224,7 @@ console.log(
     JSON.stringify(
         {
             test:
-                "MoWen Multi-Language Runtime Regression",
+                "Wuwen Multi-Language Runtime Regression",
 
             languageCount:
                 cases.length,
@@ -247,7 +247,7 @@ console.log(
 if (!passed) {
 
     console.log(
-        "MoWen Multi-Language Runtime Regression Failed."
+        "Wuwen Multi-Language Runtime Regression Failed."
     );
 
     process.exit(1);
@@ -255,5 +255,5 @@ if (!passed) {
 }
 
 console.log(
-    "MoWen Multi-Language Runtime Regression Passed."
+    "Wuwen Multi-Language Runtime Regression Passed."
 );

@@ -1,6 +1,6 @@
-# MoWen Reasoning v3.1
+# Wuwen Reasoning v3.1
 
-# 莫问推理系统 v3.1
+# 勿问推理系统 v3.1
 
 
 ## Purpose

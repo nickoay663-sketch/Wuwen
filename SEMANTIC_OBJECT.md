@@ -1,15 +1,15 @@
 # Semantic Object v1.1
 
-# 莫问统一语义对象 v1.1
+# 勿问统一语义对象 v1.1
 
 
 ## Purpose
 
-Semantic Object is the unified runtime object of MoWen.
+Semantic Object is the unified runtime object of Wuwen.
 
 Every expression entering Honest Runtime shall be converted into one Semantic Object.
 
-统一语义对象是莫问的统一运行对象。
+统一语义对象是勿问的统一运行对象。
 
 所有进入诚实运行的表达，都必须转换为统一语义对象。
 

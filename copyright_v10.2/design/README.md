@@ -1,6 +1,6 @@
-# MoWen Design
+# Wuwen Design
 
-This directory contains the design ideas of MoWen.
+This directory contains the design ideas of Wuwen.
 
 Topics include:
 

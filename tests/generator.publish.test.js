@@ -1,4 +1,4 @@
-﻿import GeneratorEngine from "../runtime/GeneratorEngine.js";
+import GeneratorEngine from "../runtime/GeneratorEngine.js";
 
 function test(name, reconstruction) {
 
@@ -6,9 +6,9 @@ function test(name, reconstruction) {
         new GeneratorEngine({
             reconstruction,
             contract: {
-                version: "10.6",
+                version: "10.8",
                 identity: {
-                    runtimeVersion: "10.6"
+                    runtimeVersion: "10.8"
                 }
             },
             pipeline: [],

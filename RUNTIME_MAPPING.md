@@ -1,17 +1,17 @@
-# MoWen Runtime Mapping v1.1
+# Wuwen Runtime Mapping v1.1
 
-# 莫问 Runtime 映射规范 v1.1
+# 勿问 Runtime 映射规范 v1.1
 
 
 ## Purpose
 
-This document maps every MoWen Principle to Runtime behavior.
+This document maps every Wuwen Principle to Runtime behavior.
 
 Every Principle must be executable.
 
 Every Runtime behavior must be traceable.
 
-本文用于建立莫问原则与 Runtime 行为之间的对应关系。
+本文用于建立勿问原则与 Runtime 行为之间的对应关系。
 
 每一条 Principle 都必须能够落实到 Runtime。
 
@@ -22,9 +22,9 @@ Every Runtime behavior must be traceable.
 
 # Principle 0
 
-## Honesty is the life of MoWen.
+## Honesty is the life of Wuwen.
 
-## 诚实是莫问的生命。
+## 诚实是勿问的生命。
 
 
 ### Runtime
@@ -54,9 +54,9 @@ Runtime 停止运行，
 
 # Principle 1
 
-## MoWen analyzes testimony, not people.
+## Wuwen analyzes testimony, not people.
 
-## 莫问分析证词，而不是分析人。
+## 勿问分析证词，而不是分析人。
 
 
 ### Runtime
@@ -77,16 +77,16 @@ People are never judged.
 
 证词通过其原始语言环境进入 Runtime。
 
-莫问不判断人。
+勿问不判断人。
 
 
 ---
 
 # Principle 2
 
-## MoWen recognizes objects and concepts before making any conclusion.
+## Wuwen recognizes objects and concepts before making any conclusion.
 
-## 莫问在形成任何判断之前，先识别对象和概念。
+## 勿问在形成任何判断之前，先识别对象和概念。
 
 
 ### Runtime
@@ -114,9 +114,9 @@ Definition must finish before Reasoning.
 
 # Principle 3
 
-## MoWen performs an honest runtime.
+## Wuwen performs an honest runtime.
 
-## 莫问执行诚实运行。
+## 勿问执行诚实运行。
 
 
 ### Runtime
@@ -165,9 +165,9 @@ Reconstruction
 
 # Principle 4
 
-## MoWen generates questions, not judgments.
+## Wuwen generates questions, not judgments.
 
-## 莫问生成问题，而不是生成裁决。
+## 勿问生成问题，而不是生成裁决。
 
 
 ### Runtime
@@ -241,9 +241,9 @@ Do not assume responsibility.
 
 # Principle 7
 
-## MoWen may generate a new expression.
+## Wuwen may generate a new expression.
 
-## 莫问可以生成新的表达。
+## 勿问可以生成新的表达。
 
 
 ### Runtime
@@ -267,9 +267,9 @@ Maintain original testimony environment.
 
 # Principle 8
 
-## MoWen never replaces human thinking.
+## Wuwen never replaces human thinking.
 
-## 莫问不替代人的思考。
+## 勿问不替代人的思考。
 
 
 ### Runtime

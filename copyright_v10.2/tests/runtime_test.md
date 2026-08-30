@@ -1,10 +1,10 @@
-# MoWen Runtime Test v2.3
+# Wuwen Runtime Test v2.3
 
 ## Purpose
 
-Verify whether MoWen Honest Runtime can complete one complete expression verification process.
+Verify whether Wuwen Honest Runtime can complete one complete expression verification process.
 
-验证莫问诚实运行是否能够完成一次完整表达检验。
+验证勿问诚实运行是否能够完成一次完整表达检验。
 
 
 ## Input
@@ -121,13 +121,13 @@ Verify Runtime integrity.
 
 ## Expected Result
 
-MoWen does not judge whether:
+Wuwen does not judge whether:
 
 "我是老师。"
 
 is true or false.
 
-MoWen only checks:
+Wuwen only checks:
 
 - Runtime completeness
 - Definition availability
@@ -135,6 +135,6 @@ MoWen only checks:
 - Correspondence status
 - Responsibility structure
 
-莫问不直接判断真假。
+勿问不直接判断真假。
 
-莫问检查表达是否能够承担责任。
+勿问检查表达是否能够承担责任。

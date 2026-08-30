@@ -1,9 +1,9 @@
-﻿import fs from "fs";
+import fs from "fs";
 import ResponsibilityLedger from "./ResponsibilityLedger.js";
 
 console.log("=== EVIDENCE TAMPER EXPERIMENT ===");
 
-const file = "./mowen-evidence-tamper-test.jsonl";
+const file = "./Wuwen-evidence-tamper-test.jsonl";
 
 if (fs.existsSync(file)) {
     fs.unlinkSync(file);

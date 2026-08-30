@@ -1,4 +1,4 @@
-﻿const Dictionary = {
+const Dictionary = {
     version: "1.0",
     language: "es-ES",
 

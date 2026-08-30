@@ -2,7 +2,7 @@
 
 ## 定义
 
-Search Manager 是莫问诚实运行的统一检索管理器。
+Search Manager 是勿问诚实运行的统一检索管理器。
 
 Search Manager 不是 Search Engine。
 

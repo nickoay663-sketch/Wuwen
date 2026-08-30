@@ -1,7 +1,7 @@
-﻿import MWALGatekeeper from './MWALGatekeeper.js';
+import WALGatekeeper from './WALGatekeeper.js';
 
 console.log('==================================================');
-console.log('       莫问 (MoWen) Gatekeeper Phase 2 语义测试       ');
+console.log('       鍕块棶 (Wuwen) Gatekeeper Phase 2 璇箟娴嬭瘯       ');
 console.log('==================================================');
 
 const semanticViolationEnvelope = {
@@ -11,11 +11,10 @@ const semanticViolationEnvelope = {
     claim: 'This definitely guarantees system stability.'
 };
 
-const verdict = MWALGatekeeper.inspect(semanticViolationEnvelope);
-console.log('\n[测试] 语义与修辞违规拦截测试: 准入状态 = ' + verdict.admitted);
+const verdict = WALGatekeeper.inspect(semanticViolationEnvelope);
+console.log('\n[娴嬭瘯] 璇箟涓庝慨杈炶繚瑙勬嫤鎴祴璇? 鍑嗗叆鐘舵€?= ' + verdict.admitted);
 if (!verdict.admitted) {
-    console.log('  -> 拦截原因: ' + verdict.reason);
-    verdict.violations.forEach(v => console.log('     * 违规规则 [' + v.rule + ']: ' + v.reason));
+    console.log('  -> 鎷︽埅鍘熷洜: ' + verdict.reason);
+    verdict.violations.forEach(v => console.log('     * 杩濊瑙勫垯 [' + v.rule + ']: ' + v.reason));
 }
 console.log('==================================================');
-

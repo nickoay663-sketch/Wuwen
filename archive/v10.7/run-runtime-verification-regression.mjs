@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
+import HonestRuntime from "./HonestRuntime.js";
 
 function assert(condition, message) {
     if (!condition) {
@@ -75,7 +75,7 @@ async function runCase(name, input, options) {
 try {
 
     console.log(
-        "\n=== MoWen Runtime Verification Regression ==="
+        "\n=== Wuwen Runtime Verification Regression ==="
     );
 
     const positive =

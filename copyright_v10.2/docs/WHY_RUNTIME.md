@@ -8,13 +8,13 @@ Research Reconstruction Draft
 
 # Why Runtime?
 
-MoWen does not begin with conclusions.
+Wuwen does not begin with conclusions.
 
-MoWen begins with expressions.
+Wuwen begins with expressions.
 
-莫问不是从结论开始。
+勿问不是从结论开始。
 
-莫问从表达开始。
+勿问从表达开始。
 
 Every expression enters Honest Runtime.
 
@@ -130,13 +130,13 @@ Reasoning examines whether conclusions can be derived.
 
 推理检验结论是否能够推出。
 
-MoWen does not generate conclusions.
+Wuwen does not generate conclusions.
 
-MoWen verifies reasoning.
+Wuwen verifies reasoning.
 
-莫问不制造结论。
+勿问不制造结论。
 
-莫问检验推理。
+勿问检验推理。
 
 ---
 
@@ -188,17 +188,17 @@ Expressions therefore better assume their responsibilities.
 
 # Why SelfCheck?
 
-MoWen itself is also an expression.
+Wuwen itself is also an expression.
 
-莫问自身也是表达。
+勿问自身也是表达。
 
 Therefore,
 
-MoWen itself must enter the same Honest Runtime.
+Wuwen itself must enter the same Honest Runtime.
 
 因此，
 
-莫问自身也必须进入同一套诚实运行。
+勿问自身也必须进入同一套诚实运行。
 
 SelfCheck guarantees that Runtime itself remains honest.
 

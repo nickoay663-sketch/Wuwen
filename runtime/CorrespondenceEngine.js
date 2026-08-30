@@ -1,4 +1,4 @@
-﻿import EngineBase from "./EngineBase.js";
+import EngineBase from "./EngineBase.js";
 
 class CorrespondenceEngine extends EngineBase {
 
@@ -352,9 +352,10 @@ class CorrespondenceEngine extends EngineBase {
 
         const definitionExpression =
             String(
-                definition.expression ||
+                typeof definition === "string" ? definition :
+                (definition.expression ||
                 definition.originalExpression ||
-                ""
+                "")
             )
                 .trim()
                 .toLowerCase();

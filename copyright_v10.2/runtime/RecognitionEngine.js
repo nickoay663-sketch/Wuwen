@@ -7,7 +7,7 @@ class RecognitionEngine extends EngineBase {
         super(
             "RecognitionEngine",
             "10.2",
-            "莫问识别表达对象、概念与原始信息。"
+            "勿问识别表达对象、概念与原始信息。"
         );
 
         this.expression =

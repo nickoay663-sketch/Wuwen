@@ -6,8 +6,8 @@ class ReasoningEngine extends EngineBase {
 
         super(
             "ReasoningEngine",
-            "10.7",
-            "莫问分析已验证对应关系中的推理边界，不把发现、未验证或未知扩大为结论。"
+            "10.8",
+            "勿问分析已验证对应关系中的推理边界，不把发现、未验证或未知扩大为结论。"
         );
 
         this.semanticObject =
@@ -99,11 +99,11 @@ principle:
 
             runtimeVersion:
                 this.semanticObject.contract?.identity?.runtimeVersion ||
-                "10.7",
+                "10.8",
 
             contractVersion:
                 this.semanticObject.contract?.version ||
-                "10.7",
+                "10.8",
 
             /*
              * engineCount = 完整 Runtime Registry 能力数量。

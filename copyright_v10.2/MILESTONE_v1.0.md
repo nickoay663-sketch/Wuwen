@@ -1,8 +1,8 @@
-# MoWen Honest Runtime v1.0 Milestone
+# Wuwen Honest Runtime v1.0 Milestone
 
 ## Release
 
-MoWen Honest Runtime v1.0
+Wuwen Honest Runtime v1.0
 
 ---
 
@@ -64,7 +64,7 @@ OriginalText → Testimony
 
 ### Core Principles
 
-MoWen begins with testimony.
+Wuwen begins with testimony.
 
 Without definition, there is no reasoning.
 
@@ -74,7 +74,7 @@ Reasoning never invents premises.
 
 Responsibility belongs to the testimony provider.
 
-MoWen generates questions before conclusions.
+Wuwen generates questions before conclusions.
 
 ---
 
@@ -109,16 +109,16 @@ Completed:
 
 ## Meaning
 
-MoWen is no longer only an idea.
+Wuwen is no longer only an idea.
 
-MoWen now has:
+Wuwen now has:
 
 - A complete runtime architecture.
 - A unified runtime interface.
 - A complete responsibility chain.
 - A complete testimony-driven workflow.
 
-This is the first milestone of MoWen.
+This is the first milestone of Wuwen.
 
 Version:
 

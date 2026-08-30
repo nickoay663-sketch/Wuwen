@@ -1,4 +1,4 @@
-﻿import MoWenRuntime from "./runtime/index.js";
+import WuwenRuntime from "./runtime/index.js";
 
 const externalLanguageSystem = {
     name: "ExternalThaiLanguageSystem",
@@ -15,7 +15,7 @@ const text = `ท่านผู้มีเกียรติครับ, โ�
 การตัดสินใจที่ดีที่สุดได้ถูกทีมของเราเลือกแล้ว`;
 
 const r =
-    await new MoWenRuntime(
+    await new WuwenRuntime(
         text,
         {
             languageSystem:

@@ -1,43 +1,43 @@
-﻿import ResponsibilityLedger from "./ResponsibilityLedger.js";
-import MWALContract from "./MWALContract.js";
+import ResponsibilityLedger from "./ResponsibilityLedger.js";
+import WALContract from "./WALContract.js";
 import fs from "fs";
 
-const ledgerFile = "./test-mowen-ledger.jsonl";
-if (fs.existsSync(ledgerFile)) fs.unlinkSync(ledgerFile); // 清理旧测试文件
+const ledgerFile = "./test-Wuwen-ledger.jsonl";
+if (fs.existsSync(ledgerFile)) fs.unlinkSync(ledgerFile); // 娓呯悊鏃ф祴璇曟枃浠?
 
-console.log("=== 测试莫问责任不可变账本 (Ledger) ===");
+console.log("=== 娴嬭瘯鍕块棶璐ｄ换涓嶅彲鍙樿处鏈?(Ledger) ===");
 const ledger = new ResponsibilityLedger(ledgerFile);
 
-// 1. 写入第一条记录
+// 1. 鍐欏叆绗竴鏉¤褰?
 const r1 = ledger.append({
     id: "rec_ledger_001",
-    epistemicState: MWALContract.RESPONSIBILITY_STATES.ESTABLISHED,
-    verificationStatus: MWALContract.VERIFICATION_STATES.SUPPORTED,
+    epistemicState: WALContract.RESPONSIBILITY_STATES.ESTABLISHED,
+    verificationStatus: WALContract.VERIFICATION_STATES.SUPPORTED,
     verifiedEvidenceCount: 3,
     canPublish: true
-}, [{ source: "doc_1", snippet: "莫问账本初始化测试。" }]);
+}, [{ source: "doc_1", snippet: "鍕块棶璐︽湰鍒濆鍖栨祴璇曘€? }]);
 
-console.log("【写入第一条】", r1.id, "签名:", r1.signature.substring(0, 16) + "...");
+console.log("銆愬啓鍏ョ涓€鏉°€?, r1.id, "绛惧悕:", r1.signature.substring(0, 16) + "...");
 
-// 2. 写入第二条记录
+// 2. 鍐欏叆绗簩鏉¤褰?
 const r2 = ledger.append({
     id: "rec_ledger_002",
-    epistemicState: MWALContract.RESPONSIBILITY_STATES.ESTABLISHED,
-    verificationStatus: MWALContract.VERIFICATION_STATES.SUPPORTED,
+    epistemicState: WALContract.RESPONSIBILITY_STATES.ESTABLISHED,
+    verificationStatus: WALContract.VERIFICATION_STATES.SUPPORTED,
     verifiedEvidenceCount: 1,
     canPublish: true
-}, [{ source: "doc_2", snippet: "莫问账本连续追加测试。" }]);
+}, [{ source: "doc_2", snippet: "鍕块棶璐︽湰杩炵画杩藉姞娴嬭瘯銆? }]);
 
-console.log("【写入第二条】", r2.id, "前置指纹匹配:", r2.previousHash === r1.signature ? "✔" : "✖");
+console.log("銆愬啓鍏ョ浜屾潯銆?, r2.id, "鍓嶇疆鎸囩汗鍖归厤:", r2.previousHash === r1.signature ? "鉁? : "鉁?);
 
-// 3. 校验账本整体完整性
+// 3. 鏍￠獙璐︽湰鏁翠綋瀹屾暣鎬?
 const integrity = ledger.verifyIntegrity();
-console.log("【账本完整性校验】", integrity.valid ? `通过 (总记录数: ${integrity.totalRecords})` : `失败: ${integrity.error}`);
+console.log("銆愯处鏈畬鏁存€ф牎楠屻€?, integrity.valid ? `閫氳繃 (鎬昏褰曟暟: ${integrity.totalRecords})` : `澶辫触: ${integrity.error}`);
 
-// 清理测试文件
+// 娓呯悊娴嬭瘯鏂囦欢
 if (fs.existsSync(ledgerFile)) fs.unlinkSync(ledgerFile);
 
-// 模拟篡改第一条记录的负载
+// 妯℃嫙绡℃敼绗竴鏉¤褰曠殑璐熻浇
 ledger.records[0].payload = { hacked: true };
-console.log('=== 篡改后的完整性校验 ===');
-console.log('校验结果:', ledger.verifyIntegrity());
+console.log('=== 绡℃敼鍚庣殑瀹屾暣鎬ф牎楠?===');
+console.log('鏍￠獙缁撴灉:', ledger.verifyIntegrity());

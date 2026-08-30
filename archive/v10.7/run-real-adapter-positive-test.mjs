@@ -1,4 +1,4 @@
-﻿import ExternalSearchAdapter from "./ExternalSearchAdapter.js";
+import ExternalSearchAdapter from "./ExternalSearchAdapter.js";
 import ExternalSourceConnector from "./ExternalSourceConnector.js";
 
 const adapter =
@@ -61,7 +61,7 @@ const connector =
     new ExternalSourceConnector({
 
         keyword:
-            "MoWen real adapter positive test",
+            "Wuwen real adapter positive test",
 
         adapter
 

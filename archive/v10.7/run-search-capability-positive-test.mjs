@@ -1,10 +1,10 @@
-﻿import SearchEngine from "./SearchEngine.js";
+import SearchEngine from "./SearchEngine.js";
 
 const engine =
     new SearchEngine({
 
         originalContent:
-            "MoWen external capability boundary test",
+            "Wuwen external capability boundary test",
 
         externalSearchAdapterOptions: {
 

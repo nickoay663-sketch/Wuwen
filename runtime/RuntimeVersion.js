@@ -1,10 +1,10 @@
-﻿const RuntimeVersion = {
+const RuntimeVersion = {
 
-    version: "10.7",
+    version: "10.8",
 
     protocol: "Honest Runtime",
 
-    author: "MoWen",
+    author: "Wuwen",
 
     status: "Development"
 

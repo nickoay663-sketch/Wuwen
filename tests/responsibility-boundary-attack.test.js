@@ -1,4 +1,4 @@
-﻿import ResponsibilityEngine from "../runtime/ResponsibilityEngine.js";
+import ResponsibilityEngine from "../runtime/ResponsibilityEngine.js";
 
 const fakeReasoning = {
     definition: "某事件已经被证实。",

@@ -2,7 +2,7 @@
 
 ## 定义
 
-Honest Runtime（诚实运行）是 MoWen 的核心运行过程。
+Honest Runtime（诚实运行）是 Wuwen 的核心运行过程。
 
 它负责将表达经过诚实运行，重构为能够继续承担验证责任的表达。
 

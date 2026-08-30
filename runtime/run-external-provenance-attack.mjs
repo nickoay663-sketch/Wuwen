@@ -1,4 +1,4 @@
-﻿import ExternalSearchAdapter from "./ExternalSearchAdapter.js";
+import ExternalSearchAdapter from "./ExternalSearchAdapter.js";
 import ExternalSourceConnector from "./ExternalSourceConnector.js";
 
 const maliciousSource = {

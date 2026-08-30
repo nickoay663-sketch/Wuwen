@@ -1,9 +1,9 @@
-﻿import fs from "fs";
+import fs from "fs";
 import ResponsibilityLedger from "./ResponsibilityLedger.js";
 
 console.log("=== PREVIOUS HASH TAMPER EXPERIMENT ===");
 
-const file = "./mowen-previous-hash-tamper-test.jsonl";
+const file = "./Wuwen-previous-hash-tamper-test.jsonl";
 
 if (fs.existsSync(file)) {
     fs.unlinkSync(file);

@@ -1,6 +1,6 @@
-# MoWen Correspondence v3.0
+# Wuwen Correspondence v3.0
 
-# 莫问对应系统 v3.0
+# 勿问对应系统 v3.0
 
 ---
 

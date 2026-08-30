@@ -1,6 +1,6 @@
-# MoWen Expression v1.1
+# Wuwen Expression v1.1
 
-# 莫问表达
+# 勿问表达
 
 
 ## Purpose
@@ -60,9 +60,9 @@ The carrier is not the complete expression meaning.
 
 表达的意义不等同于载体本身。
 
-MoWen examines the meaning carried by expressions.
+Wuwen examines the meaning carried by expressions.
 
-莫问关注表达所承载的意义。
+勿问关注表达所承载的意义。
 
 
 ## Recognition Relationship
@@ -100,14 +100,14 @@ Honest Runtime
 
 ## Principle
 
-MoWen does not evaluate the carrier itself.
+Wuwen does not evaluate the carrier itself.
 
-莫问不评价载体本身。
+勿问不评价载体本身。
 
 
-MoWen examines whether the meaning carried by an expression can enter responsibility verification.
+Wuwen examines whether the meaning carried by an expression can enter responsibility verification.
 
-莫问检验表达所承载的意义是否能够进入责任检验。
+勿问检验表达所承载的意义是否能够进入责任检验。
 
 
 ## Purpose

@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
+import HonestRuntime from "./HonestRuntime.js";
 
 const runtime = new HonestRuntime("这是一个事实");
 const result = await runtime.run();

@@ -1,32 +1,31 @@
-﻿import ResponsibilityRecord from "./ResponsibilityRecord.js";
-import MWALContract from "./MWALContract.js";
+import ResponsibilityRecord from "./ResponsibilityRecord.js";
+import WALContract from "./WALContract.js";
 
-console.log("=== 测试 ResponsibilityRecord 工厂铸造 ===");
+console.log("=== 娴嬭瘯 ResponsibilityRecord 宸ュ巶閾搁€?===");
 
 try {
-    // 正常铸造
-    const validRec = ResponsibilityRecord.mint({
+    // 姝ｅ父閾搁€?    const validRec = ResponsibilityRecord.mint({
         id: "rec_factory_001",
-        epistemicState: MWALContract.RESPONSIBILITY_STATES.ESTABLISHED,
-        verificationStatus: MWALContract.VERIFICATION_STATES.SUPPORTED,
+        epistemicState: WALContract.RESPONSIBILITY_STATES.ESTABLISHED,
+        verificationStatus: WALContract.VERIFICATION_STATES.SUPPORTED,
         verifiedEvidenceCount: 5,
         canPublish: true
     });
-    console.log("【工厂铸造成功】", validRec.id, "状态已物理封印 (Frozen:", Object.isFrozen(validRec), ")");
+    console.log("銆愬伐鍘傞摳閫犳垚鍔熴€?, validRec.id, "鐘舵€佸凡鐗╃悊灏佸嵃 (Frozen:", Object.isFrozen(validRec), ")");
 } catch (e) {
-    console.error("铸造失败:", e.message);
+    console.error("閾搁€犲け璐?", e.message);
 }
 
 try {
-    // 违规铸造：应被工厂直接拦截报错
-    console.log("正在尝试铸造违规记录...");
+    // 杩濊閾搁€狅細搴旇宸ュ巶鐩存帴鎷︽埅鎶ラ敊
+    console.log("姝ｅ湪灏濊瘯閾搁€犺繚瑙勮褰?..");
     ResponsibilityRecord.mint({
         id: "rec_factory_002",
-        epistemicState: MWALContract.RESPONSIBILITY_STATES.ESTABLISHED,
-        verificationStatus: MWALContract.VERIFICATION_STATES.SUPPORTED,
+        epistemicState: WALContract.RESPONSIBILITY_STATES.ESTABLISHED,
+        verificationStatus: WALContract.VERIFICATION_STATES.SUPPORTED,
         verifiedEvidenceCount: 0,
         canPublish: true
     });
 } catch (e) {
-    console.log("【工厂拦截成功】", e.message);
+    console.log("銆愬伐鍘傛嫤鎴垚鍔熴€?, e.message);
 }

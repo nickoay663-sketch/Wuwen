@@ -1,15 +1,15 @@
-# MoWen Constitution v3.0 Self Review
+# Wuwen Constitution v3.0 Self Review
 
-# 莫问宪法 v3.0 自我检验记录
+# 勿问宪法 v3.0 自我检验记录
 
 Version:
 1.0
 
 Purpose:
 
-This document records the self-consistency verification process of MoWen Constitution v3.0.
+This document records the self-consistency verification process of Wuwen Constitution v3.0.
 
-本文记录莫问宪法 v3.0 的自洽性检验过程。
+本文记录勿问宪法 v3.0 的自洽性检验过程。
 
 
 ## 1. Principle Existence Review
@@ -19,7 +19,7 @@ This document records the self-consistency verification process of MoWen Constit
 检验结果：
 
 Honesty:
-诚实是莫问运行的第一条件。
+诚实是勿问运行的第一条件。
 
 Without honest objects, expressions cannot be reliably verified.
 
@@ -28,7 +28,7 @@ Without honest objects, expressions cannot be reliably verified.
 
 ## 2. Logical Consistency Review
 
-MoWen principles form a continuous runtime chain:
+Wuwen principles form a continuous runtime chain:
 
 诚实
 ↓
@@ -78,20 +78,20 @@ Reconstruction:
 
 ## 4. Self Application Review
 
-MoWen itself is also an expression.
+Wuwen itself is also an expression.
 
-Therefore MoWen must enter the same Honest Runtime System.
+Therefore Wuwen must enter the same Honest Runtime System.
 
-莫问自身也是表达。
+勿问自身也是表达。
 
-因此莫问必须接受同一套诚实运行检验。
+因此勿问必须接受同一套诚实运行检验。
 
 
 ## 5. Final Conclusion
 
-MoWen's value comes from its ability to apply Honest Runtime to itself.
+Wuwen's value comes from its ability to apply Honest Runtime to itself.
 
-莫问的价值来自它能够对自身执行诚实运行。
+勿问的价值来自它能够对自身执行诚实运行。
 
 A system that cannot verify itself cannot verify other expressions.
 

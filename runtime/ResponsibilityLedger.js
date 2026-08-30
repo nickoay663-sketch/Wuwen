@@ -1,6 +1,6 @@
-﻿/**
+/**
  * @file ResponsibilityLedger.js
- * @description MWAL Append-Only Responsibility Ledger for Cryptographic Chained Records
+ * @description WAL Append-Only Responsibility Ledger for Cryptographic Chained Records
  */
 
 import fs from "fs";
@@ -9,12 +9,12 @@ import crypto from "crypto";
 import ResponsibilityRecord from "./ResponsibilityRecord.js";
 
 class ResponsibilityLedger {
-    constructor(ledgerPath = "./mowen-ledger.jsonl") {
+    constructor(ledgerPath = "./Wuwen-ledger.jsonl") {
         this.ledgerPath = path.resolve(ledgerPath);
     }
 
     /**
-     * 获取账本中最后一条记录（用于链式溯源的锚点）
+     * 鑾峰彇璐︽湰涓渶鍚庝竴鏉¤褰曪紙鐢ㄤ簬閾惧紡婧簮鐨勯敋鐐癸級
      */
     getLastRecord() {
         if (!fs.existsSync(this.ledgerPath)) {
@@ -37,7 +37,7 @@ class ResponsibilityLedger {
     }
 
     /**
-     * 向账本安全追加一张责任通行证
+     * 鍚戣处鏈畨鍏ㄨ拷鍔犱竴寮犺矗浠婚€氳璇?
      */
     append(recordData, evidence = []) {
         const lastRecord = this.getLastRecord();
@@ -57,11 +57,11 @@ class ResponsibilityLedger {
     }
 
     /**
-     * 根据 ResponsibilityRecord 的签名算法重新计算记录指纹。
+     * 鏍规嵁 ResponsibilityRecord 鐨勭鍚嶇畻娉曢噸鏂拌绠楄褰曟寚绾广€?
      *
-     * 注意：
-     * ResponsibilityRecord.#generateSignature() 是私有方法，
-     * 因此 Ledger 在这里必须严格复现同一签名载荷。
+     * 娉ㄦ剰锛?
+     * ResponsibilityRecord.#generateSignature() 鏄鏈夋柟娉曪紝
+     * 鍥犳 Ledger 鍦ㄨ繖閲屽繀椤讳弗鏍煎鐜板悓涓€绛惧悕杞借嵎銆?
      */
     calculateSignature(record) {
         const payload =
@@ -74,7 +74,7 @@ class ResponsibilityLedger {
     }
 
     /**
-     * 根据记录中的 evidence 重新计算证据哈希。
+     * 鏍规嵁璁板綍涓殑 evidence 閲嶆柊璁＄畻璇佹嵁鍝堝笇銆?
      */
     calculateEvidenceHash(record) {
         const rawEvidenceString =
@@ -87,10 +87,10 @@ class ResponsibilityLedger {
     }
 
     /**
-     * 验证整本账本的密码学完整性。
+     * 楠岃瘉鏁存湰璐︽湰鐨勫瘑鐮佸瀹屾暣鎬с€?
      *
-     * 同时验证：
-     * 1. previousHash 链
+     * 鍚屾椂楠岃瘉锛?
+     * 1. previousHash 閾?
      * 2. evidenceHash
      * 3. signature
      */
@@ -106,7 +106,7 @@ class ResponsibilityLedger {
             .split("\n")
             .filter(line => line.trim() !== "");
 
-        let expectedPrevHash = "genesis_mowen_root";
+        let expectedPrevHash = "genesis_Wuwen_root";
 
         for (let i = 0; i < lines.length; i++) {
             let record;
@@ -121,7 +121,7 @@ class ResponsibilityLedger {
                 };
             }
 
-            // 1. 验证前向链式咬合
+            // 1. 楠岃瘉鍓嶅悜閾惧紡鍜悎
             if (record.previousHash !== expectedPrevHash) {
                 return {
                     valid: false,
@@ -132,7 +132,7 @@ class ResponsibilityLedger {
                 };
             }
 
-            // 2. 验证 evidenceHash
+            // 2. 楠岃瘉 evidenceHash
             const calculatedEvidenceHash =
                 this.calculateEvidenceHash(record);
 
@@ -146,7 +146,7 @@ class ResponsibilityLedger {
                 };
             }
 
-            // 3. 重新计算 signature
+            // 3. 閲嶆柊璁＄畻 signature
             const calculatedSignature =
                 this.calculateSignature(record);
 

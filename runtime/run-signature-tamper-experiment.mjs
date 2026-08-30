@@ -1,7 +1,7 @@
-﻿import fs from "fs";
+import fs from "fs";
 import ResponsibilityLedger from "./ResponsibilityLedger.js";
 import ResponsibilityRecord from "./ResponsibilityRecord.js";
-import MWALContract from "./MWALContract.js";
+import WALContract from "./WALContract.js";
 
 const file = "./test-tamper-ledger.jsonl";
 if (fs.existsSync(file)) fs.unlinkSync(file);
@@ -10,8 +10,8 @@ const ledger = new ResponsibilityLedger(file);
 
 ledger.append({
     id: "rec_tamper_001",
-    epistemicState: MWALContract.RESPONSIBILITY_STATES.ESTABLISHED,
-    verificationStatus: MWALContract.VERIFICATION_STATES.SUPPORTED,
+    epistemicState: WALContract.RESPONSIBILITY_STATES.ESTABLISHED,
+    verificationStatus: WALContract.VERIFICATION_STATES.SUPPORTED,
     verifiedEvidenceCount: 1,
     canPublish: true
 }, [
@@ -20,8 +20,8 @@ ledger.append({
 
 ledger.append({
     id: "rec_tamper_002",
-    epistemicState: MWALContract.RESPONSIBILITY_STATES.ESTABLISHED,
-    verificationStatus: MWALContract.VERIFICATION_STATES.SUPPORTED,
+    epistemicState: WALContract.RESPONSIBILITY_STATES.ESTABLISHED,
+    verificationStatus: WALContract.VERIFICATION_STATES.SUPPORTED,
     verifiedEvidenceCount: 1,
     canPublish: true
 }, [
@@ -33,7 +33,7 @@ const lines = fs.readFileSync(file, "utf8")
     .split("\n")
     .map(JSON.parse);
 
-// 篡改第一条记录内容，但保持原 signature
+// 绡℃敼绗竴鏉¤褰曞唴瀹癸紝浣嗕繚鎸佸師 signature
 lines[0].verifiedEvidenceCount = 999;
 
 fs.writeFileSync(
@@ -48,8 +48,8 @@ console.log("=== SIGNATURE TAMPER EXPERIMENT ===");
 console.log("Tampered: true");
 console.log("verifyIntegrity.valid:", result.valid);
 console.log("Result:", result.valid
-    ? "⚠️ TAMPERING NOT DETECTED"
-    : "🛡️ TAMPERING BLOCKED"
+    ? "鈿狅笍 TAMPERING NOT DETECTED"
+    : "馃洝锔?TAMPERING BLOCKED"
 );
 
 fs.unlinkSync(file);

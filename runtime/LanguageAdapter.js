@@ -1,13 +1,13 @@
-﻿class LanguageAdapter {
+class LanguageAdapter {
 
     constructor(languageSystem = null) {
 
         /*
          * External Language Boundary
          *
-         * The language system is supplied from outside MoWen.
+         * The language system is supplied from outside Wuwen.
          *
-         * MoWen does not:
+         * Wuwen does not:
          *
          * - identify the language system
          * - interpret the language system

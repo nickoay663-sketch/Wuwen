@@ -27,7 +27,7 @@ const RuntimeContract = {
     identity: {
 
         name:
-            "MoWen Runtime",
+            "Wuwen Runtime",
 
 
         runtimeVersion:

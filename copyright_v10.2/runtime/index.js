@@ -1,7 +1,7 @@
 import HonestRuntime from "./HonestRuntime.js";
 import ReportFormatter from "./ReportFormatter.js";
 
-class MoWenRuntime {
+class WuwenRuntime {
 
     constructor(expression) {
 
@@ -56,4 +56,4 @@ export {
 
 };
 
-export default MoWenRuntime;
+export default WuwenRuntime;

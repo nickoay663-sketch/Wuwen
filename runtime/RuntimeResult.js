@@ -1,4 +1,4 @@
-﻿import RuntimeContract from "./RuntimeContract.js";
+import RuntimeContract from "./RuntimeContract.js";
 
 class RuntimeResult {
 
@@ -7,7 +7,7 @@ class RuntimeResult {
         this.runtimeVersion =
             RuntimeContract.identity?.runtimeVersion ||
             RuntimeContract.version ||
-            "10.7";
+            "10.8";
 
         this.generatedAt =
             new Date().toISOString();
@@ -433,4 +433,3 @@ class RuntimeResult {
 
 
 export default RuntimeResult;
-

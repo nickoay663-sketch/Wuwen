@@ -7,7 +7,7 @@ class SearchEngine extends EngineBase {
         super(
             "SearchEngine",
             "10.2",
-            "莫问搜索运行所需的信息来源。"
+            "勿问搜索运行所需的信息来源。"
         );
 
         this.semanticObject =

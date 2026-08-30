@@ -6,7 +6,7 @@ Version
 
 Purpose
 
-Every definition must pass a complete review process before becoming an official MoWen definition.
+Every definition must pass a complete review process before becoming an official Wuwen definition.
 
 A definition is not accepted because it is proposed.
 
@@ -42,13 +42,13 @@ The provider of the definition must bear responsibility for its content.
 
 7. Approved
 
-Only after completing all stages may the definition become an official MoWen definition.
+Only after completing all stages may the definition become an official Wuwen definition.
 
 Runtime Principle
 
-MoWen does not accept undefined concepts.
+Wuwen does not accept undefined concepts.
 
-MoWen does not accept unreviewed definitions.
+Wuwen does not accept unreviewed definitions.
 
 Definitions require examination before entering Runtime.
 
@@ -62,7 +62,7 @@ Definitions require examination before entering Runtime.
 
 目的
 
-任何定义，在成为莫问正式定义之前，都必须经过完整审核。
+任何定义，在成为勿问正式定义之前，都必须经过完整审核。
 
 定义不能因为被提出而成立。
 
@@ -98,12 +98,12 @@ Definitions require examination before entering Runtime.
 
 7. 通过
 
-完成全部审核后，定义才能成为莫问正式定义。
+完成全部审核后，定义才能成为勿问正式定义。
 
 运行原则
 
-莫问不接受未经定义的概念。
+勿问不接受未经定义的概念。
 
-莫问不接受未经审核的定义。
+勿问不接受未经审核的定义。
 
 定义必须经过检验，才能进入运行。

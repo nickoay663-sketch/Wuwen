@@ -18,9 +18,9 @@ Civilization requires honesty, responsibility, and verifiable correspondence.
 
 Runtime Meaning
 
-MoWen does not determine whether civilization exists.
+Wuwen does not determine whether civilization exists.
 
-MoWen examines whether testimony, evidence, correspondence, and reasoning are able to bear responsibility.
+Wuwen examines whether testimony, evidence, correspondence, and reasoning are able to bear responsibility.
 
 Required Conditions
 
@@ -40,7 +40,7 @@ Responsibility
 
 Every participant bears responsibility for their own testimony.
 
-MoWen bears responsibility only for honest runtime.
+Wuwen bears responsibility only for honest runtime.
 
 Runtime Principle
 
@@ -88,9 +88,9 @@ Truth
 
 运行意义
 
-莫问并不判断文明是否存在。
+勿问并不判断文明是否存在。
 
-莫问检验证词、证据、对应与推理是否能够承担责任。
+勿问检验证词、证据、对应与推理是否能够承担责任。
 
 所需条件
 
@@ -110,7 +110,7 @@ Truth
 
 每一个参与者，都对自己的证词负责。
 
-莫问只对诚实运行负责。
+勿问只对诚实运行负责。
 
 运行原则
 

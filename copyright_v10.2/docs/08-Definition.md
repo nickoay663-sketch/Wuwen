@@ -1,6 +1,6 @@
-# MoWen Definition v3.0
+# Wuwen Definition v3.0
 
-# 莫问定义系统 v3.0
+# 勿问定义系统 v3.0
 
 ---
 

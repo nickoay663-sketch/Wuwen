@@ -1,4 +1,4 @@
-﻿import Testimony from "./Testimony.js";
+import Testimony from "./Testimony.js";
 import UniversalExpression from "./UniversalExpression.js";
 
 class TestimonyBuilder {

@@ -1,7 +1,7 @@
-﻿import MWALGatekeeper from './MWALGatekeeper.js';
+import WALGatekeeper from './WALGatekeeper.js';
 
 console.log('==================================================');
-console.log('       莫问 (MoWen) Gatekeeper 联合拦截测试       ');
+console.log('       鍕块棶 (Wuwen) Gatekeeper 鑱斿悎鎷︽埅娴嬭瘯       ');
 console.log('==================================================');
 
 const taintedEnvelope = {
@@ -10,11 +10,11 @@ const taintedEnvelope = {
     claim: 'Attempting to bypass evidence requirement.'
 };
 
-const verdict1 = MWALGatekeeper.inspect(taintedEnvelope);
-console.log('\n[测试 1] 违规信封拦截测试: 准入状态 = ' + verdict1.admitted);
+const verdict1 = WALGatekeeper.inspect(taintedEnvelope);
+console.log('\n[娴嬭瘯 1] 杩濊淇″皝鎷︽埅娴嬭瘯: 鍑嗗叆鐘舵€?= ' + verdict1.admitted);
 if (!verdict1.admitted) {
-    console.log('  -> 拦截原因: ' + verdict1.reason);
-    verdict1.violations.forEach(v => console.log('     * 违规规则 [' + v.rule + ']: ' + v.reason));
+    console.log('  -> 鎷︽埅鍘熷洜: ' + verdict1.reason);
+    verdict1.violations.forEach(v => console.log('     * 杩濊瑙勫垯 [' + v.rule + ']: ' + v.reason));
 }
 
 const pristineEnvelope = {
@@ -23,8 +23,7 @@ const pristineEnvelope = {
     claim: 'Legitimate grounded assertion.'
 };
 
-const verdict2 = MWALGatekeeper.inspect(pristineEnvelope);
-console.log('\n[测试 2] 合法信封放行测试: 准入状态 = ' + verdict2.admitted);
-console.log('  -> 放行反馈: ' + verdict2.reason);
+const verdict2 = WALGatekeeper.inspect(pristineEnvelope);
+console.log('\n[娴嬭瘯 2] 鍚堟硶淇″皝鏀捐娴嬭瘯: 鍑嗗叆鐘舵€?= ' + verdict2.admitted);
+console.log('  -> 鏀捐鍙嶉: ' + verdict2.reason);
 console.log('==================================================');
-

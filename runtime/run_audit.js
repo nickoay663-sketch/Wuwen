@@ -4,7 +4,7 @@ import TestimonyValidator from "./TestimonyValidator.js";
 (async () => {
     try {
         console.log("=== 1. RUNNING HONEST RUNTIME ===");
-        const rawOutput = await new HonestRuntime("莫问运行时客观可验证性推演").run();
+        const rawOutput = await new HonestRuntime("勿问运行时客观可验证性推演").run();
 
         console.log("\n=== 2. PROOF SERIALIZATION ===");
         const serializedProof = JSON.stringify(rawOutput);
@@ -21,7 +21,7 @@ import TestimonyValidator from "./TestimonyValidator.js";
         if (auditResult.valid) {
             console.log("\n=============================================");
             console.log(" FINAL INTEGRITY AUDIT: PASS");
-            console.log(" MoWen Runtime v10.7 Objectively Verifiable!");
+            console.log(" Wuwen Runtime v11.0 Objectively Verifiable!");
             console.log("=============================================");
         } else {
             console.log("\n[FAIL] Audit failed during verification.");

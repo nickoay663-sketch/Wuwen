@@ -1,4 +1,4 @@
-﻿class UniversalExpression {
+class UniversalExpression {
 
     constructor(data = {}) {
 
@@ -41,7 +41,7 @@
         /*
          * External language system.
          *
-         * MoWen does not identify,
+         * Wuwen does not identify,
          * interpret, construct, or own it.
          *
          * The supplied system is preserved

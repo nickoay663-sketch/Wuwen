@@ -1,15 +1,15 @@
 # Expression Engine v1.1
 
-# 莫问表达引擎 v1.1
+# 勿问表达引擎 v1.1
 
 
 ## Purpose
 
-Expression Engine is the entrance layer of MoWen.
+Expression Engine is the entrance layer of Wuwen.
 
 Its responsibility is to transform input expression into a structured expression object before entering Honest Runtime.
 
-表达引擎是莫问的入口层。
+表达引擎是勿问的入口层。
 
 它负责将输入表达转化为结构化表达对象，然后进入诚实运行。
 
@@ -18,18 +18,18 @@ Its responsibility is to transform input expression into a structured expression
 
 # Core Principle
 
-MoWen does not process language itself.
+Wuwen does not process language itself.
 
-MoWen processes expressions inside their original language environment.
+Wuwen processes expressions inside their original language environment.
 
 Language establishes testimony environment.
 
 Expression establishes responsibility object.
 
 
-莫问不处理语言本身。
+勿问不处理语言本身。
 
-莫问处理处于原始语言环境中的表达。
+勿问处理处于原始语言环境中的表达。
 
 语言建立证词环境。
 
@@ -148,10 +148,10 @@ Expression Engine preserves the original expression environment.
 # Expression Object
 
 
-Each expression entering MoWen becomes a Structured Expression Object.
+Each expression entering Wuwen becomes a Structured Expression Object.
 
 
-每一个进入莫问的表达，都成为结构化表达对象。
+每一个进入勿问的表达，都成为结构化表达对象。
 
 
 Example:

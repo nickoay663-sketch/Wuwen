@@ -1,8 +1,8 @@
 Position
 
-MoWen is an Expression Quality Control System.
+Wuwen is an Expression Quality Control System.
 
-莫问，只是诚实运行。
+勿问，只是诚实运行。
 
 ---
 
@@ -20,15 +20,15 @@ AI 正在降低表达的成本。
 
 ---
 
-什么是莫问
+什么是勿问
 
-莫问不是答案系统。
+勿问不是答案系统。
 
-莫问不提供立场。
+勿问不提供立场。
 
-莫问不代替人的判断。
+勿问不代替人的判断。
 
-莫问只是诚实运行。
+勿问只是诚实运行。
 
 它检查：
 

@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "../runtime/HonestRuntime.js";
+import HonestRuntime from "../runtime/HonestRuntime.js";
 
 const expression = `Bien qu'il ait plu abondamment hier, la nature, qui a été profondément aimée par nous, offrira de l'espoir à ceux qui sont courageux si elle révèle ses secrets demain. Crois en toi-même, car seules les personnes qui ont traversé la tempête peuvent comprendre le vrai sens de la vie.`;
 

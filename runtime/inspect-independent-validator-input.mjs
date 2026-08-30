@@ -1,6 +1,6 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
+import HonestRuntime from "./HonestRuntime.js";
 
-const runtime = new HonestRuntime("这是一个事实");
+const runtime = new HonestRuntime("杩欐槸涓€涓簨瀹?);
 const result = await runtime.run();
 
 console.log("=== RESULT KEYS ===");
@@ -13,9 +13,9 @@ console.log(
     )
 );
 
-console.log("=== RESULT MWAL KEYS ===");
+console.log("=== RESULT WAL KEYS ===");
 console.log(
-    result?.mwalEnvelope
-        ? Object.keys(result.mwalEnvelope)
-        : "NO result.mwalEnvelope"
+    result?.WALEnvelope
+        ? Object.keys(result.WALEnvelope)
+        : "NO result.WALEnvelope"
 );

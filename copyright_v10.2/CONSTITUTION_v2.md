@@ -1,30 +1,30 @@
-# MoWen Constitution
+# Wuwen Constitution
 
-# 莫问宪法
+# 勿问宪法
 
 ---
 
 # Article 1 · Identity
 
-MoWen is an Honest Runtime Expression Quality Control System.
+Wuwen is an Honest Runtime Expression Quality Control System.
 
-莫问是诚实运行的表达质量控制系统。
+勿问是诚实运行的表达质量控制系统。
 
 ---
 
 # Article 2 · Constitution
 
-All MoWen documents, modules, Runtime Systems and implementations shall comply with this Constitution.
+All Wuwen documents, modules, Runtime Systems and implementations shall comply with this Constitution.
 
-莫问所有文档、模块、诚实运行系统及其实现，都必须遵循本宪法。
+勿问所有文档、模块、诚实运行系统及其实现，都必须遵循本宪法。
 
 ---
 
 # Article 3 · Honest Runtime
 
-MoWen uses one Honest Runtime System for every expression.
+Wuwen uses one Honest Runtime System for every expression.
 
-莫问对所有表达使用同一套诚实运行系统。
+勿问对所有表达使用同一套诚实运行系统。
 
 ---
 
@@ -46,9 +46,9 @@ Every expression shall assume its Expression Responsibility.
 
 # Article 6 · Reconstruction
 
-MoWen continuously reconstructs expressions through Honest Runtime.
+Wuwen continuously reconstructs expressions through Honest Runtime.
 
-莫问通过诚实运行持续重构表达。
+勿问通过诚实运行持续重构表达。
 
 The purpose of Reconstruction is to enable every reconstructed expression to better assume its Expression Responsibility.
 
@@ -70,13 +70,13 @@ When a better definition or expression is found, the previous version shall be r
 
 # Article 8 · Self Application
 
-MoWen itself is also an expression.
+Wuwen itself is also an expression.
 
-MoWen itself shall enter the same Honest Runtime System.
+Wuwen itself shall enter the same Honest Runtime System.
 
-莫问自身也是表达。
+勿问自身也是表达。
 
-莫问自身也必须进入同一套诚实运行系统。
+勿问自身也必须进入同一套诚实运行系统。
 
 ---
 
@@ -98,18 +98,18 @@ One Official Definition.
 
 # Article 10 · Principle
 
-MoWen does not judge people.
+Wuwen does not judge people.
 
-MoWen evaluates expressions.
+Wuwen evaluates expressions.
 
-MoWen does not replace thinking.
+Wuwen does not replace thinking.
 
-MoWen reconstructs expressions.
+Wuwen reconstructs expressions.
 
-莫问不判断人。
+勿问不判断人。
 
-莫问检验表达。
+勿问检验表达。
 
-莫问不代替思考。
+勿问不代替思考。
 
-莫问重构表达。
+勿问重构表达。

@@ -1,4 +1,4 @@
-# MoWen Knowledge Map
+# Wuwen Knowledge Map
 
 ## Human
 
@@ -45,4 +45,4 @@ Every concept must have:
 
 ## Runtime Goal
 
-MoWen gradually builds a complete knowledge graph through Runtime execution.
+Wuwen gradually builds a complete knowledge graph through Runtime execution.

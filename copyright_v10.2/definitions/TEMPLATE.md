@@ -1,4 +1,4 @@
-MoWen Definition Template
+Wuwen Definition Template
 
 Version
 
@@ -26,7 +26,7 @@ What object, person, event, organization, or concept does this definition descri
 
 Runtime Meaning
 
-Explain how this concept is used during MoWen Runtime.
+Explain how this concept is used during Wuwen Runtime.
 
 Evidence
 
@@ -52,13 +52,13 @@ What principle does this concept follow during Runtime?
 
 Related Concepts
 
-List related MoWen concepts.
+List related Wuwen concepts.
 
 
 ----------------------------------------
 
 
-莫问定义模板
+勿问定义模板
 
 版本
 
@@ -86,7 +86,7 @@ List related MoWen concepts.
 
 运行意义
 
-说明该概念在莫问 Runtime 中如何使用。
+说明该概念在勿问 Runtime 中如何使用。
 
 证据
 
@@ -94,7 +94,7 @@ List related MoWen concepts.
 
 对应
 
-莫问如何验证：
+勿问如何验证：
 
 证词
 
@@ -114,4 +114,4 @@ List related MoWen concepts.
 
 相关概念
 
-列出相关莫问概念。
+列出相关勿问概念。

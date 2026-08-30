@@ -1,4 +1,4 @@
-﻿import LanguageDetector from "./LanguageDetector.js";
+import LanguageDetector from "./LanguageDetector.js";
 import RecognitionEngine from "./RecognitionEngine.js";
 import DefinitionEngine from "./DefinitionEngine.js";
 import SearchEngine from "./SearchEngine.js";
@@ -9,7 +9,7 @@ import ResponsibilityEngine from "./ResponsibilityEngine.js";
 import ReconstructionEngine from "./ReconstructionEngine.js";
 import GeneratorEngine from "./GeneratorEngine.js";
 import SelfCheckEngine from "./SelfCheckEngine.js";
-import MoWenIdentity from "./MoWenIdentity.js";
+import WuwenIdentity from "./WuwenIdentity.js";
 import RuntimeContract from "./RuntimeContract.js";
 import EngineRegistry from "./EngineRegistry.js";
 import RuntimeResult from "./RuntimeResult.js";
@@ -78,7 +78,7 @@ class HonestRuntime {
 
 
         const identity =
-            new MoWenIdentity().run();
+            new WuwenIdentity().run();
 
 
 

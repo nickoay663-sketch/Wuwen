@@ -9,7 +9,7 @@ class SelfCheckEngine extends EngineBase {
         super(
             "SelfCheckEngine",
             "10.2",
-            "莫问检查自身运行完整性、责任边界和证据边界，不判断表达结果。"
+            "勿问检查自身运行完整性、责任边界和证据边界，不判断表达结果。"
         );
 
         this.runtimeObject =
@@ -148,7 +148,7 @@ class SelfCheckEngine extends EngineBase {
 
             principle:
 
-                "莫问检查自身运行完整性、责任边界和证据边界，不判断表达结果。",
+                "勿问检查自身运行完整性、责任边界和证据边界，不判断表达结果。",
 
             metadata:
 

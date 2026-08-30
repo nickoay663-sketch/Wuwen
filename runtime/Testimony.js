@@ -1,4 +1,4 @@
-﻿import UniversalExpression from "./UniversalExpression.js";
+import UniversalExpression from "./UniversalExpression.js";
 
 
 class Testimony {
@@ -27,7 +27,7 @@ class Testimony {
          * external expression environment.
          *
          * Testimony preserves the supplied system.
-         * MoWen does not own or interpret it.
+         * Wuwen does not own or interpret it.
          */
 
         this.language =

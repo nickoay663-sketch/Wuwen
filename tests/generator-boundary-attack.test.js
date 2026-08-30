@@ -1,4 +1,4 @@
-﻿import GeneratorEngine from "../runtime/GeneratorEngine.js";
+import GeneratorEngine from "../runtime/GeneratorEngine.js";
 
 const fakeResponsibility = {
 
@@ -113,10 +113,10 @@ const runtimeObject = {
     contract: {
         identity: {
             runtimeVersion:
-                "10.7"
+                "10.8"
         },
         version:
-            "10.7"
+            "10.8"
     }
 };
 

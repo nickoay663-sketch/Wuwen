@@ -1,6 +1,6 @@
 # Correspondence v1.2
 
-# 莫问对应系统 v1.2
+# 勿问对应系统 v1.2
 
 
 ## Purpose
@@ -202,11 +202,11 @@ responsibility cannot be honestly returned.
 
 ## Core Rule
 
-MoWen verifies correspondence.
+Wuwen verifies correspondence.
 
-MoWen does not replace human judgment.
+Wuwen does not replace human judgment.
 
 
-莫问检验对应。
+勿问检验对应。
 
-莫问不替代人的判断。
+勿问不替代人的判断。

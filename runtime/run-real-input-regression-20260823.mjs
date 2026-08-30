@@ -24,7 +24,7 @@ const checks = {
         expression.length > 0,
 
     runtimeVersion:
-        result.runtimeVersion === "10.7",
+        result.runtimeVersion === "10.8",
 
     runtimeClosed:
         result.runtimeState === "RuntimeClosed",
@@ -76,7 +76,7 @@ const checks = {
 const failed = Object.entries(checks)
     .filter(([, passed]) => passed !== true);
 
-console.log("=== MoWen REAL INPUT REGRESSION ===");
+console.log("=== Wuwen REAL INPUT REGRESSION ===");
 console.log("Input:", inputPath);
 console.log("Bytes:", Buffer.byteLength(expression, "utf8"));
 console.log("Characters:", expression.length);

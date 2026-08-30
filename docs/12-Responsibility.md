@@ -1,6 +1,6 @@
-# MoWen Responsibility v3.0
+# Wuwen Responsibility v3.0
 
-# 莫问责任系统 v3.0
+# 勿问责任系统 v3.0
 
 ---
 
@@ -62,13 +62,13 @@ When responsibility cannot be determined,
 
 Runtime does not fabricate an answer.
 
-MoWen leaves an unavoidable question.
+Wuwen leaves an unavoidable question.
 
 当责任无法确定时，
 
 运行不会制造答案。
 
-莫问留下无法回避的问题。
+勿问留下无法回避的问题。
 
 ---
 

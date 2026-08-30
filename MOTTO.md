@@ -1,4 +1,4 @@
-MoWen Motto
+Wuwen Motto
 
 Core Motto
 
@@ -6,11 +6,11 @@ Honesty before conclusion.
 
 先诚实，后结论。
 
-What MoWen Believes
+What Wuwen Believes
 
-MoWen does not begin with answers.
+Wuwen does not begin with answers.
 
-MoWen begins with honest runtime.
+Wuwen begins with honest runtime.
 
 Honesty comes before conclusion.
 
@@ -26,9 +26,9 @@ Help every conclusion return to honest correspondence.
 
 Vision
 
-MoWen is not built to replace human judgment.
+Wuwen is not built to replace human judgment.
 
-MoWen is built to help people think honestly.
+Wuwen is built to help people think honestly.
 
 Runtime Spirit
 
@@ -38,7 +38,7 @@ Correspondence next.
 
 Conclusion last.
 
-MoWen
+Wuwen
 
 Honesty before conclusion.
 

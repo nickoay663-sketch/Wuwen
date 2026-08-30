@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Rules define the verified operating principles of MoWen.
+Rules define the verified operating principles of Wuwen.
 
 Every Runtime, Self Check and Evolution process must follow these Rules.
 
@@ -76,7 +76,7 @@ No Rule may conflict with the Constitution.
 
 ## Result
 
-Rules are the common language of MoWen.
+Rules are the common language of Wuwen.
 
 Every Engine follows the same Rules.
 

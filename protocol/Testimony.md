@@ -4,7 +4,7 @@ Version: 1.2
 
 ## Purpose
 
-This protocol defines how testimony enters MoWen Honest Runtime.
+This protocol defines how testimony enters Wuwen Honest Runtime.
 
 Every Runtime begins with testimony.
 

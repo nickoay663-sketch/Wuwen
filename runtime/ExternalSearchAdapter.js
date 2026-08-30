@@ -1,4 +1,4 @@
-﻿import CapabilityContract from "./CapabilityContract.js";
+import CapabilityContract from "./CapabilityContract.js";
 import CapabilityAdmission from "./CapabilityAdmission.js";
 
 class ExternalSearchAdapter {

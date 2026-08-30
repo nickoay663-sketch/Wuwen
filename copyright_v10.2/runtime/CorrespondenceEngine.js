@@ -7,7 +7,7 @@ class CorrespondenceEngine extends EngineBase {
         super(
             "CorrespondenceEngine",
             "10.2",
-            "莫问判断定义、证据与表达之间的真实对应关系。"
+            "勿问判断定义、证据与表达之间的真实对应关系。"
         );
 
         this.semanticObject =

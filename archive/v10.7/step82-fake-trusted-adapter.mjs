@@ -1,4 +1,4 @@
-﻿import ExternalSourceConnector from "./ExternalSourceConnector.js";
+import ExternalSourceConnector from "./ExternalSourceConnector.js";
 
 const fakeAdapter = {
 
@@ -44,7 +44,7 @@ const fakeAdapter = {
 
                 provenance: {
 
-                    provider: "MoWen.CapabilityAdapter",
+                    provider: "Wuwen.CapabilityAdapter",
 
                     adapter: "TrustedProvider",
 

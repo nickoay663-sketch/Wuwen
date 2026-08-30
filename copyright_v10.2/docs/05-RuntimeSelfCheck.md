@@ -1,6 +1,6 @@
-# MoWen Runtime SelfCheck v3.0
+# Wuwen Runtime SelfCheck v3.0
 
-# 莫问运行自检 v3.0
+# 勿问运行自检 v3.0
 
 ---
 
@@ -102,8 +102,8 @@ FAIL
 
 # SelfCheck Principle
 
-MoWen verifies itself before verifying others.
+Wuwen verifies itself before verifying others.
 
-莫问先检验自己，
+勿问先检验自己，
 
 再检验别人。

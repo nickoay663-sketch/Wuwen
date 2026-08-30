@@ -14,7 +14,7 @@ A testimony is any expression made by a person.
 
 It may be spoken, written, recorded, photographed, filmed, or otherwise presented.
 
-MoWen always starts from testimony.
+Wuwen always starts from testimony.
 
 Runtime Meaning
 
@@ -32,7 +32,7 @@ A testimony should:
 - Preserve its original wording
 - Be traceable to its provider
 
-MoWen never rewrites testimony before analysis.
+Wuwen never rewrites testimony before analysis.
 
 Possible Contents
 
@@ -48,7 +48,7 @@ Responsibility
 
 The testimony provider bears responsibility for the testimony.
 
-MoWen bears responsibility only for executing Runtime honestly.
+Wuwen bears responsibility only for executing Runtime honestly.
 
 Runtime Principle
 
@@ -90,15 +90,15 @@ Responsibility
 
 它可以是口头、文字、录音、照片、视频或其他表达形式。
 
-莫问始终从证词开始运行。
+勿问始终从证词开始运行。
 
 运行意义
 
-证词是莫问运行的唯一输入。
+证词是勿问运行的唯一输入。
 
 没有证词，
 
-莫问不运行。
+勿问不运行。
 
 所需条件
 
@@ -108,7 +108,7 @@ Responsibility
 - 保留原始表达
 - 能够追溯到证词提供者
 
-莫问不会在分析之前修改证词。
+勿问不会在分析之前修改证词。
 
 可能包含
 
@@ -124,7 +124,7 @@ Responsibility
 
 证词提供者对证词承担责任。
 
-莫问只对诚实运行负责。
+勿问只对诚实运行负责。
 
 运行原则
 

@@ -1,4 +1,4 @@
-﻿import assert from "node:assert/strict";
+import assert from "node:assert/strict";
 import ResponsibilityEvent from "../runtime/ResponsibilityEvent.js";
 
 function baseRecord(overrides = {}) {
@@ -65,7 +65,7 @@ function createEvent({
     return new ResponsibilityEvent({
 
         expression:
-            "这是一个事实",
+            "杩欐槸涓€涓簨瀹?,
 
         epistemicState,
 
@@ -548,7 +548,7 @@ assert.equal(
 const report = {
 
     test:
-        "MWAL ResponsibilityEvent Nested Responsibility Bypass Test v2",
+        "WAL ResponsibilityEvent Nested Responsibility Bypass Test v2",
 
     checks: {
 
@@ -705,6 +705,5 @@ console.log(
 );
 
 console.log(
-    "MWAL ResponsibilityEvent Nested Responsibility Bypass Test v2 Passed."
+    "WAL ResponsibilityEvent Nested Responsibility Bypass Test v2 Passed."
 );
-

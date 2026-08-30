@@ -1,4 +1,4 @@
-﻿import ResponsibilityEvent from "../runtime/ResponsibilityEvent.js";
+import ResponsibilityEvent from "../runtime/ResponsibilityEvent.js";
 
 function assert(condition, message) {
     if (!condition) {
@@ -11,7 +11,7 @@ function makeEvent(overrides = {}) {
     return new ResponsibilityEvent({
 
         expression:
-            "测试表达",
+            "娴嬭瘯琛ㄨ揪",
 
         epistemicState:
             "SUPPORTED",
@@ -21,7 +21,7 @@ function makeEvent(overrides = {}) {
             responsibilities: [{
 
                 expression:
-                    "测试表达",
+                    "娴嬭瘯琛ㄨ揪",
 
                 supported:
                     true,
@@ -73,7 +73,7 @@ function makeEvent(overrides = {}) {
 
 /*
  * CASE 1
- * 完整责任链必须获得唯一发布授权。
+ * 瀹屾暣璐ｄ换閾惧繀椤昏幏寰楀敮涓€鍙戝竷鎺堟潈銆?
  */
 
 const valid =
@@ -85,7 +85,7 @@ const case1 =
 
 /*
  * CASE 2
- * 下游 reconstruction.publishable 不能伪造发布权。
+ * 涓嬫父 reconstruction.publishable 涓嶈兘浼€犲彂甯冩潈銆?
  */
 
 const fakeReconstruction =
@@ -107,11 +107,11 @@ const case2 =
 
 /*
  * CASE 3
- * Generator/Reconstruction 的状态不能替代
- * ResponsibilityEvent 的发布授权。
+ * Generator/Reconstruction 鐨勭姸鎬佷笉鑳芥浛浠?
+ * ResponsibilityEvent 鐨勫彂甯冩巿鏉冦€?
  *
- * epistemicState 改成 UNKNOWN 后，
- * 即使下游继续声称 SUPPORTED，也必须拒绝。
+ * epistemicState 鏀规垚 UNKNOWN 鍚庯紝
+ * 鍗充娇涓嬫父缁х画澹扮О SUPPORTED锛屼篃蹇呴』鎷掔粷銆?
  */
 
 const invalid =
@@ -138,8 +138,8 @@ const case3 =
 
 /*
  * CASE 4
- * responsibility boundary 被突破时，
- * 任何下游 SUPPORTED 都不能恢复发布权。
+ * responsibility boundary 琚獊鐮存椂锛?
+ * 浠讳綍涓嬫父 SUPPORTED 閮戒笉鑳芥仮澶嶅彂甯冩潈銆?
  */
 
 const exceeded =
@@ -150,7 +150,7 @@ const exceeded =
             responsibilities: [{
 
                 expression:
-                    "测试表达",
+                    "娴嬭瘯琛ㄨ揪",
 
                 supported:
                     true,
@@ -184,7 +184,7 @@ const case4 =
 
 /*
  * CASE 5
- * 序列化不能改变唯一发布授权。
+ * 搴忓垪鍖栦笉鑳芥敼鍙樺敮涓€鍙戝竷鎺堟潈銆?
  */
 
 const serialized =
@@ -221,14 +221,14 @@ const checks = {
 
 assert(
     Object.values(checks).every(Boolean),
-    "MWAL v10.7 Publication Authority Test Failed"
+    "WAL v10.8 Publication Authority Test Failed"
 );
 
 console.log(
     JSON.stringify(
         {
             test:
-                "MoWen Runtime v10.7 Single Publication Authority Test",
+                "Wuwen Runtime v10.8 Single Publication Authority Test",
 
             checks,
 
@@ -247,5 +247,5 @@ console.log(
 );
 
 console.log(
-    "MoWen Runtime v10.7 Single Publication Authority Test Passed."
+    "Wuwen Runtime v10.8 Single Publication Authority Test Passed."
 );

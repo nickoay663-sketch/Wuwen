@@ -1,15 +1,15 @@
-# MoWen Honest Runtime v4.0
-# 莫问诚实运行 v4.0
+# Wuwen Honest Runtime v4.0
+# 勿问诚实运行 v4.0
 
 ## Purpose
 
-Honest Runtime defines the complete execution architecture of MoWen.
+Honest Runtime defines the complete execution architecture of Wuwen.
 
 Every expression shall enter Honest Runtime.
 
 Every Runtime component shall execute under the same Runtime Principles.
 
-诚实运行定义莫问完整运行体系。
+诚实运行定义勿问完整运行体系。
 
 任何表达都必须进入诚实运行。
 
@@ -17,7 +17,7 @@ Every Runtime component shall execute under the same Runtime Principles.
 
 ## Axiom Foundation
 
-MoWen Honest Runtime operates under MoWen First Axiom.
+Wuwen Honest Runtime operates under Wuwen First Axiom.
 
 > 主体不可互相否定。
 
@@ -27,7 +27,7 @@ Honest Runtime verifies whether expressions preserve the ability of subjects to:
 - make choices
 - assume responsibility
 
-莫问诚实运行遵循莫问第一公理：
+勿问诚实运行遵循勿问第一公理：
 
 > 主体不可互相否定。
 
@@ -196,9 +196,9 @@ Every Runtime step must preserve:
 
 # Honest Runtime Principle
 
-MoWen does not only examine the world.
+Wuwen does not only examine the world.
 
-MoWen shall first examine itself.
+Wuwen shall first examine itself.
 
 Every Runtime component,
 
@@ -214,9 +214,9 @@ No object is exempt from verification.
 
 No Runtime component is exempt from responsibility.
 
-莫问不仅检查世界。
+勿问不仅检查世界。
 
-莫问首先检查自己。
+勿问首先检查自己。
 
 每一个 Runtime 组件、
 

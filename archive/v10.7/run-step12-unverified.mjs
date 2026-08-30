@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
+import HonestRuntime from "./HonestRuntime.js";
 
 const runtime = new HonestRuntime(
     "这是一个未经 Runtime 验证支持的事实",

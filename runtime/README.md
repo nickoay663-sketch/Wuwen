@@ -1,8 +1,8 @@
-# MoWen Runtime
+# Wuwen Runtime
 
 Version: 10.2
 
-MoWen Runtime is the execution engine of MoWen.
+Wuwen Runtime is the execution engine of Wuwen.
 
 ---
 

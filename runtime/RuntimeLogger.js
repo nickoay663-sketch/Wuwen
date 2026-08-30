@@ -1,4 +1,4 @@
-﻿import RuntimeContract from "./RuntimeContract.js";
+import RuntimeContract from "./RuntimeContract.js";
 
 class RuntimeLogger {
 
@@ -16,12 +16,12 @@ class RuntimeLogger {
             runtimeVersion:
                 RuntimeContract.identity?.runtimeVersion ||
                 RuntimeContract.version ||
-                "10.7",
+                "10.8",
 
             contractVersion:
                 RuntimeContract.identity?.contractVersion ||
                 RuntimeContract.version ||
-                "10.7",
+                "10.8",
 
             stage,
 
@@ -48,12 +48,12 @@ class RuntimeLogger {
             runtimeVersion:
                 RuntimeContract.identity?.runtimeVersion ||
                 RuntimeContract.version ||
-                "10.7",
+                "10.8",
 
             contractVersion:
                 RuntimeContract.identity?.contractVersion ||
                 RuntimeContract.version ||
-                "10.7",
+                "10.8",
 
             stage,
 
@@ -80,12 +80,12 @@ class RuntimeLogger {
             runtimeVersion:
                 RuntimeContract.identity?.runtimeVersion ||
                 RuntimeContract.version ||
-                "10.7",
+                "10.8",
 
             contractVersion:
                 RuntimeContract.identity?.contractVersion ||
                 RuntimeContract.version ||
-                "10.7",
+                "10.8",
 
             stage,
 

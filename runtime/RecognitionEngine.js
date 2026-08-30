@@ -1,4 +1,4 @@
-﻿import EngineBase from "./EngineBase.js";
+import EngineBase from "./EngineBase.js";
 import UniversalExpression from "./UniversalExpression.js";
 
 class RecognitionEngine extends EngineBase {

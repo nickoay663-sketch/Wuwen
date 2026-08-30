@@ -1,6 +1,6 @@
-# MoWen Concept Definitions v3.0
+# Wuwen Concept Definitions v3.0
 
-# 莫问概念定义 v3.0
+# 勿问概念定义 v3.0
 
 ## Status
 

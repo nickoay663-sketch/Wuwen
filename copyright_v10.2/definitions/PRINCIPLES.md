@@ -1,4 +1,4 @@
-MoWen Definition Principles
+Wuwen Definition Principles
 
 Version
 
@@ -6,7 +6,7 @@ Version
 
 Purpose
 
-These principles define how MoWen manages, reviews, and applies definitions during Runtime.
+These principles define how Wuwen manages, reviews, and applies definitions during Runtime.
 
 Definitions exist for Runtime.
 
@@ -130,13 +130,13 @@ Principle 7
 
 Library
 
-Every approved definition becomes part of the MoWen Definition Library.
+Every approved definition becomes part of the Wuwen Definition Library.
 
 ---
 
 每一个审核通过的定义，
 
-都会成为莫问 Definition Library 的组成部分。
+都会成为勿问 Definition Library 的组成部分。
 
 ---
 

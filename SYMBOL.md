@@ -1,12 +1,12 @@
-MoWen Symbol
+Wuwen Symbol
 
 Concept Symbol
 
-The MoWen symbol is a concept symbol.
+The Wuwen symbol is a concept symbol.
 
 It is not merely a logo.
 
-It visually expresses the philosophy of MoWen.
+It visually expresses the philosophy of Wuwen.
 
 ---
 
@@ -21,7 +21,7 @@ The question mark remains unchanged.
         W
         ?
 
-      MoWen
+      Wuwen
 
 The letters M and W are placed vertically inside the question mark.
 
@@ -30,7 +30,7 @@ The letters M and W are placed vertically inside the question mark.
 - The letters are smaller than the question mark.
 - The question mark remains the primary visual element.
 
-The word MoWen appears below the symbol as the official brand name.
+The word Wuwen appears below the symbol as the official brand name.
 
 ---
 
@@ -55,25 +55,25 @@ Meaning
 
 The outer Spanish question mark represents inquiry.
 
-The inner MW represents MoWen.
+The inner MW represents Wuwen.
 
 The curved letters represent continuous honest runtime.
 
 The complete symbol represents:
 
-A question containing MoWen.
+A question containing Wuwen.
 
-MoWen does not begin with an answer.
+Wuwen does not begin with an answer.
 
-MoWen begins with a question.
+Wuwen begins with a question.
 
-MoWen continuously verifies, corresponds and corrects.
+Wuwen continuously verifies, corresponds and corrects.
 
 ---
 
 Runtime Philosophy
 
-The symbol corresponds to the MoWen Runtime.
+The symbol corresponds to the Wuwen Runtime.
 
 Testimony
     ↓
@@ -95,9 +95,9 @@ Question
     ↓
 Continuous Runtime
 
-MoWen is not a final judgment.
+Wuwen is not a final judgment.
 
-MoWen is a continuous process of honest correspondence.
+Wuwen is a continuous process of honest correspondence.
 
 ---
 
@@ -115,7 +115,7 @@ Visual Principles
 
 Brand Identity
 
-The symbol is the visual identity of MoWen.
+The symbol is the visual identity of Wuwen.
 
 It represents:
 
@@ -127,4 +127,4 @@ Continuous Correspondence.
 
 Continuous Improvement.
 
-MoWen.
+Wuwen.

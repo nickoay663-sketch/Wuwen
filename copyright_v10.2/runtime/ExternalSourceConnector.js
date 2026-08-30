@@ -23,7 +23,7 @@ class ExternalSourceConnector {
 
             principle:
 
-                "莫问连接外部来源，但不把来源内容直接视为证据。",
+                "勿问连接外部来源，但不把来源内容直接视为证据。",
 
 
 

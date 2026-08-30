@@ -1,4 +1,4 @@
-# MoWen Life Definition
+# Wuwen Life Definition
 
 ## Status
 
@@ -6,47 +6,47 @@ Research Reconstruction Draft
 
 ---
 
-# What is MoWen?
+# What is Wuwen?
 
-MoWen studies expressions.
+Wuwen studies expressions.
 
-莫问研究表达。
+勿问研究表达。
 
-MoWen does not judge people.
+Wuwen does not judge people.
 
-MoWen does not replace thinking.
+Wuwen does not replace thinking.
 
-MoWen examines expressions.
+Wuwen examines expressions.
 
-莫问不判断人。
+勿问不判断人。
 
-莫问不代替思考。
+勿问不代替思考。
 
-莫问检验表达。
+勿问检验表达。
 
 Expressions enter Honest Runtime.
 
 表达进入诚实运行。
 
-Through Recognition, Definition, Search, Evidence, Correspondence, Reasoning, Responsibility, Reconstruction and SelfCheck, MoWen continuously examines whether an expression can assume its own Expression Responsibility.
+Through Recognition, Definition, Search, Evidence, Correspondence, Reasoning, Responsibility, Reconstruction and SelfCheck, Wuwen continuously examines whether an expression can assume its own Expression Responsibility.
 
 表达依次经过识别、定义、检索、证据、对应、推理、责任、重构与自检，不断检验表达是否能够承担自己的表达责任。
 
 ---
 
-# What does MoWen reconstruct?
+# What does Wuwen reconstruct?
 
-MoWen does not reconstruct opinions.
+Wuwen does not reconstruct opinions.
 
-MoWen reconstructs expressions.
+Wuwen reconstructs expressions.
 
-莫问不重构观点。
+勿问不重构观点。
 
-莫问重构表达。
+勿问重构表达。
 
-MoWen returns every expression to the place where it belongs.
+Wuwen returns every expression to the place where it belongs.
 
-莫问把每一个表达送回它应该待的位置。
+勿问把每一个表达送回它应该待的位置。
 
 Facts return to facts.
 
@@ -90,7 +90,7 @@ Every expression returns to its own identity.
 
 ---
 
-# Why does MoWen exist?
+# Why does Wuwen exist?
 
 When expressions lose their definitions, identities become confused.
 
@@ -108,9 +108,9 @@ When reasoning loses its foundation, responsibility disappears.
 
 推理失去基础，责任便开始消失。
 
-Therefore, MoWen exists to restore the identity of expressions.
+Therefore, Wuwen exists to restore the identity of expressions.
 
-因此，莫问存在，是为了恢复表达的身份。
+因此，勿问存在，是为了恢复表达的身份。
 
 By restoring identity, expressions recover responsibility.
 
@@ -162,11 +162,11 @@ there is no identifiable responsibility.
 
 Therefore,
 
-MoWen exists through Honest Runtime.
+Wuwen exists through Honest Runtime.
 
 因此，
 
-莫问以诚实运行而存在。
+勿问以诚实运行而存在。
 
 ---
 
@@ -216,17 +216,17 @@ Common rules make civilization sustainable.
 
 # Civilization Exit
 
-MoWen does not output conclusions.
+Wuwen does not output conclusions.
 
-MoWen does not manufacture positions.
+Wuwen does not manufacture positions.
 
-MoWen outputs expressions that can better assume their own responsibilities.
+Wuwen outputs expressions that can better assume their own responsibilities.
 
-莫问不输出结论。
+勿问不输出结论。
 
-莫问不制造立场。
+勿问不制造立场。
 
-莫问输出更能够承担自己责任的表达。
+勿问输出更能够承担自己责任的表达。
 
 When an expression returns to honesty,
 

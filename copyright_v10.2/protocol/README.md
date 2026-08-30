@@ -1,3 +1,3 @@
-# MoWen Protocol
+# Wuwen Protocol
 
 Protocol specifications.

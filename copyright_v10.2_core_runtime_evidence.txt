@@ -1,4 +1,4 @@
-﻿MoWen Runtime v10.2
+Wuwen Runtime v10.2
 CORE RUNTIME SOURCE EVIDENCE
 
 Git Commit:
@@ -49,7 +49,7 @@ U+FFFD: FALSE
 Markdown Fence: FALSE
 
 Runtime Test:
-MoWen Runtime v10.2 Test Passed.
+Wuwen Runtime v10.2 Test Passed.
 
 Working Tree:
 CLEAN

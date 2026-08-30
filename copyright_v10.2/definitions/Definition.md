@@ -1,16 +1,16 @@
-# MoWen Definitions
+# Wuwen Definitions
 
-# 莫问定义
+# 勿问定义
 
 ---
 
 ## Definition
 
-This document is the only official definition source of the MoWen system.
+This document is the only official definition source of the Wuwen system.
 
 Every official concept shall have one official term and one official definition.
 
-本文件是莫问系统唯一的官方定义来源。
+本文件是勿问系统唯一的官方定义来源。
 
 每一个正式概念，都必须拥有一个正式术语和一个正式定义。
 
@@ -18,9 +18,9 @@ Every official concept shall have one official term and one official definition.
 
 ## Expression（表达）
 
-Expression is language that can enter the MoWen Honest Runtime System.
+Expression is language that can enter the Wuwen Honest Runtime System.
 
-表达，是能够进入莫问诚实运行系统的语言。
+表达，是能够进入勿问诚实运行系统的语言。
 
 ---
 
@@ -42,9 +42,9 @@ Testimony is an Expression that has been defined and enters the Honest Runtime S
 
 ## Honest Runtime System（诚实运行系统）
 
-The Honest Runtime System is the unified runtime used by MoWen for every Testimony.
+The Honest Runtime System is the unified runtime used by Wuwen for every Testimony.
 
-诚实运行系统，是莫问对所有证词使用的统一运行系统。
+诚实运行系统，是勿问对所有证词使用的统一运行系统。
 
 ---
 

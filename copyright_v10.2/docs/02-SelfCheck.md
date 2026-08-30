@@ -2,11 +2,11 @@
 
 ## Mission
 
-Self Check is the self-verification layer of MoWen.
+Self Check is the self-verification layer of Wuwen.
 
 Self Check never analyzes users.
 
-Self Check analyzes MoWen itself.
+Self Check analyzes Wuwen itself.
 
 ---
 
@@ -116,4 +116,4 @@ Self Check reports.
 
 Only after Self Check passes,
 
-MoWen continues to run.
+Wuwen continues to run.

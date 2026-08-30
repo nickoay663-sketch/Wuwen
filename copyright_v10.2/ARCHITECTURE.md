@@ -1,24 +1,24 @@
-# MoWen Architecture v10.1
+# Wuwen Architecture v10.1
 
-# 莫问系统架构 v10.1
+# 勿问系统架构 v10.1
 
 
 ## Overview
 
-MoWen is an Expression Responsibility Verification System.
+Wuwen is an Expression Responsibility Verification System.
 
 Every expression enters the same Honest Runtime.
 
-MoWen does not judge people.
+Wuwen does not judge people.
 
-MoWen verifies expressions.
+Wuwen verifies expressions.
 
 
 ---
 
 # Core Architecture
 
-MoWen consists of four layers:
+Wuwen consists of four layers:
 
 1. Value Layer
 2. Runtime Layer
@@ -34,7 +34,7 @@ Core Value:
 
 Honesty
 
-Honesty is the existence condition of MoWen.
+Honesty is the existence condition of Wuwen.
 
 The Runtime must preserve responsibility boundaries.
 
@@ -43,7 +43,7 @@ The Runtime must preserve responsibility boundaries.
 
 # Runtime Layer
 
-MoWen Runtime uses EngineBase v10.1.
+Wuwen Runtime uses EngineBase v10.1.
 
 All Engines follow one unified execution architecture.
 
@@ -253,7 +253,7 @@ Includes:
 
 # Self Application
 
-MoWen itself follows the same Runtime rules.
+Wuwen itself follows the same Runtime rules.
 
 Documents, principles, modules and expressions may enter the same verification process.
 
@@ -284,6 +284,6 @@ One official definition.
 
 # Version
 
-MoWen Architecture v10.1
+Wuwen Architecture v10.1
 
 EngineBase Migration Complete

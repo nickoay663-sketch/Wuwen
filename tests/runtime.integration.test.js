@@ -3,7 +3,7 @@ import HonestRuntime from "../runtime/HonestRuntime.js";
 
 const runtime =
     new HonestRuntime(
-        "这是一个事实"
+        "这是一个事实输入。"
     );
 
 
@@ -113,7 +113,7 @@ console.log(
         {
 
             test:
-                "MoWen Runtime v10.7 Full Integration Test",
+                "Wuwen Runtime v10.8 Full Integration Test",
 
             checks,
 
@@ -177,7 +177,7 @@ console.log(
 if (!passed) {
 
     console.log(
-        "MoWen Runtime v10.7 Full Integration Test Failed."
+        "Wuwen Runtime v10.8 Full Integration Test Failed."
     );
 
     process.exit(1);
@@ -186,5 +186,5 @@ if (!passed) {
 
 
 console.log(
-    "MoWen Runtime v10.7 Full Integration Test Passed."
+    "Wuwen Runtime v10.8 Full Integration Test Passed."
 );

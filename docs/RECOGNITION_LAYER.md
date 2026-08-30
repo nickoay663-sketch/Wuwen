@@ -1,4 +1,4 @@
-MoWen Recognition Layer Specification
+Wuwen Recognition Layer Specification
 
 Version: 1.0
 
@@ -6,7 +6,7 @@ Status: Frozen
 
 Mission
 
-Recognition Layer 是莫问 Runtime 的唯一入口。
+Recognition Layer 是勿问 Runtime 的唯一入口。
 
 任何输入必须首先进入 Recognition Layer。
 
@@ -74,4 +74,4 @@ Constitutional Principle
 
 没有完成 Recognition，不得进入 Runtime 下一阶段。
 
-Recognition Layer 为莫问 Runtime 宪法级基础层。
+Recognition Layer 为勿问 Runtime 宪法级基础层。

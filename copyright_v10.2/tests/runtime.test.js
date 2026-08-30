@@ -1,8 +1,8 @@
-import MoWenRuntime from "../runtime/index.js";
+import WuwenRuntime from "../runtime/index.js";
 
 
 const runtime =
-    new MoWenRuntime(
+    new WuwenRuntime(
         "测试表达"
     );
 
@@ -123,7 +123,7 @@ if (passed) {
 
     console.log(
 
-        "MoWen Runtime v10.2 Test Passed."
+        "Wuwen Runtime v10.2 Test Passed."
 
     );
 
@@ -133,7 +133,7 @@ if (passed) {
 
     console.log(
 
-        "MoWen Runtime v10.2 Test Failed."
+        "Wuwen Runtime v10.2 Test Failed."
 
     );
 

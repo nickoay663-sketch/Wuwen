@@ -1,8 +1,8 @@
-# MoWen Definition Search
+# Wuwen Definition Search
 
 Version: 1.2
 
-# 莫问定义检索系统 v1.2
+# 勿问定义检索系统 v1.2
 
 
 ## Purpose
@@ -12,13 +12,13 @@ Definition Search provides available definitions for Runtime concepts.
 定义检索为 Runtime 概念提供可用定义。
 
 
-MoWen does not select the final definition.
+Wuwen does not select the final definition.
 
-MoWen does not replace existing definitions.
+Wuwen does not replace existing definitions.
 
-莫问不选择唯一最终定义。
+勿问不选择唯一最终定义。
 
-莫问不替换已有定义。
+勿问不替换已有定义。
 
 
 ---

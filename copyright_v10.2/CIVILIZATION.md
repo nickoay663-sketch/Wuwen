@@ -1,6 +1,6 @@
-# MoWen Civilization
+# Wuwen Civilization
 
-# 莫问文明
+# 勿问文明
 
 ## 1 · Definition
 
@@ -44,17 +44,17 @@ Law, education, science, culture, commerce, media and public communication all r
 
 ## 4 · Honest Runtime Standard
 
-MoWen does not require identical viewpoints.
+Wuwen does not require identical viewpoints.
 
-MoWen requires every expression to enter the same Honest Runtime.
+Wuwen requires every expression to enter the same Honest Runtime.
 
 Different definitions or evidence may lead to different conclusions.
 
 The Honest Runtime Standard remains the same.
 
-莫问不要求观点一致。
+勿问不要求观点一致。
 
-莫问要求所有表达进入同一套诚实运行。
+勿问要求所有表达进入同一套诚实运行。
 
 不同定义、不同证据可以得到不同结论。
 
@@ -64,13 +64,13 @@ The Honest Runtime Standard remains the same.
 
 ## 5 · Civilization Standard
 
-The Honest Runtime Standard is the Civilization Standard of MoWen.
+The Honest Runtime Standard is the Civilization Standard of Wuwen.
 
 Civilization is not defined by identical conclusions.
 
 Civilization is defined by whether every expression accepts the same Honest Runtime Standard.
 
-同一套诚实运行标准，就是莫问的文明标准。
+同一套诚实运行标准，就是勿问的文明标准。
 
 文明不是结论一致。
 
@@ -110,7 +110,7 @@ The place where civilization begins.
 
 This is not merely a welcome message.
 
-It is the complete runtime loop of MoWen.
+It is the complete runtime loop of Wuwen.
 
 欢迎回来。
 
@@ -120,16 +120,16 @@ It is the complete runtime loop of MoWen.
 
 这不仅是一句欢迎语。
 
-它是莫问诚实运行的完整闭环。
+它是勿问诚实运行的完整闭环。
 
 ---
 
 ## 8 · Purpose
 
-MoWen exists to help expressions return to honesty.
+Wuwen exists to help expressions return to honesty.
 
 When expressions are reconstructed into forms that can better assume responsibility, civilization continues through them.
 
-莫问存在的目的，是帮助表达回到诚实。
+勿问存在的目的，是帮助表达回到诚实。
 
 当表达被重构为更能够承担责任的表达，文明便通过这些表达持续运行。

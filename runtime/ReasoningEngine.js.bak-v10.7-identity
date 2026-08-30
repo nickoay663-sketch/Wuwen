@@ -7,7 +7,7 @@ class ReasoningEngine extends EngineBase {
         super(
             "ReasoningEngine",
             "10.4",
-            "莫问分析已验证对应关系中的推理边界，不把发现、未验证或未知扩大为结论。"
+            "勿问分析已验证对应关系中的推理边界，不把发现、未验证或未知扩大为结论。"
         );
 
         this.semanticObject =

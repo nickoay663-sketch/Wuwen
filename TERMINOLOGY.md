@@ -1,4 +1,4 @@
-# MoWen Terminology
+# Wuwen Terminology
 
 Version: 1.0
 
@@ -8,7 +8,7 @@ Version: 1.0
 
 ## Testimony
 
-The unified input of MoWen Runtime.
+The unified input of Wuwen Runtime.
 
 All Runtime begins with testimony.
 
@@ -58,7 +58,7 @@ Verification of relationships between:
 - Evidence
 - Knowledge
 
-Correspondence is the core of MoWen Runtime.
+Correspondence is the core of Wuwen Runtime.
 
 ---
 
@@ -74,7 +74,7 @@ Reasoning never invents premises.
 
 Responsibility belongs to the testimony provider.
 
-MoWen never assumes responsibility.
+Wuwen never assumes responsibility.
 
 ---
 

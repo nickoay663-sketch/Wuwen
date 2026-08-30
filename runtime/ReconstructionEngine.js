@@ -6,8 +6,8 @@ class ReconstructionEngine extends EngineBase {
 
         super(
             "ReconstructionEngine",
-            "10.7",
-            "莫问根据责任、证据与认识状态重构表达，不增加未经验证的信息，不改变原事实内容的证据地位，并为最终生成提供责任边界内的表达。"
+            "10.8",
+            "勿问根据责任、证据与认识状态重构表达，不增加未经验证的信息，不改变原事实内容的证据地位，并为最终生成提供责任边界内的表达。"
         );
 
         this.runtimeObject =

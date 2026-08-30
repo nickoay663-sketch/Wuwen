@@ -1,16 +1,16 @@
 # Roadmap
 
-MoWen evolves through continuous Honest Runtime.
+Wuwen evolves through continuous Honest Runtime.
 
-莫问，通过持续的诚实运行不断演进。
+勿问，通过持续的诚实运行不断演进。
 
 ## Vision
 
-Build MoWen as an Expression Quality Control System.
+Build Wuwen as an Expression Quality Control System.
 
-MoWen does not replace human judgment.
+Wuwen does not replace human judgment.
 
-MoWen examines whether expression can bear responsibility.
+Wuwen examines whether expression can bear responsibility.
 
 ## v1.0
 

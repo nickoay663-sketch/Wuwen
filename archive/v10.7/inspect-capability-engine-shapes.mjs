@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
+import HonestRuntime from "./HonestRuntime.js";
 import CapabilityContract from "./CapabilityContract.js";
 
 const adapter = {

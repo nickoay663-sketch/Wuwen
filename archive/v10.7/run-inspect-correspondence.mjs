@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
+import HonestRuntime from "./HonestRuntime.js";
 
 const source = {
     source: "RuntimeVerifiedSource",
@@ -10,7 +10,7 @@ const source = {
     runtimeVerification: true,
     verificationBasis: "RuntimeVerificationTest",
     verificationSource: "RuntimeVerificationEngine",
-    verifier: "MoWenRuntime",
+    verifier: "WuwenRuntime",
     supportsClaim: true
 };
 

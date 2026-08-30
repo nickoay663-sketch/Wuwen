@@ -1,10 +1,10 @@
-﻿import ExternalSourceConnector from "./ExternalSourceConnector.js";
+import ExternalSourceConnector from "./ExternalSourceConnector.js";
 
 const connector =
     new ExternalSourceConnector({
 
         keyword:
-            "MoWen capability positive test",
+            "Wuwen capability positive test",
 
         adapter: {
 

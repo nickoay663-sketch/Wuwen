@@ -49,13 +49,13 @@ sections = [
     (
         "中文",
         """
-        <b>作品名称：</b>莫问（MoWen）运行时系统。<br/>
+        <b>作品名称：</b>勿问（WuWen）运行时系统。<br/>
         <b>版本：</b>v10.2。<br/><br/>
 
-        本文件用于记录莫问运行时系统的版本与创作证据。
-        本版本对应 MoWen Runtime v10.2，并与源代码归档、Git 版本信息及完整性核验材料建立对应关系。<br/><br/>
+        本文件用于记录勿问运行时系统的版本与创作证据。
+        本版本对应 WuWen Runtime v10.2，并与源代码归档、Git 版本信息及完整性核验材料建立对应关系。<br/><br/>
 
-        莫问的核心原则是：运行时不生成意见。
+        勿问的核心原则是：运行时不生成意见。
         运行时执行诚实的验证过程，每一个输出都必须能够由其自身的责任链承担。
         运行时不得在现有证据链之外制造证据，也不得在已经验证的责任链之外制造结论。<br/><br/>
 
@@ -65,14 +65,14 @@ sections = [
     (
         "English",
         """
-        <b>Work:</b> MoWen Runtime System.<br/>
+        <b>Work:</b> WuWen Runtime System.<br/>
         <b>Version:</b> v10.2.<br/><br/>
 
-        This document records the version and creation evidence of the MoWen Runtime System.
-        This version corresponds to MoWen Runtime v10.2 and is intended to correspond with the source archive,
+        This document records the version and creation evidence of the WuWen Runtime System.
+        This version corresponds to WuWen Runtime v10.2 and is intended to correspond with the source archive,
         Git version information, and integrity verification materials.<br/><br/>
 
-        The core principle of MoWen is: the runtime does not generate opinions.
+        The core principle of WuWen is: the runtime does not generate opinions.
         The runtime performs an honest verification process, and every output must be bearable by its own responsibility chain.
         The runtime does not create evidence outside the available evidence chain and does not create conclusions outside the verified responsibility chain.<br/><br/>
 
@@ -83,14 +83,14 @@ sections = [
     (
         "Español",
         """
-        <b>Obra:</b> Sistema de ejecución MoWen.<br/>
+        <b>Obra:</b> Sistema de ejecución WuWen.<br/>
         <b>Versión:</b> v10.2.<br/><br/>
 
-        Este documento registra la versión y la evidencia de creación del sistema de ejecución MoWen.
-        Esta versión corresponde a MoWen Runtime v10.2 y está destinada a corresponder con el archivo de código fuente,
+        Este documento registra la versión y la evidencia de creación del sistema de ejecución WuWen.
+        Esta versión corresponde a WuWen Runtime v10.2 y está destinada a corresponder con el archivo de código fuente,
         la información de versión de Git y los materiales de verificación de integridad.<br/><br/>
 
-        El principio fundamental de MoWen es: el runtime no genera opiniones.
+        El principio fundamental de WuWen es: el runtime no genera opiniones.
         El runtime realiza un proceso honesto de verificación y cada salida debe poder ser asumida por su propia cadena de responsabilidad.
         El runtime no crea evidencia fuera de la cadena de evidencia disponible ni conclusiones fuera de la cadena de responsabilidad verificada.<br/><br/>
 
@@ -129,13 +129,13 @@ sha256 = hashlib.sha256(OUT.read_bytes()).hexdigest()
 reader = PdfReader(str(OUT))
 text = "\n".join((page.extract_text() or "") for page in reader.pages)
 
-required = ["中文", "English", "Español", "莫问", "MoWen", "v10.2"]
+required = ["中文", "English", "Español", "勿问", "WuWen", "v10.2"]
 
 missing = [x for x in required if x not in text]
 
 print()
 print("========================================")
-print("MoWen 01 三语 PDF 自动核验")
+print("WuWen 01 三语 PDF 自动核验")
 print("========================================")
 print(f"文件：{OUT}")
 print(f"大小：{size} bytes")
@@ -158,7 +158,7 @@ print()
 print("PASS：中文存在")
 print("PASS：English 存在")
 print("PASS：Español 存在")
-print("PASS：MoWen 存在")
+print("PASS：WuWen 存在")
 print("PASS：v10.2 存在")
 print("PASS：PDF 存在实际文字")
 print()

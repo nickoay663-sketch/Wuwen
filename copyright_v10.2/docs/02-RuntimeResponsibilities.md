@@ -1,6 +1,6 @@
-# MoWen Runtime Responsibilities v3.0
+# Wuwen Runtime Responsibilities v3.0
 
-# 莫问运行职责 v3.0
+# 勿问运行职责 v3.0
 
 ---
 

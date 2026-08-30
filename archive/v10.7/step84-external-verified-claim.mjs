@@ -1,4 +1,4 @@
-﻿import ExternalSourceConnector from "./ExternalSourceConnector.js";
+import ExternalSourceConnector from "./ExternalSourceConnector.js";
 import CapabilityContract from "./CapabilityContract.js";
 
 const fakeAdapter = {

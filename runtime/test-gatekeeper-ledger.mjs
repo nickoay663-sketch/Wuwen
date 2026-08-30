@@ -1,6 +1,6 @@
-﻿import fs from "fs";
-import MWALContract from "./MWALContract.js";
-import MWALGatekeeper from "./MWALGatekeeper.js";
+import fs from "fs";
+import WALContract from "./WALContract.js";
+import WALGatekeeper from "./WALGatekeeper.js";
 import ResponsibilityEvent from "./ResponsibilityEvent.js";
 import ResponsibilityLedger from "./ResponsibilityLedger.js";
 
@@ -10,19 +10,19 @@ if (fs.existsSync(ledgerFile)) {
     fs.unlinkSync(ledgerFile);
 }
 
-const gatekeeper = new MWALGatekeeper();
+const gatekeeper = new WALGatekeeper();
 const ledger = new ResponsibilityLedger(ledgerFile);
 
 function createEnvelope(overrides = {}) {
-    return MWALContract.createEnvelope({
+    return WALContract.createEnvelope({
         eventId: "gatekeeper-test",
-        expression: "这是一个经过验证的责任表达",
+        expression: "杩欐槸涓€涓粡杩囬獙璇佺殑璐ｄ换琛ㄨ揪",
         identity: null,
         timestamp: "2026-08-29T00:00:00.000Z",
         verificationState: "SUPPORTED",
         responsibilityState: "ESTABLISHED",
         propagationState: "ALLOW",
-        runtimeVersion: "10.7",
+        runtimeVersion: "10.8",
         contractVersion: "1.0",
         ...overrides
     });
@@ -147,7 +147,7 @@ if (integrity.totalRecords !== 1) {
     );
 }
 
-console.log("\n=== MWAL GATEKEEPER + LEDGER ISOLATION TEST PASSED ===");
+console.log("\n=== WAL GATEKEEPER + LEDGER ISOLATION TEST PASSED ===");
 
 if (fs.existsSync(ledgerFile)) {
     fs.unlinkSync(ledgerFile);

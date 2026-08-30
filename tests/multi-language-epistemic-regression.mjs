@@ -241,7 +241,7 @@ console.log(
     JSON.stringify(
         {
             test:
-                "MoWen Multi-Language Epistemic Regression",
+                "Wuwen Multi-Language Epistemic Regression",
 
             languageCount,
 
@@ -281,12 +281,12 @@ console.log(
 if (!passed) {
 
     console.error(
-        "\nMoWen Multi-Language Epistemic Regression FAILED."
+        "\nWuwen Multi-Language Epistemic Regression FAILED."
     );
 
     process.exit(1);
 }
 
 console.log(
-    "\nMoWen Multi-Language Epistemic Regression Passed."
+    "\nWuwen Multi-Language Epistemic Regression Passed."
 );

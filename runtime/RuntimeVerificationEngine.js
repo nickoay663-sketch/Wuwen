@@ -1,4 +1,4 @@
-﻿import EngineBase from "./EngineBase.js";
+import EngineBase from "./EngineBase.js";
 
 const RUNTIME_VERIFICATION_AUTHORITY =
     new WeakSet();
@@ -21,7 +21,7 @@ class RuntimeVerificationEngine extends EngineBase {
 
         super(
             "RuntimeVerificationEngine",
-            "10.7",
+            "10.8",
             "Runtime Verification Authority"
         );
 
@@ -345,7 +345,3 @@ class RuntimeVerificationEngine extends EngineBase {
 
 
 export default RuntimeVerificationEngine;
-
-
-
-

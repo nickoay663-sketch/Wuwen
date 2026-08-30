@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "./HonestRuntime.js";
+import HonestRuntime from "./HonestRuntime.js";
 import CapabilityContract from "./CapabilityContract.js";
 
 const adapter = {
@@ -92,7 +92,7 @@ const adapter = {
 const runtime =
     new HonestRuntime(
 
-        "测试一个外部 Capability 是否能够进入莫问 Runtime",
+        "测试一个外部 Capability 是否能够进入勿问 Runtime",
 
         {
 

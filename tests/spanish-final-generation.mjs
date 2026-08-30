@@ -1,4 +1,4 @@
-﻿import HonestRuntime from "../runtime/HonestRuntime.js";
+import HonestRuntime from "../runtime/HonestRuntime.js";
 
 const expression = `
 ¡Hola a todos! Hoy os hablo para que sepáis que aprender español es una aventura increíble.

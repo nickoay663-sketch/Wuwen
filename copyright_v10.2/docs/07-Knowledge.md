@@ -1,6 +1,6 @@
-# MoWen Knowledge v3.0
+# Wuwen Knowledge v3.0
 
-# 莫问知识系统 v3.0
+# 勿问知识系统 v3.0
 
 ---
 

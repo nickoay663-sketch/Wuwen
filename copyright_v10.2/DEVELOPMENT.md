@@ -1,16 +1,16 @@
-# MoWen Development v1.1
+# Wuwen Development v1.1
 
-# 莫问开发路线 v1.1
+# 勿问开发路线 v1.1
 
 
 ## Purpose
 
-MoWen development follows the Honest Runtime architecture.
+Wuwen development follows the Honest Runtime architecture.
 
 The goal is to transform one expression into one traceable responsibility analysis process.
 
 
-莫问开发遵循诚实运行架构。
+勿问开发遵循诚实运行架构。
 
 目标是将一句表达转化为一个可追溯的责任分析过程。
 
@@ -178,14 +178,14 @@ Each Engine has one responsibility.
 
 Each Engine follows Runtime Interface.
 
-Each Engine must be traceable to MoWen Constitution.
+Each Engine must be traceable to Wuwen Constitution.
 
 
 每个 Engine 只有一个职责。
 
 每个 Engine 遵循 Runtime Interface。
 
-每个 Engine 都必须能够追溯到莫问宪法。
+每个 Engine 都必须能够追溯到勿问宪法。
 
 
 ---

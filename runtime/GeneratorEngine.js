@@ -6,8 +6,8 @@ class GeneratorEngine extends EngineBase {
 
         super(
             "GeneratorEngine",
-            "10.7",
-            "莫问生成责任边界内的最终表达，只输出重构层已经允许承担的内容，不重新验证、不提升认识状态、不越过责任边界。"
+            "10.8",
+            "Wuwen生成责任边界内的最终表达，只输出重构层已经允许承担的内容，不重新验证、不提升认识状态、不越过责任边界。"
         );
 
         this.runtimeObject =
@@ -38,42 +38,7 @@ class GeneratorEngine extends EngineBase {
                 this.version,
 
             semanticObject:
-                (() => {
-
-                    const source =
-                        (() => {
-                    const source = this.runtimeObject.semanticObject || {};
-                    const { engineRegistry, engines, runtimeTrace, ...serializableSemanticObject } = source;
-                    return {
-                        ...serializableSemanticObject,
-                        engineRegistry: engineRegistry?.describe?.() || [],
-                        runtimeTrace: Array.isArray(runtimeTrace) ? runtimeTrace : []
-                    };
-                })() || {};
-
-                    const {
-                        engineRegistry,
-                        engines,
-                        runtimeTrace,
-                        ...serializableSemanticObject
-                    } = source;
-
-                    return {
-
-                        ...serializableSemanticObject,
-
-                        engineRegistry:
-                            engineRegistry
-                                ?.describe?.() || [],
-
-                        runtimeTrace:
-                            Array.isArray(runtimeTrace)
-                                ? runtimeTrace
-                                : []
-
-                    };
-
-                })(),
+                this.runtimeObject.semanticObject,
 
             principle:
                 this.principle,
@@ -465,7 +430,7 @@ class GeneratorEngine extends EngineBase {
     ) {
 
         /*
-         * MWAL final publication gate.
+         * WAL final publication gate.
          *
          * Epistemic state and publication authority are separate.
          *

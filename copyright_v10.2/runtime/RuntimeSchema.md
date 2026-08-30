@@ -1,13 +1,13 @@
-# MoWen Runtime Schema v1.2
+# Wuwen Runtime Schema v1.2
 
-# 莫问运行数据结构 v1.2
+# 勿问运行数据结构 v1.2
 
 
 ## Purpose
 
-Runtime Schema defines the data structure and transformation relationship inside MoWen Honest Runtime.
+Runtime Schema defines the data structure and transformation relationship inside Wuwen Honest Runtime.
 
-运行数据结构定义莫问诚实运行内部的数据结构和转换关系。
+运行数据结构定义勿问诚实运行内部的数据结构和转换关系。
 
 
 ## Core Structure

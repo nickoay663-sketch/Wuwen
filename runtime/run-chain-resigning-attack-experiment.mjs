@@ -1,10 +1,10 @@
-﻿import fs from "fs";
+import fs from "fs";
 import crypto from "crypto";
 import ResponsibilityLedger from "./ResponsibilityLedger.js";
 
 console.log("=== CHAIN RE-SIGNING ATTACK EXPERIMENT ===");
 
-const file = "./mowen-chain-resigning-attack-test.jsonl";
+const file = "./Wuwen-chain-resigning-attack-test.jsonl";
 
 if (fs.existsSync(file)) fs.unlinkSync(file);
 

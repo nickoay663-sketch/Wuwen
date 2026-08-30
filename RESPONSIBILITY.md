@@ -1,4 +1,4 @@
-# MoWen Responsibility v1.1
+# Wuwen Responsibility v1.1
 
 ## Purpose
 
@@ -61,21 +61,21 @@ Source of the generated report.
 生成报告的来源。
 
 
-## MoWen Responsibility Boundary
+## Wuwen Responsibility Boundary
 
-MoWen records responsibility.
+Wuwen records responsibility.
 
-莫问记录责任。
-
-
-MoWen does not assume responsibility for testimony.
-
-莫问不承担证词责任。
+勿问记录责任。
 
 
-MoWen does not replace human responsibility.
+Wuwen does not assume responsibility for testimony.
 
-莫问不替代人的责任。
+勿问不承担证词责任。
+
+
+Wuwen does not replace human responsibility.
+
+勿问不替代人的责任。
 
 
 ## Responsibility Record

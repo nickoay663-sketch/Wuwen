@@ -7,7 +7,7 @@ class DefinitionEngine extends EngineBase {
         super(
             "DefinitionEngine",
             "10.2",
-            "莫问定义表达对象的明确含义与边界。"
+            "勿问定义表达对象的明确含义与边界。"
         );
 
         this.semanticObject =
@@ -91,7 +91,7 @@ class DefinitionEngine extends EngineBase {
                     content,
 
                 definition:
-                    "Expression entering MoWen Runtime"
+                    "Expression entering Wuwen Runtime"
 
             }
 

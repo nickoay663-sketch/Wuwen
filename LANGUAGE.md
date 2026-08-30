@@ -1,16 +1,16 @@
-MoWen Runtime Language
+Wuwen Runtime Language
 
 Version: 2.0
 
-莫问运行语言规范 v2.0
+勿问运行语言规范 v2.0
 
 Definition
 
-MoWen Runtime Language is the standardized language used by MoWen Runtime.
+Wuwen Runtime Language is the standardized language used by Wuwen Runtime.
 
 It defines the concepts, terms and results used during Honest Runtime execution.
 
-莫问运行语言是莫问 Runtime 使用的标准化语言。
+勿问运行语言是勿问 Runtime 使用的标准化语言。
 
 它定义诚实运行过程中使用的概念、术语和结果。
 
@@ -18,13 +18,13 @@ It defines the concepts, terms and results used during Honest Runtime execution.
 
 Purpose
 
-MoWen Runtime Language does not replace natural languages.
+Wuwen Runtime Language does not replace natural languages.
 
 It does not determine the input language.
 
 It provides a unified expression system for Runtime communication.
 
-莫问运行语言不替代自然语言。
+勿问运行语言不替代自然语言。
 
 它不决定输入语言。
 
@@ -50,7 +50,7 @@ Honest Runtime
 
 ↓
 
-MoWen Runtime Language
+Wuwen Runtime Language
 
 ↓
 
@@ -72,7 +72,7 @@ Runtime Report
 
 ↓
 
-莫问运行语言
+勿问运行语言
 
 ↓
 
@@ -82,7 +82,7 @@ Runtime Report
 
 Core Concepts
 
-MoWen Runtime Language includes:
+Wuwen Runtime Language includes:
 
 - Expression
 - Testimony
@@ -95,7 +95,7 @@ MoWen Runtime Language includes:
 - Verification Status
 - Question
 
-莫问运行语言包括：
+勿问运行语言包括：
 
 - 表达
 - 证词
@@ -112,7 +112,7 @@ MoWen Runtime Language includes:
 
 Runtime Actions
 
-MoWen Runtime uses standardized actions:
+Wuwen Runtime uses standardized actions:
 
 Recognize
 
@@ -132,7 +132,7 @@ Reconstruct
 
 Report
 
-莫问 Runtime 使用标准化动作：
+勿问 Runtime 使用标准化动作：
 
 识别
 
@@ -206,4 +206,4 @@ Runtime Language remains consistent.
 
 自然语言可以不同。
 
-莫问运行语言保持一致。
+勿问运行语言保持一致。

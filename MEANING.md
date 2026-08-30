@@ -1,6 +1,6 @@
-# MoWen Meaning
+# Wuwen Meaning
 
-# 莫问意义
+# 勿问意义
 
 ## 1 · Definition
 

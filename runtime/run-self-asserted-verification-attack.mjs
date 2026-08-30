@@ -1,4 +1,4 @@
-﻿import RuntimeVerificationEngine from "./RuntimeVerificationEngine.js";
+import RuntimeVerificationEngine from "./RuntimeVerificationEngine.js";
 
 const engine =
     new RuntimeVerificationEngine();

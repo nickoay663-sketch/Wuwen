@@ -4,9 +4,9 @@
 
 The Search Engine retrieves existing knowledge before Runtime analysis.
 
-MoWen never assumes a definition.
+Wuwen never assumes a definition.
 
-MoWen searches first.
+Wuwen searches first.
 
 ---
 

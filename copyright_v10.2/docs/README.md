@@ -1,3 +1,3 @@
-# MoWen Documentation
+# Wuwen Documentation
 
-Official documentation of the MoWen Project.
+Official documentation of the Wuwen Project.

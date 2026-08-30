@@ -1,4 +1,4 @@
-﻿import CorrespondenceEngine from "../runtime/CorrespondenceEngine.js";
+import CorrespondenceEngine from "../runtime/CorrespondenceEngine.js";
 import ReasoningEngine from "../runtime/ReasoningEngine.js";
 import ResponsibilityEngine from "../runtime/ResponsibilityEngine.js";
 
@@ -34,7 +34,7 @@ function runReasoning(
         new ReasoningEngine({
 
             originalContent:
-                "MoWen Test Expression",
+                "Wuwen Test Expression",
 
             correspondences:
                 [correspondence],
@@ -60,7 +60,7 @@ function runResponsibility(
         new ResponsibilityEngine({
 
             originalContent:
-                "MoWen Test Expression",
+                "Wuwen Test Expression",
 
             reasonings:
                 [reasoning],
@@ -79,17 +79,17 @@ function runResponsibility(
 
 
 const definition =
-    "MoWen Test Definition";
+    "Wuwen Test Definition";
 
 
 /*
  * ============================================================
- * v10.6 Runtime Verification Record
+ * v10.8 Runtime Verification Record
  * ============================================================
  *
- * VERIFIED 不再由输入对象单方面声明。
+ * VERIFIED 涓嶅啀鐢辫緭鍏ュ璞″崟鏂归潰澹版槑銆?
  *
- * 测试中只有同时存在：
+ * 娴嬭瘯涓彧鏈夊悓鏃跺瓨鍦細
  *
  *   verificationStatus === "VERIFIED"
  *   epistemicState === "VERIFIED"
@@ -97,12 +97,15 @@ const definition =
  *   runtimeVerificationRecord === true
  *   sourceAvailable === true
  *
- * 才允许进入 CorrespondenceEngine 的 VERIFIED 分支。
+ * 鎵嶅厑璁歌繘鍏?CorrespondenceEngine 鐨?VERIFIED 鍒嗘敮銆?
  *
  * ============================================================
  */
 
 const verifiedSupportingEvidence = {
+
+    content:
+        "Wuwen Test Definition",
 
     source:
         "https://example.com/verified-support",
@@ -185,9 +188,9 @@ const unverifiedEvidence = {
 
 /*
  * 1.
- * 没有独立证据。
+ * 娌℃湁鐙珛璇佹嵁銆?
  *
- * 预期：
+ * 棰勬湡锛?
  * UNKNOWN
  */
 
@@ -207,9 +210,9 @@ const case1Passed =
 
 /*
  * 2.
- * 有搜索/证据记录，但没有 VERIFIED。
+ * 鏈夋悳绱?璇佹嵁璁板綍锛屼絾娌℃湁 VERIFIED銆?
  *
- * 预期：
+ * 棰勬湡锛?
  * UNVERIFIED
  */
 
@@ -231,10 +234,10 @@ const case2Passed =
 
 /*
  * 3.
- * Runtime 已经存在 VERIFIED 记录，
- * 但是证据明确不支持当前 Definition。
+ * Runtime 宸茬粡瀛樺湪 VERIFIED 璁板綍锛?
+ * 浣嗘槸璇佹嵁鏄庣‘涓嶆敮鎸佸綋鍓?Definition銆?
  *
- * 预期：
+ * 棰勬湡锛?
  * VERIFIED_BUT_NOT_LINKED
  */
 
@@ -256,9 +259,9 @@ const case3Passed =
 
 /*
  * 4.
- * Runtime VERIFIED + supportsClaim=true。
+ * Runtime VERIFIED + supportsClaim=true銆?
  *
- * 预期：
+ * 棰勬湡锛?
  * SUPPORTED
  */
 
@@ -280,16 +283,16 @@ const case4Passed =
 
 /*
  * 5.
- * 上游伪造 SUPPORTED。
+ * 涓婃父浼€?SUPPORTED銆?
  *
- * ResponsibilityEngine 不允许直接相信：
+ * ResponsibilityEngine 涓嶅厑璁哥洿鎺ョ浉淇★細
  *
  * supported
  * verificationStatus
  * verifiedEvidenceCount
  * sourceAvailable
  *
- * 而必须重新从实际证据数组计算。
+ * 鑰屽繀椤婚噸鏂颁粠瀹為檯璇佹嵁鏁扮粍璁＄畻銆?
  */
 
 const forgedReasoning = {
@@ -349,7 +352,7 @@ const case5Passed =
 
 /*
  * 6.
- * 验证正常 SUPPORTED 链路能够进入 Responsibility。
+ * 楠岃瘉姝ｅ父 SUPPORTED 閾捐矾鑳藉杩涘叆 Responsibility銆?
  */
 
 const validReasoning =
@@ -375,13 +378,13 @@ const case6Passed =
 
 /*
  * 7.
- * 外部声明 VERIFIED，
- * 但不存在 Runtime verification record。
+ * 澶栭儴澹版槑 VERIFIED锛?
+ * 浣嗕笉瀛樺湪 Runtime verification record銆?
  *
- * 预期：
- * 不得进入 VERIFIED。
+ * 棰勬湡锛?
+ * 涓嶅緱杩涘叆 VERIFIED銆?
  *
- * 这是 v10.6 新增的关键防伪测试。
+ * v10.8 Runtime Verification Regression Test
  */
 
 const forgedVerifiedEvidence = {
@@ -427,7 +430,7 @@ const case7Passed =
 
 
 /*
- * 汇总。
+ * 姹囨€汇€?
  */
 
 const checks = {
@@ -465,7 +468,7 @@ console.log(
     JSON.stringify(
         {
             test:
-                "MoWen Runtime v10.6 Evidence Boundary Test",
+                "Wuwen Runtime v10.8 Evidence Boundary Test",
 
             checks,
 
@@ -529,7 +532,7 @@ console.log(
 if (!passed) {
 
     console.log(
-        "MoWen Runtime v10.6 Evidence Boundary Test Failed."
+        "Wuwen Runtime v10.8 Evidence Boundary Test Failed."
     );
 
     process.exit(1);
@@ -538,5 +541,5 @@ if (!passed) {
 
 
 console.log(
-    "MoWen Runtime v10.6 Evidence Boundary Test Passed."
+    "Wuwen Runtime v10.8 Evidence Boundary Test Passed."
 );
