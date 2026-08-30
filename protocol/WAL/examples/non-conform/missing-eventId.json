@@ -1,0 +1,10 @@
+{
+  "expression": "WAL schema structural test",
+  "identity": "external-test",
+  "timestamp": "2026-08-30",
+  "verificationState": "UNKNOWN",
+  "responsibilityState": "BOUNDED",
+  "propagationState": "NONE",
+  "runtimeVersion": "external",
+  "contractVersion": "WAL-1.0"
+}

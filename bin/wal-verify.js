@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * WAL Protocol CLI Validator
  * Standalone command-line verification tool for WAL Envelopes.
