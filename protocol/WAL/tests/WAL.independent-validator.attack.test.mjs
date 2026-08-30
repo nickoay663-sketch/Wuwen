@@ -1,8 +1,7 @@
-﻿import WALContract from "./WALContract.js";
-import WALIndependentValidator from "./WALIndependentValidator.js";
+﻿import WALContract from "../validator/WALContract.js";
+import WALIndependentValidator from "../validator/WALIndependentValidator.js";
 
-const validator =
-    new WALIndependentValidator();
+const validator = new WALIndependentValidator();
 
 function baseEnvelope() {
     return WALContract.createEnvelope({
@@ -19,7 +18,6 @@ function baseEnvelope() {
 }
 
 const attacks = {
-
     unknownToTrue: {
         ...baseEnvelope(),
         epistemicState: "TRUE"
@@ -83,17 +81,13 @@ const attacks = {
             engines: {}
         }
     }
-
 };
 
 const results = {};
 
 for (const [name, envelope] of Object.entries(attacks)) {
-
     const validation =
-        validator.validateEnvelope(
-            envelope
-        );
+        validator.validateEnvelope(envelope);
 
     results[name] = {
         status: validation.status,
@@ -113,23 +107,32 @@ console.log(
     )
 );
 
-const failedAttacks =
-    Object.entries(results)
-        .filter(
-            ([, result]) =>
-                result.status !== "NON_CONFORM"
-        );
+const expectedBlocked = [
+    "unknownToTrue",
+    "unknownToFalse",
+    "forgedAllow",
+    "searchAsEvidence",
+    "forgedVerified",
+    "forgedSupported",
+    "responsibilityExceedsEvidence",
+    "runtimeLeak"
+];
 
-if (failedAttacks.length > 0) {
+const failures = expectedBlocked.filter(
+    name => results[name].passed !== false
+);
 
-    throw new Error(
-        `Independent Validator attack test failed: ${failedAttacks
-            .map(([name]) => name)
-            .join(", ")}`
+if (failures.length > 0) {
+    console.error(
+        `ATTACK TEST FAILED: ${failures.join(", ")}`
     );
-
+    process.exit(1);
 }
 
 console.log(
-    "\n=== WAL INDEPENDENT VALIDATOR ATTACK TEST PASSED ==="
+    "=== WAL INDEPENDENT VALIDATOR ATTACK TEST PASSED ==="
 );
+process.exit(0);
+
+
+

@@ -1,13 +1,14 @@
 {
-  "eventId": "sample-conform-01",
+  "eventId": "evt-conform-2026-001",
   "expression": "standard-verified-agent-action",
   "identity": "ExternalAgent-01",
-  "timestamp": "2026-08-30",
+  "timestamp": "2026-08-30T12:00:00Z",
   "verificationState": "VERIFIED",
-  "responsibilityState": "COMMITTED",
+  "responsibilityState": "ESTABLISHED",
   "propagationState": "ALLOW",
   "runtimeVersion": "external-v1.0",
   "contractVersion": "1.0",
+  "responsibility": null,
   "evidence": [
     {
       "source": "verified-db",

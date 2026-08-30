@@ -4,21 +4,25 @@ import WALIndependentValidator from "./WALIndependentValidator.js";
 const inputPath = process.argv[2];
 
 if (!inputPath) {
-    throw new Error(
+    console.error(
         "Usage: node WALReferenceValidator.mjs <wal-envelope.json>"
     );
+    process.exit(2);
 }
 
-const envelope =
-    JSON.parse(
+let envelope;
+
+try {
+    envelope = JSON.parse(
         fs.readFileSync(inputPath, "utf8")
     );
-
-const validator =
-    new WALIndependentValidator();
+} catch (error) {
+    console.error(`Error parsing envelope JSON: ${error.message}`);
+    process.exit(2);
+}
 
 const validation =
-    validator.validateEnvelope(envelope);
+    WALIndependentValidator.validate(envelope);
 
 console.log(
     JSON.stringify(

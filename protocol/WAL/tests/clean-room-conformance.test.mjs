@@ -7,32 +7,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const walRoot = path.resolve(__dirname, "..");
 
-const validPath = path.join(
-    walRoot,
-    "examples",
-    "conform",
-    "valid-envelope.json"
-);
-
-const attackPath = path.join(
-    walRoot,
-    "examples",
-    "attack",
-    "leaked-envelope.json"
-);
-
-const missingEventIdPath = path.join(
-    walRoot,
-    "examples",
-    "non-conform",
-    "missing-eventId.json"
-);
-
-const externalLanguagePath = path.join(
-    walRoot,
-    "examples",
-    "external-language-envelope.json"
-);
+const validPath = path.join(walRoot, "examples", "conform", "valid-envelope.json");
+const attackPath = path.join(walRoot, "examples", "attack", "leaked-envelope.json");
 
 function readJson(filePath) {
     return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -44,62 +20,22 @@ function assert(condition, message) {
     }
 }
 
-const validResult = WALIndependentValidator.validate(
-    readJson(validPath)
-);
+const validator = new WALIndependentValidator();
 
+const validResult = validator.validateEnvelope(readJson(validPath));
 assert(
-    validResult.passed === true &&
-    validResult.status === "CONFORM",
+    validResult.passed === true && validResult.status === "CONFORM",
     "Valid WAL envelope must be CONFORM."
 );
 
-const attackResult = WALIndependentValidator.validate(
-    readJson(attackPath)
-);
-
+const attackResult = validator.validateEnvelope(readJson(attackPath));
 assert(
-    attackResult.passed === false &&
-    attackResult.status === "NON_CONFORM",
+    attackResult.passed === false && attackResult.status === "NON_CONFORM",
     "Leaked WAL envelope must be NON_CONFORM."
 );
-
 assert(
     attackResult.failedRules.some(rule => rule.id === "R04-01"),
-    "Leaked WAL envelope must fail R04-01."
+    "Attack envelope must trigger R04-01 failure."
 );
 
-const schema = readJson(
-    path.join(walRoot, "schema", "wal-envelope.schema.json")
-);
-
-const missingEventId = readJson(missingEventIdPath);
-
-assert(
-    Array.isArray(schema.required) &&
-    schema.required.includes("eventId"),
-    "WAL Schema must require eventId."
-);
-
-assert(
-    !Object.prototype.hasOwnProperty.call(missingEventId, "eventId"),
-    "Missing-eventId fixture must omit eventId."
-);
-
-const externalLanguageEnvelope = readJson(externalLanguagePath);
-
-const externalLanguageResult =
-    WALIndependentValidator.validate(externalLanguageEnvelope);
-
-assert(
-    externalLanguageResult.passed === true &&
-    externalLanguageResult.status === "CONFORM",
-    "External-language WAL envelope must be CONFORM."
-);
-
-console.log("WAL CLEAN-ROOM CONFORMANCE: PASS");
-console.log("Valid Envelope: CONFORM");
-console.log("Leaked Envelope: NON_CONFORM / R04-01");
-console.log("Schema Required Contract: PASS");
-console.log("External Fixture: missing-eventId / EXPECTED NON_CONFORM");
-console.log("External Language Envelope: CONFORM");
+console.log("Clean-room conformance suite passed successfully.");

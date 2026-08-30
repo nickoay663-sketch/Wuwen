@@ -1,21 +1,15 @@
-﻿import fs from "fs";
-import WALIndependentValidator from "./WALIndependentValidator.js";
+import fs from "fs";
+import WALIndependentValidator from "../validator/WALIndependentValidator.js";
 
-const envelope =
-    JSON.parse(
-        fs.readFileSync(
-            "./reference-test-envelope.json",
-            "utf8"
-        )
-    );
+const envelope = JSON.parse(
+    fs.readFileSync(
+        "./protocol/WAL/examples/conform/valid-envelope.json",
+        "utf8"
+    )
+);
 
-const validator =
-    new WALIndependentValidator();
-
-const validation =
-    validator.validateEnvelope(
-        envelope
-    );
+const validator = new WALIndependentValidator();
+const validation = validator.validateEnvelope(envelope);
 
 console.log(
     JSON.stringify(
@@ -38,11 +32,8 @@ if (
     validation.passedRules !== 54 ||
     validation.failedRules.length !== 0
 ) {
-    throw new Error(
-        "WAL conformance test failed."
-    );
+    console.error("Conformance test failed!");
+    process.exit(1);
+} else {
+    console.log("Conformance test passed successfully (54/54).");
 }
-
-console.log(
-    "\n=== WAL CONFORMANCE TEST PASSED ==="
-);
