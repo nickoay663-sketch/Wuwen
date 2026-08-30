@@ -1,4 +1,4 @@
-import WALContract from "./WALContract.js";
+﻿import WALContract from "./WALContract.js";
 import WALIndependentValidator from "./WALIndependentValidator.js";
 
 const validator =
@@ -7,7 +7,7 @@ const validator =
 function baseEnvelope() {
     return WALContract.createEnvelope({
         eventId: "test-event",
-        expression: "杩欐槸涓€涓簨瀹?,
+        expression: "这是一个事实声明",
         identity: null,
         timestamp: "2026-08-27T00:00:00.000Z",
         verificationState: "UNKNOWN",
@@ -63,7 +63,7 @@ const attacks = {
         responsibility: {
             subject: null,
             scope: {
-                claims: ["杩欐槸涓€涓簨瀹?]
+                claims: ["这是一个事实声明"]
             },
             basis: {
                 epistemicState: "SUPPORTED",
