@@ -1,0 +1,16 @@
+{
+  "eventId": "evt-attack-2026-001",
+  "expression": "malicious-unverified-action",
+  "identity": "Attacker-01",
+  "timestamp": "2026-08-30T12:00:00Z",
+  "verificationState": "UNVERIFIED",
+  "responsibilityState": "UNKNOWN",
+  "propagationState": "BLOCK",
+  "runtimeVersion": "external-v1.0",
+  "contractVersion": "1.0",
+  "reconstructionPurpose": "PUNISHMENT",
+  "responsibility": {
+    "leaked": true
+  },
+  "evidence": []
+}

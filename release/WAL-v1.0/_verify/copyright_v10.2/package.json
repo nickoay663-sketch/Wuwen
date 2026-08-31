@@ -1,0 +1,19 @@
+{
+  "name": "Wuwen",
+  "version": "2.3.0",
+  "description": "Wuwen Expression Quality Verification System - Honest Runtime",
+  "type": "module",
+  "main": "run.js",
+  "scripts": {
+    "start": "node run.js",
+    "runtime": "node run.js",
+    "test": "node tests/runtime.test.js"
+  },
+  "keywords": [
+    "Wuwen",
+    "Honest Runtime",
+    "Expression Verification",
+    "Semantic Object"
+  ],
+  "license": "MIT"
+}

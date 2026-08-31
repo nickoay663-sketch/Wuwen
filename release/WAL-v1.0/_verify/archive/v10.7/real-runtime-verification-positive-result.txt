@@ -1,0 +1,85 @@
+{
+  "test": "REAL_RUNTIME_VERIFICATION_POSITIVE",
+  "search": {
+    "sourceCount": 2,
+    "outputState": null,
+    "verificationState": null
+  },
+  "evidence": {
+    "evidenceCount": 3,
+    "evidenceState": {
+      "verifiedCount": 2,
+      "unverifiedCount": 1,
+      "discoveredCount": 2
+    },
+    "evidences": [
+      {
+        "type": "runtime-verification",
+        "source": "RuntimeVerifiedSource",
+        "content": "杩欐槸涓€涓敱 Runtime 楠岃瘉璁板綍鏀寔鐨勬祴璇曚簨瀹?,
+        "origin": "supplied",
+        "epistemicState": "VERIFIED",
+        "verificationStatus": "VERIFIED",
+        "verificationBasis": "RuntimeVerificationTest",
+        "externalVerificationClaim": false,
+        "externalVerificationBasis": "RuntimeVerificationTest",
+        "runtimeVerificationRecord": true,
+        "independent": true,
+        "sourceAvailable": true,
+        "supportsClaim": false
+      },
+      {
+        "type": "runtime-input",
+        "source": "RuntimeInput",
+        "content": "娴嬭瘯 Runtime 鍚堟硶楠岃瘉鑳藉姏",
+        "origin": "runtime",
+        "epistemicState": "DISCOVERED",
+        "verificationStatus": "UNVERIFIED",
+        "verificationBasis": null,
+        "externalVerificationClaim": false,
+        "externalVerificationBasis": null,
+        "runtimeVerificationRecord": false,
+        "independent": false,
+        "sourceAvailable": true,
+        "supportsClaim": false
+      },
+      {
+        "type": "runtime-verification",
+        "source": "RuntimeVerifiedSource",
+        "content": "杩欐槸涓€涓敱 Runtime 楠岃瘉璁板綍鏀寔鐨勬祴璇曚簨瀹?,
+        "origin": "runtime",
+        "epistemicState": "DISCOVERED",
+        "verificationStatus": "VERIFIED",
+        "verificationBasis": "RuntimeVerificationTest",
+        "externalVerificationClaim": false,
+        "externalVerificationBasis": "RuntimeVerificationTest",
+        "runtimeVerificationRecord": true,
+        "independent": true,
+        "sourceAvailable": true,
+        "supportsClaim": false
+      }
+    ]
+  },
+  "reasoning": {
+    "reasoningCount": 1,
+    "supportedCount": 0,
+    "unverifiedCount": 1,
+    "unknownCount": 0
+  },
+  "selfCheck": {
+    "status": "self-check-passed",
+    "passed": true,
+    "runtimeValid": true,
+    "boundaryValid": true,
+    "forbiddenPromotion": false,
+    "unsupportedPromotion": false,
+    "discoveredPromotion": false
+  },
+  "finalBoundary": {
+    "epistemicState": null,
+    "state": "VERIFIED_BUT_NOT_LINKED",
+    "finalState": "VERIFIED_BUT_NOT_LINKED",
+    "canPromote": false,
+    "canPublish": false
+  }
+}

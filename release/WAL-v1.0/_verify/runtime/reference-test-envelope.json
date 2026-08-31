@@ -1,0 +1,20 @@
+{
+  "WAL": {
+    "name": "Wuwen Accountability Layer",
+    "identifier": "WAL",
+    "version": "1.0"
+  },
+  "eventId": "reference-test-event",
+  "expression": "这是一个事实。",
+  "identity": null,
+  "timestamp": "2026-08-30T00:00:00.000Z",
+  "verificationState": "UNKNOWN",
+  "responsibilityState": "UNESTABLISHED",
+  "responsibility": null,
+  "propagationState": "REQUIRE_VERIFICATION",
+  "evidence": [],
+  "auditTrail": [],
+  "signature": null,
+  "runtimeVersion": "10.8",
+  "contractVersion": "1.0"
+}

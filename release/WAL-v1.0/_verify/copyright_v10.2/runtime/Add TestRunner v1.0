@@ -1,0 +1,65 @@
+class SelfCheckEngine {
+
+    constructor(result) {
+        this.result = result;
+    }
+
+
+    run() {
+
+        const checks = [];
+
+
+        checks.push({
+
+            item: "Evidence",
+
+            passed:
+                !!this.result.evidence,
+
+            message:
+                "是否存在证词分析"
+
+        });
+
+
+        checks.push({
+
+            item: "Correspondence",
+
+            passed:
+                !!this.result.correspondence,
+
+            message:
+                "是否完成对应检查"
+
+        });
+
+
+        checks.push({
+
+            item: "Reasoning",
+
+            passed:
+                !!this.result.reasoning,
+
+            message:
+                "是否完成推理检查"
+
+        });
+
+
+        return {
+
+            selfCheck: checks,
+
+            status: "completed"
+
+        };
+
+    }
+
+}
+
+
+export default SelfCheckEngine;

@@ -1,0 +1,12 @@
+{
+  "input": "我是老师。",
+  "expected": {
+    "recognition": {
+      "objects": ["我"],
+      "concepts": ["老师"]
+    },
+    "definition": {
+      "definitions": ["Teacher.md"]
+    }
+  }
+}

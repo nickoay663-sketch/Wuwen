@@ -1,0 +1,189 @@
+
+  runtime\EvidenceEngine.js:114:
+  runtime\EvidenceEngine.js:115:
+  runtime\EvidenceEngine.js:116:    buildEvidence() {
+  runtime\EvidenceEngine.js:117:
+> runtime\EvidenceEngine.js:118:        const suppliedEvidence =
+  runtime\EvidenceEngine.js:119:            this.semanticObject.evidence;
+  runtime\EvidenceEngine.js:120:
+  runtime\EvidenceEngine.js:121:        const searchedSources =
+  runtime\EvidenceEngine.js:122:            Array.isArray(
+  runtime\EvidenceEngine.js:123:                this.semanticObject.search?.sources
+  runtime\EvidenceEngine.js:124:            )
+  runtime\EvidenceEngine.js:241:         *   externalVerificationClaim = true
+  runtime\EvidenceEngine.js:242:         *
+  runtime\EvidenceEngine.js:243:         * 但绝不能直接成为：
+  runtime\EvidenceEngine.js:244:         *
+> runtime\EvidenceEngine.js:245:         *   runtimeVerificationRecord = true
+  runtime\EvidenceEngine.js:246:         *   verificationStatus = VERIFIED
+  runtime\EvidenceEngine.js:247:         *
+  runtime\EvidenceEngine.js:248:         * 因此：
+  runtime\EvidenceEngine.js:249:         *
+  runtime\EvidenceEngine.js:250:         *   保留外部声明
+  runtime\EvidenceEngine.js:251:         *          ≠
+  runtime\EvidenceEngine.js:259:            item.verified === true ||
+  runtime\EvidenceEngine.js:260:            item.verificationStatus === "VERIFIED";
+  runtime\EvidenceEngine.js:261:
+  runtime\EvidenceEngine.js:262:
+> runtime\EvidenceEngine.js:263:        const externalVerificationBasis =
+> runtime\EvidenceEngine.js:264:            item.externalVerificationBasis ||
+> runtime\EvidenceEngine.js:265:            item.verificationBasis ||
+  runtime\EvidenceEngine.js:266:            item.verificationSource ||
+  runtime\EvidenceEngine.js:267:            item.verifier ||
+  runtime\EvidenceEngine.js:268:            null;
+  runtime\EvidenceEngine.js:269:
+  runtime\EvidenceEngine.js:270:
+  runtime\EvidenceEngine.js:271:        /*
+  runtime\EvidenceEngine.js:278:         * 外部字段：
+  runtime\EvidenceEngine.js:279:         *
+  runtime\EvidenceEngine.js:280:         *   verified
+  runtime\EvidenceEngine.js:281:         *   verificationStatus
+> runtime\EvidenceEngine.js:282:         *   verificationBasis
+  runtime\EvidenceEngine.js:283:         *
+  runtime\EvidenceEngine.js:284:         * 本身都不是 Runtime Verification Record。
+  runtime\EvidenceEngine.js:285:         * ---------------------------------------------------------
+  runtime\EvidenceEngine.js:286:         */
+  runtime\EvidenceEngine.js:287:
+> runtime\EvidenceEngine.js:288:        const runtimeVerificationRecord =
+  runtime\EvidenceEngine.js:289:            item.runtimeVerification === true ||
+> runtime\EvidenceEngine.js:290:            item.runtimeVerificationRecord === true;
+  runtime\EvidenceEngine.js:291:
+  runtime\EvidenceEngine.js:292:
+  runtime\EvidenceEngine.js:293:        const verificationStatus =
+> runtime\EvidenceEngine.js:294:            runtimeVerificationRecord
+  runtime\EvidenceEngine.js:295:                ? "VERIFIED"
+  runtime\EvidenceEngine.js:296:                : "UNVERIFIED";
+  runtime\EvidenceEngine.js:297:
+  runtime\EvidenceEngine.js:298:
+  runtime\EvidenceEngine.js:299:        /*
+  runtime\EvidenceEngine.js:300:         * ---------------------------------------------------------
+  runtime\EvidenceEngine.js:333:
+  runtime\EvidenceEngine.js:334:            verificationStatus,
+  runtime\EvidenceEngine.js:335:
+  runtime\EvidenceEngine.js:336:            /*
+> runtime\EvidenceEngine.js:337:             * Runtime verificationBasis 只在
+  runtime\EvidenceEngine.js:338:             * Runtime Verification Record 存在时写入。
+  runtime\EvidenceEngine.js:339:             */
+  runtime\EvidenceEngine.js:340:
+> runtime\EvidenceEngine.js:341:            verificationBasis:
+> runtime\EvidenceEngine.js:342:                runtimeVerificationRecord
+  runtime\EvidenceEngine.js:343:                    ? (
+> runtime\EvidenceEngine.js:344:                        item.verificationBasis ||
+  runtime\EvidenceEngine.js:345:                        item.verificationSource ||
+  runtime\EvidenceEngine.js:346:                        item.verifier ||
+  runtime\EvidenceEngine.js:347:                        null
+  runtime\EvidenceEngine.js:348:                    )
+  runtime\EvidenceEngine.js:349:                    : null,
+  runtime\EvidenceEngine.js:350:
+  runtime\EvidenceEngine.js:359:
+  runtime\EvidenceEngine.js:360:            externalVerificationClaim:
+  runtime\EvidenceEngine.js:361:                externallyClaimedVerified,
+  runtime\EvidenceEngine.js:362:
+> runtime\EvidenceEngine.js:363:            externalVerificationBasis,
+  runtime\EvidenceEngine.js:364:
+  runtime\EvidenceEngine.js:365:            /*
+  runtime\EvidenceEngine.js:366:             * -----------------------------------------------------
+  runtime\EvidenceEngine.js:367:             * Runtime Verification Boundary
+  runtime\EvidenceEngine.js:368:             * -----------------------------------------------------
+  runtime\EvidenceEngine.js:369:             */
+  runtime\EvidenceEngine.js:370:
+> runtime\EvidenceEngine.js:371:            runtimeVerificationRecord,
+  runtime\EvidenceEngine.js:372:
+  runtime\EvidenceEngine.js:373:            independent:
+  runtime\EvidenceEngine.js:374:                item.independent === true,
+  runtime\EvidenceEngine.js:375:
+> runtime\EvidenceEngine.js:376:            sourceAvailable:
+  runtime\EvidenceEngine.js:377:                !!source,
+  runtime\EvidenceEngine.js:378:
+> runtime\EvidenceEngine.js:379:            supportsClaim:
+> runtime\EvidenceEngine.js:380:                item.supportsClaim === true
+  runtime\EvidenceEngine.js:381:
+  runtime\EvidenceEngine.js:382:        };
+  runtime\EvidenceEngine.js:383:
+  runtime\EvidenceEngine.js:384:    }
+  runtime\EvidenceEngine.js:385:
+  runtime\EvidenceEngine.js:386:}
+  runtime\CorrespondenceEngine.js:171:    ) {
+  runtime\CorrespondenceEngine.js:172:
+  runtime\CorrespondenceEngine.js:173:        const independentEvidences =
+  runtime\CorrespondenceEngine.js:174:            evidences.filter(
+> runtime\CorrespondenceEngine.js:175:                evidence =>
+  runtime\CorrespondenceEngine.js:176:                    evidence &&
+  runtime\CorrespondenceEngine.js:177:                    evidence.independent === true
+  runtime\CorrespondenceEngine.js:178:            );
+  runtime\CorrespondenceEngine.js:179:
+  runtime\CorrespondenceEngine.js:180:
+  runtime\CorrespondenceEngine.js:181:        /*
+  runtime\CorrespondenceEngine.js:201:         *
+  runtime\CorrespondenceEngine.js:202:         *   1. independent === true
+  runtime\CorrespondenceEngine.js:203:         *   2. verificationStatus === VERIFIED
+  runtime\CorrespondenceEngine.js:204:         *   3. epistemicState === VERIFIED
+> runtime\CorrespondenceEngine.js:205:         *   4. supportsClaim === true
+  runtime\CorrespondenceEngine.js:206:         *
+  runtime\CorrespondenceEngine.js:207:         * 才能建立当前 Definition 的 SUPPORTED。
+  runtime\CorrespondenceEngine.js:208:         *
+  runtime\CorrespondenceEngine.js:209:         * =========================================================
+  runtime\CorrespondenceEngine.js:210:         */
+  runtime\CorrespondenceEngine.js:211:
+  runtime\CorrespondenceEngine.js:212:        const verifiedEvidences =
+  runtime\CorrespondenceEngine.js:213:            independentEvidences.filter(
+> runtime\CorrespondenceEngine.js:214:                evidence =>
+  runtime\CorrespondenceEngine.js:215:                    evidence.verificationStatus ===
+  runtime\CorrespondenceEngine.js:216:                        "VERIFIED" &&
+  runtime\CorrespondenceEngine.js:217:                    evidence.epistemicState ===
+  runtime\CorrespondenceEngine.js:218:                        "VERIFIED" &&
+> runtime\CorrespondenceEngine.js:219:                    evidence.runtimeVerificationRecord ===
+  runtime\CorrespondenceEngine.js:220:                        true &&
+> runtime\CorrespondenceEngine.js:221:                    evidence.sourceAvailable ===
+  runtime\CorrespondenceEngine.js:222:                        true
+  runtime\CorrespondenceEngine.js:223:            );
+  runtime\CorrespondenceEngine.js:224:
+  runtime\CorrespondenceEngine.js:225:
+  runtime\CorrespondenceEngine.js:226:        const unverifiedEvidences =
+  runtime\CorrespondenceEngine.js:227:            independentEvidences.filter(
+> runtime\CorrespondenceEngine.js:228:                evidence =>
+  runtime\CorrespondenceEngine.js:229:                    evidence.verificationStatus ===
+  runtime\CorrespondenceEngine.js:230:                        "UNVERIFIED" ||
+  runtime\CorrespondenceEngine.js:231:                    evidence.epistemicState ===
+  runtime\CorrespondenceEngine.js:232:                        "DISCOVERED"
+  runtime\CorrespondenceEngine.js:233:            );
+  runtime\CorrespondenceEngine.js:234:
+  runtime\CorrespondenceEngine.js:235:
+  runtime\CorrespondenceEngine.js:236:        const verifiedButNotLinkedEvidences =
+  runtime\CorrespondenceEngine.js:237:            verifiedEvidences.filter(
+> runtime\CorrespondenceEngine.js:238:                evidence =>
+> runtime\CorrespondenceEngine.js:239:                    evidence.supportsClaim !== true
+  runtime\CorrespondenceEngine.js:240:            );
+  runtime\CorrespondenceEngine.js:241:
+  runtime\CorrespondenceEngine.js:242:
+  runtime\CorrespondenceEngine.js:243:        const supportingVerifiedEvidences =
+  runtime\CorrespondenceEngine.js:244:            verifiedEvidences.filter(
+> runtime\CorrespondenceEngine.js:245:                evidence =>
+> runtime\CorrespondenceEngine.js:246:                    evidence.supportsClaim === true
+  runtime\CorrespondenceEngine.js:247:            );
+  runtime\CorrespondenceEngine.js:248:
+  runtime\CorrespondenceEngine.js:249:
+> runtime\CorrespondenceEngine.js:250:        const sourceAvailable =
+  runtime\CorrespondenceEngine.js:251:            independentEvidences.length > 0;
+  runtime\CorrespondenceEngine.js:252:
+  runtime\CorrespondenceEngine.js:253:
+> runtime\CorrespondenceEngine.js:254:        const verifiedSourceAvailable =
+  runtime\CorrespondenceEngine.js:255:            verifiedEvidences.length > 0;
+  runtime\CorrespondenceEngine.js:256:
+  runtime\CorrespondenceEngine.js:257:
+  runtime\CorrespondenceEngine.js:258:        const supported =
+  runtime\CorrespondenceEngine.js:259:            supportingVerifiedEvidences.length > 0;
+  runtime\CorrespondenceEngine.js:260:
+  runtime\CorrespondenceEngine.js:327:                supported,
+  runtime\CorrespondenceEngine.js:328:
+  runtime\CorrespondenceEngine.js:329:            supported,
+  runtime\CorrespondenceEngine.js:330:
+> runtime\CorrespondenceEngine.js:331:            sourceAvailable,
+  runtime\CorrespondenceEngine.js:332:
+> runtime\CorrespondenceEngine.js:333:            verifiedSourceAvailable,
+  runtime\CorrespondenceEngine.js:334:
+  runtime\CorrespondenceEngine.js:335:            sourceCount:
+  runtime\CorrespondenceEngine.js:336:                independentEvidences.length,
+  runtime\CorrespondenceEngine.js:337:
+  runtime\CorrespondenceEngine.js:338:            verificationStatus,
+  runtime\CorrespondenceEngine.js:339:
