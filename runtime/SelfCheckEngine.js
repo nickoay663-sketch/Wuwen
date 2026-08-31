@@ -6,8 +6,8 @@ class SelfCheckEngine extends EngineBase {
 
         super(
             "SelfCheckEngine",
-            "10.8",
-            "���ʼ���������������ԡ����α߽硢֤�ݱ߽硢��ʶ״̬�߽���ⲿ���Ա߽磬���жϱ������"
+            "10.7",
+            "莫问检查自身运行完整性、责任边界、证据边界、认识状态边界和外部语言边界，不判断表达结果。"
         );
 
         this.runtimeContext =
@@ -109,7 +109,7 @@ class SelfCheckEngine extends EngineBase {
                 this.version,
 
             principle:
-                "���ʼ���������������ԡ����α߽硢֤�ݱ߽硢��ʶ״̬�߽���ⲿ���Ա߽磬���жϱ������",
+                "莫问检查自身运行完整性、责任边界、证据边界、认识状态边界和外部语言边界，不判断表达结果。",
 
             metadata:
                 this.metadata(),
@@ -181,7 +181,7 @@ class SelfCheckEngine extends EngineBase {
                 passed
                     ? []
                     : [
-                        "�������Ƿ�������α߽硢�����߽硢��ʶ״̬�߽���ⲿ���Ա߽�Υ����"
+                        "运行链是否存在责任边界、发布边界、认识状态边界或外部语言边界违反？"
                     ],
 
             nextRuntimeState:
@@ -392,12 +392,12 @@ class SelfCheckEngine extends EngineBase {
         }
 
         /*
-         * Registry ������ǡ��Ƿ����ע�ᡱ��Ȩ����Դ��
+         * Registry 本身才是“是否完成注册”的权威来源。
          *
-         * ����ʹ�� runtimeContext.engines �ж�ע�������ԡ�
+         * 不再使用 runtimeContext.engines 判断注册完整性。
          *
-         * runtimeContext.engines ֻ��ʾ��
-         * �Ѿ���� execution() ��д�빲�� executionResults
+         * runtimeContext.engines 只表示：
+         * 已经完成 execution() 并写入共享 executionResults
          */
 
         const registeredNames =
@@ -407,8 +407,8 @@ class SelfCheckEngine extends EngineBase {
             registeredNames.length;
 
         /*
-         * Pipeline ʹ�� Engine class name��
-         * Registry ʹ�� runtime registration name��
+         * Pipeline 使用 Engine class name，
+         * Registry 使用 runtime registration name。
          */
 
         const registryName =
@@ -464,7 +464,7 @@ class SelfCheckEngine extends EngineBase {
 
 
         /*
-         * ���� Pipeline Engine �������Ѿ�ע�ᡣ
+         * 所有 Pipeline Engine 都必须已经注册。
          */
 
         for (
@@ -495,7 +495,7 @@ class SelfCheckEngine extends EngineBase {
 
 
         /*
-         * Registry �в�������� Pipeline ֮���δ֪ Engine��
+         * Registry 中不允许出现 Pipeline 之外的未知 Engine。
          */
 
         for (
@@ -522,9 +522,9 @@ class SelfCheckEngine extends EngineBase {
 
 
         /*
-         * SelfCheck ִ��ʱ������δ���� executionResult��
+         * SelfCheck 执行时自身尚未产生 executionResult。
          *
-         * ������������������״̬�������� Registry failure��
+         * 这是正常的生命周期状态，不属于 Registry failure。
          */
 
         for (
@@ -555,8 +555,8 @@ class SelfCheckEngine extends EngineBase {
 
 
         /*
-         * SelfCheck ������Ψһ����������ִ�н׶�
-         * ��δӵ�� executionResult �� Engine��
+         * SelfCheck 必须是唯一允许在自身执行阶段
+         * 尚未拥有 executionResult 的 Engine。
          */
 
         const selfCheckRegistered =
@@ -607,7 +607,7 @@ class SelfCheckEngine extends EngineBase {
 
 
         /*
-         * ��������£�
+         * 正常情况下：
          *
          * Registry = 10
          * Pipeline = 10
@@ -790,31 +790,31 @@ class SelfCheckEngine extends EngineBase {
          * Publication Boundary
          * ============================================================
          *
-         * ����鸺��ȷ�ϣ�
+         * 本检查负责确认：
          *
-         * 1. Runtime ����ʶ״̬�� publishable ����һ��
-         * 2. ������ SUPPORTED �����ݱ��뱻��ֹ����
-         * 3. publishable=true ʱ������ڷ����ı�
-         * 4. publishable=false ʱ���ò��������ı�
-         * 5. Responsibility Boundary ���ñ�Խ��
+         * 1. Runtime 的认识状态与 publishable 声明一致
+         * 2. 不满足 SUPPORTED 的内容必须被阻止发布
+         * 3. publishable=true 时必须存在发布文本
+         * 4. publishable=false 时不得产生发布文本
+         * 5. Responsibility Boundary 不得被越过
          *
          * IMPORTANT:
          *
-         * ��δ SUPPORTED������ SelfCheck failure��
+         * “未 SUPPORTED”不是 SelfCheck failure。
          *
-         * δ SUPPORTED ����ȷ��Ϊ���ǣ�
+         * 未 SUPPORTED 的正确行为就是：
          *
          *     reconstructionState != SUPPORTED
-         *             ��
+         *             ↓
          *     publishable = false
-         *             ��
+         *             ↓
          *     publishableText = ""
          *
-         * ��ˣ�
+         * 因此：
          *
          * responsibilityBoundaryValid
-         * �������жϡ��Ƿ� SUPPORTED����
-         * ֻ�����жϡ����α߽��Ƿ� exceeded����
+         * 不负责判断“是否 SUPPORTED”，
+         * 只负责判断“责任边界是否 exceeded”。
          * ============================================================
          */
 
@@ -827,21 +827,21 @@ class SelfCheckEngine extends EngineBase {
          *
          * responsibilityBoundary.status === "exceeded"
          *
-         * ��δ�ﵽ SUPPORTED ʱ������ SelfCheck failure��
+         * 在未达到 SUPPORTED 时并不是 SelfCheck failure。
          *
-         * ����ʾ ResponsibilityEngine �Ѿ���ȷ��ֹ��ǰ���е�
-         * ���շ������Ρ�
+         * 它表示 ResponsibilityEngine 已经正确阻止当前表达承担
+         * 最终发布责任。
          *
-         * ��ˣ�
+         * 因此：
          *
          * publishable === false
-         *     -> exceeded �ǺϷ�����ֹ����״̬
+         *     -> exceeded 是合法的阻止发布状态
          *
          * publishable === true
-         *     -> ��������� exceeded
+         *     -> 不允许存在 exceeded
          *
-         * SelfCheck �����ǡ�����բ���Ƿ���ȷִ�С���
-         * ������Ҫ�������������ն����� SUPPORTED��
+         * SelfCheck 检查的是“发布闸门是否正确执行”，
+         * 而不是要求所有输入最终都必须 SUPPORTED。
          * ============================================================
          */
 
@@ -860,22 +860,22 @@ class SelfCheckEngine extends EngineBase {
                         boundary.status === "exceeded";
 
                     /*
-                     * δ�ﵽ����������
+                     * 未达到发布条件：
                      *
                      * exceeded === true
                      * publishable === false
                      *
-                     * ������ȷ����ֹ���������
+                     * 这是正确的阻止发布结果。
                      */
                     if (!publishable) {
                         return true;
                     }
 
                     /*
-                     * ���������Է�����
+                     * 已声明可以发布：
                      *
-                     * �κ����α߽� exceeded
-                     * ������ʹ Publication Boundary ʧ�ܡ�
+                     * 任何责任边界 exceeded
+                     * 都必须使 Publication Boundary 失败。
                      */
                     return !exceeded;
 
@@ -887,19 +887,19 @@ class SelfCheckEngine extends EngineBase {
             verificationStatus === "SUPPORTED";
 
         /*
-         * SUPPORTED ������ publishable=true��
+         * SUPPORTED 才允许 publishable=true。
          *
-         * �� SUPPORTED ���� publishable=false��
+         * 非 SUPPORTED 必须 publishable=false。
          */
         const publicationClaimValid =
             publishable === supportedState;
 
         /*
          * publishable=true
-         *     -> ������ڷ����ı�
+         *     -> 必须存在发布文本
          *
          * publishable=false
-         *     -> ���ô��ڷ����ı�
+         *     -> 不得存在发布文本
          */
         const textBoundaryValid =
             publishable
@@ -907,10 +907,10 @@ class SelfCheckEngine extends EngineBase {
                 : publishableText.trim().length === 0;
 
         /*
-         * SelfCheck ��ͨ��������
+         * SelfCheck 的通过条件：
          *
-         * ����Ҫ�������������� SUPPORTED��
-         * ����Ҫ�� Runtime ��ȷִ�С�������� / ��ֹ��������
+         * 不是要求所有内容最终 SUPPORTED，
+         * 而是要求 Runtime 正确执行“允许发布 / 阻止发布”。
          */
         const passed =
             publicationClaimValid &&
@@ -1053,10 +1053,10 @@ class SelfCheckEngine extends EngineBase {
             runtimeObject.contract || {};
 
         /*
-         * Contract ����ʶ״̬��ΨһȨ����Դ��
+         * Contract 是认识状态的唯一权威来源。
          *
-         * SelfCheck ��������ά���ڶ��� epistemic state
-         * ��������
+         * SelfCheck 不再自行维护第二套 epistemic state
+         * 白名单。
          */
 
         const epistemicStates =
@@ -1176,7 +1176,7 @@ class SelfCheckEngine extends EngineBase {
                         state,
 
                         reason:
-                            "epistemicState δ�� RuntimeContract.epistemicStates ������"
+                            "epistemicState 未被 RuntimeContract.epistemicStates 声明。"
 
                     });
 
@@ -1261,9 +1261,9 @@ class SelfCheckEngine extends EngineBase {
 
 
         /*
-         * ֻ��� Runtime ��ʽ�׶������
+         * 只检查 Runtime 正式阶段输出。
          *
-         * verificationStatus ���������µ� epistemicState��
+         * verificationStatus 不被当作新的 epistemicState。
          */
 
         inspectState(runtimeObject.evidence);
@@ -1303,7 +1303,7 @@ class SelfCheckEngine extends EngineBase {
                     "verificationBoundary",
 
                 reason:
-                    "verificationBoundary ״̬δ�� RuntimeContract.epistemicStates ������"
+                    "verificationBoundary 状态未被 RuntimeContract.epistemicStates 声明。"
 
             });
 
@@ -1330,7 +1330,7 @@ class SelfCheckEngine extends EngineBase {
                     "finalEpistemicState",
 
                 reason:
-                    "������ʶ״̬δ�� RuntimeContract.epistemicStates ������"
+                    "最终认识状态未被 RuntimeContract.epistemicStates 声明。"
 
             });
 
@@ -1338,7 +1338,7 @@ class SelfCheckEngine extends EngineBase {
 
 
         /*
-         * Contract �������������ʶ״̬����ʶ����
+         * Contract 本身必须声明认识状态与认识规则。
          */
 
         const contractStateCount =
@@ -1349,9 +1349,9 @@ class SelfCheckEngine extends EngineBase {
 
 
         /*
-         * �ؼ��߽磺
+         * 关键边界：
          *
-         * VERIFIED_BUT_NOT_LINKED ����ֱ�ӳ�Ϊ SUPPORTED��
+         * VERIFIED_BUT_NOT_LINKED 不能直接成为 SUPPORTED。
          */
 
         const forbiddenPromotion =
@@ -1366,7 +1366,7 @@ class SelfCheckEngine extends EngineBase {
 
 
         /*
-         * SUPPORTED ������ VERIFIED��
+         * SUPPORTED 必须有 VERIFIED。
          */
 
         const unsupportedPromotion =
@@ -1377,7 +1377,7 @@ class SelfCheckEngine extends EngineBase {
 
 
         /*
-         * �������ֲ���ֱ�ӳ�Ϊ��֤��
+         * 搜索发现不能直接成为验证。
          */
 
         const discoveredPromotion =
@@ -1597,7 +1597,7 @@ class SelfCheckEngine extends EngineBase {
                     "contract-failure",
 
                 impact:
-                    "Engine ������ Runtime Contract��"
+                    "Engine 不符合 Runtime Contract。"
 
             });
 
@@ -1611,7 +1611,7 @@ class SelfCheckEngine extends EngineBase {
                     "registry-failure",
 
                 impact:
-                    "Engine δ���ע��� Registry �� Runtime Pipeline ��һ�¡�"
+                    "Engine 未完成注册或 Registry 与 Runtime Pipeline 不一致。"
 
             });
 
@@ -1625,7 +1625,7 @@ class SelfCheckEngine extends EngineBase {
                     "description-failure",
 
                 impact:
-                    "Engine �޷�������������������"
+                    "Engine 无法完整描述自身能力。"
 
             });
 
@@ -1639,7 +1639,7 @@ class SelfCheckEngine extends EngineBase {
                     "pipeline-integrity-failure",
 
                 impact:
-                    "Runtime Pipeline ˳���쳣��"
+                    "Runtime Pipeline 顺序异常。"
 
             });
 
@@ -1653,7 +1653,7 @@ class SelfCheckEngine extends EngineBase {
                     "responsibility-boundary-failure",
 
                 impact:
-                    "�������֤�ݻ����α߽硣"
+                    "输出超过证据或责任边界。"
 
             });
 
@@ -1667,7 +1667,7 @@ class SelfCheckEngine extends EngineBase {
                     "publication-boundary-failure",
 
                 impact:
-                    "���ɽ��Υ�������߽磺ֻ������ Runtime ֧��״̬��ͨ�����α߽���ع�����������γɿɷ����ı���"
+                    "生成结果违反发布边界：只有满足 Runtime 支持状态并通过责任边界的重构结果才允许形成可发布文本。"
 
             });
 
@@ -1681,7 +1681,7 @@ class SelfCheckEngine extends EngineBase {
                     "epistemic-boundary-failure",
 
                 impact:
-                    "��ʶ״̬����Խ�磬Runtime ���� Contract δ����״̬�����֡���֤����Ӧ��֧��֮�䷢���Ƿ�������"
+                    "认识状态发生越界，Runtime 出现 Contract 未声明状态，或发现、验证、对应、支持之间发生非法提升。"
 
             });
 
@@ -1695,7 +1695,7 @@ class SelfCheckEngine extends EngineBase {
                     "external-language-boundary-failure",
 
                 impact:
-                    "�ⲿ����ϵͳ������Ȩ����ݻ����ӱ߽緢���쳣��"
+                    "外部语言系统的所有权、身份或连接边界发生异常。"
 
             });
 
@@ -1716,8 +1716,8 @@ class SelfCheckEngine extends EngineBase {
             action:
                 failure.problemType ===
                 "publication-boundary-failure"
-                    ? "��ֹ������ǰ���ɽ�������� Reconstruction / Evidence / Correspondence / Responsibility �����¼�顣"
-                    : "����������������ִ�� SelfCheck��",
+                    ? "禁止发布当前生成结果，返回 Reconstruction / Evidence / Correspondence / Responsibility 链重新检查。"
+                    : "修正运行链后重新执行 SelfCheck。",
 
             reason:
                 failure.impact
@@ -1761,19 +1761,10 @@ class SelfCheckEngine extends EngineBase {
                 registryReport.expectedCount || 0,
 
             executionCompleted:
-                [
-                    ...(registryReport.executionCompleted || []),
-                    "SelfCheckEngine"
-                ],
+                registryReport.executionCompleted || [],
 
             executionPending:
-                (registryReport.executionPending || [])
-                    .filter(
-                        name =>
-                            name !== "SelfCheckEngine"
-                            &&
-                            name !== "selfCheck"
-                    ),
+                registryReport.executionPending || [],
 
             registryStatus:
                 registryReport.passed
