@@ -1,4 +1,4 @@
-# WAL Provenance Evidence Pack v1.0
+ï»¿# WAL Provenance Evidence Pack v1.0
 
 ## Purpose
 
@@ -22,7 +22,7 @@ It documents evidence produced by existing conformance and attack tests.
 
 ---
 
-## Evidence E01 ¡ª 54-Rule Conformance
+## Evidence E01 â€” 54-Rule Conformance
 
 Command:
 
@@ -43,7 +43,7 @@ the WAL Independent Validator.
 
 ---
 
-## Evidence E02 ¡ª Independent Validator Attack Test
+## Evidence E02 â€” Independent Validator Attack Test
 
 Command:
 
@@ -72,11 +72,11 @@ unsupported evidence, unsupported responsibility, or runtime leakage.
 
 ---
 
-## Evidence E03 ¡ª External Provenance Boundary Attack
+## Evidence E03 â€” External Provenance Boundary Attack
 
 Command:
 
-    node .\protocol\WAL\run-external-provenance-attack.mjs
+    node .\runtime\run-external-provenance-attack.mjs
 
 Expected result:
 
@@ -110,7 +110,7 @@ verification authority.
 
 ---
 
-## Evidence E04 ¡ª Reference Validator Positive Fixture
+## Evidence E04 â€” Reference Validator Positive Fixture
 
 Command:
 
@@ -136,7 +136,7 @@ running HonestRuntime.
 
 ---
 
-## Evidence E05 ¡ª Reference Validator Tamper Detection
+## Evidence E05 â€” Reference Validator Tamper Detection
 
 Procedure:
 
@@ -203,3 +203,5 @@ treated as immutable textual assertions.
 Evidence Pack: v1.0
 Protocol: WAL v1.0
 Runtime baseline: Wuwen Runtime v10.8
+
+
