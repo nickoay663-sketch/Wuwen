@@ -7,7 +7,7 @@ class SelfCheckEngine extends EngineBase {
         super(
             "SelfCheckEngine",
             "10.7",
-            "莫问检查自身运行完整性、责任边界、证据边界、认识状态边界和外部语言边界，不判断表达结果。"
+            "Wuwen检查自身运行完整性、责任边界、证据边界、认识状态边界和外部语言边界，不判断表达结果。"
         );
 
         this.runtimeContext =
@@ -109,7 +109,7 @@ class SelfCheckEngine extends EngineBase {
                 this.version,
 
             principle:
-                "莫问检查自身运行完整性、责任边界、证据边界、认识状态边界和外部语言边界，不判断表达结果。",
+                "Wuwen检查自身运行完整性、责任边界、证据边界、认识状态边界和外部语言边界，不判断表达结果。",
 
             metadata:
                 this.metadata(),
