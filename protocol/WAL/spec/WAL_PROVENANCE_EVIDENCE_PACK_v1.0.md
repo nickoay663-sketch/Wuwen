@@ -203,5 +203,3 @@ treated as immutable textual assertions.
 Evidence Pack: v1.0
 Protocol: WAL v1.0
 Runtime baseline: Wuwen Runtime v10.8
-
-
