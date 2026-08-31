@@ -1,7 +1,7 @@
-import CapabilityContract from "./CapabilityContract.js";
+﻿import CapabilityContract from "./CapabilityContract.js";
 import CapabilityAdmission from "./CapabilityAdmission.js";
 import WALContract from "./WALContract.js";
-import WALResponsibilityInterface from "./WALResponsibilityInterface.js";
+import { WALResponsibilityInterface } from "../packages/core/src/index.js";
 
 class CoreGovernance {
 
@@ -664,3 +664,5 @@ class CoreGovernance {
 
 
 export default CoreGovernance;
+
+
