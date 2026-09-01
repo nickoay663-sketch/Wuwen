@@ -1,6 +1,5 @@
 ﻿import fs from "fs";
 import path from "path";
-import crypto from "crypto";
 import { execFileSync } from "child_process";
 import { fileURLToPath } from "url";
 
@@ -18,25 +17,48 @@ function fail(message) {
 
 function readUtf8(file) {
     const raw = fs.readFileSync(file);
+    return raw.toString("utf8").replace(/^\uFEFF/, "");
+}
 
-    const text = raw.toString("utf8").replace(/^\uFEFF/, "");
-
-    if (text.includes("\uFFFD")) {
-        fail(`Replacement character detected: ${path.relative(ROOT, file)}`);
-    }
-
-    return text;
+function git(args) {
+    return execFileSync("git", args, {
+        cwd: ROOT,
+        encoding: "utf8"
+    }).trim();
 }
 
 function gitHash(file) {
-    return execFileSync(
-        "git",
-        ["hash-object", file],
-        { cwd: ROOT, encoding: "utf8" }
-    ).trim();
+    return git(["hash-object", file]);
 }
 
 const manifest = JSON.parse(readUtf8(MANIFEST));
+
+const expectedCommit = git(["rev-parse", "wal-v1.0.0^{commit}"]);
+const expectedTree = git(["rev-parse", "wal-v1.0.0^{tree}"]);
+
+if (manifest.protocol !== "WAL") {
+    fail(`Protocol mismatch: ${manifest.protocol}`);
+}
+
+if (manifest.version !== "1.0.0") {
+    fail(`Version mismatch: ${manifest.version}`);
+}
+
+if (manifest.tag !== "wal-v1.0.0") {
+    fail(`Tag mismatch: ${manifest.tag}`);
+}
+
+if (manifest.commit !== expectedCommit) {
+    fail(`Commit mismatch`);
+    fail(`  expected: ${expectedCommit}`);
+    fail(`  actual:   ${manifest.commit}`);
+}
+
+if (manifest.tree !== expectedTree) {
+    fail(`Tree mismatch`);
+    fail(`  expected: ${expectedTree}`);
+    fail(`  actual:   ${manifest.tree}`);
+}
 
 for (const [relative, expectedHash] of Object.entries(manifest.artifacts)) {
     const file = path.join(WAL, relative);
@@ -68,4 +90,5 @@ console.log(`Protocol: ${manifest.protocol}`);
 console.log(`Version:  ${manifest.version}`);
 console.log(`Tag:      ${manifest.tag}`);
 console.log(`Commit:   ${manifest.commit}`);
+console.log(`Tree:     ${manifest.tree}`);
 console.log(`Artifacts: ${Object.keys(manifest.artifacts).length}`);
