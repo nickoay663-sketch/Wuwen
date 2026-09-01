@@ -1,0 +1,19 @@
+{
+  "name": "Honest Unknown Exploration",
+  "expect": "pass",
+  "payload": {
+    "eventId": "evt-conf-001",
+    "expression": "Hypothetical model exploration without empirical grounding",
+    "identity": "node-agent-alpha",
+    "timestamp": 1718000000000,
+    "verificationState": "UNVERIFIED",
+    "responsibilityState": "UNKNOWN",
+    "propagationState": "BLOCK",
+    "responsibility": null,
+    "runtimeVersion": "10.8.3",
+    "contractVersion": "1.0",
+    "subject": "ai-exploration",
+    "scope": "global",
+    "basis": "hypothesis"
+  }
+}

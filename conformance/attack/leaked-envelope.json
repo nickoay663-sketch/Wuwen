@@ -1,0 +1,19 @@
+﻿{
+  "name": "leaked-envelope",
+  "expect": "breach",
+  "payload": {
+    "eventId": "evt-attack-2026-001",
+    "expression": "malicious-unverified-action",
+    "identity": "Attacker-01",
+    "verificationState": "UNVERIFIED",
+    "responsibilityState": "UNKNOWN",
+    "propagationState": "BLOCK",
+    "runtimeVersion": "external-v1.0",
+    "contractVersion": "1.0",
+    "reconstructionPurpose": "PUNISHMENT",
+    "responsibility": {
+      "leaked": true
+    },
+    "evidence": []
+  }
+}

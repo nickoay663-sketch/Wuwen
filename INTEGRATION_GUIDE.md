@@ -1,392 +1,109 @@
-﻿# WAL Integration Guide
+﻿# Wuwen Accountability Layer (WAL)
 
-## 1. Overview
+## Integration Guide
 
-WAL (WAL Protocol) defines a responsibility boundary for systems that
-publish epistemic states, evidence claims, and responsibility declarations.
+WAL is the accountability boundary between a runtime and an external system.
 
-WAL does not restrict expression.
+Basic flow:
 
-It governs whether a claim may cross the responsibility boundary as an
-authoritative statement.
+Runtime
+→ WALResponsibilityInterface
+→ WAL Envelope
+→ WAL Validation
+→ Allow / Block
 
-The core integration flow is:
+## 1. Core Components
 
-    Application / Runtime
-            |
-            v
-       @wuwen/core
-            |
-            v
-       WAL Gateway
-            |
-            v
-    Validated WAL Envelope
-            |
-            v
-       External System
+### WALContract
 
-The governing principle is:
+Defines the WAL contract and envelope invariants.
 
-    Expression is free.
-    Authority is not.
+### WALResponsibilityInterface
 
-An integrating system MUST NOT manufacture VERIFIED, SUPPORTED,
-ESTABLISHED, or ALLOW states merely by supplying corresponding fields.
+Translates explicitly established runtime responsibility records into WAL envelopes.
 
-Responsibility authority must originate from trusted Runtime provenance
-and pass WAL validation before it may propagate.
+### WALIndependentValidator
 
-## 2. Installation
+Independently validates WAL envelopes against the protocol rules.
 
-WAL integration is provided as an npm workspace consisting of the Wuwen
-Core SDK and protocol adapters.
+## 2. Standard Integration Flow
 
-From the repository root:
+Runtime
+→ Responsibility Interface
+→ WAL Envelope
+→ Independent Validator
+→ Allow / Block
 
-    npm install
+Validation must happen before propagation.
 
-The Core SDK is exposed as:
+## 3. Important Rules
 
-    @wuwen/core
+WAL does not invent responsibility.
 
-The Gateway and Web adapters consume the Core SDK through the same WAL
-contract boundary.
+WAL does not infer identity.
 
-After installation, verify the Runtime baseline with:
+WAL does not manufacture evidence.
 
-    npm test
+WAL does not manufacture verification.
 
-For Gateway conformance and attack tests:
+Unknown must remain UNKNOWN.
 
-    node --test .\packages\gateway\tests\*.test.mjs
+Unestablished must remain UNESTABLISHED.
 
-For Web adapter tests:
+Validation comes before propagation.
 
-    node --test .\packages\web\tests\*.test.mjs
-## 3. Core SDK
+## 4. Minimal Example
 
-The Core SDK provides the protocol-level primitives required to construct,
-validate, and reason about WAL envelopes.
+The repository contains a runnable gateway example:
 
-Import the Core SDK:
+examples/basic-gateway-node/index.js
 
-    import {
-      WALContract,
-      WALIndependentValidator
-    } from "@wuwen/core";
+Run:
 
-A WAL envelope MUST be validated before it is propagated.
+node examples/basic-gateway-node/index.js
 
-Example:
+The example demonstrates both conforming and non-conforming envelopes.
 
-    const validation =
-      WALIndependentValidator.validate(envelope);
+### Conforming
 
-    if (!validation.valid) {
-      throw new Error("WAL validation failed");
-    }
+Validation Status: CONFORM
 
-The validator is the protocol boundary.
+Passed: true
 
-Applications MUST treat validation failure as a governance failure and
-MUST NOT bypass the validator by directly publishing the rejected envelope.
+Total Rules Checked: 54
 
-## 4. WAL Gateway
+Failed Rules Count: 0
 
-The WAL Gateway provides the enforcement boundary between an application
-or Runtime and an external propagation target.
+### Attack
 
-The Gateway performs, at minimum:
+Validation Status: NON_CONFORM
 
-1. WAL envelope validation.
-2. Responsibility-boundary enforcement.
-3. Rejection of forged verification states.
-4. Rejection of forged responsibility states.
-5. Rejection of runtime-internal data crossing the external boundary.
-6. Propagation only when the WAL contract permits it.
+Passed: false
 
-A conforming HTTP integration should expose the validated result through
-the request/response boundary.
+Total Rules Checked: 54
 
-A successful request may expose:
+Failed Rules Count: 5
 
-    X-WAL-Governance: CONFORM
+The attack is intercepted by the WAL validation boundary.
 
-A rejected responsibility claim should return:
+## 5. Independent Verification
 
-    422 RESPONSIBILITY_BREACH
+WAL can be independently verified without trusting runtime-internal authority claims.
 
-and include the failed WAL rules needed to diagnose the rejection.
+Independent validation assets are located under:
 
-Gateway rejection MUST be treated as authoritative for propagation:
-the application MUST NOT retry the same rejected envelope by bypassing
-the Gateway.
+protocol/WAL/validator/
 
-The Gateway is an enforcement layer, not a source of responsibility
-authority. It validates and constrains authority; it does not manufacture
-authority.
-## 5. Web Adapter
+protocol/WAL/tests/
 
-The Web Adapter provides a browser-oriented session boundary for creating
-WAL envelopes without manufacturing responsibility authority.
+protocol/WAL/bin/
 
-Import the Web adapter:
+## 6. Protocol
 
-    import { BrowserWALSession } from "@wuwen/web";
+WAL — Wuwen Accountability Layer
 
-Create a session with the application identity:
+Protocol Version: 1.0
 
-    const session =
-      new BrowserWALSession("application-identity");
+Core Contract Version: 1.0
 
-Append an expression:
-
-    const record =
-      session.appendRecord("example content");
-
-The resulting record is projected through the WAL boundary.
-
-The Web Adapter MUST NOT convert caller-supplied epistemic or
-responsibility claims into trusted Runtime authority.
-
-For example, an external caller cannot establish responsibility merely
-by supplying:
-
-    supported: true
-    verificationState: "SUPPORTED"
-    responsibilityState: "ESTABLISHED"
-
-Such claims remain subject to WAL validation and provenance rules.
-
-## 6. Responsibility Boundary
-
-The responsibility boundary is the central trust boundary of WAL.
-
-Only responsibility records carrying the explicit trusted Runtime
-provenance marker may establish responsibility authority.
-
-The expected provenance is:
-
-    provider: "Wuwen.ResponsibilityEngine"
-    version: "1.0"
-
-Record shape alone is insufficient.
-
-A record without trusted provenance MUST NOT be treated as authoritative,
-even if it contains fields such as:
-
-    supported: true
-    verificationStatus: "SUPPORTED"
-    responsibilityBoundary: {
-      status: "matched"
-    }
-
-The WAL boundary therefore separates:
-
-    Runtime responsibility authority
-                |
-                v
-        trusted WAL projection
-                |
-                v
-        validated WAL envelope
-                |
-                v
-        external propagation
-
-Untrusted event-level metadata MUST NOT override the trusted
-responsibility record.
-
-In particular, the following event-level fields are descriptive only:
-
-    event.epistemicState
-    event.responsibilityState
-    event.propagationState
-    event.supported
-
-They MUST NOT be used to manufacture WAL authority.
-
-If no trusted responsibility record is present, the WAL responsibility
-state remains unestablished and propagation requiring responsibility
-verification MUST NOT be authorized.
-## 7. Validation and Failure Handling
-
-Validation MUST occur before propagation.
-
-A conforming integration should treat the validation result as a
-mandatory gate:
-
-    const result =
-      WALIndependentValidator.validate(envelope);
-
-    if (!result.valid) {
-      // Do not publish.
-      // Record or surface the failed rules.
-    }
-
-Validation failure means that the envelope has not satisfied the WAL
-contract. The caller MUST NOT reinterpret a failed validation result as
-authorization.
-
-For HTTP integrations, a Gateway rejection should be propagated as a
-structured governance error.
-
-A typical rejection contains:
-
-    {
-      "status": 422,
-      "code": "RESPONSIBILITY_BREACH",
-      "failedRules": [...]
-    }
-
-The integration MAY log or display the failed rules for diagnosis.
-
-It MUST NOT silently upgrade, rewrite, or bypass the rejected state in
-order to force propagation.
-
-## 8. Minimal Integration Example
-
-The following example illustrates the minimum application-side flow:
-
-    import {
-      WALContract,
-      WALIndependentValidator
-    } from "@wuwen/core";
-
-    const envelope =
-      WALContract.createEnvelope({
-        eventId: "example-event",
-        expression: "example content",
-        verificationState: "UNKNOWN",
-        responsibilityState: "UNESTABLISHED",
-        propagationState: "REQUIRE_VERIFICATION"
-      });
-
-    const validation =
-      WALIndependentValidator.validate(envelope);
-
-    if (!validation.valid) {
-      console.error("WAL rejected envelope", validation);
-    } else {
-      console.log("WAL envelope conforms", envelope);
-    }
-
-The important property of this example is not the application-specific
-expression. It is the ordering:
-
-    construct
-        |
-        v
-    validate
-        |
-        +---- invalid ----> reject
-        |
-        v
-    conform
-        |
-        v
-    propagate
-
-An integration MUST NOT replace this flow with:
-
-    construct
-        |
-        v
-    propagate
-        |
-        v
-    validate later
-
-WAL validation is a pre-propagation boundary.
-## 9. Security and Trust Model
-
-WAL uses an explicit trust-boundary model.
-
-The integration MUST distinguish between:
-
-- application-provided data;
-- Runtime-derived responsibility authority;
-- WAL protocol validation;
-- externally propagated state.
-
-Application input is untrusted.
-
-Event-level authority claims are untrusted.
-
-Only responsibility records carrying the required Runtime provenance may
-establish responsibility authority.
-
-The trust flow is therefore:
-
-    Untrusted Input
-          |
-          v
-    Runtime Processing
-          |
-          v
-    Trusted Responsibility Record
-          |
-          v
-    WAL Projection
-          |
-          v
-    Independent Validation
-          |
-          v
-    External Propagation
-
-The following attacks MUST be rejected:
-
-- forged VERIFIED or SUPPORTED states;
-- forged responsibility authorization;
-- UNKNOWN promoted to an authoritative positive state;
-- evidence claims presented as responsibility authority;
-- responsibility exceeding available evidence;
-- Runtime-internal implementation state crossing the external boundary.
-
-A conforming implementation MUST preserve this separation even when
-integrated with another framework, service, or transport protocol.
-
-## 10. Conformance Testing
-
-A WAL integration SHOULD run both positive conformance tests and negative
-attack tests.
-
-From the repository root:
-
-    npm test
-
-Run Gateway tests:
-
-    node --test .\packages\gateway\tests\*.test.mjs
-
-Run Web adapter tests:
-
-    node --test .\packages\web\tests\*.test.mjs
-
-A conforming integration should demonstrate that:
-
-1. valid WAL envelopes are accepted;
-2. invalid envelopes are rejected;
-3. UNKNOWN cannot be promoted into authoritative truth;
-4. forged verification states are rejected;
-5. forged responsibility states are rejected;
-6. runtime internals cannot cross the WAL boundary;
-7. responsibility cannot exceed its evidence boundary;
-8. valid envelopes remain valid through the intended propagation path.
-
-The negative tests are security tests, not optional edge cases.
-
-An integration is not considered conformant merely because valid traffic
-succeeds. It must also demonstrate that unauthorized authority cannot
-cross the responsibility boundary.
-
-The WAL protocol boundary is therefore verified by both:
-
-    Conformance
-        +
-    Attack Resistance
-
-Together they establish that the integration preserves the WAL
-accountability contract.
+Responsibility Interface Version: 2.2

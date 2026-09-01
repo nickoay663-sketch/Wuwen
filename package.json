@@ -8,6 +8,7 @@
     "examples/*"
   ],
   "scripts": {
-    "test": "node --test packages/core/test/*.test.js examples/**/*.test.js"
+    "test": "node --test packages/core/test/*.test.js examples/**/*.test.js",
+    "conformance": "node conformance/run.js"
   }
 }
