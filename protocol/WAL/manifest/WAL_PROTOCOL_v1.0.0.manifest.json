@@ -1,0 +1,22 @@
+﻿{
+  "protocol": "WAL",
+  "version": "1.0.0",
+  "tag": "wal-v1.0.0",
+  "commit": "7ce4a4ced512e76c496238ff63dda6a50ef5a022",
+  "tree": "123b3e88c804d66f1f554848635de6c7dce0103a",
+  "artifacts": {
+    "spec/WAL_STANDARD_CORE_v1.0.md": "4cd6d1c46d29206644df4f4e5575216f9ba83d1e",
+    "spec/WAL_RULE_INVENTORY_v1.0.md": "7ac6e141606cc16fd603028815d5c7662b939b05",
+    "spec/WAL_CONFORMANCE_MAP_v1.0.md": "9ea4b35589d9b74e6ce75b7e409d81160d02671b",
+    "spec/WAL_INDEPENDENT_VALIDATOR_CONTRACT_v1.0.md": "773af2f3cbae8e99948793bb2f1a1b3f3892886d",
+    "spec/WAL_RESPONSIBILITY_RECORD_v1.0.md": "e7712fcd671351636f780b8e7836d5c38b9116fb",
+    "spec/WAL_PROVENANCE_EVIDENCE_PACK_v1.0.md": "919f63e5d395078c9824ce5379bd4cfdd7b8ccca",
+    "schema/wal-envelope.schema.json": "e0c55e4d60b5cb5b1933e258addbca19761180cd",
+    "validator/WALIndependentValidator.js": "7d48f91d91093fe73b4f5c43b134114869ccfc89",
+    "validator/WALContract.js": "eed5cd858fdaf946bf9e0a06446639c32f03d247"
+  },
+  "historical_integrity": {
+    "status": "HISTORICAL_ANCHOR",
+    "immutable": true
+  }
+}
