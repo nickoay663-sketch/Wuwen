@@ -1,0 +1,9 @@
+﻿{
+  "name": "@wuwen/example-express-gateway-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
