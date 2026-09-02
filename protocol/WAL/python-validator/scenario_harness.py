@@ -1,4 +1,4 @@
-﻿import sys
+import sys
 from copy import deepcopy
 from pathlib import Path
 
@@ -62,6 +62,17 @@ def main():
         ("Baseline", baseline, "CONFORM", [])
     )
 
+    structural_attack = deepcopy(baseline)
+    del structural_attack["eventId"]
+    scenarios.append(
+        (
+            "R00 structural contract violation",
+            structural_attack,
+            "NON_CONFORM",
+            ["WAL-R00-01"],
+        )
+    )
+
     expression_attack = deepcopy(baseline)
     expression_attack["expression"] = "SUBSTITUTED"
     scenarios.append(
@@ -75,6 +86,51 @@ def main():
                 "WAL-R01-03",
             ],
             "ORIGINAL",
+        )
+    )
+
+    discovery_attack = deepcopy(baseline)
+    discovery_attack["discoveryState"] = "DISCOVERED"
+    discovery_attack["verificationState"] = "VERIFIED"
+    discovery_attack["epistemicState"] = "CERTAIN"
+    scenarios.append(
+        (
+            "R02 discovery to verified escalation attack",
+            discovery_attack,
+            "NON_CONFORM",
+            [
+                "WAL-R00-03",
+                "WAL-R02-02",
+                "WAL-R02-10",
+            ],
+        )
+    )
+
+    unverified_attack = deepcopy(baseline)
+    unverified_attack["previousVerificationState"] = "UNVERIFIED"
+    unverified_attack["verificationState"] = "VERIFIED"
+    unverified_attack["epistemicState"] = "CERTAIN"
+    scenarios.append(
+        (
+            "R02 unverified to verified escalation attack",
+            unverified_attack,
+            "NON_CONFORM",
+            [
+                "WAL-R00-03",
+                "WAL-R02-11",
+            ],
+        )
+    )
+
+    unknown_true_attack = deepcopy(baseline)
+    unknown_true_attack["verificationState"] = "UNKNOWN"
+    unknown_true_attack["epistemicState"] = "TRUE"
+    scenarios.append(
+        (
+            "R02 UNKNOWN to TRUE escalation attack",
+            unknown_true_attack,
+            "NON_CONFORM",
+            ["WAL-R02-14"],
         )
     )
 
@@ -93,6 +149,32 @@ def main():
         )
     )
 
+    reasoning_attack = deepcopy(baseline)
+    reasoning_attack["reasoning"] = "unsupported reasoning"
+    reasoning_attack["reasoningExceedsEvidence"] = True
+    scenarios.append(
+        (
+            "R03 reasoning exceeds evidence attack",
+            reasoning_attack,
+            "NON_CONFORM",
+            ["WAL-R03-02"],
+        )
+    )
+
+    reconstruction_attack = deepcopy(baseline)
+    reconstruction_attack["reconstructionIncreasedCertainty"] = True
+    scenarios.append(
+        (
+            "R04 reconstruction certainty escalation attack",
+            reconstruction_attack,
+            "NON_CONFORM",
+            [
+                "WAL-R03-04",
+                "WAL-R04-04",
+            ],
+        )
+    )
+
     generator_attack = deepcopy(baseline)
     generator_attack["generatorIncreasedCertainty"] = True
     scenarios.append(
@@ -107,10 +189,32 @@ def main():
         )
     )
 
+    unsafe_reconstruction_attack = deepcopy(baseline)
+    unsafe_reconstruction_attack["automaticReconstruction"] = True
+    unsafe_reconstruction_attack["automaticReconstructionUnsafe"] = True
+    unsafe_reconstruction_attack["verificationState"] = "VERIFIED"
+    unsafe_reconstruction_attack["resolutionState"] = "RESOLVED"
+    scenarios.append(
+        (
+            "R04 unsafe automatic reconstruction bypass attack",
+            unsafe_reconstruction_attack,
+            "NON_CONFORM",
+            [
+                "WAL-R00-03",
+                "WAL-R04-11",
+            ],
+        )
+    )
+
     results = [
         run_scenario(*scenario)
         for scenario in scenarios
     ]
+
+    passed_count = sum(results)
+    total_count = len(results)
+
+    print(f"SCENARIO MATRIX: {passed_count}/{total_count}")
 
     if all(results):
         print("SCENARIO HARNESS: PASS")
