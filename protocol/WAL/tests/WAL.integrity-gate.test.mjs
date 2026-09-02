@@ -1,4 +1,4 @@
-﻿import fs from "fs";
+import fs from "fs";
 import path from "path";
 import crypto from "crypto";
 import { execFileSync } from "child_process";

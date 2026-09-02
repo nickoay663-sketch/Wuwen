@@ -1,4 +1,4 @@
-﻿# WAL Historical Encoding Audit v1.0
+# WAL Historical Encoding Audit v1.0
 
 ## Scope
 

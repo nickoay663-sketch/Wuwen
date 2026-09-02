@@ -1,4 +1,4 @@
-﻿import WALContract from "../validator/WALContract.js";
+import WALContract from "../validator/WALContract.js";
 import WALIndependentValidator from "../validator/WALIndependentValidator.js";
 
 const validator = new WALIndependentValidator();

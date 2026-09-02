@@ -1,4 +1,4 @@
-﻿# WAL Rule Inventory v1.0
+# WAL Rule Inventory v1.0
 
 ## Purpose
 

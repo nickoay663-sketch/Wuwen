@@ -1,4 +1,4 @@
-﻿import argparse
+import argparse
 import json
 from pathlib import Path
 from wal_validator import validate_envelope

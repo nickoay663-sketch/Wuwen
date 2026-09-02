@@ -1,4 +1,4 @@
-﻿import fs from "fs";
+import fs from "fs";
 import WALIndependentValidator from "./WALIndependentValidator.js";
 
 const inputPath = process.argv[2];

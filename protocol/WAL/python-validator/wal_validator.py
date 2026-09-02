@@ -1,4 +1,4 @@
-﻿import json
+import json
 from pathlib import Path
 
 VERSION = "1.0"

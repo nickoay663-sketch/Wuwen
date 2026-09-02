@@ -1,4 +1,4 @@
-﻿# WAL Provenance Evidence Pack v1.0
+# WAL Provenance Evidence Pack v1.0
 
 ## Purpose
 

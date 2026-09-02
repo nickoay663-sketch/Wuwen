@@ -1,4 +1,4 @@
-﻿import WALContract from "./WALContract.js";
+import WALContract from "./WALContract.js";
 
 class WALIndependentValidator {
 
