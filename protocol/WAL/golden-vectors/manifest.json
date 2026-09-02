@@ -1,0 +1,22 @@
+[
+  {
+    "id": "GV-CONFORM-001",
+    "input": "conform/valid-envelope.json",
+    "expectedStatus": "CONFORM",
+    "expectedPassed": true
+  },
+  {
+    "id": "GV-NONCONFORM-001",
+    "input": "non-conform/missing-eventId.json",
+    "expectedStatus": "NON_CONFORM",
+    "expectedPassed": false,
+    "expectedFailure": "WAL-R00-01"
+  },
+  {
+    "id": "GV-NONCONFORM-002",
+    "input": "non-conform/invalid-verification-state.json",
+    "expectedStatus": "NON_CONFORM",
+    "expectedPassed": false,
+    "expectedFailure": "WAL-R00-01"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "eventId": "gv-invalid-verification-state-001",
+  "expression": "WAL golden vector invalid state test",
+  "identity": "external-test",
+  "timestamp": "2026-09-02",
+  "verificationState": "FORGED",
+  "responsibilityState": "UNKNOWN",
+  "propagationState": "REQUIRE_VERIFICATION",
+  "runtimeVersion": "external-v1.0",
+  "contractVersion": "1.0"
+}

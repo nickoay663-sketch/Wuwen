@@ -1,0 +1,10 @@
+{
+  "expression": "WAL golden vector structural test",
+  "identity": "external-test",
+  "timestamp": "2026-09-02",
+  "verificationState": "UNKNOWN",
+  "responsibilityState": "UNKNOWN",
+  "propagationState": "REQUIRE_VERIFICATION",
+  "runtimeVersion": "external-v1.0",
+  "contractVersion": "1.0"
+}
