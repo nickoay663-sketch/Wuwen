@@ -1,5 +1,6 @@
 ﻿import fs from "fs";
 import path from "path";
+import crypto from "crypto";
 import { execFileSync } from "child_process";
 import { fileURLToPath } from "url";
 
@@ -7,7 +8,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "../../..");
 const WAL = path.join(ROOT, "protocol", "WAL");
-const MANIFEST = path.join(WAL, "manifest", "WAL_PROTOCOL_v1.0.0.manifest.json");
+const MANIFEST = path.join(
+    WAL,
+    "manifest",
+    "WAL_PROTOCOL_v1.0.0.manifest.json"
+);
 
 const failures = [];
 
@@ -16,8 +21,14 @@ function fail(message) {
 }
 
 function readUtf8(file) {
-    const raw = fs.readFileSync(file);
-    return raw.toString("utf8").replace(/^\uFEFF/, "");
+    return fs.readFileSync(file, "utf8").replace(/^\uFEFF/, "");
+}
+
+function sha256(buffer) {
+    return crypto
+        .createHash("sha256")
+        .update(buffer)
+        .digest("hex");
 }
 
 function git(args) {
@@ -27,8 +38,10 @@ function git(args) {
     }).trim();
 }
 
-function gitHash(file) {
-    return git(["hash-object", file]);
+function gitBytes(args) {
+    return execFileSync("git", args, {
+        cwd: ROOT
+    });
 }
 
 const manifest = JSON.parse(readUtf8(MANIFEST));
@@ -60,28 +73,54 @@ if (manifest.tree !== expectedTree) {
     fail(`  actual:   ${manifest.tree}`);
 }
 
-for (const [relative, expectedHash] of Object.entries(manifest.artifacts)) {
-    const file = path.join(WAL, relative);
-
-    if (!fs.existsSync(file)) {
-        fail(`Missing artifact: ${relative}`);
+for (const [relative, entry] of Object.entries(manifest.artifacts)) {
+    if (
+        !entry ||
+        typeof entry !== "object" ||
+        typeof entry.path !== "string" ||
+        typeof entry.sha256 !== "string"
+    ) {
+        fail(`Invalid manifest artifact entry: ${relative}`);
         continue;
     }
 
-    const actualHash = gitHash(file);
+    if (entry.path !== relative) {
+        fail(`Artifact path mismatch: ${relative}`);
+        fail(`  manifest path: ${entry.path}`);
+        fail(`  expected:      ${relative}`);
+        continue;
+    }
 
-    if (actualHash !== expectedHash) {
-        fail(`Hash mismatch: ${relative}`);
-        fail(`  expected: ${expectedHash}`);
+    const gitPath = `protocol/WAL/${entry.path}`;
+
+    let content;
+
+    try {
+        content = gitBytes([
+            "show",
+            `${manifest.tag}:${gitPath}`
+        ]);
+    } catch {
+        fail(`Missing artifact in tag: ${relative}`);
+        continue;
+    }
+
+    const actualHash = sha256(content);
+
+    if (actualHash !== entry.sha256) {
+        fail(`SHA-256 mismatch: ${relative}`);
+        fail(`  expected: ${entry.sha256}`);
         fail(`  actual:   ${actualHash}`);
     }
 }
 
 if (failures.length > 0) {
     console.error("WAL INTEGRITY GATE: FAIL");
+
     for (const failure of failures) {
         console.error(`- ${failure}`);
     }
+
     process.exit(1);
 }
 

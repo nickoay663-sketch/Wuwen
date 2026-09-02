@@ -27,7 +27,7 @@
                                                                  },
                       "spec/WAL_PROVENANCE_EVIDENCE_PACK_v1.0.md":  {
                                                                         "path":  "spec/WAL_PROVENANCE_EVIDENCE_PACK_v1.0.md",
-                                                                        "sha256":  "51e8d412f4c791ba03b77be31bd0a11579eae7255f16d38c6477dd4a1282f94a"
+                                                                        "sha256":  "68c710975312907406061e5f1e3aed2ba9fd574a8df3268c701a426e8b31f56c"
                                                                     },
                       "schema/wal-envelope.schema.json":  {
                                                               "path":  "schema/wal-envelope.schema.json",
@@ -40,14 +40,12 @@
                       "validator/WALContract.js":  {
                                                        "path":  "validator/WALContract.js",
                                                        "sha256":  "bef7cb27839738089ce5c50791ae8d40b77196665b8d96283a763a26e0768050"
-                                                   },
-                      "spec":  {
-                                   "path":  "",
-                                   "sha256":  "b897c1720a7e68cc6db28636d4c790e05eef42f2250f169032f140f1e5551368"
-                               }
+                                                   }
                   },
     "historical_integrity":  {
                                  "status":  "HISTORICAL_ANCHOR",
                                  "immutable":  true
                              }
 }
+
+
