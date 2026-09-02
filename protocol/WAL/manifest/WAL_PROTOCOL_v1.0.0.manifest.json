@@ -1,22 +1,53 @@
 ﻿{
-  "protocol": "WAL",
-  "version": "1.0.0",
-  "tag": "wal-v1.0.0",
-  "commit": "7ce4a4ced512e76c496238ff63dda6a50ef5a022",
-  "tree": "123b3e88c804d66f1f554848635de6c7dce0103a",
-  "artifacts": {
-    "spec/WAL_STANDARD_CORE_v1.0.md": "4cd6d1c46d29206644df4f4e5575216f9ba83d1e",
-    "spec/WAL_RULE_INVENTORY_v1.0.md": "7ac6e141606cc16fd603028815d5c7662b939b05",
-    "spec/WAL_CONFORMANCE_MAP_v1.0.md": "9ea4b35589d9b74e6ce75b7e409d81160d02671b",
-    "spec/WAL_INDEPENDENT_VALIDATOR_CONTRACT_v1.0.md": "773af2f3cbae8e99948793bb2f1a1b3f3892886d",
-    "spec/WAL_RESPONSIBILITY_RECORD_v1.0.md": "e7712fcd671351636f780b8e7836d5c38b9116fb",
-    "spec/WAL_PROVENANCE_EVIDENCE_PACK_v1.0.md": "919f63e5d395078c9824ce5379bd4cfdd7b8ccca",
-    "schema/wal-envelope.schema.json": "e0c55e4d60b5cb5b1933e258addbca19761180cd",
-    "validator/WALIndependentValidator.js": "7d48f91d91093fe73b4f5c43b134114869ccfc89",
-    "validator/WALContract.js": "eed5cd858fdaf946bf9e0a06446639c32f03d247"
-  },
-  "historical_integrity": {
-    "status": "HISTORICAL_ANCHOR",
-    "immutable": true
-  }
+    "protocol":  "WAL",
+    "version":  "1.0.0",
+    "tag":  "wal-v1.0.0",
+    "commit":  "7ce4a4ced512e76c496238ff63dda6a50ef5a022",
+    "tree":  "123b3e88c804d66f1f554848635de6c7dce0103a",
+    "artifacts":  {
+                      "spec/WAL_STANDARD_CORE_v1.0.md":  {
+                                                             "path":  "spec/WAL_STANDARD_CORE_v1.0.md",
+                                                             "sha256":  "b897c1720a7e68cc6db28636d4c790e05eef42f2250f169032f140f1e5551368"
+                                                         },
+                      "spec/WAL_RULE_INVENTORY_v1.0.md":  {
+                                                              "path":  "spec/WAL_RULE_INVENTORY_v1.0.md",
+                                                              "sha256":  "0539cb4b26db19a1fff69700acf7ca795daecec785335bd8d7723c4f1cbbe76e"
+                                                          },
+                      "spec/WAL_CONFORMANCE_MAP_v1.0.md":  {
+                                                               "path":  "spec/WAL_CONFORMANCE_MAP_v1.0.md",
+                                                               "sha256":  "8aef920aacd1d637797db3e304ac3ba2a406a3eca1c5bb685779fa507afed7ac"
+                                                           },
+                      "spec/WAL_INDEPENDENT_VALIDATOR_CONTRACT_v1.0.md":  {
+                                                                              "path":  "spec/WAL_INDEPENDENT_VALIDATOR_CONTRACT_v1.0.md",
+                                                                              "sha256":  "99dda109230fcfea64c96a2a709bf8dbf6d73afcd0b6181325ac499e88e03b09"
+                                                                          },
+                      "spec/WAL_RESPONSIBILITY_RECORD_v1.0.md":  {
+                                                                     "path":  "spec/WAL_RESPONSIBILITY_RECORD_v1.0.md",
+                                                                     "sha256":  "852c8849ecd77ee3858dc18515c35472da5490024693d9422333831dc697e780"
+                                                                 },
+                      "spec/WAL_PROVENANCE_EVIDENCE_PACK_v1.0.md":  {
+                                                                        "path":  "spec/WAL_PROVENANCE_EVIDENCE_PACK_v1.0.md",
+                                                                        "sha256":  "51e8d412f4c791ba03b77be31bd0a11579eae7255f16d38c6477dd4a1282f94a"
+                                                                    },
+                      "schema/wal-envelope.schema.json":  {
+                                                              "path":  "schema/wal-envelope.schema.json",
+                                                              "sha256":  "90cdb7e27ff03d76393e592befeb1759c2f453130182b2e5553662f8eb48c3b9"
+                                                          },
+                      "validator/WALIndependentValidator.js":  {
+                                                                   "path":  "validator/WALIndependentValidator.js",
+                                                                   "sha256":  "61421d3e01eb485e5a917edbc179b8f643ebfc260fd65f7aecc70ede6faaddd5"
+                                                               },
+                      "validator/WALContract.js":  {
+                                                       "path":  "validator/WALContract.js",
+                                                       "sha256":  "bef7cb27839738089ce5c50791ae8d40b77196665b8d96283a763a26e0768050"
+                                                   },
+                      "spec":  {
+                                   "path":  "",
+                                   "sha256":  "b897c1720a7e68cc6db28636d4c790e05eef42f2250f169032f140f1e5551368"
+                               }
+                  },
+    "historical_integrity":  {
+                                 "status":  "HISTORICAL_ANCHOR",
+                                 "immutable":  true
+                             }
 }
