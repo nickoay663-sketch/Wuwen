@@ -1,0 +1,272 @@
+[
+  {
+    "index": 1,
+    "rule": "WAL-R01-01",
+    "name": "Original expression identity is preserved"
+  },
+  {
+    "index": 2,
+    "rule": "WAL-R01-02",
+    "name": "Expression is not substituted during analysis"
+  },
+  {
+    "index": 3,
+    "rule": "WAL-R01-03",
+    "name": "Original expression remains traceable through responsibility chain"
+  },
+  {
+    "index": 4,
+    "rule": "WAL-R01-04",
+    "name": "Definition answers what the expression object is without inventing meaning"
+  },
+  {
+    "index": 5,
+    "rule": "WAL-R01-05",
+    "name": "Runtime does not own an externally supplied language system"
+  },
+  {
+    "index": 6,
+    "rule": "WAL-R01-06",
+    "name": "Runtime does not create or replace the external language system"
+  },
+  {
+    "index": 7,
+    "rule": "WAL-R01-07",
+    "name": "Undefined objects are not forcibly introduced into reasoning"
+  },
+  {
+    "index": 8,
+    "rule": "WAL-R01-08",
+    "name": "Language identification does not become factual verification"
+  },
+  {
+    "index": 9,
+    "rule": "WAL-R01-09",
+    "name": "Semantic analysis does not become evidence"
+  },
+  {
+    "index": 10,
+    "rule": "WAL-R01-10",
+    "name": "Expression restatement does not silently change the original claim"
+  },
+  {
+    "index": 11,
+    "rule": "WAL-R00-01",
+    "name": "WAL contract structural validity"
+  },
+  {
+    "index": 12,
+    "rule": "WAL-R00-02",
+    "name": "Evidence determines the maximum responsibility assumed"
+  },
+  {
+    "index": 13,
+    "rule": "WAL-R00-03",
+    "name": "No unsupported certainty is created"
+  },
+  {
+    "index": 14,
+    "rule": "WAL-R00-04",
+    "name": "Evidence is not manufactured"
+  },
+  {
+    "index": 15,
+    "rule": "WAL-R00-05",
+    "name": "Knowledge is not manufactured"
+  },
+  {
+    "index": 16,
+    "rule": "WAL-R00-06",
+    "name": "Runtime closure does not imply factual verification"
+  },
+  {
+    "index": 17,
+    "rule": "WAL-R00-07",
+    "name": "Runtime internals do not cross the WAL boundary"
+  },
+  {
+    "index": 18,
+    "rule": "WAL-R00-08",
+    "name": "Publication authority remains distinct from truth determination"
+  },
+  {
+    "index": 19,
+    "rule": "WAL-R02-01",
+    "name": "Search results are not automatically evidence"
+  },
+  {
+    "index": 20,
+    "rule": "WAL-R02-02",
+    "name": "Discovered information remains distinguishable from verified information"
+  },
+  {
+    "index": 21,
+    "rule": "WAL-R02-03",
+    "name": "Evidence remains distinguishable from source existence"
+  },
+  {
+    "index": 22,
+    "rule": "WAL-R02-04",
+    "name": "Source existence alone does not establish correspondence"
+  },
+  {
+    "index": 23,
+    "rule": "WAL-R02-05",
+    "name": "Evidence does not become support without required conditions"
+  },
+  {
+    "index": 24,
+    "rule": "WAL-R02-06",
+    "name": "SUPPORTED requires a definition"
+  },
+  {
+    "index": 25,
+    "rule": "WAL-R02-07",
+    "name": "SUPPORTED requires independent evidence"
+  },
+  {
+    "index": 26,
+    "rule": "WAL-R02-08",
+    "name": "SUPPORTED requires explicit verification"
+  },
+  {
+    "index": 27,
+    "rule": "WAL-R02-09",
+    "name": "SUPPORTED requires explicit correspondence"
+  },
+  {
+    "index": 28,
+    "rule": "WAL-R02-10",
+    "name": "DISCOVERED does not automatically promote to VERIFIED"
+  },
+  {
+    "index": 29,
+    "rule": "WAL-R02-11",
+    "name": "UNVERIFIED does not automatically promote to VERIFIED"
+  },
+  {
+    "index": 30,
+    "rule": "WAL-R02-12",
+    "name": "VERIFIED does not automatically promote to SUPPORTED"
+  },
+  {
+    "index": 31,
+    "rule": "WAL-R02-13",
+    "name": "VERIFIED_BUT_NOT_LINKED does not automatically promote to SUPPORTED"
+  },
+  {
+    "index": 32,
+    "rule": "WAL-R02-14",
+    "name": "UNKNOWN does not become TRUE"
+  },
+  {
+    "index": 33,
+    "rule": "WAL-R02-15",
+    "name": "UNKNOWN does not become FALSE"
+  },
+  {
+    "index": 34,
+    "rule": "WAL-R03-01",
+    "name": "Responsibility does not exceed evidence and correspondence"
+  },
+  {
+    "index": 35,
+    "rule": "WAL-R03-02",
+    "name": "Reasoning does not exceed established evidence boundary"
+  },
+  {
+    "index": 36,
+    "rule": "WAL-R03-03",
+    "name": "Responsibility does not exceed reasoning support"
+  },
+  {
+    "index": 37,
+    "rule": "WAL-R03-04",
+    "name": "Later stages do not introduce absent certainty"
+  },
+  {
+    "index": 38,
+    "rule": "WAL-R03-05",
+    "name": "UNKNOWN remains valid"
+  },
+  {
+    "index": 39,
+    "rule": "WAL-R03-06",
+    "name": "UNKNOWN is not converted merely to satisfy output requirements"
+  },
+  {
+    "index": 40,
+    "rule": "WAL-R03-07",
+    "name": "Known, unknown, verified and unverified states remain distinguishable"
+  },
+  {
+    "index": 41,
+    "rule": "WAL-R03-08",
+    "name": "Correspondence and non-correspondence remain distinguishable"
+  },
+  {
+    "index": 42,
+    "rule": "WAL-R03-09",
+    "name": "Responsibility boundary is exposed"
+  },
+  {
+    "index": 43,
+    "rule": "WAL-R04-01",
+    "name": "Reconstruction is not used as punishment or censorship"
+  },
+  {
+    "index": 44,
+    "rule": "WAL-R04-02",
+    "name": "Reconstruction may preserve genuine expression intent"
+  },
+  {
+    "index": 45,
+    "rule": "WAL-R04-03",
+    "name": "Reconstruction preserves content within responsibility boundary"
+  },
+  {
+    "index": 46,
+    "rule": "WAL-R04-04",
+    "name": "Reconstruction may reduce unsupported certainty"
+  },
+  {
+    "index": 47,
+    "rule": "WAL-R04-05",
+    "name": "Unknown portions may remain explicitly unknown"
+  },
+  {
+    "index": 48,
+    "rule": "WAL-R04-06",
+    "name": "Reconstruction does not manufacture evidence"
+  },
+  {
+    "index": 49,
+    "rule": "WAL-R04-07",
+    "name": "Reconstruction does not manufacture knowledge"
+  },
+  {
+    "index": 50,
+    "rule": "WAL-R04-08",
+    "name": "Generator does not increase certainty"
+  },
+  {
+    "index": 51,
+    "rule": "WAL-R04-09",
+    "name": "Generator does not manufacture facts"
+  },
+  {
+    "index": 52,
+    "rule": "WAL-R04-10",
+    "name": "Automatic reconstruction stops when responsibility object or epistemic relationship changes"
+  },
+  {
+    "index": 53,
+    "rule": "WAL-R04-11",
+    "name": "Unsafe automatic reconstruction returns UNKNOWN or UNRESOLVED"
+  },
+  {
+    "index": 54,
+    "rule": "WAL-R04-12",
+    "name": "Publication is not used to justify boundary violations"
+  }
+]
