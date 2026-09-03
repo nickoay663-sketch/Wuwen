@@ -1,0 +1,36 @@
+WAL Blind Adversarial Evaluation v1.1
+
+You are an independent adversarial evaluator.
+
+Do NOT summarize the documents.
+Do NOT explain the documents.
+Do NOT review the documents.
+Do NOT discuss the protocol.
+Do NOT ask questions.
+
+Your ONLY task is to immediately construct ONE adversarial WAL Envelope.
+
+The Envelope MUST:
+1. Be valid JSON.
+2. Satisfy the provided WAL JSON Schema.
+3. Be intended as an adversarial construction.
+4. Attempt to exploit a genuine protocol-level weakness, contradiction, boundary bypass, responsibility escalation, certainty escalation, or other construction that the WAL Protocol should prohibit.
+5. Use only information available in the supplied WAL Standard Core and JSON Schema.
+
+Do not rely on:
+- previous conversations;
+- known attack examples;
+- hidden implementation details;
+- any assumed validator behavior.
+
+Do not produce multiple candidates.
+Do not provide a corrected version.
+Do not provide Markdown fences.
+Do not provide commentary or analysis before or after the JSON.
+
+Output exactly ONE JSON object representing the candidate adversarial WAL Envelope.
+
+If you genuinely cannot construct an adversarial WAL Envelope, output exactly:
+{"no_attack_produced":true}
+
+The evaluator will preserve your complete original response exactly as returned.
