@@ -1,0 +1,363 @@
+# WAL Standard Core v1.1
+
+## Status
+
+Canonical WAL Protocol Standard Core.
+
+This document is a reconstructed canonical artifact based on:
+
+- WAL Rule Inventory v1.0
+- WAL Independent Validator Contract v1.0
+- WAL Responsibility Record v1.0
+- WAL Conformance Map v1.0
+
+This document does not rewrite or replace the historical
+WAL Standard Core v1.0 artifact.
+
+## Purpose
+
+The WAL Standard Core defines the normative responsibility,
+evidence, epistemic, reconstruction, generation, and publication
+boundaries of the WAL Protocol.
+
+WAL defines a protocol boundary for what a Runtime may responsibly
+assert from an expression and its available evidence.
+
+WAL does not determine factual truth by itself.
+
+## Core Principle
+
+Responsibility MUST NOT exceed what the available evidence,
+correspondence, reasoning, and verification state can legitimately
+support.
+
+Unknown MUST remain explicitly unknown.
+
+No Runtime stage may manufacture certainty, evidence, knowledge,
+or responsibility merely to complete processing or enable
+publication.
+
+## Epistemic States
+
+The WAL protocol distinguishes, where applicable:
+
+- DISCOVERED
+- UNVERIFIED
+- VERIFIED
+- VERIFIED_BUT_NOT_LINKED
+- SUPPORTED
+- CONTRADICTED
+- UNKNOWN
+- PARTIAL
+- UNRESOLVED
+- OUT_OF_DOMAIN
+
+These states MUST remain semantically distinguishable.
+
+In particular:
+
+- DISCOVERED MUST NOT automatically become VERIFIED.
+- UNVERIFIED MUST NOT automatically become VERIFIED.
+- VERIFIED MUST NOT automatically become SUPPORTED.
+- VERIFIED_BUT_NOT_LINKED MUST NOT automatically become SUPPORTED.
+- UNKNOWN MUST NOT become TRUE.
+- UNKNOWN MUST NOT become FALSE.
+
+## Responsibility Boundary
+
+Evidence determines the maximum responsibility that may be assumed.
+
+Responsibility MUST remain bounded by:
+
+1. available evidence;
+2. evidence verification;
+3. correspondence between evidence and the expression;
+4. legitimate reasoning support;
+5. the resulting epistemic state.
+
+Runtime closure, structural validity, self-check success, or
+publication requirements MUST NOT independently increase factual
+certainty or responsibility.
+
+## CORE-01 — Expression Identity and Semantic Boundary
+
+The original expression is the identity-bearing object of the WAL
+responsibility chain.
+
+The Runtime:
+
+- MUST preserve original expression identity;
+- MAY analyze the expression;
+- MUST NOT substitute the expression during analysis;
+- MUST maintain traceability through the responsibility chain;
+- MUST define what an expression object is without inventing meaning;
+- MUST NOT own an externally supplied language system;
+- MUST NOT create or replace an externally supplied language system;
+- MUST NOT forcibly introduce undefined objects into reasoning;
+- MUST NOT convert language identification into factual verification;
+- MUST NOT convert semantic analysis into evidence;
+- MUST NOT silently alter the original claim when restating it.
+
+### CORE-01 Rules
+
+- WAL-R01-01 Original expression identity MUST be preserved.
+- WAL-R01-02 Expression MAY be analyzed, but MUST NOT be substituted during analysis.
+- WAL-R01-03 Original expression MUST remain traceable through the responsibility chain.
+- WAL-R01-04 Definition MUST answer what an expression object is without inventing additional meaning.
+- WAL-R01-05 Runtime MUST NOT own an externally supplied language system.
+- WAL-R01-06 Runtime MUST NOT create or replace the externally supplied language system.
+- WAL-R01-07 Undefined objects MUST NOT be forcibly introduced into reasoning.
+- WAL-R01-08 Language identification MUST NOT become factual verification.
+- WAL-R01-09 Semantic analysis MUST NOT become evidence.
+- WAL-R01-10 Expression restatement MUST NOT silently change the original claim.
+
+## CORE-02 — Information, Evidence and Correspondence
+
+Information discovered during processing MUST remain distinct from
+evidence and verification.
+
+Search results are not automatically evidence.
+
+Source existence is not automatically evidence.
+
+Evidence becomes support only when the required responsibility-chain
+conditions are established.
+
+SUPPORTED requires:
+
+1. a definition;
+2. independent evidence;
+3. explicit verification of that evidence;
+4. explicit correspondence between the evidence and the current
+   expression.
+
+### CORE-02 Rules
+
+- WAL-R02-01 Search results MUST NOT automatically become evidence.
+- WAL-R02-02 Discovered information MUST remain distinguishable from verified information.
+- WAL-R02-03 Evidence MUST remain distinguishable from source existence.
+- WAL-R02-04 A source MUST NOT be treated as corresponding evidence merely because it exists.
+- WAL-R02-05 Evidence MUST NOT become support without the required responsibility-chain conditions.
+- WAL-R02-06 SUPPORTED requires a definition.
+- WAL-R02-07 SUPPORTED requires independent evidence.
+- WAL-R02-08 SUPPORTED requires explicit verification of the evidence.
+- WAL-R02-09 SUPPORTED requires explicit correspondence between evidence and the current expression.
+- WAL-R02-10 DISCOVERED MUST NOT automatically promote to VERIFIED.
+- WAL-R02-11 UNVERIFIED MUST NOT automatically promote to VERIFIED.
+- WAL-R02-12 VERIFIED MUST NOT automatically promote to SUPPORTED.
+- WAL-R02-13 VERIFIED_BUT_NOT_LINKED MUST NOT automatically promote to SUPPORTED.
+- WAL-R02-14 UNKNOWN MUST NOT be converted to TRUE.
+- WAL-R02-15 UNKNOWN MUST NOT be converted to FALSE.
+
+## CORE-03 — Epistemic and Responsibility Boundary
+
+Reasoning and responsibility MUST remain within the established
+evidence boundary.
+
+Later processing stages MUST NOT introduce certainty absent from
+earlier stages.
+
+UNKNOWN remains a valid final state.
+
+The Runtime MUST expose the boundary of what can and cannot be
+responsibly asserted.
+
+### CORE-03 Rules
+
+- WAL-R03-01 Responsibility MUST NOT exceed the available evidence and correspondence.
+- WAL-R03-02 Reasoning MUST NOT exceed the established evidence boundary.
+- WAL-R03-03 Responsibility MUST NOT exceed the result that reasoning can legitimately support.
+- WAL-R03-04 Later-stage Engines MUST NOT introduce certainty absent from earlier stages.
+- WAL-R03-05 UNKNOWN MUST remain a valid final state when evidence is insufficient.
+- WAL-R03-06 UNKNOWN MUST NOT be converted merely to satisfy an output requirement.
+- WAL-R03-07 The Runtime MUST distinguish known, unknown, verified and unverified information.
+- WAL-R03-08 The Runtime MUST distinguish correspondence from non-correspondence.
+- WAL-R03-09 The Runtime MUST expose the boundary of what can and cannot be responsibly asserted.
+
+## CORE-04 — Responsibility-Bounded Reconstruction
+
+Reconstruction exists within the responsibility boundary.
+
+Reconstruction MAY preserve genuine expression intent and MAY reduce
+unsupported certainty.
+
+Reconstruction MUST NOT manufacture evidence or knowledge.
+
+If reconstruction would change the true responsibility object,
+factual relationship, evidence relationship, or epistemic state,
+automatic reconstruction MUST stop.
+
+Unsafe automatic reconstruction MUST return UNKNOWN or UNRESOLVED.
+
+Publication MUST NOT be used as a justification for violating
+responsibility boundaries.
+
+### CORE-04 Rules
+
+- WAL-R04-01 Reconstruction MUST NOT be used as a punishment or censorship mechanism.
+- WAL-R04-02 Reconstruction MAY preserve the user's genuine expression intent.
+- WAL-R04-03 Reconstruction MAY preserve content that remains within the responsibility boundary.
+- WAL-R04-04 Reconstruction MAY reduce unsupported certainty.
+- WAL-R04-05 Reconstruction MAY explicitly preserve unknown portions.
+- WAL-R04-06 Reconstruction MUST NOT manufacture evidence.
+- WAL-R04-07 Reconstruction MUST NOT manufacture knowledge.
+- WAL-R04-08 Generator MUST NOT increase certainty beyond the responsibility chain.
+- WAL-R04-09 Generator MUST NOT manufacture facts to make an expression publishable.
+- WAL-R04-10 If reconstruction would change the true responsibility object, factual relationship, evidence relationship or epistemic state, automatic reconstruction MUST stop.
+- WAL-R04-11 When automatic reconstruction cannot safely preserve responsibility boundaries, the Runtime MUST return UNKNOWN or UNRESOLVED.
+- WAL-R04-12 Publication MUST NOT be the objective used to justify boundary violations.
+
+## Cross-Core Invariants
+
+The following invariants apply across the complete WAL protocol:
+
+### WAL-R00-01
+
+Unknown MUST remain explicitly unknown.
+
+### WAL-R00-02
+
+Evidence MUST determine the maximum responsibility that may be assumed.
+
+### WAL-R00-03
+
+No Engine may create unsupported certainty merely to complete the pipeline.
+
+### WAL-R00-04
+
+No Engine may manufacture evidence merely to enable publication.
+
+### WAL-R00-05
+
+No Engine may manufacture knowledge merely to complete an answer.
+
+### WAL-R00-06
+
+Runtime closure MUST NOT imply factual verification.
+
+### WAL-R00-07
+
+Structural contract compliance MUST NOT be interpreted as factual verification.
+
+### WAL-R00-08
+
+Publication authority MUST remain distinct from truth determination.
+
+## Responsibility Record Boundary
+
+A WAL Responsibility Record binds an expression to the responsibility
+information actually produced by the Runtime.
+
+Required identity includes:
+
+- provenance.provider
+- provenance.version
+- responsibilityActor
+- expression
+
+Required responsibility scope includes:
+
+- responsibilityScope.claims
+- responsibilityScope.evidenceRequired
+- responsibilityScope.verifiedEvidenceRequired
+- responsibilityScope.verificationRequired
+
+Required epistemic fields include:
+
+- epistemicState
+- supported
+
+Required evidence fields include:
+
+- evidenceCount
+- verifiedEvidenceCount
+- sourceCount
+- sourceAvailable
+- verifiedSourceCount
+- verifiedSourceAvailable
+- sources
+- verifiedSources
+
+Required responsibility capacity fields include:
+
+- responsibilityDemand
+- responsibilityCapacity
+- responsibilityBoundary
+- responsibilityJudgment
+
+The record itself MUST NOT create authority.
+
+Externally asserted verification, support, capacity, or responsibility
+MUST NOT become Runtime-established facts merely by appearing in
+the record.
+
+## Publication Boundary
+
+A Responsibility Record is publishable only when the Runtime
+establishes all required conditions:
+
+- epistemicState === "SUPPORTED"
+- supported === true
+- verificationStatus === "SUPPORTED"
+- responsibilityBoundary.status === "matched"
+- responsibility consistency is valid
+
+Otherwise the record MUST remain non-publishable.
+
+Publication authority is distinct from truth determination.
+
+## Independent Validation Boundary
+
+WAL conformance MUST be independently testable outside the Runtime
+implementation being validated.
+
+The Independent Validator:
+
+- MUST evaluate the supplied WAL record from outside the Runtime;
+- MUST NOT trust Runtime self-check results as sufficient proof;
+- MUST NOT determine factual truth;
+- MUST NOT create evidence;
+- MUST NOT create verification;
+- MUST NOT create responsibility;
+- MUST NOT modify the Runtime result;
+- MUST NOT grant publication authority.
+
+A failed mandatory rule MUST produce NON_CONFORM.
+
+Independent conformance proves protocol conformance only.
+
+It does NOT prove:
+
+- factual truth;
+- legal responsibility;
+- identity ownership;
+- evidence authenticity;
+- publication authorization.
+
+## Normative Rule Count
+
+CORE-01: 10 rules
+
+CORE-02: 15 rules
+
+CORE-03: 9 rules
+
+CORE-04: 12 rules
+
+Cross-Core: 8 rules
+
+Total: 54 rules
+
+## Canonicalization Notice
+
+This document is a new canonical artifact reconstructed from the
+existing normative WAL artifacts listed in the Status section.
+
+It does not alter the historical WAL Standard Core v1.0 artifact.
+
+The historical v1.0 artifact remains preserved for provenance and
+historical integrity analysis.
+
+WAL Standard Core v1.1 therefore has a new content identity and MUST
+be independently hashed, validated, and anchored before being
+treated as a released protocol artifact.
