@@ -1,4 +1,4 @@
-﻿import http from 'node:http';
+import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -75,7 +75,20 @@ export const server = http.createServer((req, res) => {
       timestamp: new Date().toISOString()
     });
 
-    auditLedger.append(auditEvent);
+    try {
+      auditLedger.append(auditEvent);
+    } catch {
+      res.writeHead(503, {
+        'Content-Type': 'application/json'
+      });
+
+      res.end(JSON.stringify({
+        status: 'AUDIT_FAILURE',
+        reason: 'AUDIT_PERSISTENCE_FAILURE'
+      }));
+
+      return;
+    }
 
     const integrity = auditLedger.verifyIntegrity();
 
