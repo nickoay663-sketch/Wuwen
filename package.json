@@ -1,14 +1,14 @@
 ﻿{
-  "name": "mowen-wal-monorepo",
-  "version": "10.8.3",
-  "private": true,
-  "type": "module",
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ],
-  "scripts": {
-    "test": "node --test packages/core/test/*.test.js examples/**/*.test.js",
-    "conformance": "node conformance/run.js"
-  }
+    "name":  "mowen-wal-monorepo",
+    "version":  "10.9.0",
+    "private":  true,
+    "type":  "module",
+    "workspaces":  [
+                       "packages/*",
+                       "examples/*"
+                   ],
+    "scripts":  {
+                    "test":  "node --test packages/core/test/*.test.js examples/**/*.test.js",
+                    "conformance":  "node conformance/run.js"
+                }
 }
