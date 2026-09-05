@@ -36,16 +36,16 @@ Expected result:
 
 ## Core Artifacts
 
-- [White Paper](./WHITE_PAPER.md) ¡ª architecture, threat model, and protocol philosophy.
-- [Integration Guide](./INTEGRATION.md) ¡ª integration guidance for external implementations.
-- [JSON Schema](./schema/wal-envelope.schema.json) ¡ª cross-language structural specification.
-- [WAL Standard Core](./spec/WAL_STANDARD_CORE_v1.0.md) ¡ª normative protocol core.
-- [WAL Rule Inventory](./spec/WAL_RULE_INVENTORY_v1.0.md) ¡ª 54 normative rules.
-- [Conformance Map](./spec/WAL_CONFORMANCE_MAP_v1.0.md) ¡ª rule-to-test mapping.
-- [Independent Validator Contract](./spec/WAL_INDEPENDENT_VALIDATOR_CONTRACT_v1.0.md) ¡ª validator contract.
-- [Responsibility Record](./spec/WAL_RESPONSIBILITY_RECORD_v1.0.md) ¡ª responsibility record specification.
-- [Provenance Evidence Pack](./spec/WAL_PROVENANCE_EVIDENCE_PACK_v1.0.md) ¡ª reproducible provenance-boundary evidence.
-- [Reference Validator](./validator/WALReferenceValidator.mjs) ¡ª standalone reference-envelope validator.
+- [White Paper](./WHITE_PAPER.md) â€” architecture, threat model, and protocol philosophy.
+- [Integration Guide](./INTEGRATION.md) â€” integration guidance for external implementations.
+- [JSON Schema](./schema/wal-envelope.schema.json) â€” cross-language structural specification.
+- [WAL Standard Core](./spec/WAL_STANDARD_CORE_v1.0.md) â€” normative protocol core.
+- [WAL Rule Inventory](./spec/WAL_RULE_INVENTORY_v1.0.md) â€” 54 normative rules.
+- [Conformance Map](./spec/WAL_CONFORMANCE_MAP_v1.0.md) â€” rule-to-test mapping.
+- [Independent Validator Contract](./spec/WAL_INDEPENDENT_VALIDATOR_CONTRACT_v1.0.md) â€” validator contract.
+- [Responsibility Record](./spec/WAL_RESPONSIBILITY_RECORD_v1.0.md) â€” responsibility record specification.
+- [Provenance Evidence Pack](./spec/WAL_PROVENANCE_EVIDENCE_PACK_v1.0.md) â€” reproducible provenance-boundary evidence.
+- [Reference Validator](./validator/WALReferenceValidator.mjs) â€” standalone reference-envelope validator.
 
 ## Design Boundary
 

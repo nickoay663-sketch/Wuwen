@@ -1,4 +1,4 @@
-﻿import assert from "node:assert/strict";
+import assert from "node:assert/strict";
 import WALContract from "../validator/WALContract.js";
 import WALIndependentValidator from "../validator/WALIndependentValidator.js";
 

@@ -1,4 +1,4 @@
-﻿# WAL Conformance Map v1.1
+# WAL Conformance Map v1.1
 
 ## Status
 

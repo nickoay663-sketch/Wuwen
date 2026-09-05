@@ -1,4 +1,4 @@
-﻿# WAL Gateway Adapter Contract v1.0
+# WAL Gateway Adapter Contract v1.0
 
 ## 1. Status
 
