@@ -1,4 +1,4 @@
-ï»¿import test from 'node:test';
+import test from 'node:test';
 import assert from 'node:assert/strict';
 import express from 'express';
 
@@ -32,7 +32,7 @@ test('Express WAL Gateway - Production Server HTTP Integration', async (t) => {
                     body: JSON.stringify({
                         eventId: 'evt-http-001',
                         expression:
-                            'æŽ¢ç´¢æ€§å‡è¯´ï¼šæœªè¢«å®Œå…¨è§£æžçš„æ·±ç©ºä¿¡å·',
+                            'Ì½Ë÷ÐÔ¼ÙËµ£ºÎ´±»ÍêÈ«½âÎöµÄÉî¿ÕÐÅºÅ',
                         identity: 'astronomer-01',
                         timestamp: Date.now(),
                         verificationState: 'UNVERIFIED',
@@ -98,12 +98,12 @@ test('Express WAL Gateway - Production Server HTTP Integration', async (t) => {
                     body: JSON.stringify({
                         eventId: 'evt-http-002',
                         expression:
-                            'ç»å¯¹ç¡®çŸ¥çš„æœªç»è¯å®žçš„æ–­è¨€',
+                            '¾ø¶ÔÈ·ÖªµÄÎ´¾­Ö¤ÊµµÄ¶ÏÑÔ',
                         identity: 'dogmatist-01',
                         timestamp: Date.now(),
                         verificationState: 'VERIFIED',
-                        responsibilityState: 'TRUE',
-                        propagationState: 'GLOBAL',
+                        responsibilityState: 'ESTABLISHED',
+                        propagationState: 'ALLOW',
                         runtimeVersion: '10.8.3',
                         contractVersion: '1.0',
                         subject: 'Dogma',
@@ -111,7 +111,10 @@ test('Express WAL Gateway - Production Server HTTP Integration', async (t) => {
                         basis: 'None',
                         limitations: [],
                         responsibility: {
-                            basis: 'None'
+                            subject: 'Dogma',
+                            scope: 'Absolute',
+                            basis: 'None',
+                            limitations: []
                         }
                     })
                 });
@@ -135,7 +138,9 @@ test('Express WAL Gateway - Production Server HTTP Integration', async (t) => {
                 );
 
                 assert.ok(
-                    data.failedRules.length > 0
+                    data.failedRules.some(
+                        r => r.rule === 'WAL-R00-03'
+                    )
                 );
             }
         );

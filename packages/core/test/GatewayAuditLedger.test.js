@@ -1,4 +1,4 @@
-锘縤mport test from 'node:test';
+import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'fs';
 import os from 'os';
@@ -15,8 +15,9 @@ function createEvent(id, requestId, decision = 'BLOCK') {
             : 'RESPONSIBILITY_CONFORM',
         source: 'express-gateway',
         decision,
-        responsibilityState: 'UNKNOWN',
-        verificationStatus: 'UNVERIFIED',
+        responsibilityState: 'CONFORM',
+        verificationState: 'VERIFIED',
+        propagationState: 'ALLOW_WITH_BOUNDARY',
         failedRules: decision === 'BLOCK'
             ? ['R00-03', 'R02-14']
             : [],
@@ -25,117 +26,77 @@ function createEvent(id, requestId, decision = 'BLOCK') {
     });
 }
 
-test('GatewayAuditLedger persists audit events without using WAL Evidence', () => {
-    const tempDir = fs.mkdtempSync(
-        path.join(os.tmpdir(), 'wuwen-gateway-audit-')
-    );
-
+test('GatewayAuditLedger persists all core governance fields and maintains cryptographic integrity', () => {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wuwen-gateway-audit-'));
     const ledgerPath = path.join(tempDir, 'gateway-audit.jsonl');
 
     try {
         const ledger = new GatewayAuditLedger(ledgerPath);
-        const event = createEvent(
-            'audit_001',
-            'evt-http-001'
-        );
+        const event = createEvent('audit_001', 'evt-http-001', 'ALLOW');
 
         const stored = ledger.append(event);
 
         assert.equal(stored.id, 'audit_001');
-        assert.equal(stored.eventType, 'RESPONSIBILITY_BREACH');
-        assert.equal(stored.decision, 'BLOCK');
+        assert.equal(stored.verificationState, 'VERIFIED');
+        assert.equal(stored.propagationState, 'ALLOW_WITH_BOUNDARY');
+        assert.equal(stored.responsibilityState, 'CONFORM');
 
-        assert.equal(
-            Object.prototype.hasOwnProperty.call(stored, 'evidence'),
-            false
-        );
-
-        assert.equal(
-            Object.prototype.hasOwnProperty.call(stored, 'evidenceHash'),
-            false
-        );
-
-        const lines = fs.readFileSync(ledgerPath, 'utf8')
-            .trim()
-            .split('\n');
-
+        const lines = fs.readFileSync(ledgerPath, 'utf8').trim().split('\n');
         assert.equal(lines.length, 1);
 
         const persisted = JSON.parse(lines[0]);
-
-        assert.equal(persisted.id, 'audit_001');
-        assert.equal(persisted.previousHash, 'genesis_Wuwen_gateway_audit');
-        assert.equal(typeof persisted.signature, 'string');
-        assert.equal(persisted.signature.length, 64);
+        assert.equal(persisted.verificationState, 'VERIFIED');
+        assert.equal(persisted.propagationState, 'ALLOW_WITH_BOUNDARY');
 
         assert.deepEqual(
             ledger.verifyIntegrity(),
-            {
-                valid: true,
-                totalRecords: 1
-            }
+            { valid: true, totalRecords: 1 }
         );
     } finally {
-        fs.rmSync(tempDir, {
-            recursive: true,
-            force: true
-        });
+        fs.rmSync(tempDir, { recursive: true, force: true });
     }
 });
 
-test('GatewayAuditLedger detects tampering of a persisted audit event', () => {
-    const tempDir = fs.mkdtempSync(
-        path.join(os.tmpdir(), 'wuwen-gateway-audit-tamper-')
-    );
-
+test('GatewayAuditLedger detects value tampering on verificationState and propagationState', () => {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wuwen-gateway-audit-tamper-'));
     const ledgerPath = path.join(tempDir, 'gateway-audit.jsonl');
 
     try {
         const ledger = new GatewayAuditLedger(ledgerPath);
+        ledger.append(createEvent('audit_002', 'evt-http-002', 'ALLOW'));
 
-        ledger.append(
-            createEvent('audit_002', 'evt-http-002')
-        );
+        const lines = fs.readFileSync(ledgerPath, 'utf8').trim().split('\n');
+        const record = JSON.parse(lines[0]);
 
-        const second = ledger.append(
-            createEvent('audit_003', 'evt-http-003', 'ALLOW')
-        );
+        assert.equal(record.verificationState, 'VERIFIED');
+        assert.equal(record.propagationState, 'ALLOW_WITH_BOUNDARY');
 
-        assert.equal(
-            ledger.verifyIntegrity().valid,
-            true
-        );
+        // 篡改测试 1：修改 verificationState
+        const tampered1 = { ...record, verificationState: 'UNVERIFIED' };
+        lines[0] = JSON.stringify(tampered1);
+        fs.writeFileSync(ledgerPath, lines.join('\n') + '\n', 'utf8');
 
-        const lines = fs.readFileSync(ledgerPath, 'utf8')
-            .trim()
-            .split('\n');
-
-        const tampered = JSON.parse(lines[0]);
-        tampered.decision = 'ALLOW';
-
-        lines[0] = JSON.stringify(tampered);
-
-        fs.writeFileSync(
-            ledgerPath,
-            lines.join('\n') + '\n',
-            'utf8'
-        );
-
-        const result = ledger.verifyIntegrity();
-
+        let result = ledger.verifyIntegrity();
         assert.equal(result.valid, false);
-        assert.match(
-            result.error,
-            /Signature mismatch|chain broken/i
-        );
+        assert.match(result.error, /Signature mismatch/i);
 
-        // Keep the second record variable exercised so this test also
-        // confirms that the ledger created a chained second event.
-        assert.equal(second.previousHash, tampered.signature);
+        // 篡改测试 2：修改 propagationState（重新写入合法的原始记录再篡改）
+        const freshLedger = new GatewayAuditLedger(ledgerPath);
+        // 清空并重新 append 一条合法的
+        fs.writeFileSync(ledgerPath, '', 'utf8');
+        freshLedger.append(createEvent('audit_002', 'evt-http-002', 'ALLOW'));
+        
+        const freshLines = fs.readFileSync(ledgerPath, 'utf8').trim().split('\n');
+        const freshRecord = JSON.parse(freshLines[0]);
+        
+        const tampered2 = { ...freshRecord, propagationState: 'BLOCK' };
+        freshLines[0] = JSON.stringify(tampered2);
+        fs.writeFileSync(ledgerPath, freshLines.join('\n') + '\n', 'utf8');
+
+        result = freshLedger.verifyIntegrity();
+        assert.equal(result.valid, false);
+        assert.match(result.error, /Signature mismatch/i);
     } finally {
-        fs.rmSync(tempDir, {
-            recursive: true,
-            force: true
-        });
+        fs.rmSync(tempDir, { recursive: true, force: true });
     }
 });

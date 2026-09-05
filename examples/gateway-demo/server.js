@@ -14,6 +14,11 @@ export const auditLedger = new GatewayAuditLedger(ledgerPath);
 const validator = new WALIndependentValidator();
 
 const sockets = new Set();
+let integrityFailureLocked = false;
+
+export function resetIntegrityFailureLock() {
+  integrityFailureLocked = false;
+}
 
 export const server = http.createServer((req, res) => {
   if (req.url !== '/api/action' || req.method !== 'POST') {
@@ -23,6 +28,21 @@ export const server = http.createServer((req, res) => {
 
     res.end(JSON.stringify({
       error: 'Not Found'
+    }));
+
+    return;
+  }
+
+  if (integrityFailureLocked) {
+    res.writeHead(503, {
+      'Content-Type': 'application/json'
+    });
+
+    res.end(JSON.stringify({
+      decision: 'BLOCK',
+      status: 'AUDIT_FAILURE',
+      reason: 'AUDIT_LEDGER_INTEGRITY_FAILURE',
+      locked: true
     }));
 
     return;
@@ -68,7 +88,9 @@ export const server = http.createServer((req, res) => {
         payload.responsibilityState || 'UNKNOWN',
       verificationState:
         payload.verificationState || 'UNKNOWN',
-      failedRules: validationResult.failedRules.map(rule => rule.id),
+      failedRules: validationResult.failedRules.map(
+        rule => rule.rule
+      ),
       requestId:
         req.headers['x-request-id'] ||
         `req-${Date.now()}`,
@@ -83,6 +105,7 @@ export const server = http.createServer((req, res) => {
       });
 
       res.end(JSON.stringify({
+        decision: 'BLOCK',
         status: 'AUDIT_FAILURE',
         reason: 'AUDIT_PERSISTENCE_FAILURE'
       }));
@@ -93,13 +116,17 @@ export const server = http.createServer((req, res) => {
     const integrity = auditLedger.verifyIntegrity();
 
     if (!integrity.valid) {
+      integrityFailureLocked = true;
+
       res.writeHead(500, {
         'Content-Type': 'application/json'
       });
 
       res.end(JSON.stringify({
+        decision: 'BLOCK',
         status: 'AUDIT_FAILURE',
-        reason: 'AUDIT_LEDGER_INTEGRITY_FAILURE'
+        reason: 'AUDIT_LEDGER_INTEGRITY_FAILURE',
+        locked: true
       }));
 
       return;

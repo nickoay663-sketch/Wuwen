@@ -45,10 +45,10 @@ class GatewayAuditLedger {
         return JSON.stringify({
             id: record.id,
             eventType: record.eventType,
-            source: record.source,
             decision: record.decision,
             responsibilityState: record.responsibilityState,
-            verificationStatus: record.verificationStatus,
+            verificationState: record.verificationState,
+            propagationState: record.propagationState,
             failedRules: record.failedRules,
             requestId: record.requestId,
             timestamp: record.timestamp,
@@ -73,12 +73,12 @@ class GatewayAuditLedger {
         const lastRecord = this.getLastRecord();
 
         const record = {
-            id: event.id,
+            id: event.auditId,
             eventType: event.eventType,
-            source: event.source,
             decision: event.decision,
             responsibilityState: event.responsibilityState,
-            verificationStatus: event.verificationStatus,
+            verificationState: event.verificationState,
+            propagationState: event.propagationState,
             failedRules: [...event.failedRules],
             requestId: event.requestId,
             timestamp: event.timestamp,
